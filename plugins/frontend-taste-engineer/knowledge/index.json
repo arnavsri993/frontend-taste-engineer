@@ -7,17 +7,17 @@
   "record_schema": "rule.schema.json",
   "source_registry": "sources.json",
   "authoritative_research_source_registry": "../research/source-registry.yml",
-  "record_count": 73,
+  "record_count": 78,
   "record_file_count": 9,
   "workflow_count": 8,
   "workflow_step_count": 49,
   "source_count": 20,
-  "status_counts": {"stable": 56, "specialized": 13, "experimental": 4, "deprecated": 0},
-  "importance_counts": {"mandatory": 60, "recommended": 13, "contextual": 0},
-  "confidence_counts": {"high": 73, "medium": 0, "low": 0},
+  "status_counts": {"stable": 59, "specialized": 13, "experimental": 6, "deprecated": 0},
+  "importance_counts": {"mandatory": 63, "recommended": 15, "contextual": 0},
+  "confidence_counts": {"high": 76, "medium": 2, "low": 0},
   "topic_counts": {
     "product-requirements": 4,
-    "information-architecture-content": 4,
+    "information-architecture-content": 5,
     "visual-direction": 4,
     "design-systems": 4,
     "layout": 3,
@@ -35,10 +35,10 @@
     "browsers": 2,
     "frameworks-code-architecture": 4,
     "testing-deployment": 4,
-    "anti-slop-integrity": 9
+    "anti-slop-integrity": 13
   },
   "record_files": [
-    {"path": "records/product-content.json", "record_count": 8, "topics": ["product-requirements", "information-architecture-content"]},
+    {"path": "records/product-content.json", "record_count": 9, "topics": ["product-requirements", "information-architecture-content"]},
     {"path": "records/direction-systems.json", "record_count": 8, "topics": ["visual-direction", "design-systems"]},
     {"path": "records/layout-type-color.json", "record_count": 8, "topics": ["layout", "typography", "color"]},
     {"path": "records/components-forms.json", "record_count": 8, "topics": ["components-states-forms"]},
@@ -46,7 +46,7 @@
     {"path": "records/accessibility-quality.json", "record_count": 8, "topics": ["accessibility", "performance", "seo"]},
     {"path": "records/trust-global-browser.json", "record_count": 8, "topics": ["security-privacy-trust", "internationalization", "browsers"]},
     {"path": "records/architecture-delivery.json", "record_count": 8, "topics": ["frameworks-code-architecture", "testing-deployment"]},
-    {"path": "records/anti-slop.json", "record_count": 9, "topics": ["anti-slop-integrity"]}
+    {"path": "records/anti-slop.json", "record_count": 13, "topics": ["anti-slop-integrity"]}
   ],
   "workflows": [
     {"id": "workflow.autonomous-zero-brief-build", "path": "workflows/autonomous-zero-brief-build.json"},

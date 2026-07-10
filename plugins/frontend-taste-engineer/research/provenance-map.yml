@@ -382,6 +382,14 @@ records:
     license_status: synthesized-original-with-source-attribution
     promotion: experimental-candidate
 
+  - finding: F-048
+    candidate_record: content-earn-every-line
+    primary_sources: [govuk-design-system, uswds]
+    supporting_sources: [taste-skill-repo]
+    conflicts: []
+    license_status: synthesized-original-with-source-attribution
+    promotion: stable-candidate
+
 excluded_sources:
   - id: motionsites
     reason: "Substantive content and license inaccessible; contributes no promoted record."

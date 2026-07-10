@@ -46,10 +46,11 @@
         "Write a one-sentence design thesis and select a context-specific intensity, composition, hero treatment, type, color/material, imagery, component, and motion stance.",
         "Treat quality adjectives as execution targets rather than automatic permission for flashy, dark, cinematic, or highly animated styling.",
         "Retrieve only brief-stage product, content, direction, composition, typography, responsive, accessibility, integrity, and completion records.",
-        "Write original finished copy without placeholders or unsupported factual claims."
+        "Write original finished copy without placeholders or unsupported factual claims.",
+        "Keep the smallest copy set that preserves the task, decision, trust, and recovery information; remove repeated messages and sections with no distinct job."
       ],
       "evidence": ["DESIGN.md", "design thesis", "content outline", "stage retrieval packet"],
-      "rule_refs": ["direction.choose-intentional-axis", "direction.content-before-chrome", "content.front-load-meaning", "integrity.truthful-proof"],
+      "rule_refs": ["direction.choose-intentional-axis", "direction.content-before-chrome", "content.front-load-meaning", "content.earn-every-line", "integrity.truthful-proof"],
       "exit_criteria": ["Direction and copy support the inferred purpose and differ meaningfully across different prompts."]
     },
     {

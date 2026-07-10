@@ -514,5 +514,18 @@
     "expect_no_questions": true,
     "expect_production_completion": true,
     "direction_diversity_case": true
+  },
+  {
+    "id": "concise-marketing-copy",
+    "name": "Verbose marketing page content reduction",
+    "brief": "Cut a verbose product landing page down to the essential copy without hiding trust, pricing, eligibility, instructions, or recovery information.",
+    "task_type": "existing-redesign",
+    "stage": "brief",
+    "expected_topics": ["information-architecture-content"],
+    "expected_terms": ["smallest", "task", "decision", "repeat", "remove", "essential"],
+    "mandatory_terms": ["remove", "task", "decision"],
+    "forbidden_terms": ["add more copy"],
+    "budget_records": 6,
+    "context_budget": 3000
   }
 ]

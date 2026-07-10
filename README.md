@@ -100,15 +100,15 @@ python3 plugins/frontend-taste-engineer/evals/run_frontend_evals.py
 
 Validation covers plugin and Skill structure, internal references, provenance, duplicate IDs/rules, coverage, generated indexes, secrets, licenses, MCP behavior, and packaging. Frontend output evals are evidence-oriented fixtures; they do not claim that a model-generated website was executed unless an artifact, browser run, and result are present.
 
-## Review interface
+## Showcase and review interface
 
-The optional local review UI makes knowledge packets, provenance, coverage gaps, and audit reports easier to inspect:
+The optional local site demonstrates the plugin's context-adaptive frontend direction while also making knowledge packets, provenance, coverage gaps, and audit reports easier to inspect:
 
 ```bash
 python3 plugins/frontend-taste-engineer/review-app/serve.py
 ```
 
-Open the printed local URL. `.app.json` intentionally contains no fabricated connector ID. To expose this UI through a developer-mode ChatGPT app, enable Developer mode, register the MCP-backed app manually, copy the resulting `plugin_asdk_app...` ID into `.app.json`, then validate and reinstall.
+Open the printed local URL. The showcase links to the repository, includes a local interactive specimen, and preserves the read-only knowledge explorer. `.app.json` intentionally contains no fabricated connector ID. To expose this UI through a developer-mode ChatGPT app, enable Developer mode, register the MCP-backed app manually, copy the resulting `plugin_asdk_app...` ID into `.app.json`, then validate and reinstall.
 
 ## Maintenance and promotion
 

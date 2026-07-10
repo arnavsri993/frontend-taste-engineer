@@ -1,7 +1,7 @@
 {
-  "corpus_fingerprint": "5f742229aabfc9198e158c1c20d816468fe1baa54b58bf151eec5be0cf7ac1bf",
+  "corpus_fingerprint": "8ce4b78ca85f38a1c4c4a6b0ca1118f8c83135b60c8b59fda7f6c29b327ec6e3",
   "generator": "scripts/generate_index.py",
-  "record_count": 77,
+  "record_count": 78,
   "records": [
     {
       "components": [
@@ -868,6 +868,36 @@
       ],
       "title": "Implement the complete state model",
       "topic": "components-states-forms"
+    },
+    {
+      "components": [
+        "page",
+        "section",
+        "heading",
+        "navigation",
+        "call-to-action"
+      ],
+      "fingerprint": "4f575fd8f6cc7281",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "content.earn-every-line",
+      "importance": "mandatory",
+      "origin": "records/product-content.json",
+      "sources": [
+        "govuk-design-system",
+        "uswds",
+        "taste-skill-repo"
+      ],
+      "status": "stable",
+      "subtopic": "content-density",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Make every line earn its place",
+      "topic": "information-architecture-content"
     },
     {
       "components": [

@@ -85,6 +85,15 @@ Status: candidate findings reviewed on 2026-07-10. A finding is not automaticall
 - **Verify:** No essential content clips, overlaps, becomes ambiguous, or changes source order at supported zoom/breakpoints.
 - **Sources:** `w3c-i18n`, `polaris`, `uswds`, `mdn-web-docs`.
 
+### F-048 — Make every line earn its place
+
+- **Level:** mandatory when writing or reviewing page-level copy; stable.
+- **Do:** Keep the smallest copy set that preserves the task, decision, trust, and recovery information. Give each block one job, retain the strongest occurrence of repeated meaning, and move optional depth behind a descriptive disclosure.
+- **Why:** Repeated explanation slows scanning, weakens hierarchy, lengthens responsive pages, and competes with the few words and actions that matter.
+- **Exceptions:** Do not remove safety, legal, price, eligibility, consent, validation, recovery, or accessibility instructions when omission increases risk. Long-form editorial content can remain substantial when reading is the primary task.
+- **Verify:** A five-second review identifies the purpose, primary action, and necessary consequence information. Remove each block in turn; if no task, decision, trust, or recovery value is lost, leave it out.
+- **Sources:** `govuk-design-system`, `uswds`, `taste-skill-repo`.
+
 ## Visual direction and design systems
 
 ### F-009 — State one design thesis and prove it through a few controlled levers
