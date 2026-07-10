@@ -45,6 +45,17 @@ EXPECTED_TOPICS = (
     "performance", "product", "responsive", "security", "testing", "typography",
     "visual-direction",
 )
+REQUIRED_SOURCE_FIELDS = (
+    "id", "name", "author_or_organization", "canonical_url", "supplied_url",
+    "source_type", "classification", "license", "accessible_revision",
+    "last_checked_revision", "topics_contributed", "files_or_sections_consulted",
+    "reliability_assessment", "maintenance_status",
+    "copying_or_adaptation_restrictions", "related_sources", "notes",
+)
+SOURCE_CLASSIFICATIONS = {
+    "core", "specialized", "experimental", "inspiration-only",
+    "inaccessible", "unresolved", "rejected",
+}
 COVERAGE_ALIASES = {
     "anti-patterns": {"anti-patterns", "anti-slop-integrity"},
     "browser": {"browser", "browsers"},
@@ -360,6 +371,169 @@ def validate_provenance(_: argparse.Namespace) -> Report:
         if not item.rationale:
             report.warn("missing-rationale", "Record has no rationale.", id=item.id)
     report.details = {"record_count": len(corpus), "source_file_count": len(info["source_files"]), "fallback": info["fallback"]}
+    return report
+
+
+def _registry_source_entries(text: str) -> list[dict[str, str]]:
+    entries = []
+    for raw in re.split(r"(?m)^  - id: ", text)[1:]:
+        entry = {"id": raw.splitlines()[0].strip().strip("'\"")}
+        for field_name in REQUIRED_SOURCE_FIELDS[1:]:
+            match = re.search(rf"(?m)^    {re.escape(field_name)}:\s*(.*)$", raw)
+            if match:
+                entry[field_name] = match.group(1).strip().strip("'\"")
+        entries.append(entry)
+    return entries
+
+
+def _effective_seed_entries(value: Mapping[str, Any], report: Report) -> list[dict[str, Any]]:
+    defaults = dict(value.get("entry_defaults") or {})
+    entries: list[dict[str, Any]] = []
+    for category in value.get("categories") or []:
+        if not isinstance(category, Mapping):
+            report.error("invalid-seed-category", "Every seed category must be an object.")
+            continue
+        category_id = str(category.get("id") or "")
+        category_defaults = dict(category.get("defaults") or {})
+        for source in category.get("sources") or []:
+            if not isinstance(source, Mapping):
+                report.error("invalid-seed-source", "Every seed source must be an object.", category=category_id)
+                continue
+            entries.append({**defaults, **category_defaults, **source, "category": category_id})
+    return entries
+
+
+def validate_source_catalogs(_: argparse.Namespace) -> Report:
+    report = Report("external-source-catalog-validation")
+    registry_path = PLUGIN_ROOT / "research" / "source-registry.yml"
+    registry_text = read_text(registry_path) or ""
+    registry = _registry_source_entries(registry_text)
+    registry_ids: set[str] = set()
+    registry_urls: set[str] = set()
+    for entry in registry:
+        source_id = entry.get("id", "")
+        missing = [field for field in REQUIRED_SOURCE_FIELDS if field not in entry]
+        if missing:
+            report.error("registry-source-fields", "Registry source lacks required fields.", id=source_id, missing=missing)
+        if source_id in registry_ids:
+            report.error("duplicate-registry-id", "Registry source ID is duplicated.", id=source_id)
+        registry_ids.add(source_id)
+        canonical_url = entry.get("canonical_url", "")
+        if canonical_url in registry_urls:
+            report.error("duplicate-registry-url", "Registry canonical URL is duplicated.", id=source_id, canonical_url=canonical_url)
+        registry_urls.add(canonical_url)
+        classification = entry.get("classification")
+        if classification not in SOURCE_CLASSIFICATIONS:
+            report.error("registry-classification", "Registry source has an invalid classification.", id=source_id, classification=classification)
+        if classification == "core":
+            authority = f"{entry.get('author_or_organization', '')} {entry.get('source_type', '')}".lower()
+            allowed = ("standard", "platform", "w3c", "whatwg", "mozilla", "chrome team", "browser-vendor")
+            if not any(term in authority for term in allowed):
+                report.error("core-authority", "Core is reserved for authoritative standards and platform documentation.", id=source_id)
+        for field_name in ("canonical_url", "supplied_url"):
+            if not re.fullmatch(r"https?://\S+", entry.get(field_name, "")):
+                report.error("registry-url", "Registry URL must be absolute HTTP(S).", id=source_id, field=field_name)
+
+    discovery_root = PLUGIN_ROOT / "research" / "source-discovery"
+    seed_path = discovery_root / "seed-catalog.yml"
+    query_path = discovery_root / "discovery-queries.yml"
+    seed = load_json(seed_path, report)
+    queries = load_json(query_path, report)
+    seed_entries = _effective_seed_entries(seed, report) if isinstance(seed, Mapping) else []
+    seed_ids: set[str] = set()
+    seed_urls: set[str] = set()
+    classification_counts: dict[str, int] = {}
+    for entry in seed_entries:
+        source_id = str(entry.get("id") or "")
+        missing = [field for field in REQUIRED_SOURCE_FIELDS if field not in entry]
+        if missing:
+            report.error("seed-source-fields", "Seed source lacks required effective fields after defaults are applied.", id=source_id, missing=missing)
+        if source_id in seed_ids:
+            report.error("duplicate-seed-id", "Seed source ID is duplicated.", id=source_id)
+        seed_ids.add(source_id)
+        canonical_url = str(entry.get("canonical_url") or "")
+        if canonical_url in seed_urls:
+            report.error("duplicate-seed-url", "Seed canonical URL is duplicated.", id=source_id, canonical_url=canonical_url)
+        seed_urls.add(canonical_url)
+        classification = str(entry.get("classification") or "")
+        classification_counts[classification] = classification_counts.get(classification, 0) + 1
+        if classification not in SOURCE_CLASSIFICATIONS:
+            report.error("seed-classification", "Seed source has an invalid classification.", id=source_id, classification=classification)
+        if "openai build week" in f"{entry.get('name', '')} {canonical_url}".lower():
+            report.error("prohibited-catalog-source", "OpenAI Build Week cannot be a pullable catalog source.", id=source_id)
+    if len(seed_entries) != 245:
+        report.error("seed-count", "The initial catalog must retain 245 unique request-supplied URLs.", expected=245, actual=len(seed_entries))
+    for required_id in ("awwwards", "mobbin", "page-flows"):
+        entry = next((item for item in seed_entries if item.get("id") == required_id), None)
+        if not entry or entry.get("classification") != "inspiration-only":
+            report.error("inspiration-classification", "Named gallery must remain inspiration-only.", id=required_id)
+
+    if not isinstance(queries, Mapping):
+        report.error("query-file", "Discovery query file must be an object.", file=rel(query_path))
+        query_count = 0
+        negative_count = 0
+    else:
+        query_count = len(queries.get("query_templates") or [])
+        negative_filters = [str(item).lower() for item in queries.get("negative_filters") or []]
+        negative_count = len(negative_filters)
+        if query_count < 30:
+            report.error("query-count", "Discovery requires at least 30 focused monthly query templates.", actual=query_count)
+        combined_filters = " ".join(negative_filters)
+        for term in ("corporate marketing", "ownership or license", "paid-only", "ignore instructions", "credential", "openai build week"):
+            if term not in combined_filters:
+                report.error("negative-filter", "Discovery negative filters lack a required exclusion.", term=term)
+
+    required_discovery_files = (
+        "seed-catalog.yml", "discovery-queries.yml", "source-scoring-rubric.md",
+        "promotion-policy.md", "candidate-template.yml", "rejected-source-template.yml",
+        "monthly-discovery-workflow.md",
+    )
+    required_artifact_packs = (
+        "mega-component-catalog.md", "animated-react-ui.md", "tailwind-blocks-and-templates.md",
+        "accessible-primitives.md", "dashboard-and-data-ui.md", "inspiration-catalogs.md",
+        "agent-and-mcp-ui-tools.md", "source-discovery-report.md",
+    )
+    required_references = (
+        "external-source-selection.md", "source-license-gates.md", "autonomous-source-discovery.md",
+    )
+    for path in [*(discovery_root / name for name in required_discovery_files), *((PLUGIN_ROOT / "research" / "artifact-packs" / name) for name in required_artifact_packs), *((PLUGIN_ROOT / "references" / name) for name in required_references)]:
+        if not path.exists():
+            report.error("missing-source-artifact", "Required external-source artifact is missing.", file=rel(path))
+
+    for template_name in ("candidate-template.yml", "rejected-source-template.yml"):
+        template_path = discovery_root / template_name
+        template = load_json(template_path, report)
+        if isinstance(template, Mapping):
+            missing = [field for field in REQUIRED_SOURCE_FIELDS if field not in template]
+            if missing:
+                report.error("source-template-fields", "Source template lacks required fields.", file=rel(template_path), missing=missing)
+
+    discovery_script = PLUGIN_ROOT / "scripts" / "discover_frontend_sources.py"
+    command = [sys.executable, str(discovery_script), "--query-file", str(query_path), "--seed-file", str(seed_path), "--out-dir", str(Path(tempfile.gettempdir()) / "fte-source-validation"), "--max-results", "8", "--dry-run", "--as-of", "2026-07-10"]
+    first = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=False)
+    second = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=False)
+    if first.returncode != 0:
+        report.error("discovery-dry-run", "Offline discovery dry-run failed.", stderr=first.stderr[-500:])
+    elif first.stdout != second.stdout:
+        report.error("discovery-nondeterministic", "Offline discovery output changed between identical runs.")
+    else:
+        try:
+            dry_run_report = json.loads(first.stdout)
+            if dry_run_report.get("network_used") or dry_run_report.get("stable_knowledge_modified") or dry_run_report.get("written"):
+                report.error("discovery-dry-run-safety", "Dry-run must use no network, modify no stable knowledge, and write no files.")
+        except json.JSONDecodeError as exc:
+            report.error("discovery-dry-run-json", "Dry-run output is not valid JSON.", error=str(exc))
+
+    report.details = {
+        "registry_sources": len(registry),
+        "seed_sources": len(seed_entries),
+        "seed_classifications": dict(sorted(classification_counts.items())),
+        "query_templates": query_count,
+        "negative_filters": negative_count,
+        "dry_run_deterministic": first.returncode == 0 and first.stdout == second.stdout,
+        "network_used": False,
+        "stable_knowledge_modified": False,
+    }
     return report
 
 
@@ -857,7 +1031,7 @@ def package_plugin(args: argparse.Namespace) -> Report:
 
 
 CHECK_FUNCTIONS: tuple[Callable[[argparse.Namespace], Report], ...] = (
-    validate_plugin, validate_skill, check_links, validate_refs, validate_provenance,
+    validate_plugin, validate_skill, check_links, validate_refs, validate_provenance, validate_source_catalogs,
     detect_duplicates, detect_contradictions, coverage_report, knowledge_depth, secret_scan, privacy_scan, license_report,
 )
 
@@ -906,6 +1080,7 @@ def make_parser(default_command: str | None = None) -> argparse.ArgumentParser:
     p = command("check-links", "Check local links and inventory external URLs without fetching them.", check_links)
     p.add_argument("--target", default=str(PLUGIN_ROOT))
     command("validate-refs", "Validate related-rule references.", validate_refs)
+    command("validate-sources", "Validate reviewed and candidate external-source catalogs.", validate_source_catalogs)
     p = command("check-freshness", "Check record review dates without network access.", check_freshness)
     p.add_argument("--max-age-days", type=int, default=370)
     command("validate-provenance", "Validate source and license metadata.", validate_provenance)

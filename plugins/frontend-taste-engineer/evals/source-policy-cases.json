@@ -1,0 +1,85 @@
+[
+  {
+    "id": "premium-copy-blocked",
+    "name": "Premium/pro source cannot be copied without entitlement and terms",
+    "kind": "mcp",
+    "arguments": {"stage": "planning", "source_ids": ["tailwind-plus-ui-blocks"], "intended_use": "code-copy"},
+    "checks": [
+      {"type": "source-field", "source_id": "tailwind-plus-ui-blocks", "path": "classification", "equals": "unresolved"},
+      {"type": "source-field", "source_id": "tailwind-plus-ui-blocks", "path": "usage.copying_allowed", "equals": false}
+    ]
+  },
+  {
+    "id": "galleries-inspiration-only",
+    "name": "Awwwards, Mobbin, and Page Flows remain inspiration-only",
+    "kind": "mcp",
+    "arguments": {"stage": "brief", "source_ids": ["awwwards", "mobbin", "page-flows"], "intended_use": "code-copy"},
+    "checks": [
+      {"type": "all-source-field", "path": "classification", "equals": "inspiration-only"},
+      {"type": "all-source-field", "path": "usage.copying_allowed", "equals": false}
+    ]
+  },
+  {
+    "id": "complex-widgets-use-primitives",
+    "name": "Complex accessible widgets route to maintained primitives",
+    "kind": "mcp",
+    "arguments": {"stage": "implementation", "query": "accessible dialog combobox keyboard focus", "max_results": 12},
+    "checks": [
+      {"type": "source-prefix", "equals": ["react-aria", "radix-primitives", "ariakit"]},
+      {"type": "budget-bounded"}
+    ]
+  },
+  {
+    "id": "twenty-first-mcp-optional",
+    "name": "21st.dev MCP is optional tooling rather than design authority",
+    "kind": "mcp",
+    "arguments": {"stage": "implementation", "source_ids": ["21st-dev-mcp"], "tool_configured": false},
+    "checks": [
+      {"type": "source-field", "source_id": "21st-dev-mcp", "path": "usage.decision", "equals": "not-configured"},
+      {"type": "top-field", "path": "policy.twenty_first_mcp_is_design_authority", "equals": false}
+    ]
+  },
+  {
+    "id": "build-week-excluded",
+    "name": "Corporate event marketing is excluded from pullable catalogs",
+    "kind": "mcp",
+    "arguments": {"stage": "brief", "query": "component template inspiration", "max_results": 12},
+    "checks": [
+      {"type": "top-field", "path": "policy.openai_build_week_catalog_allowed", "equals": false},
+      {"type": "json-excludes", "value": "openai build week"}
+    ]
+  },
+  {
+    "id": "candidate-report-no-promotion",
+    "name": "Discovery produces deterministic candidate reports without promotion",
+    "kind": "discovery-dry-run",
+    "arguments": {"max_results": 8, "as_of": "2026-07-10"},
+    "checks": [
+      {"type": "top-field", "path": "network_used", "equals": false},
+      {"type": "top-field", "path": "stable_knowledge_modified", "equals": false},
+      {"type": "top-field", "path": "candidate_count", "equals": 8},
+      {"type": "top-field", "path": "written", "equals": []}
+    ]
+  },
+  {
+    "id": "unclear-license-unresolved",
+    "name": "Unclear-license sources stay unresolved",
+    "kind": "mcp",
+    "arguments": {"stage": "planning", "source_ids": ["shuffle"], "intended_use": "adapted-implementation"},
+    "checks": [
+      {"type": "source-field", "source_id": "shuffle", "path": "classification", "equals": "unresolved"},
+      {"type": "source-field", "source_id": "shuffle", "path": "usage.integration_allowed", "equals": false}
+    ]
+  },
+  {
+    "id": "stage-budget-preserved",
+    "name": "Ordinary retrieval remains stage-bounded",
+    "kind": "mcp",
+    "arguments": {"stage": "refinement", "query": "animated React hero motion inspiration", "max_results": 12},
+    "checks": [
+      {"type": "budget-bounded"},
+      {"type": "catalog-not-fully-loaded"},
+      {"type": "top-field", "path": "policy.automatic_promotion", "equals": false}
+    ]
+  }
+]

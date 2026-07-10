@@ -15,6 +15,7 @@ policies:
 outputs:
   machine_readable: audits/generated
   human_readable: maintenance/source-audit.md
+  source_candidates: research/source-discovery/candidates/YYYY-MM
 freshness_days:
   core: 45
   specialized: 90

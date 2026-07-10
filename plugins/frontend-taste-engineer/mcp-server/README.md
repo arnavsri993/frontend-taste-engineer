@@ -1,6 +1,6 @@
 # Frontend Taste Engineer MCP server
 
-Version 0.2.0 adds deterministic `autonomous-zero-brief-build` classification, entity and quoted-text extraction, inferred creative profiles, staged minimal-prompt retrieval, and rendered production-completion routing.
+Version 0.3.0 adds bounded, stage-specific external-source selection with license, inspiration-only, optional 21st.dev MCP, anti-copy, and no-auto-promotion gates. It preserves deterministic `autonomous-zero-brief-build` classification and staged production-completion routing from 0.2.0.
 
 `server.py` is a Python 3.9+ stdio MCP server with no third-party runtime
 dependencies. It reads `../knowledge/**/*.json` at startup, builds an in-memory
@@ -30,6 +30,8 @@ relevant mandatory rules, and enforces both record and estimated-token budgets.
 Packets include principle, rationale, implementation, verification, exceptions,
 sources, license state, and inspectable retrieval reasons. Experimental records
 remain labelled and rank below equally relevant stable/active records.
+
+`get_external_source_catalog` reads the reviewable seed metadata without network access. Brief/planning/implementation/refinement/verification caps are 4/6/8/6/6 sources. The tool returns matching source metadata, artifact-pack paths, intended-use decisions, and the source-selection checklist; it never returns copied source contents or loads all 245 entries into an ordinary packet.
 
 ## Protocol and safety
 

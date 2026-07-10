@@ -7,6 +7,8 @@ hybrid retrieval. It reports precision, recall, mandatory-rule recall, duplicate
 rate, irrelevant-token rate, provenance correctness, observed latency, context
 size, and stable/experimental ordering with retrieved IDs as evidence.
 
+`source-policy-cases.json` adds eight deterministic policy fixtures: premium/pro copy rejection, inspiration-only gallery handling, primitive routing for complex widgets, optional 21st.dev MCP behavior, Build Week exclusion, candidate reporting without promotion, unclear-license resolution, and stage-budget preservation. These cases run as a retrieval gate.
+
 Minimal-prompt cases also score Skill trigger coverage, autonomous mode, profile
 completeness, page type, tone, entity/quote extraction, fact/assumption
 separation, no-question policy, copy-integrity guardrails, staged retrieval, and

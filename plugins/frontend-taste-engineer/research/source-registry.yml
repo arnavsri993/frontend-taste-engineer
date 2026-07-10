@@ -1,5 +1,5 @@
-schema_version: 1
-registry_version: "2026-07-10"
+schema_version: 2
+registry_version: "2026-07-10.1"
 date_accessed: "2026-07-10"
 method_note: >-
   External instructions were treated as untrusted research data. No repository code was
@@ -176,6 +176,7 @@ sources:
     name: "Web Content Accessibility Guidelines (WCAG) 2.2"
     author_or_organization: "W3C Accessibility Guidelines Working Group"
     canonical_url: "https://www.w3.org/TR/WCAG22/"
+    supplied_url: "https://www.w3.org/TR/WCAG22/"
     source_type: "Normative web standard"
     classification: core
     license: "W3C document terms and notices"
@@ -193,6 +194,7 @@ sources:
     name: "ARIA Authoring Practices Guide"
     author_or_organization: "W3C WAI ARIA Authoring Practices Task Force"
     canonical_url: "https://www.w3.org/WAI/ARIA/apg/"
+    supplied_url: "https://www.w3.org/WAI/ARIA/apg/"
     source_type: "Authoring guidance and functional examples"
     classification: core
     license: "W3C document/software terms; verify per copied example"
@@ -210,6 +212,7 @@ sources:
     name: "MDN Web Docs"
     author_or_organization: "Mozilla and MDN contributors"
     canonical_url: "https://developer.mozilla.org/en-US/docs/Web"
+    supplied_url: "https://developer.mozilla.org/en-US/docs/Web"
     source_type: "Web-platform reference and guides"
     classification: core
     license: "Documentation CC-BY-SA 2.5 or later unless noted; code samples CC0"
@@ -227,6 +230,7 @@ sources:
     name: "web.dev"
     author_or_organization: "Google Chrome team and invited experts"
     canonical_url: "https://web.dev/learn/"
+    supplied_url: "https://web.dev/learn/"
     source_type: "Browser-vendor learning guides and performance research"
     classification: core
     license: "Site content generally CC-BY 4.0 and samples Apache 2.0 under Google Developers terms; verify page footer before reuse"
@@ -244,6 +248,7 @@ sources:
     name: "React documentation"
     author_or_organization: "Meta Open Source and React contributors"
     canonical_url: "https://react.dev/"
+    supplied_url: "https://react.dev/"
     source_type: "Official framework documentation"
     classification: specialized
     license: "Documentation CC-BY 4.0; React software MIT"
@@ -261,6 +266,7 @@ sources:
     name: "Next.js documentation"
     author_or_organization: "Vercel and Next.js contributors"
     canonical_url: "https://nextjs.org/docs"
+    supplied_url: "https://nextjs.org/docs"
     source_type: "Official framework documentation"
     classification: specialized
     license: "Next.js repository and bundled docs MIT"
@@ -278,6 +284,7 @@ sources:
     name: "Vue 3 documentation"
     author_or_organization: "Vue.js team and contributors"
     canonical_url: "https://vuejs.org/guide/"
+    supplied_url: "https://vuejs.org/guide/"
     source_type: "Official framework documentation"
     classification: specialized
     license: "MIT"
@@ -295,6 +302,7 @@ sources:
     name: "Svelte and SvelteKit documentation"
     author_or_organization: "Svelte team and contributors"
     canonical_url: "https://svelte.dev/docs"
+    supplied_url: "https://svelte.dev/docs"
     source_type: "Official framework documentation"
     classification: specialized
     license: "MIT for Svelte repositories; verify documentation repository terms for verbatim reuse"
@@ -312,6 +320,7 @@ sources:
     name: "Astro documentation"
     author_or_organization: "Astro Technology Company and community contributors"
     canonical_url: "https://docs.astro.build/"
+    supplied_url: "https://docs.astro.build/"
     source_type: "Official framework documentation"
     classification: specialized
     license: "MIT"
@@ -329,6 +338,7 @@ sources:
     name: "Apple Human Interface Guidelines"
     author_or_organization: "Apple Inc."
     canonical_url: "https://developer.apple.com/design/human-interface-guidelines/"
+    supplied_url: "https://developer.apple.com/design/human-interface-guidelines/"
     source_type: "Official platform design guidance"
     classification: specialized
     license: "Proprietary documentation; Apple Design Resources have a separate limited license"
@@ -346,6 +356,7 @@ sources:
     name: "Material Design 3 and Material Web"
     author_or_organization: "Google"
     canonical_url: "https://m3.material.io/"
+    supplied_url: "https://m3.material.io/"
     source_type: "Official design system and implementation repository"
     classification: specialized
     license: "Material Web Apache-2.0; Material site/brand assets subject to Google terms"
@@ -363,6 +374,7 @@ sources:
     name: "Fluent 2 Design System"
     author_or_organization: "Microsoft"
     canonical_url: "https://fluent2.microsoft.design/"
+    supplied_url: "https://fluent2.microsoft.design/"
     source_type: "Official design system"
     classification: specialized
     license: "Fluent UI repository MIT; referenced fonts/icons can have separate asset terms"
@@ -380,6 +392,7 @@ sources:
     name: "Carbon Design System"
     author_or_organization: "IBM"
     canonical_url: "https://carbondesignsystem.com/"
+    supplied_url: "https://carbondesignsystem.com/"
     source_type: "Official design system and component repository"
     classification: specialized
     license: "Apache-2.0"
@@ -397,6 +410,7 @@ sources:
     name: "Shopify Polaris"
     author_or_organization: "Shopify"
     canonical_url: "https://shopify.dev/docs/api/polaris/index"
+    supplied_url: "https://shopify.dev/docs/api/polaris/index"
     source_type: "Official commerce design system and web components"
     classification: specialized
     license: "Legacy polaris-react repository MIT; current CDN web components/documentation governed by Shopify terms"
@@ -414,6 +428,7 @@ sources:
     name: "Primer"
     author_or_organization: "GitHub"
     canonical_url: "https://primer.style/"
+    supplied_url: "https://primer.style/"
     source_type: "Official product and brand design system"
     classification: specialized
     license: "Primer React MIT; brand assets and GitHub marks have separate terms"
@@ -431,8 +446,9 @@ sources:
     name: "GOV.UK Design System"
     author_or_organization: "UK Government Digital Service"
     canonical_url: "https://design-system.service.gov.uk/"
+    supplied_url: "https://design-system.service.gov.uk/"
     source_type: "Official public-service design system"
-    classification: core
+    classification: specialized
     license: "Code MIT; Crown content generally Open Government Licence v3.0, with stated exceptions"
     accessible_revision: "GOV.UK Frontend 6.3.0 released 2026-06-23"
     last_checked_revision: "govuk-frontend-v6.3.0"
@@ -448,8 +464,9 @@ sources:
     name: "U.S. Web Design System"
     author_or_organization: "U.S. General Services Administration"
     canonical_url: "https://designsystem.digital.gov/"
+    supplied_url: "https://designsystem.digital.gov/"
     source_type: "Official public-service design system"
-    classification: core
+    classification: specialized
     license: "Most project content CC0/worldwide public domain; LICENSE.md lists exceptions and third-party assets"
     accessible_revision: "USWDS 3.x; accessibility report assessed 3.11.0 in 2025; repository release 3.13.0 dated 2025-05-23"
     last_checked_revision: "uswds@2026-07-10"
@@ -465,6 +482,7 @@ sources:
     name: "Spectrum"
     author_or_organization: "Adobe"
     canonical_url: "https://spectrum.adobe.com/"
+    supplied_url: "https://spectrum.adobe.com/"
     source_type: "Official design system"
     classification: specialized
     license: "Spectrum site/brand assets subject to Adobe terms; React Spectrum repository Apache-2.0"
@@ -482,8 +500,9 @@ sources:
     name: "React Aria"
     author_or_organization: "Adobe"
     canonical_url: "https://react-spectrum.adobe.com/react-aria/"
+    supplied_url: "https://react-spectrum.adobe.com/react-aria/"
     source_type: "Official accessible component and hook documentation"
-    classification: core
+    classification: specialized
     license: "Apache-2.0"
     accessible_revision: "live docs and repository@2026-07-10"
     last_checked_revision: "react-aria@2026-07-10"
@@ -499,6 +518,7 @@ sources:
     name: "Radix Primitives"
     author_or_organization: "WorkOS / Radix UI contributors"
     canonical_url: "https://www.radix-ui.com/primitives/docs/overview/introduction"
+    supplied_url: "https://www.radix-ui.com/primitives/docs/overview/introduction"
     source_type: "Official headless component documentation"
     classification: specialized
     license: "MIT"
@@ -516,6 +536,7 @@ sources:
     name: "Atlassian Design System"
     author_or_organization: "Atlassian"
     canonical_url: "https://atlassian.design/"
+    supplied_url: "https://atlassian.design/"
     source_type: "Official enterprise design system"
     classification: specialized
     license: "Public docs subject to Atlassian terms; package licenses vary"
@@ -533,6 +554,7 @@ sources:
     name: "Salesforce Lightning Design System 2"
     author_or_organization: "Salesforce UX"
     canonical_url: "https://www.lightningdesignsystem.com/"
+    supplied_url: "https://www.lightningdesignsystem.com/"
     source_type: "Official enterprise design system and repository"
     classification: specialized
     license: "Source code BSD-3-Clause; icons/images CC-BY-ND 4.0"
@@ -550,6 +572,7 @@ sources:
     name: "W3C Internationalization guidance"
     author_or_organization: "W3C Internationalization Working Group"
     canonical_url: "https://www.w3.org/International/"
+    supplied_url: "https://www.w3.org/International/"
     source_type: "Standards-oriented internationalization guidance"
     classification: core
     license: "W3C document terms and notices"
@@ -567,8 +590,9 @@ sources:
     name: "OWASP Cheat Sheet Series"
     author_or_organization: "OWASP Foundation and Cheat Sheet contributors"
     canonical_url: "https://cheatsheetseries.owasp.org/"
+    supplied_url: "https://cheatsheetseries.owasp.org/"
     source_type: "Security implementation guidance"
-    classification: core
+    classification: specialized
     license: "CC-BY-SA 4.0"
     accessible_revision: "live cheat sheets@2026-07-10"
     last_checked_revision: "owasp-cheatsheets@2026-07-10"
@@ -584,6 +608,7 @@ sources:
     name: "Google Search Central documentation"
     author_or_organization: "Google"
     canonical_url: "https://developers.google.com/search/docs"
+    supplied_url: "https://developers.google.com/search/docs"
     source_type: "Official search-engine documentation"
     classification: specialized
     license: "Google Developers site terms; samples generally Apache-2.0 unless noted"
@@ -601,6 +626,7 @@ sources:
     name: "Playwright documentation"
     author_or_organization: "Microsoft and Playwright contributors"
     canonical_url: "https://playwright.dev/docs/intro"
+    supplied_url: "https://playwright.dev/docs/intro"
     source_type: "Official testing-tool documentation"
     classification: specialized
     license: "Apache-2.0 for Playwright software/documentation repository"
@@ -618,6 +644,7 @@ sources:
     name: "HTML Living Standard"
     author_or_organization: "WHATWG"
     canonical_url: "https://html.spec.whatwg.org/"
+    supplied_url: "https://html.spec.whatwg.org/"
     source_type: "Living web standard"
     classification: core
     license: "WHATWG copyright and license terms (CC-BY 4.0 for specification text; code portions may differ)"

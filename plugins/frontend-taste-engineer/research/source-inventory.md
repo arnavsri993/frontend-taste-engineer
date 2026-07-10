@@ -2,6 +2,8 @@
 
 Checked: 2026-07-10. The registry contains 36 sources: all 9 supplied URLs and 27 independently selected primary sources. This inventory describes what was actually reachable and consulted; it does not claim an exhaustive clone or crawl. No external code was installed or run.
 
+The separate `source-discovery/seed-catalog.yml` adds 245 unique request-supplied discovery seeds across 15 families. It is not a claim that those sources were inspected: 203 are `unresolved`, 42 explicit galleries are `inspiration-only`, 12 cross-reference an existing reviewed registry source, and zero were promoted by the seed import. See `artifact-packs/source-discovery-report.md` for category counts.
+
 ## Method and evidence levels
 
 1. Prefer the canonical first-party page, normative specification, or official repository.

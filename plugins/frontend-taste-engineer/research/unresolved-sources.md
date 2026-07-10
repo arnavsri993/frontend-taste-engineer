@@ -103,6 +103,15 @@ Checked 2026-07-10. Nothing in this file is promoted to stable knowledge until t
 - **Current action:** registry says `live-page@2026-07-10` rather than inventing a version.
 - **Priority:** high for the future ingestion pipeline; not a blocker for initial summarized research.
 
+## U-011 — Expanded seed catalog item-level review
+
+- **Inventory:** `source-discovery/seed-catalog.yml` contains 245 unique URLs; 12 cross-reference a reviewed registry source and 233 are not registered.
+- **Known:** the URLs and requested category memberships; 42 explicit galleries are constrained to `inspiration-only`.
+- **Gap:** the seed import did not verify ownership, public accessibility, immutable revisions, exact license/entitlement, asset scope, dependency/security posture, accessibility usefulness, or maintenance for each unregistered source.
+- **Resolution needed:** run bounded discovery, inspect public docs/repository/package/license metadata, score observed evidence, and apply the promotion policy per source.
+- **Current action:** 203 seed entries remain `unresolved`; 42 remain `inspiration-only`; copy/adapt/install nothing from seed metadata alone.
+- **Priority:** incremental and coverage-driven. Do not review or retrieve the whole catalog for an ordinary frontend task.
+
 ## Recheck policy
 
 - Recheck high-priority unresolved supplied sources weekly for the first month, then monthly.

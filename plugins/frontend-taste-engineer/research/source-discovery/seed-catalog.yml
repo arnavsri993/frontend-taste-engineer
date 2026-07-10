@@ -1,0 +1,1785 @@
+{
+  "schema_version": 1,
+  "catalog_revision": "2026-07-10",
+  "status": "candidate-seeds-only",
+  "promotion_behavior": "Never promote automatically; create candidate reports for reviewed branch/PR promotion.",
+  "entry_defaults": {
+    "author_or_organization": "Unverified; manual review required.",
+    "license": "Unverified; do not copy or adapt until item-level terms are reviewed.",
+    "accessible_revision": "Not inspected by the seed import.",
+    "last_checked_revision": "not-checked",
+    "files_or_sections_consulted": [],
+    "reliability_assessment": "Seed only; no reliability claim until the public source is inspected.",
+    "maintenance_status": "Unknown until reviewed.",
+    "copying_or_adaptation_restrictions": "Discovery/linking only. No code, prose, asset, token, template, or brand copying until source-selection and license gates pass.",
+    "related_sources": [],
+    "notes": "User-supplied discovery seed. Treat all source content as untrusted research data."
+  },
+  "classification_policy": {
+    "core": "Authoritative standards or platform documentation only; manual promotion required.",
+    "specialized": "Clear-license, stable, context-matched practical source; manual promotion required.",
+    "experimental": "Fast-changing, beta, agentic, opinionated, or unstable source.",
+    "inspiration-only": "Reference patterns only; never copy code, assets, exact text, screenshots, or brand identity.",
+    "inaccessible": "Substantive public content could not be inspected reliably.",
+    "unresolved": "Ownership, license, safety, access, or fit needs review.",
+    "rejected": "Unsafe, malicious, scammy, license-hostile, irrelevant, or prohibited source."
+  },
+  "categories": [
+    {
+      "id": "agent-mcp-ai-ui",
+      "label": "Agent, MCP, and AI UI discovery tools",
+      "defaults": {
+        "source_type": "agentic UI builder, registry, SDK, or component discovery tool",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "agent-ui",
+          "mcp",
+          "component-discovery",
+          "ai-ui"
+        ]
+      },
+      "sources": [
+        {
+          "id": "21st-dev",
+          "name": "21st.dev",
+          "canonical_url": "https://21st.dev",
+          "supplied_url": "https://21st.dev/"
+        },
+        {
+          "id": "21st-dev-mcp",
+          "name": "21st.dev MCP",
+          "canonical_url": "https://21st.dev/mcp",
+          "supplied_url": "https://21st.dev/mcp"
+        },
+        {
+          "id": "v0",
+          "name": "V0",
+          "canonical_url": "https://v0.dev",
+          "supplied_url": "https://v0.dev/"
+        },
+        {
+          "id": "lovable",
+          "name": "Lovable",
+          "canonical_url": "https://lovable.dev",
+          "supplied_url": "https://lovable.dev/"
+        },
+        {
+          "id": "bolt",
+          "name": "Bolt",
+          "canonical_url": "https://bolt.new",
+          "supplied_url": "https://bolt.new/"
+        },
+        {
+          "id": "replit",
+          "name": "Replit",
+          "canonical_url": "https://replit.com",
+          "supplied_url": "https://replit.com/"
+        },
+        {
+          "id": "cursor",
+          "name": "Cursor",
+          "canonical_url": "https://cursor.com",
+          "supplied_url": "https://cursor.com/"
+        },
+        {
+          "id": "same",
+          "name": "Same",
+          "canonical_url": "https://same.new",
+          "supplied_url": "https://same.new/"
+        },
+        {
+          "id": "orchids",
+          "name": "Orchids",
+          "canonical_url": "https://orchids.app",
+          "supplied_url": "https://orchids.app/"
+        },
+        {
+          "id": "fragments-e2b",
+          "name": "Fragments",
+          "canonical_url": "https://fragments.e2b.dev",
+          "supplied_url": "https://fragments.e2b.dev/"
+        },
+        {
+          "id": "vercel-ai-sdk-legacy",
+          "name": "Vercel AI SDK (legacy URL)",
+          "canonical_url": "https://sdk.vercel.ai",
+          "supplied_url": "https://sdk.vercel.ai/"
+        },
+        {
+          "id": "vercel-ai-sdk",
+          "name": "Vercel AI SDK",
+          "canonical_url": "https://ai-sdk.dev",
+          "supplied_url": "https://ai-sdk.dev/"
+        }
+      ]
+    },
+    {
+      "id": "component-catalogs",
+      "label": "Component catalogs and design-engineer UI",
+      "defaults": {
+        "source_type": "component catalog or design-engineering UI source",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "components",
+          "landing-sections",
+          "interaction",
+          "visual-refinement"
+        ]
+      },
+      "sources": [
+        {
+          "id": "aceternity-ui",
+          "name": "Ui",
+          "canonical_url": "https://ui.aceternity.com",
+          "supplied_url": "https://ui.aceternity.com/"
+        },
+        {
+          "id": "magic-ui",
+          "name": "Magicui",
+          "canonical_url": "https://magicui.design",
+          "supplied_url": "https://magicui.design/"
+        },
+        {
+          "id": "react-bits",
+          "name": "Reactbits",
+          "canonical_url": "https://reactbits.dev",
+          "supplied_url": "https://reactbits.dev/"
+        },
+        {
+          "id": "animate-ui",
+          "name": "Animate Ui",
+          "canonical_url": "https://animate-ui.com",
+          "supplied_url": "https://animate-ui.com/"
+        },
+        {
+          "id": "originui",
+          "name": "Originui",
+          "canonical_url": "https://www.originui.com",
+          "supplied_url": "https://www.originui.com/"
+        },
+        {
+          "id": "cult-ui",
+          "name": "Cult Ui",
+          "canonical_url": "https://cult-ui.com",
+          "supplied_url": "https://cult-ui.com/"
+        },
+        {
+          "id": "kibo-ui",
+          "name": "Kibo Ui",
+          "canonical_url": "https://www.kibo-ui.com",
+          "supplied_url": "https://www.kibo-ui.com/"
+        },
+        {
+          "id": "kokonutui",
+          "name": "Kokonutui",
+          "canonical_url": "https://kokonutui.com",
+          "supplied_url": "https://kokonutui.com/"
+        },
+        {
+          "id": "eldoraui-site",
+          "name": "Eldoraui",
+          "canonical_url": "https://www.eldoraui.site",
+          "supplied_url": "https://www.eldoraui.site/",
+          "also_categories": [
+            "component-catalogs"
+          ]
+        },
+        {
+          "id": "uilayouts",
+          "name": "Uilayouts",
+          "canonical_url": "https://www.uilayouts.dev",
+          "supplied_url": "https://www.uilayouts.dev/"
+        },
+        {
+          "id": "hover",
+          "name": "Hover",
+          "canonical_url": "https://www.hover.dev",
+          "supplied_url": "https://www.hover.dev/"
+        },
+        {
+          "id": "motion-primitives",
+          "name": "Motion Primitives",
+          "canonical_url": "https://motion-primitives.com",
+          "supplied_url": "https://motion-primitives.com/"
+        },
+        {
+          "id": "inspira-ui",
+          "name": "Inspira Ui",
+          "canonical_url": "https://inspira-ui.com",
+          "supplied_url": "https://inspira-ui.com/"
+        },
+        {
+          "id": "fancycomponents",
+          "name": "Fancycomponents",
+          "canonical_url": "https://fancycomponents.dev",
+          "supplied_url": "https://fancycomponents.dev/"
+        },
+        {
+          "id": "serafimcloud-github-21st",
+          "name": "Serafimcloud — 21St",
+          "canonical_url": "https://serafimcloud.github.io/21st",
+          "supplied_url": "https://serafimcloud.github.io/21st/"
+        },
+        {
+          "id": "nyxbui",
+          "name": "Nyxbui",
+          "canonical_url": "https://nyxbui.design",
+          "supplied_url": "https://nyxbui.design/"
+        },
+        {
+          "id": "ui-jln",
+          "name": "Ui",
+          "canonical_url": "https://ui.jln.dev",
+          "supplied_url": "https://ui.jln.dev/"
+        },
+        {
+          "id": "hyperui",
+          "name": "Hyperui",
+          "canonical_url": "https://www.hyperui.dev",
+          "supplied_url": "https://www.hyperui.dev/"
+        },
+        {
+          "id": "launchuicomponents",
+          "name": "Launchuicomponents",
+          "canonical_url": "https://www.launchuicomponents.com",
+          "supplied_url": "https://www.launchuicomponents.com/"
+        },
+        {
+          "id": "precedent",
+          "name": "Precedent",
+          "canonical_url": "https://www.precedent.dev",
+          "supplied_url": "https://www.precedent.dev/"
+        },
+        {
+          "id": "ui-mantine",
+          "name": "Ui",
+          "canonical_url": "https://ui.mantine.dev",
+          "supplied_url": "https://ui.mantine.dev/"
+        },
+        {
+          "id": "chakra-ui",
+          "name": "Chakra Ui",
+          "canonical_url": "https://chakra-ui.com",
+          "supplied_url": "https://chakra-ui.com/"
+        },
+        {
+          "id": "heroui",
+          "name": "Heroui",
+          "canonical_url": "https://www.heroui.com",
+          "supplied_url": "https://www.heroui.com/"
+        },
+        {
+          "id": "material-tailwind",
+          "name": "Material Tailwind",
+          "canonical_url": "https://www.material-tailwind.com",
+          "supplied_url": "https://www.material-tailwind.com/",
+          "also_categories": [
+            "tailwind-blocks-templates"
+          ]
+        },
+        {
+          "id": "nextui",
+          "name": "Nextui",
+          "canonical_url": "https://nextui.org",
+          "supplied_url": "https://nextui.org/"
+        }
+      ]
+    },
+    {
+      "id": "shadcn-ecosystem",
+      "label": "shadcn ecosystem",
+      "defaults": {
+        "source_type": "shadcn-compatible registry, block, theme, or component source",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "components",
+          "registries",
+          "forms",
+          "templates"
+        ]
+      },
+      "sources": [
+        {
+          "id": "shadcn-ui",
+          "name": "shadcn/ui",
+          "canonical_url": "https://ui.shadcn.com",
+          "supplied_url": "https://ui.shadcn.com/"
+        },
+        {
+          "id": "shadcnblocks",
+          "name": "Shadcnblocks",
+          "canonical_url": "https://www.shadcnblocks.com",
+          "supplied_url": "https://www.shadcnblocks.com/"
+        },
+        {
+          "id": "shadcnui-expansions-typeart-cc",
+          "name": "Shadcnui Expansions",
+          "canonical_url": "https://shadcnui-expansions.typeart.cc",
+          "supplied_url": "https://shadcnui-expansions.typeart.cc/"
+        },
+        {
+          "id": "shadcn-form",
+          "name": "Shadcn Form",
+          "canonical_url": "https://shadcn-form.com",
+          "supplied_url": "https://shadcn-form.com/"
+        },
+        {
+          "id": "shadcn-extension-vercel",
+          "name": "Shadcn Extension",
+          "canonical_url": "https://shadcn-extension.vercel.app",
+          "supplied_url": "https://shadcn-extension.vercel.app/"
+        },
+        {
+          "id": "shadcnui-blocks",
+          "name": "Shadcnui Blocks",
+          "canonical_url": "https://shadcnui-blocks.com",
+          "supplied_url": "https://shadcnui-blocks.com/"
+        },
+        {
+          "id": "blocks-tremor-so",
+          "name": "Blocks",
+          "canonical_url": "https://blocks.tremor.so",
+          "supplied_url": "https://blocks.tremor.so/",
+          "also_categories": [
+            "dashboard-data-app-ui"
+          ]
+        },
+        {
+          "id": "tweakcn",
+          "name": "Tweakcn",
+          "canonical_url": "https://tweakcn.com",
+          "supplied_url": "https://tweakcn.com/"
+        },
+        {
+          "id": "shadcn-svelte",
+          "name": "Shadcn Svelte",
+          "canonical_url": "https://www.shadcn-svelte.com",
+          "supplied_url": "https://www.shadcn-svelte.com/"
+        },
+        {
+          "id": "shadcn-vue",
+          "name": "Shadcn Vue",
+          "canonical_url": "https://www.shadcn-vue.com",
+          "supplied_url": "https://www.shadcn-vue.com/"
+        },
+        {
+          "id": "registry-build",
+          "name": "Registry",
+          "canonical_url": "https://registry.build",
+          "supplied_url": "https://registry.build/"
+        },
+        {
+          "id": "builtatlightspeed",
+          "name": "Builtatlightspeed",
+          "canonical_url": "https://builtatlightspeed.com",
+          "supplied_url": "https://builtatlightspeed.com/"
+        },
+        {
+          "id": "awesome-shadcn-ui-vercel",
+          "name": "Awesome Shadcn Ui",
+          "canonical_url": "https://awesome-shadcn-ui.vercel.app",
+          "supplied_url": "https://awesome-shadcn-ui.vercel.app/"
+        }
+      ]
+    },
+    {
+      "id": "tailwind-blocks-templates",
+      "label": "Tailwind blocks and templates",
+      "defaults": {
+        "source_type": "Tailwind block, template, or component source",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "tailwind",
+          "templates",
+          "responsive-layout",
+          "theming"
+        ]
+      },
+      "sources": [
+        {
+          "id": "tailwind-plus-ui-blocks",
+          "name": "Tailwind Plus UI Blocks",
+          "canonical_url": "https://tailwindcss.com/plus/ui-blocks",
+          "supplied_url": "https://tailwindcss.com/plus/ui-blocks"
+        },
+        {
+          "id": "tailwind-ui",
+          "name": "Tailwind UI",
+          "canonical_url": "https://tailwindui.com",
+          "supplied_url": "https://tailwindui.com/"
+        },
+        {
+          "id": "preline",
+          "name": "Preline",
+          "canonical_url": "https://preline.co",
+          "supplied_url": "https://preline.co/"
+        },
+        {
+          "id": "flowbite",
+          "name": "Flowbite",
+          "canonical_url": "https://flowbite.com",
+          "supplied_url": "https://flowbite.com/"
+        },
+        {
+          "id": "daisyui",
+          "name": "Daisyui",
+          "canonical_url": "https://daisyui.com",
+          "supplied_url": "https://daisyui.com/"
+        },
+        {
+          "id": "mambaui",
+          "name": "Mambaui",
+          "canonical_url": "https://mambaui.com",
+          "supplied_url": "https://mambaui.com/"
+        },
+        {
+          "id": "merakiui",
+          "name": "Merakiui",
+          "canonical_url": "https://merakiui.com",
+          "supplied_url": "https://merakiui.com/"
+        },
+        {
+          "id": "tailblocks-cc",
+          "name": "Tailblocks",
+          "canonical_url": "https://tailblocks.cc",
+          "supplied_url": "https://tailblocks.cc/"
+        },
+        {
+          "id": "floatui",
+          "name": "Floatui",
+          "canonical_url": "https://floatui.com",
+          "supplied_url": "https://floatui.com/"
+        },
+        {
+          "id": "cruip",
+          "name": "Cruip",
+          "canonical_url": "https://cruip.com",
+          "supplied_url": "https://cruip.com/"
+        },
+        {
+          "id": "tailawesome",
+          "name": "Tailawesome",
+          "canonical_url": "https://www.tailawesome.com",
+          "supplied_url": "https://www.tailawesome.com/"
+        },
+        {
+          "id": "tailwindtoolbox",
+          "name": "Tailwindtoolbox",
+          "canonical_url": "https://www.tailwindtoolbox.com",
+          "supplied_url": "https://www.tailwindtoolbox.com/"
+        },
+        {
+          "id": "kitwind-products-kometa-components",
+          "name": "Kitwind — Products / Kometa / Components",
+          "canonical_url": "https://kitwind.io/products/kometa/components",
+          "supplied_url": "https://kitwind.io/products/kometa/components"
+        },
+        {
+          "id": "creative-tim-templates-tailwind",
+          "name": "Creative Tim — Templates / Tailwind",
+          "canonical_url": "https://www.creative-tim.com/templates/tailwind",
+          "supplied_url": "https://www.creative-tim.com/templates/tailwind"
+        },
+        {
+          "id": "tailwind-kit",
+          "name": "Tailwind Kit",
+          "canonical_url": "https://www.tailwind-kit.com",
+          "supplied_url": "https://www.tailwind-kit.com/"
+        },
+        {
+          "id": "tailwindcomponents",
+          "name": "Tailwindcomponents",
+          "canonical_url": "https://tailwindcomponents.com",
+          "supplied_url": "https://tailwindcomponents.com/"
+        },
+        {
+          "id": "windstatic",
+          "name": "Windstatic",
+          "canonical_url": "https://windstatic.com",
+          "supplied_url": "https://windstatic.com/"
+        },
+        {
+          "id": "postsrc-components",
+          "name": "Postsrc — Components",
+          "canonical_url": "https://postsrc.com/components",
+          "supplied_url": "https://postsrc.com/components"
+        },
+        {
+          "id": "pagedone",
+          "name": "Pagedone",
+          "canonical_url": "https://pagedone.io",
+          "supplied_url": "https://pagedone.io/"
+        },
+        {
+          "id": "shuffle",
+          "name": "Shuffle",
+          "canonical_url": "https://shuffle.dev",
+          "supplied_url": "https://shuffle.dev/"
+        },
+        {
+          "id": "tailtemplate",
+          "name": "Tailtemplate",
+          "canonical_url": "https://tailtemplate.com",
+          "supplied_url": "https://tailtemplate.com/"
+        },
+        {
+          "id": "creative-tim-learning-lab-tailwind-starter-kit-presentation",
+          "name": "Creative Tim — Learning Lab / Tailwind Starter Kit / Presentation",
+          "canonical_url": "https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation",
+          "supplied_url": "https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation"
+        },
+        {
+          "id": "notusjs",
+          "name": "Notusjs",
+          "canonical_url": "https://notusjs.com",
+          "supplied_url": "https://notusjs.com/"
+        },
+        {
+          "id": "tailwindawesome",
+          "name": "Tailwindawesome",
+          "canonical_url": "https://www.tailwindawesome.com",
+          "supplied_url": "https://www.tailwindawesome.com/"
+        }
+      ]
+    },
+    {
+      "id": "accessible-primitives",
+      "label": "Accessible primitives and headless UI",
+      "defaults": {
+        "source_type": "headless or accessibility-oriented component primitive source",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "accessibility",
+          "components",
+          "keyboard",
+          "focus-management"
+        ]
+      },
+      "sources": [
+        {
+          "id": "radix-primitives",
+          "name": "Radix Primitives",
+          "canonical_url": "https://www.radix-ui.com/primitives",
+          "supplied_url": "https://www.radix-ui.com/primitives",
+          "registry_id": "radix-primitives"
+        },
+        {
+          "id": "radix-ui-themes",
+          "name": "Radix Ui — Themes",
+          "canonical_url": "https://www.radix-ui.com/themes",
+          "supplied_url": "https://www.radix-ui.com/themes"
+        },
+        {
+          "id": "react-aria",
+          "name": "React Aria",
+          "canonical_url": "https://react-aria.adobe.com",
+          "supplied_url": "https://react-aria.adobe.com/",
+          "registry_id": "react-aria"
+        },
+        {
+          "id": "ariakit",
+          "name": "Ariakit",
+          "canonical_url": "https://ariakit.org",
+          "supplied_url": "https://ariakit.org/"
+        },
+        {
+          "id": "headless-ui",
+          "name": "Headless UI",
+          "canonical_url": "https://headlessui.com",
+          "supplied_url": "https://headlessui.com/"
+        },
+        {
+          "id": "ark-ui",
+          "name": "Ark UI",
+          "canonical_url": "https://ark-ui.com",
+          "supplied_url": "https://ark-ui.com/"
+        },
+        {
+          "id": "park-ui",
+          "name": "Park Ui",
+          "canonical_url": "https://park-ui.com",
+          "supplied_url": "https://park-ui.com/"
+        },
+        {
+          "id": "zagjs",
+          "name": "Zagjs",
+          "canonical_url": "https://zagjs.com",
+          "supplied_url": "https://zagjs.com/"
+        },
+        {
+          "id": "react-spectrum-adobe",
+          "name": "React Spectrum",
+          "canonical_url": "https://react-spectrum.adobe.com",
+          "supplied_url": "https://react-spectrum.adobe.com/"
+        },
+        {
+          "id": "reach-tech",
+          "name": "Reach",
+          "canonical_url": "https://reach.tech",
+          "supplied_url": "https://reach.tech/"
+        },
+        {
+          "id": "downshift-js",
+          "name": "Downshift Js",
+          "canonical_url": "https://downshift-js.com",
+          "supplied_url": "https://downshift-js.com/"
+        },
+        {
+          "id": "floating-ui",
+          "name": "Floating UI",
+          "canonical_url": "https://floating-ui.com",
+          "supplied_url": "https://floating-ui.com/"
+        },
+        {
+          "id": "radix-ui-colors",
+          "name": "Radix Ui — Colors",
+          "canonical_url": "https://www.radix-ui.com/colors",
+          "supplied_url": "https://www.radix-ui.com/colors",
+          "also_categories": [
+            "color-theme-tools"
+          ]
+        },
+        {
+          "id": "radix-ui-icons",
+          "name": "Radix Ui — Icons",
+          "canonical_url": "https://www.radix-ui.com/icons",
+          "supplied_url": "https://www.radix-ui.com/icons"
+        },
+        {
+          "id": "vaul-emilkowal-ski",
+          "name": "Vaul",
+          "canonical_url": "https://vaul.emilkowal.ski",
+          "supplied_url": "https://vaul.emilkowal.ski/"
+        },
+        {
+          "id": "cmdk-paco-me",
+          "name": "Cmdk",
+          "canonical_url": "https://cmdk.paco.me",
+          "supplied_url": "https://cmdk.paco.me/"
+        },
+        {
+          "id": "sonner-emilkowal-ski",
+          "name": "Sonner",
+          "canonical_url": "https://sonner.emilkowal.ski",
+          "supplied_url": "https://sonner.emilkowal.ski/"
+        }
+      ]
+    },
+    {
+      "id": "dashboard-data-app-ui",
+      "label": "Dashboard, data, and application UI",
+      "defaults": {
+        "source_type": "dashboard, table, chart, or application UI source",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "dashboards",
+          "tables",
+          "charts",
+          "data-density",
+          "states"
+        ]
+      },
+      "sources": [
+        {
+          "id": "tremor-so",
+          "name": "Tremor",
+          "canonical_url": "https://www.tremor.so",
+          "supplied_url": "https://www.tremor.so/"
+        },
+        {
+          "id": "reui",
+          "name": "Reui",
+          "canonical_url": "https://reui.io",
+          "supplied_url": "https://reui.io/"
+        },
+        {
+          "id": "tanstack-table-latest",
+          "name": "Tanstack — Table / Latest",
+          "canonical_url": "https://tanstack.com/table/latest",
+          "supplied_url": "https://tanstack.com/table/latest"
+        },
+        {
+          "id": "recharts",
+          "name": "Recharts",
+          "canonical_url": "https://recharts.org",
+          "supplied_url": "https://recharts.org/"
+        },
+        {
+          "id": "chartjs",
+          "name": "Chartjs",
+          "canonical_url": "https://www.chartjs.org",
+          "supplied_url": "https://www.chartjs.org/"
+        },
+        {
+          "id": "nivo",
+          "name": "Nivo",
+          "canonical_url": "https://nivo.rocks",
+          "supplied_url": "https://nivo.rocks/"
+        },
+        {
+          "id": "visx-airbnb",
+          "name": "Visx",
+          "canonical_url": "https://visx.airbnb.io",
+          "supplied_url": "https://visx.airbnb.io/"
+        },
+        {
+          "id": "mui-x-react-data-grid",
+          "name": "Mui — X / React Data Grid",
+          "canonical_url": "https://mui.com/x/react-data-grid",
+          "supplied_url": "https://mui.com/x/react-data-grid/"
+        },
+        {
+          "id": "ui-mantine-category-application",
+          "name": "Ui — Category / Application",
+          "canonical_url": "https://ui.mantine.dev/category/application",
+          "supplied_url": "https://ui.mantine.dev/category/application"
+        },
+        {
+          "id": "creative-tim-templates-dashboard",
+          "name": "Creative Tim — Templates / Dashboard",
+          "canonical_url": "https://www.creative-tim.com/templates/dashboard",
+          "supplied_url": "https://www.creative-tim.com/templates/dashboard"
+        },
+        {
+          "id": "flatlogic-templates",
+          "name": "Flatlogic — Templates",
+          "canonical_url": "https://www.flatlogic.com/templates",
+          "supplied_url": "https://www.flatlogic.com/templates"
+        },
+        {
+          "id": "tabler",
+          "name": "Tabler",
+          "canonical_url": "https://tabler.io",
+          "supplied_url": "https://tabler.io/"
+        },
+        {
+          "id": "adminlte",
+          "name": "Adminlte",
+          "canonical_url": "https://adminlte.io",
+          "supplied_url": "https://adminlte.io/"
+        },
+        {
+          "id": "keenthemes-metronic",
+          "name": "Keenthemes — Metronic",
+          "canonical_url": "https://keenthemes.com/metronic",
+          "supplied_url": "https://keenthemes.com/metronic"
+        },
+        {
+          "id": "devias",
+          "name": "Devias",
+          "canonical_url": "https://www.devias.io",
+          "supplied_url": "https://www.devias.io/"
+        },
+        {
+          "id": "mantine-react-table",
+          "name": "Mantine React Table",
+          "canonical_url": "https://mantine-react-table.com",
+          "supplied_url": "https://mantine-react-table.com/"
+        },
+        {
+          "id": "material-react-table",
+          "name": "Material React Table",
+          "canonical_url": "https://www.material-react-table.com",
+          "supplied_url": "https://www.material-react-table.com/"
+        }
+      ]
+    },
+    {
+      "id": "design-systems-product-ui",
+      "label": "Full design systems and product UI",
+      "defaults": {
+        "source_type": "official or product design-system source candidate",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "design-systems",
+          "tokens",
+          "components",
+          "accessibility"
+        ]
+      },
+      "sources": [
+        {
+          "id": "m3-material",
+          "name": "M3",
+          "canonical_url": "https://m3.material.io",
+          "supplied_url": "https://m3.material.io/",
+          "registry_id": "material-3"
+        },
+        {
+          "id": "developer-apple-design-human-interface-guidelines",
+          "name": "Developer — Design / Human Interface Guidelines",
+          "canonical_url": "https://developer.apple.com/design/human-interface-guidelines",
+          "supplied_url": "https://developer.apple.com/design/human-interface-guidelines/",
+          "registry_id": "apple-hig"
+        },
+        {
+          "id": "carbondesignsystem",
+          "name": "Carbondesignsystem",
+          "canonical_url": "https://carbondesignsystem.com",
+          "supplied_url": "https://carbondesignsystem.com/",
+          "registry_id": "carbon-design-system"
+        },
+        {
+          "id": "atlassian",
+          "name": "Atlassian",
+          "canonical_url": "https://atlassian.design",
+          "supplied_url": "https://atlassian.design/",
+          "registry_id": "atlassian-design-system"
+        },
+        {
+          "id": "polaris-shopify",
+          "name": "Polaris",
+          "canonical_url": "https://polaris.shopify.com",
+          "supplied_url": "https://polaris.shopify.com/",
+          "also_categories": [
+            "ecommerce-product-ui"
+          ]
+        },
+        {
+          "id": "primer-style",
+          "name": "Primer",
+          "canonical_url": "https://primer.style",
+          "supplied_url": "https://primer.style/",
+          "registry_id": "primer-design-system"
+        },
+        {
+          "id": "spectrum-adobe",
+          "name": "Spectrum",
+          "canonical_url": "https://spectrum.adobe.com",
+          "supplied_url": "https://spectrum.adobe.com/",
+          "registry_id": "spectrum-design-system"
+        },
+        {
+          "id": "design-system-service-gov-uk",
+          "name": "Design System",
+          "canonical_url": "https://design-system.service.gov.uk",
+          "supplied_url": "https://design-system.service.gov.uk/",
+          "registry_id": "govuk-design-system"
+        },
+        {
+          "id": "designsystem-digital-gov",
+          "name": "Designsystem",
+          "canonical_url": "https://designsystem.digital.gov",
+          "supplied_url": "https://designsystem.digital.gov/",
+          "registry_id": "uswds",
+          "also_categories": [
+            "design-systems-product-ui"
+          ]
+        },
+        {
+          "id": "gestalt-pinterest-systems",
+          "name": "Gestalt",
+          "canonical_url": "https://gestalt.pinterest.systems",
+          "supplied_url": "https://gestalt.pinterest.systems/"
+        },
+        {
+          "id": "base-uber",
+          "name": "Base",
+          "canonical_url": "https://base.uber.com",
+          "supplied_url": "https://base.uber.com/"
+        },
+        {
+          "id": "orbit-kiwi",
+          "name": "Orbit",
+          "canonical_url": "https://orbit.kiwi",
+          "supplied_url": "https://orbit.kiwi/"
+        },
+        {
+          "id": "lightningdesignsystem",
+          "name": "Lightningdesignsystem",
+          "canonical_url": "https://www.lightningdesignsystem.com",
+          "supplied_url": "https://www.lightningdesignsystem.com/",
+          "registry_id": "lightning-design-system"
+        },
+        {
+          "id": "fluent2-microsoft",
+          "name": "Fluent2",
+          "canonical_url": "https://fluent2.microsoft.design",
+          "supplied_url": "https://fluent2.microsoft.design/",
+          "registry_id": "fluent-2"
+        },
+        {
+          "id": "garden-zendesk",
+          "name": "Garden",
+          "canonical_url": "https://garden.zendesk.com",
+          "supplied_url": "https://garden.zendesk.com/"
+        },
+        {
+          "id": "design-gitlab",
+          "name": "Design",
+          "canonical_url": "https://design.gitlab.com",
+          "supplied_url": "https://design.gitlab.com/"
+        },
+        {
+          "id": "paste-twilio",
+          "name": "Paste",
+          "canonical_url": "https://paste.twilio.design",
+          "supplied_url": "https://paste.twilio.design/"
+        },
+        {
+          "id": "vercel-geist",
+          "name": "Vercel — Geist",
+          "canonical_url": "https://vercel.com/geist",
+          "supplied_url": "https://vercel.com/geist"
+        },
+        {
+          "id": "linear",
+          "name": "Linear",
+          "canonical_url": "https://linear.app",
+          "supplied_url": "https://linear.app/"
+        }
+      ]
+    },
+    {
+      "id": "motion-animation",
+      "label": "CSS, motion, and animation references",
+      "defaults": {
+        "source_type": "motion library, animation reference, or graphics implementation source",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "motion",
+          "animation",
+          "reduced-motion",
+          "performance"
+        ]
+      },
+      "sources": [
+        {
+          "id": "motion",
+          "name": "Motion",
+          "canonical_url": "https://motion.dev",
+          "supplied_url": "https://motion.dev/"
+        },
+        {
+          "id": "framer-motion",
+          "name": "Framer — Motion",
+          "canonical_url": "https://www.framer.com/motion",
+          "supplied_url": "https://www.framer.com/motion/"
+        },
+        {
+          "id": "gsap",
+          "name": "Gsap",
+          "canonical_url": "https://gsap.com",
+          "supplied_url": "https://gsap.com/"
+        },
+        {
+          "id": "animejs",
+          "name": "Animejs",
+          "canonical_url": "https://animejs.com",
+          "supplied_url": "https://animejs.com/"
+        },
+        {
+          "id": "react-spring",
+          "name": "React Spring",
+          "canonical_url": "https://www.react-spring.dev",
+          "supplied_url": "https://www.react-spring.dev/"
+        },
+        {
+          "id": "auto-animate-formkit",
+          "name": "Auto Animate",
+          "canonical_url": "https://auto-animate.formkit.com",
+          "supplied_url": "https://auto-animate.formkit.com/"
+        },
+        {
+          "id": "lottiefiles",
+          "name": "Lottiefiles",
+          "canonical_url": "https://lottiefiles.com",
+          "supplied_url": "https://lottiefiles.com/"
+        },
+        {
+          "id": "rive",
+          "name": "Rive",
+          "canonical_url": "https://rive.app",
+          "supplied_url": "https://rive.app/"
+        },
+        {
+          "id": "transitions",
+          "name": "Transitions",
+          "canonical_url": "https://transitions.dev",
+          "supplied_url": "https://transitions.dev/"
+        },
+        {
+          "id": "easings",
+          "name": "Easings",
+          "canonical_url": "https://easings.net",
+          "supplied_url": "https://easings.net/"
+        },
+        {
+          "id": "cubic-bezier",
+          "name": "Cubic Bezier",
+          "canonical_url": "https://cubic-bezier.com",
+          "supplied_url": "https://cubic-bezier.com/"
+        },
+        {
+          "id": "animista",
+          "name": "Animista",
+          "canonical_url": "https://animista.net",
+          "supplied_url": "https://animista.net/"
+        },
+        {
+          "id": "cssanimation",
+          "name": "Cssanimation",
+          "canonical_url": "https://cssanimation.rocks",
+          "supplied_url": "https://cssanimation.rocks/"
+        },
+        {
+          "id": "tympanus-codrops",
+          "name": "Tympanus — Codrops",
+          "canonical_url": "https://tympanus.net/codrops",
+          "supplied_url": "https://tympanus.net/codrops/"
+        },
+        {
+          "id": "codepen",
+          "name": "Codepen",
+          "canonical_url": "https://codepen.io",
+          "supplied_url": "https://codepen.io/"
+        },
+        {
+          "id": "threejs",
+          "name": "Threejs",
+          "canonical_url": "https://threejs.org",
+          "supplied_url": "https://threejs.org/"
+        },
+        {
+          "id": "react-three-fiber-docs-pmnd-rs",
+          "name": "React Three Fiber",
+          "canonical_url": "https://react-three-fiber.docs.pmnd.rs",
+          "supplied_url": "https://react-three-fiber.docs.pmnd.rs/"
+        },
+        {
+          "id": "github-pmndrs-drei",
+          "name": "Github — Pmndrs / Drei",
+          "canonical_url": "https://github.com/pmndrs/drei",
+          "supplied_url": "https://github.com/pmndrs/drei"
+        },
+        {
+          "id": "shadergradient",
+          "name": "Shadergradient",
+          "canonical_url": "https://shadergradient.co",
+          "supplied_url": "https://shadergradient.co/"
+        },
+        {
+          "id": "shadertoy",
+          "name": "Shadertoy",
+          "canonical_url": "https://www.shadertoy.com",
+          "supplied_url": "https://www.shadertoy.com/"
+        }
+      ]
+    },
+    {
+      "id": "icons-illustrations-backgrounds",
+      "label": "Icons, illustrations, and backgrounds",
+      "defaults": {
+        "source_type": "icon, illustration, mockup, pattern, or background asset source",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "icons",
+          "illustration",
+          "backgrounds",
+          "asset-licensing"
+        ]
+      },
+      "sources": [
+        {
+          "id": "lucide",
+          "name": "Lucide",
+          "canonical_url": "https://lucide.dev",
+          "supplied_url": "https://lucide.dev/"
+        },
+        {
+          "id": "heroicons",
+          "name": "Heroicons",
+          "canonical_url": "https://heroicons.com",
+          "supplied_url": "https://heroicons.com/"
+        },
+        {
+          "id": "phosphoricons",
+          "name": "Phosphoricons",
+          "canonical_url": "https://phosphoricons.com",
+          "supplied_url": "https://phosphoricons.com/"
+        },
+        {
+          "id": "tabler-icons",
+          "name": "Tabler — Icons",
+          "canonical_url": "https://tabler.io/icons",
+          "supplied_url": "https://tabler.io/icons"
+        },
+        {
+          "id": "iconoir",
+          "name": "Iconoir",
+          "canonical_url": "https://iconoir.com",
+          "supplied_url": "https://iconoir.com/"
+        },
+        {
+          "id": "icons8",
+          "name": "Icons8",
+          "canonical_url": "https://icons8.com",
+          "supplied_url": "https://icons8.com/"
+        },
+        {
+          "id": "simpleicons",
+          "name": "Simpleicons",
+          "canonical_url": "https://simpleicons.org",
+          "supplied_url": "https://simpleicons.org/"
+        },
+        {
+          "id": "svgl",
+          "name": "Svgl",
+          "canonical_url": "https://svgl.app",
+          "supplied_url": "https://svgl.app/"
+        },
+        {
+          "id": "svgbackgrounds",
+          "name": "Svgbackgrounds",
+          "canonical_url": "https://www.svgbackgrounds.com",
+          "supplied_url": "https://www.svgbackgrounds.com/"
+        },
+        {
+          "id": "heropatterns",
+          "name": "Heropatterns",
+          "canonical_url": "https://www.heropatterns.com",
+          "supplied_url": "https://www.heropatterns.com/"
+        },
+        {
+          "id": "haikei",
+          "name": "Haikei",
+          "canonical_url": "https://haikei.app",
+          "supplied_url": "https://haikei.app/"
+        },
+        {
+          "id": "fffuel",
+          "name": "Fffuel",
+          "canonical_url": "https://fffuel.co",
+          "supplied_url": "https://fffuel.co/"
+        },
+        {
+          "id": "patterncraft",
+          "name": "Patterncraft",
+          "canonical_url": "https://patterncraft.fun",
+          "supplied_url": "https://patterncraft.fun/"
+        },
+        {
+          "id": "bg-ibelick",
+          "name": "Bg",
+          "canonical_url": "https://bg.ibelick.com",
+          "supplied_url": "https://bg.ibelick.com/"
+        },
+        {
+          "id": "meshgradient-in",
+          "name": "Meshgradient",
+          "canonical_url": "https://meshgradient.in",
+          "supplied_url": "https://meshgradient.in/"
+        },
+        {
+          "id": "blobmaker",
+          "name": "Blobmaker",
+          "canonical_url": "https://www.blobmaker.app",
+          "supplied_url": "https://www.blobmaker.app/"
+        },
+        {
+          "id": "undraw",
+          "name": "Undraw",
+          "canonical_url": "https://undraw.co",
+          "supplied_url": "https://undraw.co/"
+        },
+        {
+          "id": "manypixels-gallery",
+          "name": "Manypixels — Gallery",
+          "canonical_url": "https://www.manypixels.co/gallery",
+          "supplied_url": "https://www.manypixels.co/gallery"
+        },
+        {
+          "id": "storyset",
+          "name": "Storyset",
+          "canonical_url": "https://storyset.com",
+          "supplied_url": "https://storyset.com/"
+        },
+        {
+          "id": "openpeeps",
+          "name": "Openpeeps",
+          "canonical_url": "https://www.openpeeps.com",
+          "supplied_url": "https://www.openpeeps.com/"
+        },
+        {
+          "id": "ls-graphics-free-mockups",
+          "name": "Ls — Free Mockups",
+          "canonical_url": "https://www.ls.graphics/free-mockups",
+          "supplied_url": "https://www.ls.graphics/free-mockups"
+        },
+        {
+          "id": "shapes-framer",
+          "name": "Shapes",
+          "canonical_url": "https://www.shapes.framer.website",
+          "supplied_url": "https://www.shapes.framer.website/"
+        }
+      ]
+    },
+    {
+      "id": "fonts-typography",
+      "label": "Fonts and typography",
+      "defaults": {
+        "source_type": "font, type-scale, or typography reference source",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "typography",
+          "fonts",
+          "fluid-type",
+          "font-licensing"
+        ]
+      },
+      "sources": [
+        {
+          "id": "fonts-google",
+          "name": "Fonts",
+          "canonical_url": "https://fonts.google.com",
+          "supplied_url": "https://fonts.google.com/"
+        },
+        {
+          "id": "rsms-me-inter",
+          "name": "Rsms — Inter",
+          "canonical_url": "https://rsms.me/inter",
+          "supplied_url": "https://rsms.me/inter/"
+        },
+        {
+          "id": "vercel-font",
+          "name": "Vercel — Font",
+          "canonical_url": "https://vercel.com/font",
+          "supplied_url": "https://vercel.com/font"
+        },
+        {
+          "id": "fontsource",
+          "name": "Fontsource",
+          "canonical_url": "https://fontsource.org",
+          "supplied_url": "https://fontsource.org/"
+        },
+        {
+          "id": "fontshare",
+          "name": "Fontshare",
+          "canonical_url": "https://www.fontshare.com",
+          "supplied_url": "https://www.fontshare.com/"
+        },
+        {
+          "id": "futurefonts-xyz",
+          "name": "Futurefonts",
+          "canonical_url": "https://www.futurefonts.xyz",
+          "supplied_url": "https://www.futurefonts.xyz/"
+        },
+        {
+          "id": "typescale",
+          "name": "Typescale",
+          "canonical_url": "https://typescale.com",
+          "supplied_url": "https://typescale.com/"
+        },
+        {
+          "id": "utopia-fyi",
+          "name": "Utopia",
+          "canonical_url": "https://utopia.fyi",
+          "supplied_url": "https://utopia.fyi/"
+        },
+        {
+          "id": "fluid-style",
+          "name": "Fluid",
+          "canonical_url": "https://fluid.style",
+          "supplied_url": "https://fluid.style/"
+        },
+        {
+          "id": "modernfontstacks",
+          "name": "Modernfontstacks",
+          "canonical_url": "https://modernfontstacks.com",
+          "supplied_url": "https://modernfontstacks.com/"
+        },
+        {
+          "id": "fontpair",
+          "name": "Fontpair",
+          "canonical_url": "https://fontpair.co",
+          "supplied_url": "https://fontpair.co/"
+        },
+        {
+          "id": "typewolf",
+          "name": "Typewolf",
+          "canonical_url": "https://www.typewolf.com",
+          "supplied_url": "https://www.typewolf.com/"
+        }
+      ]
+    },
+    {
+      "id": "color-theme-tools",
+      "label": "Color, gradient, and theme tools",
+      "defaults": {
+        "source_type": "color, gradient, palette, contrast, or theme tool",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "color",
+          "contrast",
+          "themes",
+          "gradients"
+        ]
+      },
+      "sources": [
+        {
+          "id": "coolors",
+          "name": "Coolors",
+          "canonical_url": "https://coolors.co",
+          "supplied_url": "https://coolors.co/"
+        },
+        {
+          "id": "colorhunt",
+          "name": "Colorhunt",
+          "canonical_url": "https://colorhunt.co",
+          "supplied_url": "https://colorhunt.co/"
+        },
+        {
+          "id": "realtimecolors",
+          "name": "Realtimecolors",
+          "canonical_url": "https://www.realtimecolors.com",
+          "supplied_url": "https://www.realtimecolors.com/"
+        },
+        {
+          "id": "tints",
+          "name": "Tints",
+          "canonical_url": "https://www.tints.dev",
+          "supplied_url": "https://www.tints.dev/"
+        },
+        {
+          "id": "uicolors-create",
+          "name": "Uicolors — Create",
+          "canonical_url": "https://uicolors.app/create",
+          "supplied_url": "https://uicolors.app/create"
+        },
+        {
+          "id": "huemint",
+          "name": "Huemint",
+          "canonical_url": "https://huemint.com",
+          "supplied_url": "https://huemint.com/"
+        },
+        {
+          "id": "gradient-style",
+          "name": "Gradient",
+          "canonical_url": "https://gradient.style",
+          "supplied_url": "https://gradient.style/"
+        },
+        {
+          "id": "grabient",
+          "name": "Grabient",
+          "canonical_url": "https://www.grabient.com",
+          "supplied_url": "https://www.grabient.com/"
+        },
+        {
+          "id": "cssgradient",
+          "name": "Cssgradient",
+          "canonical_url": "https://cssgradient.io",
+          "supplied_url": "https://cssgradient.io/"
+        },
+        {
+          "id": "hypercolor",
+          "name": "Hypercolor",
+          "canonical_url": "https://hypercolor.dev",
+          "supplied_url": "https://hypercolor.dev/"
+        },
+        {
+          "id": "eggradients",
+          "name": "Eggradients",
+          "canonical_url": "https://www.eggradients.com",
+          "supplied_url": "https://www.eggradients.com/"
+        },
+        {
+          "id": "colorbox",
+          "name": "Colorbox",
+          "canonical_url": "https://www.colorbox.io",
+          "supplied_url": "https://www.colorbox.io/"
+        },
+        {
+          "id": "leonardocolor",
+          "name": "Leonardocolor",
+          "canonical_url": "https://leonardocolor.io",
+          "supplied_url": "https://leonardocolor.io/"
+        },
+        {
+          "id": "accessiblepalette",
+          "name": "Accessiblepalette",
+          "canonical_url": "https://accessiblepalette.com",
+          "supplied_url": "https://accessiblepalette.com/"
+        },
+        {
+          "id": "webaim-resources-contrastchecker",
+          "name": "Webaim — Resources / Contrastchecker",
+          "canonical_url": "https://webaim.org/resources/contrastchecker",
+          "supplied_url": "https://webaim.org/resources/contrastchecker/"
+        }
+      ]
+    },
+    {
+      "id": "inspiration-catalogs",
+      "label": "Inspiration-only catalogs",
+      "defaults": {
+        "source_type": "visual inspiration or interface-pattern gallery",
+        "classification": "inspiration-only",
+        "topics_contributed": [
+          "inspiration",
+          "composition",
+          "page-patterns",
+          "interaction-flows"
+        ]
+      },
+      "sources": [
+        {
+          "id": "awwwards",
+          "name": "Awwwards",
+          "canonical_url": "https://www.awwwards.com",
+          "supplied_url": "https://www.awwwards.com/"
+        },
+        {
+          "id": "godly",
+          "name": "Godly",
+          "canonical_url": "https://godly.website",
+          "supplied_url": "https://godly.website/"
+        },
+        {
+          "id": "land-book",
+          "name": "Land Book",
+          "canonical_url": "https://land-book.com",
+          "supplied_url": "https://land-book.com/",
+          "also_categories": [
+            "landing-startup-references"
+          ]
+        },
+        {
+          "id": "lapa-ninja",
+          "name": "Lapa",
+          "canonical_url": "https://www.lapa.ninja",
+          "supplied_url": "https://www.lapa.ninja/",
+          "also_categories": [
+            "landing-startup-references"
+          ]
+        },
+        {
+          "id": "landingfolio",
+          "name": "Landingfolio",
+          "canonical_url": "https://www.landingfolio.com",
+          "supplied_url": "https://www.landingfolio.com/",
+          "also_categories": [
+            "landing-startup-references"
+          ]
+        },
+        {
+          "id": "onepagelove",
+          "name": "Onepagelove",
+          "canonical_url": "https://onepagelove.com",
+          "supplied_url": "https://onepagelove.com/"
+        },
+        {
+          "id": "mobbin",
+          "name": "Mobbin",
+          "canonical_url": "https://mobbin.com",
+          "supplied_url": "https://mobbin.com/"
+        },
+        {
+          "id": "page-flows",
+          "name": "Page Flows",
+          "canonical_url": "https://pageflows.com",
+          "supplied_url": "https://pageflows.com/"
+        },
+        {
+          "id": "saaslandingpage",
+          "name": "Saaslandingpage",
+          "canonical_url": "https://saaslandingpage.com",
+          "supplied_url": "https://saaslandingpage.com/",
+          "also_categories": [
+            "landing-startup-references"
+          ]
+        },
+        {
+          "id": "refero",
+          "name": "Refero",
+          "canonical_url": "https://refero.design",
+          "supplied_url": "https://refero.design/"
+        },
+        {
+          "id": "screenlane",
+          "name": "Screenlane",
+          "canonical_url": "https://screenlane.com",
+          "supplied_url": "https://screenlane.com/",
+          "also_categories": [
+            "inspiration-catalogs"
+          ]
+        },
+        {
+          "id": "siteinspire",
+          "name": "Siteinspire",
+          "canonical_url": "https://www.siteinspire.com",
+          "supplied_url": "https://www.siteinspire.com/"
+        },
+        {
+          "id": "httpster",
+          "name": "Httpster",
+          "canonical_url": "https://httpster.net",
+          "supplied_url": "https://httpster.net/"
+        },
+        {
+          "id": "maxibestof-one",
+          "name": "Maxibestof",
+          "canonical_url": "https://maxibestof.one",
+          "supplied_url": "https://maxibestof.one/"
+        },
+        {
+          "id": "minimal-gallery",
+          "name": "Minimal",
+          "canonical_url": "https://minimal.gallery",
+          "supplied_url": "https://minimal.gallery/"
+        },
+        {
+          "id": "dark",
+          "name": "Dark",
+          "canonical_url": "https://www.dark.design",
+          "supplied_url": "https://www.dark.design/"
+        },
+        {
+          "id": "curated",
+          "name": "Curated",
+          "canonical_url": "https://www.curated.design",
+          "supplied_url": "https://www.curated.design/"
+        },
+        {
+          "id": "footer",
+          "name": "Footer",
+          "canonical_url": "https://www.footer.design",
+          "supplied_url": "https://www.footer.design/"
+        },
+        {
+          "id": "navbar-gallery",
+          "name": "Navbar",
+          "canonical_url": "https://www.navbar.gallery",
+          "supplied_url": "https://www.navbar.gallery/"
+        },
+        {
+          "id": "calltoinspiration",
+          "name": "Calltoinspiration",
+          "canonical_url": "https://www.calltoinspiration.com",
+          "supplied_url": "https://www.calltoinspiration.com/"
+        },
+        {
+          "id": "darkmodedesign",
+          "name": "Darkmodedesign",
+          "canonical_url": "https://www.darkmodedesign.com",
+          "supplied_url": "https://www.darkmodedesign.com/"
+        },
+        {
+          "id": "webframe-xyz",
+          "name": "Webframe",
+          "canonical_url": "https://webframe.xyz",
+          "supplied_url": "https://webframe.xyz/"
+        },
+        {
+          "id": "lookup",
+          "name": "Lookup",
+          "canonical_url": "https://lookup.design",
+          "supplied_url": "https://lookup.design/"
+        },
+        {
+          "id": "nicelydone-club",
+          "name": "Nicelydone",
+          "canonical_url": "https://nicelydone.club",
+          "supplied_url": "https://nicelydone.club/"
+        },
+        {
+          "id": "appshots",
+          "name": "Appshots",
+          "canonical_url": "https://appshots.design",
+          "supplied_url": "https://appshots.design/"
+        },
+        {
+          "id": "interfaces-pro",
+          "name": "Interfaces",
+          "canonical_url": "https://interfaces.pro",
+          "supplied_url": "https://interfaces.pro/"
+        },
+        {
+          "id": "designspells",
+          "name": "Designspells",
+          "canonical_url": "https://designspells.com",
+          "supplied_url": "https://designspells.com/"
+        },
+        {
+          "id": "bento-grids",
+          "name": "Bento Grids",
+          "canonical_url": "https://bento-grids.com",
+          "supplied_url": "https://bento-grids.com/"
+        },
+        {
+          "id": "producthunt",
+          "name": "Producthunt",
+          "canonical_url": "https://www.producthunt.com",
+          "supplied_url": "https://www.producthunt.com/"
+        },
+        {
+          "id": "dribbble",
+          "name": "Dribbble",
+          "canonical_url": "https://dribbble.com",
+          "supplied_url": "https://dribbble.com/"
+        },
+        {
+          "id": "behance",
+          "name": "Behance",
+          "canonical_url": "https://www.behance.net",
+          "supplied_url": "https://www.behance.net/"
+        }
+      ]
+    },
+    {
+      "id": "portfolio-inspiration",
+      "label": "Portfolio and personal-site inspiration",
+      "defaults": {
+        "source_type": "portfolio or personal-site inspiration gallery",
+        "classification": "inspiration-only",
+        "topics_contributed": [
+          "inspiration",
+          "portfolios",
+          "personal-sites",
+          "composition"
+        ]
+      },
+      "sources": [
+        {
+          "id": "pafolios",
+          "name": "Pafolios",
+          "canonical_url": "https://pafolios.com",
+          "supplied_url": "https://pafolios.com/"
+        },
+        {
+          "id": "awwwards-portfolio",
+          "name": "Awwwards — Websites / Portfolio",
+          "canonical_url": "https://www.awwwards.com/websites/portfolio",
+          "supplied_url": "https://www.awwwards.com/websites/portfolio/"
+        },
+        {
+          "id": "bestfolios",
+          "name": "Bestfolios",
+          "canonical_url": "https://www.bestfolios.com",
+          "supplied_url": "https://www.bestfolios.com/"
+        },
+        {
+          "id": "minimal-gallery-categories-portfolio",
+          "name": "Minimal — Categories / Portfolio",
+          "canonical_url": "https://minimal.gallery/categories/portfolio",
+          "supplied_url": "https://minimal.gallery/categories/portfolio"
+        },
+        {
+          "id": "siteinspire-websites",
+          "name": "Siteinspire — Websites",
+          "canonical_url": "https://www.siteinspire.com/websites",
+          "supplied_url": "https://www.siteinspire.com/websites?categories=19"
+        },
+        {
+          "id": "onepagelove-gallery-personal",
+          "name": "Onepagelove — Gallery / Personal",
+          "canonical_url": "https://onepagelove.com/gallery/personal",
+          "supplied_url": "https://onepagelove.com/gallery/personal"
+        }
+      ]
+    },
+    {
+      "id": "landing-startup-references",
+      "label": "Landing-page and startup references",
+      "defaults": {
+        "source_type": "landing-page, startup, email, or copy inspiration source",
+        "classification": "inspiration-only",
+        "topics_contributed": [
+          "inspiration",
+          "landing-pages",
+          "copy",
+          "conversion-patterns"
+        ]
+      },
+      "sources": [
+        {
+          "id": "marketing-examples",
+          "name": "Marketing Examples",
+          "canonical_url": "https://www.marketingexamples.com",
+          "supplied_url": "https://www.marketingexamples.com/"
+        },
+        {
+          "id": "swipefiles",
+          "name": "Swipefiles",
+          "canonical_url": "https://www.swipefiles.com",
+          "supplied_url": "https://www.swipefiles.com/"
+        },
+        {
+          "id": "goodemailcopy",
+          "name": "Goodemailcopy",
+          "canonical_url": "https://www.goodemailcopy.com",
+          "supplied_url": "https://www.goodemailcopy.com/"
+        },
+        {
+          "id": "really-good-emails",
+          "name": "Really Good Emails",
+          "canonical_url": "https://www.reallygoodemails.com",
+          "supplied_url": "https://www.reallygoodemails.com/"
+        },
+        {
+          "id": "copywritingexamples",
+          "name": "Copywritingexamples",
+          "canonical_url": "https://www.copywritingexamples.com",
+          "supplied_url": "https://www.copywritingexamples.com/"
+        }
+      ]
+    },
+    {
+      "id": "ecommerce-product-ui",
+      "label": "Ecommerce and product UI",
+      "defaults": {
+        "source_type": "ecommerce research, product UI, theme, or platform source",
+        "classification": "unresolved",
+        "topics_contributed": [
+          "ecommerce",
+          "checkout",
+          "product-pages",
+          "trust"
+        ]
+      },
+      "sources": [
+        {
+          "id": "baymard",
+          "name": "Baymard Institute",
+          "canonical_url": "https://baymard.com",
+          "supplied_url": "https://baymard.com/"
+        },
+        {
+          "id": "rebuyengine",
+          "name": "Rebuyengine",
+          "canonical_url": "https://www.rebuyengine.com",
+          "supplied_url": "https://www.rebuyengine.com/"
+        },
+        {
+          "id": "shopify-partners-blog",
+          "name": "Shopify — Partners / Blog",
+          "canonical_url": "https://www.shopify.com/partners/blog",
+          "supplied_url": "https://www.shopify.com/partners/blog"
+        },
+        {
+          "id": "ecommercefuel",
+          "name": "Ecommercefuel",
+          "canonical_url": "https://www.ecommercefuel.com",
+          "supplied_url": "https://www.ecommercefuel.com/"
+        },
+        {
+          "id": "builtfor-shopify",
+          "name": "Builtfor",
+          "canonical_url": "https://builtfor.shopify.com",
+          "supplied_url": "https://builtfor.shopify.com/"
+        },
+        {
+          "id": "themealley",
+          "name": "Themealley",
+          "canonical_url": "https://www.themealley.com",
+          "supplied_url": "https://www.themealley.com/"
+        },
+        {
+          "id": "themes-shopify",
+          "name": "Themes",
+          "canonical_url": "https://themes.shopify.com",
+          "supplied_url": "https://themes.shopify.com/"
+        }
+      ]
+    }
+  ]
+}

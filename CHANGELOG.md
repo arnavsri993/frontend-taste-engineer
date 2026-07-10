@@ -2,6 +2,15 @@
 
 All notable changes follow semantic versioning and are recorded here.
 
+## 0.3.0 — 2026-07-10
+
+- Added a 245-URL external frontend seed catalog across 15 source families and 34 monthly query templates.
+- Added standard-library public-text discovery with private/authenticated/binary blocking, injection/credential/install detection, deterministic candidate reports, and no automatic stable promotion.
+- Added full source-field validation, a 100-point scoring rubric, source classification/promotion/license policies, and seven source-family artifact packs.
+- Added stage-bounded MCP source selection, premium/unclear-license copy blocking, maintained-primitive routing, inspiration-only galleries, and optional 21st.dev MCP handling.
+- Added eight external-source policy eval fixtures and narrowed `core` to authoritative standards/platform documentation.
+- Explicitly excluded OpenAI Build Week and similar corporate/product/event marketing from pullable source catalogs.
+
 ## 0.2.0 — 2026-07-10
 
 - Added `autonomous-zero-brief-build` for minimal website, page, landing-page, portfolio, product-polish, and substantial redesign prompts.

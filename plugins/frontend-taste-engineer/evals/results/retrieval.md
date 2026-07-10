@@ -4,10 +4,10 @@
 
 | Variant | Quality | Precision | Recall | Mandatory recall | Duplicates | Irrelevant tokens | Provenance | Context tokens | p95 ms |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| baseline | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0 | 0.002 |
-| static-skill | 0.633 | 0.613 | 0.327 | 0.645 | 0.000 | 0.380 | 1.000 | 1183 | 0.619 |
-| lexical | 0.768 | 0.735 | 0.544 | 0.822 | 0.000 | 0.265 | 1.000 | 3157 | 2.194 |
-| hybrid | 0.868 | 0.810 | 0.730 | 0.950 | 0.000 | 0.189 | 1.000 | 3187 | 5.207 |
+| baseline | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0 | 0.001 |
+| static-skill | 0.633 | 0.613 | 0.327 | 0.645 | 0.000 | 0.380 | 1.000 | 1183 | 0.307 |
+| lexical | 0.768 | 0.735 | 0.544 | 0.822 | 0.000 | 0.265 | 1.000 | 3157 | 1.485 |
+| hybrid | 0.868 | 0.810 | 0.730 | 0.950 | 0.000 | 0.189 | 1.000 | 3187 | 3.690 |
 
 ## Gates
 
@@ -21,6 +21,7 @@
 - PASS — minimal_prompt_skill_activation
 - PASS — minimal_prompt_classification
 - PASS — context_adaptive_direction_diversity
+- PASS — external_source_policy
 
 ## Minimal-prompt classification
 
@@ -33,6 +34,10 @@ Direction cases: 10
 Diversity gate: PASS
 Visual intensity levels: 1, 2, 3, 4, 5
 Overly similar pairs: 0
+
+## External source policy
+
+Passed cases: 8 / 8
 
 ## Case status
 

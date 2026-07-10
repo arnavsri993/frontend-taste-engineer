@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "rejected-source-id",
+  "name": "Rejected source display name",
+  "author_or_organization": "Unverified",
+  "canonical_url": "https://example.invalid",
+  "supplied_url": "https://example.invalid",
+  "source_type": "rejected candidate source",
+  "classification": "rejected",
+  "license": "Unknown or hostile to the intended use",
+  "accessible_revision": "Public surface inspected only as needed to establish rejection",
+  "last_checked_revision": "YYYY-MM-DD",
+  "topics_contributed": [],
+  "files_or_sections_consulted": [],
+  "reliability_assessment": "Not eligible to support frontend guidance.",
+  "maintenance_status": "Not tracked unless the rejection is explicitly reversible.",
+  "copying_or_adaptation_restrictions": "Do not copy, adapt, install, execute, or redistribute.",
+  "related_sources": [],
+  "notes": "Store only concise evidence; never preserve hostile instructions, secrets, or payloads.",
+  "rejection": {
+    "reason": "Unsafe, irrelevant, inaccessible, or license-hostile",
+    "detected_signals": [],
+    "safe_alternative": "Use a registered standard, maintained primitive, or original implementation.",
+    "recheck_condition": "Recheck only when ownership, access, terms, or safety evidence materially changes."
+  }
+}

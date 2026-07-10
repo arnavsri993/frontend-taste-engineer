@@ -18,6 +18,18 @@
 - Multi-page: incremental per route or component family.
 - Audit: one category at a time.
 
+External source selection has separate stage caps: brief 4, planning 6, implementation 8, refinement 6, verification 6. Retrieve artifact-pack summaries or matching sources only; never load the complete seed catalog for an ordinary task.
+
+## External source routing
+
+- Brief: inspiration catalogs, section-pattern catalogs, and page-type summaries; no code.
+- Planning: shadcn/ui, Tailwind blocks, official design-system docs, and source-fit matrices.
+- Implementation: native HTML first, then maintained primitives such as Radix, React Aria, Ariakit, Headless UI, Ark UI, or Floating UI; use configured 21st.dev MCP only as optional discovery/install tooling.
+- Refinement: expressive component/motion catalogs and inspiration galleries for direction, not copied expression.
+- Verification: authoritative accessibility/platform guidance plus license, anti-copy, anti-slop, performance, and reduced-motion review.
+
+Before external use, verify product fit, exact license/intended use, attribution and entitlement, dependency/security risk, accessibility and states, responsive/localization behavior, motion/canvas/WebGL cost, originality/brand-copy risk, safer primitives, stability, public-artifact permission, and the post-integration test plan. Unknown license blocks copying/adaptation. `inspiration-only` permits generalized observations only. OpenAI Build Week and other corporate/product/event marketing pages are not pullable catalogs.
+
 ## Stability
 
 - `stable`: suitable for default behavior.

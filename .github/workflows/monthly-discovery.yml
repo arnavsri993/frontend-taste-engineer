@@ -23,15 +23,26 @@ jobs:
           python3 plugins/frontend-taste-engineer/scripts/generate_coverage_report.py
           --json-out plugins/frontend-taste-engineer/audits/generated/monthly-coverage.json
           --md-out plugins/frontend-taste-engineer/audits/generated/monthly-discovery.md
+      - name: Discover and score public source candidates
+        run: |
+          month="$(date -u +%Y-%m)"
+          python3 plugins/frontend-taste-engineer/scripts/discover_frontend_sources.py \
+            --query-file plugins/frontend-taste-engineer/research/source-discovery/discovery-queries.yml \
+            --seed-file plugins/frontend-taste-engineer/research/source-discovery/seed-catalog.yml \
+            --out-dir "plugins/frontend-taste-engineer/research/source-discovery/candidates/${month}" \
+            --max-results 50
       - uses: actions/upload-artifact@v4
         with:
           name: monthly-discovery
-          path: plugins/frontend-taste-engineer/audits/generated/
+          path: |
+            plugins/frontend-taste-engineer/audits/generated/
+            plugins/frontend-taste-engineer/research/source-discovery/candidates/
           if-no-files-found: error
       - name: Open review issue
         env:
           GH_TOKEN: ${{ github.token }}
-        run: >-
-          gh issue create
-          --title "Monthly frontend knowledge coverage review"
-          --body-file plugins/frontend-taste-engineer/audits/generated/monthly-discovery.md
+        run: |
+          month="$(date -u +%Y-%m)"
+          gh issue create \
+            --title "Monthly frontend source candidate review — ${month}" \
+            --body-file "plugins/frontend-taste-engineer/research/source-discovery/candidates/${month}/source-discovery-report.md"

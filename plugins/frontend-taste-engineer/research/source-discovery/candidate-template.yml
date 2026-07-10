@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "candidate-id",
+  "name": "Candidate display name",
+  "author_or_organization": "Unverified until reviewed",
+  "canonical_url": "https://example.invalid",
+  "supplied_url": "https://example.invalid",
+  "source_type": "candidate public source",
+  "classification": "unresolved",
+  "license": "Unverified; do not copy or adapt",
+  "accessible_revision": "Not inspected",
+  "last_checked_revision": "not-checked",
+  "topics_contributed": [],
+  "files_or_sections_consulted": [],
+  "reliability_assessment": "Insufficient evidence for promotion.",
+  "maintenance_status": "Unknown until reviewed.",
+  "copying_or_adaptation_restrictions": "Link or summarize only until license and asset scope are verified.",
+  "related_sources": [],
+  "notes": "Candidate report only; stable knowledge was not modified.",
+  "discovery": {
+    "query": "",
+    "discovered_on": "YYYY-MM-DD",
+    "network_used": false,
+    "registry_duplicate": false
+  },
+  "score": {
+    "relevance": 0,
+    "license_clarity": 0,
+    "quality_maintainability": 0,
+    "accessibility_usefulness": 0,
+    "implementation_usefulness": 0,
+    "inspiration_value": 0,
+    "dependency_safety": 0,
+    "prompt_injection_security_safety": 0,
+    "total": 0
+  },
+  "safety_review": {
+    "prompt_injection_signals": [],
+    "credential_or_payment_signals": [],
+    "binary_or_install_payloads_downloaded": false,
+    "third_party_code_executed": false
+  },
+  "promotion": {
+    "status": "candidate-only",
+    "required_reviews": ["license", "security", "product-fit", "accessibility", "performance", "originality", "evaluation"]
+  }
+}

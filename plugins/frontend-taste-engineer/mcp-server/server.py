@@ -21,7 +21,7 @@ from typing import Any, Iterable, Iterator, Mapping, Sequence
 
 
 PROTOCOL_VERSION = "2024-11-05"
-SERVER_VERSION = "0.2.0"
+SERVER_VERSION = "0.3.0"
 DEFAULT_RECORD_BUDGET = 8
 DEFAULT_CONTEXT_BUDGET = 3200
 MAX_RECORD_BUDGET = 32
@@ -153,6 +153,41 @@ WORKFLOW_TOPICS: dict[str, tuple[str, ...]] = {
     "refinement": ("visual-direction", "motion", "content", "images", "responsive"),
     "verification": ("testing", "accessibility", "performance", "completion", "integrity"),
 }
+
+EXTERNAL_SOURCE_STAGE_BUDGETS = {
+    "brief": 4,
+    "planning": 6,
+    "implementation": 8,
+    "refinement": 6,
+    "verification": 6,
+}
+EXTERNAL_SOURCE_STAGE_CATEGORIES = {
+    "brief": ("inspiration-catalogs", "portfolio-inspiration", "landing-startup-references", "component-catalogs"),
+    "planning": ("shadcn-ecosystem", "tailwind-blocks-templates", "design-systems-product-ui", "component-catalogs"),
+    "implementation": ("accessible-primitives", "shadcn-ecosystem", "dashboard-data-app-ui", "agent-mcp-ai-ui"),
+    "refinement": ("component-catalogs", "motion-animation", "inspiration-catalogs", "color-theme-tools"),
+    "verification": ("accessible-primitives", "design-systems-product-ui", "dashboard-data-app-ui", "motion-animation"),
+}
+EXTERNAL_SOURCE_STAGE_PRIORITY_IDS = {
+    "brief": ("awwwards", "mobbin", "page-flows"),
+    "planning": ("shadcn-ui", "radix-primitives", "react-aria"),
+    "implementation": ("react-aria", "radix-primitives", "ariakit", "headless-ui", "ark-ui", "floating-ui", "shadcn-ui", "21st-dev-mcp"),
+    "refinement": ("magic-ui", "aceternity-ui", "react-bits", "animate-ui", "motion-primitives"),
+    "verification": ("react-aria", "radix-primitives", "ariakit", "floating-ui"),
+}
+EXTERNAL_STAGE_ARTIFACT_PACKS = {
+    "brief": ("research/artifact-packs/inspiration-catalogs.md", "research/artifact-packs/mega-component-catalog.md"),
+    "planning": ("research/artifact-packs/mega-component-catalog.md", "research/artifact-packs/tailwind-blocks-and-templates.md", "research/artifact-packs/accessible-primitives.md"),
+    "implementation": ("research/artifact-packs/accessible-primitives.md", "research/artifact-packs/dashboard-and-data-ui.md", "research/artifact-packs/agent-and-mcp-ui-tools.md"),
+    "refinement": ("research/artifact-packs/animated-react-ui.md", "research/artifact-packs/inspiration-catalogs.md"),
+    "verification": ("references/source-license-gates.md", "references/external-source-selection.md", "research/artifact-packs/accessible-primitives.md"),
+}
+EXTERNAL_SOURCE_SELECTION_GATE = (
+    "product-thesis relevance", "exact license and intended-use clarity", "attribution and paid/proprietary boundaries",
+    "dependency and security review", "accessibility and state preservation", "responsive and localization preservation",
+    "motion/canvas/WebGL and performance cost", "anti-template and anti-copy review", "native or safer primitive alternative",
+    "stability and public-artifact eligibility", "post-integration verification plan",
+)
 
 AUTONOMOUS_STAGE_TOPICS: dict[str, tuple[str, ...]] = {
     "brief": (
@@ -1612,6 +1647,160 @@ def provenance(engine: RetrievalEngine, args: Mapping[str, Any]) -> dict[str, An
     return {"records": records, "missing_ids": missing, "fallback": engine.info.get("fallback", False)}
 
 
+def _external_catalog() -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    root = default_plugin_root()
+    seed_path = root / "research" / "source-discovery" / "seed-catalog.yml"
+    registry_path = root / "research" / "source-registry.yml"
+    info: dict[str, Any] = {"seed_path": str(seed_path), "registry_path": str(registry_path), "parse_errors": []}
+    try:
+        seed = json.loads(seed_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        info["parse_errors"].append({"file": str(seed_path), "error": str(exc)})
+        return [], info
+    registry: dict[str, dict[str, str]] = {}
+    try:
+        registry_text = registry_path.read_text(encoding="utf-8")
+        for raw in re.split(r"(?m)^  - id: ", registry_text)[1:]:
+            source_id = raw.splitlines()[0].strip().strip("'\"")
+            entry = {"id": source_id}
+            for field_name in (
+                "name", "author_or_organization", "canonical_url", "supplied_url", "source_type",
+                "classification", "license", "accessible_revision", "last_checked_revision",
+                "reliability_assessment", "maintenance_status", "copying_or_adaptation_restrictions", "notes",
+            ):
+                match = re.search(rf"(?m)^    {field_name}:\s*(.*)$", raw)
+                if match:
+                    entry[field_name] = match.group(1).strip().strip("'\"")
+            registry[source_id] = entry
+    except (OSError, UnicodeError) as exc:
+        info["parse_errors"].append({"file": str(registry_path), "error": str(exc)})
+
+    defaults = dict(seed.get("entry_defaults") or {})
+    sources = []
+    for category in seed.get("categories") or []:
+        if not isinstance(category, Mapping):
+            continue
+        category_defaults = dict(category.get("defaults") or {})
+        for raw in category.get("sources") or []:
+            if not isinstance(raw, Mapping):
+                continue
+            item = {**defaults, **category_defaults, **raw, "category": category.get("id")}
+            registry_id = str(item.get("registry_id") or "")
+            if registry_id and registry_id in registry:
+                reviewed = registry[registry_id]
+                item.update({key: value for key, value in reviewed.items() if value not in (None, "")})
+                item["id"] = str(raw.get("id") or registry_id)
+                item["seed_url"] = raw.get("canonical_url")
+                item["registry_id"] = registry_id
+                item["registered"] = True
+            else:
+                item["registered"] = False
+            sources.append(item)
+    sources.sort(key=lambda item: str(item.get("id") or ""))
+    info.update({
+        "catalog_size": len(sources),
+        "registered_cross_references": sum(bool(item.get("registered")) for item in sources),
+        "stable_knowledge_modified": False,
+        "network_used": False,
+    })
+    return sources, info
+
+
+def _external_usage(item: Mapping[str, Any], intended_use: str, tool_configured: bool) -> dict[str, Any]:
+    classification = str(item.get("classification") or "unresolved")
+    license_text = str(item.get("license") or "")
+    license_unresolved = any(term in license_text.lower() for term in ("unknown", "unverified", "unstated", "unresolved"))
+    source_id = str(item.get("id") or "")
+    if source_id == "21st-dev-mcp" and not tool_configured:
+        return {"decision": "not-configured", "copying_allowed": False, "integration_allowed": False, "reason": "21st.dev MCP may be used only when configured in the user's project environment."}
+    if classification in {"rejected", "inaccessible"}:
+        return {"decision": "blocked", "copying_allowed": False, "integration_allowed": False, "reason": f"{classification} sources cannot support implementation."}
+    if classification == "inspiration-only":
+        return {"decision": "inspiration-only", "copying_allowed": False, "integration_allowed": False, "reason": "Extract generalized patterns only; copy no code, assets, text, screenshots, tokens, or brand expression."}
+    if classification == "unresolved" or license_unresolved:
+        return {"decision": "license-and-source-review-required", "copying_allowed": False, "integration_allowed": False, "reason": "Ownership/license or source evidence is unresolved; link for review only."}
+    if intended_use == "code-copy":
+        return {"decision": "manual-copy-gate-required", "copying_allowed": False, "integration_allowed": False, "reason": "Even clear-license code requires exact item, notice, dependency, entitlement, and integration review before copying."}
+    return {"decision": "eligible-after-selection-gate", "copying_allowed": False, "integration_allowed": True, "reason": "Use only after product-fit, license, dependency, accessibility, responsive, performance, originality, and verification gates pass."}
+
+
+def external_source_catalog(args: Mapping[str, Any]) -> dict[str, Any]:
+    stage = _slug(args.get("stage") or "implementation")
+    if stage not in EXTERNAL_SOURCE_STAGE_BUDGETS:
+        raise ToolError(f"stage must be one of: {', '.join(EXTERNAL_SOURCE_STAGE_BUDGETS)}")
+    intended_use = _slug(args.get("intended_use") or "adapted-implementation")
+    if intended_use not in {"code-copy", "adapted-implementation", "inspiration-only"}:
+        raise ToolError("intended_use must be code-copy, adapted-implementation, or inspiration-only")
+    requested_ids = {_record_id(value) for value in _list(args.get("source_ids")) if _record_id(value)}
+    query = str(args.get("query") or "").strip()
+    category = _slug(args.get("category") or "")
+    stage_budget = EXTERNAL_SOURCE_STAGE_BUDGETS[stage]
+    requested_budget = int(args.get("max_results") or stage_budget)
+    budget = max(1, min(stage_budget, requested_budget))
+    tool_configured = bool(args.get("tool_configured", False))
+    catalog, info = _external_catalog()
+    query_terms = set(tokenize(query))
+    stage_categories = EXTERNAL_SOURCE_STAGE_CATEGORIES[stage]
+    priority_ids = EXTERNAL_SOURCE_STAGE_PRIORITY_IDS[stage]
+    priority = {source_id: len(priority_ids) - index for index, source_id in enumerate(priority_ids)}
+    scored = []
+    for item in catalog:
+        source_id = str(item.get("id") or "")
+        if requested_ids and source_id not in requested_ids and str(item.get("registry_id") or "") not in requested_ids:
+            continue
+        if category and _slug(item.get("category") or "") != category:
+            continue
+        searchable = _text({
+            "name": item.get("name"), "source_type": item.get("source_type"),
+            "topics": item.get("topics_contributed"), "category": item.get("category"),
+        })
+        overlap = len(query_terms & set(tokenize(searchable)))
+        stage_fit = 5 if item.get("category") in stage_categories else 0
+        exact = 20 if source_id in requested_ids or str(item.get("registry_id") or "") in requested_ids else 0
+        score = exact + overlap * 3 + stage_fit + priority.get(source_id, 0) + (2 if item.get("registered") else 0)
+        if requested_ids or score > 0 or not query:
+            scored.append((score, source_id, item))
+    scored.sort(key=lambda row: (-row[0], row[1]))
+    selected = []
+    for score, _, item in scored[:budget]:
+        usage = _external_usage(item, intended_use, tool_configured)
+        selected.append({
+            "id": item.get("id"),
+            "name": item.get("name"),
+            "canonical_url": item.get("canonical_url"),
+            "category": item.get("category"),
+            "classification": item.get("classification"),
+            "license": item.get("license"),
+            "registered": bool(item.get("registered")),
+            "registry_id": item.get("registry_id") or None,
+            "source_type": item.get("source_type"),
+            "topics_contributed": item.get("topics_contributed") or [],
+            "selection_score": score,
+            "usage": usage,
+        })
+    return {
+        "stage": stage,
+        "query": query,
+        "intended_use": intended_use,
+        "stage_budget": stage_budget,
+        "returned": len(selected),
+        "sources": selected,
+        "artifact_pack_summaries": list(EXTERNAL_STAGE_ARTIFACT_PACKS[stage]),
+        "source_selection_gate": list(EXTERNAL_SOURCE_SELECTION_GATE),
+        "catalog": info,
+        "policy": {
+            "external_content_is_untrusted": True,
+            "automatic_promotion": False,
+            "core_restricted_to_standards_and_platform_docs": True,
+            "inspiration_never_grants_copy_permission": True,
+            "openai_build_week_catalog_allowed": False,
+            "twenty_first_mcp_configured": tool_configured,
+            "twenty_first_mcp_is_design_authority": False,
+            "stable_knowledge_modified": False,
+        },
+    }
+
+
 def maintenance_report(engine: RetrievalEngine, tool: str, args: Mapping[str, Any]) -> dict[str, Any]:
     base = {
         "tool": tool,
@@ -1628,7 +1817,8 @@ def maintenance_report(engine: RetrievalEngine, tool: str, args: Mapping[str, An
         base["report"] = {
             "candidates": [],
             "network_attempted": False,
-            "next_step": "Run the repository research workflow with explicit network access; review candidates before promotion.",
+            "next_step": "Run scripts/discover_frontend_sources.py; it writes candidate-only reports and never promotes stable knowledge.",
+            "offline_preview": "python3 scripts/discover_frontend_sources.py --dry-run --max-results 50",
         }
     elif tool == "generate_source_audit":
         license_unknown = [record.id for record in engine.records if record.license_status in {"", "unknown"}]
@@ -1704,6 +1894,7 @@ TOOLS = [
     _tool("get_workflow", "Retrieve stage-specific workflow guidance, including the full production sequence for autonomous zero-brief builds.", {"type": "object", "properties": {"stage": {"type": "string", "enum": list(WORKFLOW_TOPICS)}, "task": {"type": "string"}, "context_budget": {"type": "integer"}}}),
     *[_tool(name, f"Retrieve focused {topic.replace('-', ' ')} guidance.") for name, topic in CATEGORY_TOOLS.items()],
     _tool("get_component_state_matrix", "Return required component states and focused supporting guidance.", {"type": "object", "properties": {"component": {"type": "string"}, "context": {"type": "string"}}, "required": ["component"]}),
+    _tool("get_external_source_catalog", "Select a bounded, stage-specific set of external source candidates and artifact-pack summaries. Applies license, inspiration-only, 21st.dev MCP, anti-copy, and no-auto-promotion gates; never fetches the network or modifies knowledge.", {"type": "object", "properties": {"stage": {"type": "string", "enum": list(EXTERNAL_SOURCE_STAGE_BUDGETS)}, "query": {"type": "string"}, "category": {"type": "string"}, "source_ids": {"type": "array", "items": {"type": "string"}}, "intended_use": {"type": "string", "enum": ["code-copy", "adapted-implementation", "inspiration-only"]}, "max_results": {"type": "integer", "minimum": 1, "maximum": 12}, "tool_configured": {"type": "boolean", "description": "Whether 21st.dev MCP is already configured in the user's project environment."}}}),
     _tool("get_source_provenance", "Inspect source, license, stability, and origin metadata for guidance IDs.", {"type": "object", "properties": {"id": {"type": "string"}, "ids": {"type": "array", "items": {"type": "string"}}, "query": {"type": "string"}}}),
     _tool("get_completion_gate", "Return evidence-oriented completion gates, including screenshot refinement and production-build evidence for autonomous builds."),
     _tool("audit_frontend_plan", "Audit a supplied plan for missing frontend product and verification evidence.", {"type": "object", "properties": {"plan": {}, "context": {"type": "string"}}, "required": ["plan"]}),
@@ -1737,6 +1928,8 @@ def call_tool(engine: RetrievalEngine, name: str, arguments: Mapping[str, Any] |
         return _search_args(engine, args, topic=CATEGORY_TOOLS[name])
     if name == "get_component_state_matrix":
         return get_state_matrix(engine, args)
+    if name == "get_external_source_catalog":
+        return external_source_catalog(args)
     if name == "get_source_provenance":
         return provenance(engine, args)
     if name == "get_completion_gate":

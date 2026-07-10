@@ -153,6 +153,24 @@ No source instruction requested credentials or destructive filesystem actions in
 - **Why:** The substantive catalog and license were not accessible. Homepage title/affiliate content cannot support design rules.
 - **Source:** `motionsites`.
 
+### R-022 — A copy button or premium entitlement grants catalog redistribution rights
+
+- **Status:** rejected.
+- **Why:** Visible source, “free” labels, subscriptions, purchases, and account access can still restrict copying, derivatives, attribution, redistribution, assets, or use outside the licensed project.
+- **Replacement:** Verify the exact item license and entitlement, record obligations, and keep unresolved material link-only.
+
+### R-023 — Agentic component tools are design or safety authority
+
+- **Status:** rejected.
+- **Why:** 21st.dev MCP and other builders can discover or generate candidates but cannot establish product fit, authorship, license, accessibility, responsive behavior, performance, originality, or verification.
+- **Replacement:** Use configured tools only after the source-selection gate and inspect every returned dependency, command, asset, and diff.
+
+### R-024 — Corporate event marketing is a pullable component catalog
+
+- **Status:** rejected.
+- **Why:** A public marketing page does not expose reusable material or permission by default and can encourage direct brand imitation.
+- **Replacement:** Use corporate/product/event pages, including OpenAI Build Week, only when the user supplies them as visual case studies for a specific task; never add them to reusable catalogs.
+
 ## Deprecated or unstable implementation guidance
 
 | Guidance | Status | Replacement |

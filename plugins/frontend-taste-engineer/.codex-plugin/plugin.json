@@ -1,7 +1,7 @@
 {
   "name": "frontend-taste-engineer",
-  "version": "0.2.0",
-  "description": "Context-adaptive minimal-prompt frontend generation plus source-backed planning, building, auditing, refinement, privacy review, and production verification.",
+  "version": "0.3.0+codex.20260710175301",
+  "description": "Context-adaptive frontend generation plus safely gated external source discovery, planning, building, auditing, refinement, privacy review, and production verification.",
   "author": {
     "name": "arnavsri993",
     "email": "arnavsri993@gmail.com",
@@ -26,7 +26,7 @@
   "interface": {
     "displayName": "Frontend Taste Engineer",
     "shortDescription": "Turn tiny prompts into complete production frontends",
-    "longDescription": "A source-backed frontend operating system that autonomously expands short website and redesign prompts into complete, context-appropriate, distinctive, responsive, accessible, screenshot-refined, deployment-ready implementations. Domain-aware intensity prevents one flashy house style, while request-local content policy and private-term scanning protect reusable knowledge and public artifacts.",
+    "longDescription": "A source-backed frontend operating system that expands short website and redesign prompts into complete, context-appropriate, distinctive, responsive, accessible, screenshot-refined implementations. A safely gated 245-source catalog supports bounded component/template/inspiration discovery without copying unclear-license material or treating agent tools as design authority.",
     "developerName": "arnavsri993",
     "category": "Developer Tools",
     "capabilities": [

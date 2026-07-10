@@ -242,6 +242,63 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(before, after)
         self.assertFalse(report["stable_knowledge_modified"])
 
+    def test_external_catalog_blocks_premium_copy_without_license_entitlement(self) -> None:
+        report = server.call_tool(self.engine, "get_external_source_catalog", {
+            "stage": "planning",
+            "source_ids": ["tailwind-plus-ui-blocks"],
+            "intended_use": "code-copy",
+        })
+        self.assertEqual(report["returned"], 1)
+        source = report["sources"][0]
+        self.assertEqual(source["classification"], "unresolved")
+        self.assertFalse(source["usage"]["copying_allowed"])
+        self.assertIn("review", source["usage"]["decision"])
+
+    def test_external_catalog_keeps_galleries_inspiration_only(self) -> None:
+        report = server.call_tool(self.engine, "get_external_source_catalog", {
+            "stage": "brief",
+            "source_ids": ["awwwards", "mobbin", "page-flows"],
+            "intended_use": "code-copy",
+        })
+        self.assertEqual({source["id"] for source in report["sources"]}, {"awwwards", "mobbin", "page-flows"})
+        self.assertTrue(all(source["classification"] == "inspiration-only" for source in report["sources"]))
+        self.assertTrue(all(not source["usage"]["copying_allowed"] for source in report["sources"]))
+
+    def test_external_catalog_routes_complex_widgets_to_primitives(self) -> None:
+        report = server.call_tool(self.engine, "get_external_source_catalog", {
+            "stage": "implementation",
+            "query": "accessible dialog combobox keyboard focus",
+            "max_results": 12,
+        })
+        first = [source["id"] for source in report["sources"][:3]]
+        self.assertEqual(first, ["react-aria", "radix-primitives", "ariakit"])
+        self.assertLessEqual(report["returned"], report["stage_budget"])
+        self.assertLess(report["returned"], report["catalog"]["catalog_size"])
+
+    def test_external_catalog_treats_21st_mcp_as_optional_tooling(self) -> None:
+        report = server.call_tool(self.engine, "get_external_source_catalog", {
+            "stage": "implementation",
+            "source_ids": ["21st-dev-mcp"],
+            "tool_configured": False,
+        })
+        source = report["sources"][0]
+        self.assertEqual(source["usage"]["decision"], "not-configured")
+        self.assertFalse(report["policy"]["twenty_first_mcp_is_design_authority"])
+        configured = server.call_tool(self.engine, "get_external_source_catalog", {
+            "stage": "implementation",
+            "source_ids": ["21st-dev-mcp"],
+            "tool_configured": True,
+        })
+        self.assertNotEqual(configured["sources"][0]["usage"]["decision"], "not-configured")
+
+    def test_external_catalog_excludes_build_week_and_never_promotes(self) -> None:
+        report = server.call_tool(self.engine, "get_external_source_catalog", {
+            "stage": "brief", "query": "component template inspiration", "max_results": 12,
+        })
+        self.assertFalse(report["policy"]["openai_build_week_catalog_allowed"])
+        self.assertFalse(report["policy"]["automatic_promotion"])
+        self.assertNotIn("build week", json.dumps(report).lower())
+
     def test_entire_declared_tool_surface_is_callable(self) -> None:
         special = {
             "classify_frontend_task": {"task": "Build an accessible responsive dialog"},

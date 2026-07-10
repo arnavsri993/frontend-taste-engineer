@@ -17,7 +17,10 @@ The repository uses the official repo-marketplace layout:
     ├── hooks/hooks.json
     ├── mcp-server/
     ├── knowledge/
+    ├── references/                  # external-source selection and license gates
     ├── research/
+    │   ├── source-discovery/         # 245 seed URLs, queries, policies, candidate templates
+    │   └── artifact-packs/           # source-family summaries; no copied code/assets
     ├── audits/
     ├── evals/
     ├── maintenance/
@@ -51,7 +54,7 @@ The plugin’s `.mcp.json` starts the local stdio server with Python 3 and no re
 python3 plugins/frontend-taste-engineer/mcp-server/tests/smoke_stdio.py
 ```
 
-The server exposes task classification, cross-cutting search, category-specific guidance, workflows, state matrices, provenance, completion gates, plan/implementation audits, direction comparison, and read-only maintenance reports. Maintenance tools produce proposals and reports; they do not modify stable knowledge.
+The server exposes task classification, cross-cutting search, category-specific guidance, workflows, state matrices, provenance, completion gates, plan/implementation audits, direction comparison, bounded external-source selection, and read-only maintenance reports. `get_external_source_catalog` returns only a stage-specific subset plus license/anti-copy/21st.dev gates; it never fetches the network or promotes candidates. Maintenance tools produce proposals and reports; they do not modify stable knowledge.
 
 If MCP startup fails, the Skill routes to bundled offline references and `offline_frontend_audit.py`. Reduced retrieval coverage is reported rather than hidden.
 
@@ -72,6 +75,8 @@ The standalone Skill package is created under `dist/frontend-taste-engineer-skil
 `research/source-registry.yml` records canonical URL, authorship, classification, license, access date, revision, consulted sections, reliability, restrictions, maintenance, and topic coverage. Stable knowledge records contain actions, rationale, context, exceptions, implementation guidance, verification, provenance, and stability.
 
 External sources are treated as untrusted research data. Repository scripts are not executed during research. Guidance is synthesized rather than copied, paid or proprietary libraries are excluded, and inaccessible sources remain explicitly unresolved. See `research/license-review.md`, `research/conflicts.md`, and `research/rejected-guidance.md`.
+
+The candidate seed catalog contains 245 unique frontend/component/template/inspiration URLs across 15 families: agent/MCP/AI UI, component catalogs, shadcn, Tailwind blocks, accessible primitives, dashboard/data UI, design systems, motion, assets, typography, color, inspiration, portfolios, landing/startup, and ecommerce. Seeds are not stable knowledge: 203 begin `unresolved`, 42 explicit galleries begin `inspiration-only`, and 12 cross-reference an already reviewed registry source. OpenAI Build Week and similar corporate/product/event marketing are never pullable catalogs.
 
 ## Model routing and subagents
 
@@ -113,6 +118,14 @@ Open the printed local URL. `.app.json` intentionally contains no fabricated con
 
 Scheduled workflows write reviewable artifacts or candidate branches. They never push directly to stable, merge automatically, or promote experimental guidance without evaluation. Stable releases live on `main`; proposed knowledge changes use `candidate` and pull requests.
 
+Preview the discovery workflow offline and without writes:
+
+```bash
+python3 plugins/frontend-taste-engineer/scripts/discover_frontend_sources.py --dry-run --max-results 50
+```
+
+An authorized non-dry run searches public text surfaces, blocks local/private/authenticated targets and binary downloads, scans prompt-injection/credential/install signals, de-duplicates registered and seeded URLs, and writes deterministic candidate YAML/Markdown under `research/source-discovery/candidates/YYYY-MM/`. It does not execute third-party code or modify `knowledge/`.
+
 ## Package
 
 ```bash
@@ -131,6 +144,7 @@ The MCP server reads local plugin data and does not require credentials or netwo
 - Full screen-reader and real-device behavior cannot be proven by static checks.
 - Semantic retrieval is deterministic concept expansion unless an explicitly configured local embedding provider is added; lexical and metadata retrieval remain the offline baseline.
 - Some visually oriented and social sources can be inaccessible, unstable, or license-ambiguous; those records are not promoted as mandatory guidance.
+- Most of the expanded source catalog is intentionally unresolved until item-level ownership, license, safety, accessibility, maintenance, and dependency review is complete.
 - The Apps SDK registration step is manual because no app ID is fabricated.
 - Framework and browser guidance must be rechecked as versions change.
 - The private-term scanner does not OCR text rendered into raster screenshots.

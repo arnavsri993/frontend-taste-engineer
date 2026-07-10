@@ -9,7 +9,9 @@ import importlib.util
 import json
 import math
 import statistics
+import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
 from typing import Any, Mapping, Sequence
@@ -20,6 +22,8 @@ PLUGIN_ROOT = EVAL_ROOT.parent
 SERVER_PATH = PLUGIN_ROOT / "mcp-server" / "server.py"
 SKILL_PATH = PLUGIN_ROOT / "skills" / "frontend-taste-engineer" / "SKILL.md"
 SKILL_AGENT_PATH = PLUGIN_ROOT / "skills" / "frontend-taste-engineer" / "agents" / "openai.yaml"
+SOURCE_POLICY_CASES = EVAL_ROOT / "source-policy-cases.json"
+SOURCE_DISCOVERY_SCRIPT = PLUGIN_ROOT / "scripts" / "discover_frontend_sources.py"
 
 
 def _module(path: Path, name: str):
@@ -328,6 +332,82 @@ def aggregate(rows: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     return result
 
 
+def _path_value(value: Any, path: str) -> Any:
+    current = value
+    for part in path.split(".") if path else []:
+        if not isinstance(current, Mapping) or part not in current:
+            return None
+        current = current[part]
+    return current
+
+
+def source_policy_evidence(path: Path) -> dict[str, Any]:
+    fixtures = json.loads(path.read_text(encoding="utf-8"))
+    rows = []
+    for fixture in fixtures:
+        kind = fixture.get("kind")
+        arguments = dict(fixture.get("arguments") or {})
+        execution_error = ""
+        if kind == "mcp":
+            result = SERVER.external_source_catalog(arguments)
+        elif kind == "discovery-dry-run":
+            with tempfile.TemporaryDirectory() as temp:
+                command = [
+                    sys.executable, str(SOURCE_DISCOVERY_SCRIPT), "--dry-run",
+                    "--max-results", str(arguments.get("max_results") or 8),
+                    "--as-of", str(arguments.get("as_of") or "2026-07-10"),
+                    "--out-dir", str(Path(temp) / "candidates"),
+                ]
+                process = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=False)
+                execution_error = process.stderr.strip() if process.returncode else ""
+                result = json.loads(process.stdout) if process.returncode == 0 else {"returncode": process.returncode}
+        else:
+            result = {"error": f"unknown fixture kind: {kind}"}
+            execution_error = str(result["error"])
+        check_rows = []
+        for check in fixture.get("checks") or []:
+            check_type = check.get("type")
+            expected = check.get("equals")
+            actual: Any = None
+            passed = False
+            if check_type == "top-field":
+                actual = _path_value(result, str(check.get("path") or ""))
+                passed = actual == expected
+            elif check_type == "source-field":
+                source = next((item for item in result.get("sources", []) if item.get("id") == check.get("source_id")), None)
+                actual = _path_value(source, str(check.get("path") or "")) if source else None
+                passed = actual == expected
+            elif check_type == "all-source-field":
+                actual = [_path_value(item, str(check.get("path") or "")) for item in result.get("sources", [])]
+                passed = bool(actual) and all(value == expected for value in actual)
+            elif check_type == "source-prefix":
+                actual = [item.get("id") for item in result.get("sources", [])[:len(expected or [])]]
+                passed = actual == expected
+            elif check_type == "budget-bounded":
+                actual = {"returned": result.get("returned"), "stage_budget": result.get("stage_budget")}
+                passed = isinstance(actual["returned"], int) and isinstance(actual["stage_budget"], int) and actual["returned"] <= actual["stage_budget"]
+            elif check_type == "catalog-not-fully-loaded":
+                actual = {"returned": result.get("returned"), "catalog_size": (result.get("catalog") or {}).get("catalog_size")}
+                passed = isinstance(actual["returned"], int) and isinstance(actual["catalog_size"], int) and actual["returned"] < actual["catalog_size"]
+            elif check_type == "json-excludes":
+                needle = str(check.get("value") or "").lower()
+                actual = needle
+                passed = needle not in json.dumps(result, ensure_ascii=False).lower()
+            check_rows.append({"type": check_type, "passed": passed, "expected": expected, "actual": actual})
+        rows.append({
+            "id": fixture.get("id"), "name": fixture.get("name"),
+            "passed": not execution_error and bool(check_rows) and all(row["passed"] for row in check_rows),
+            "execution_error": execution_error or None, "checks": check_rows,
+        })
+    return {
+        "passed": bool(rows) and all(row["passed"] for row in rows),
+        "cases": len(rows),
+        "passed_cases": sum(row["passed"] for row in rows),
+        "fixtures": str(path),
+        "results": rows,
+    }
+
+
 def retrieval_eval(args: argparse.Namespace) -> dict[str, Any]:
     cases = load_cases(Path(args.cases))
     engine = SERVER.RetrievalEngine(Path(args.knowledge_dir))
@@ -351,6 +431,7 @@ def retrieval_eval(args: argparse.Namespace) -> dict[str, Any]:
     lexical = aggregates["lexical"]
     activation = skill_activation_evidence()
     direction_diversity = direction_diversity_evidence(classification_rows)
+    source_policy = source_policy_evidence(Path(args.source_policy_cases))
     classification_checks = sorted({name for row in classification_rows for name in row["checks"]})
     classification_summary = {
         "cases": len(classification_rows),
@@ -372,6 +453,7 @@ def retrieval_eval(args: argparse.Namespace) -> dict[str, Any]:
         "minimal_prompt_skill_activation": activation["passed"],
         "minimal_prompt_classification": bool(classification_rows) and classification_summary["pass_rate"] == 1.0,
         "context_adaptive_direction_diversity": direction_diversity["passed"],
+        "external_source_policy": source_policy["passed"],
     }
     return {
         "schema_version": 1,
@@ -383,6 +465,7 @@ def retrieval_eval(args: argparse.Namespace) -> dict[str, Any]:
         "classification": classification_summary,
         "direction_diversity": direction_diversity,
         "skill_activation": activation,
+        "source_policy": source_policy,
         "gates": gates,
         "thresholds": {
             "min_mandatory_recall": args.min_mandatory_recall,
@@ -480,6 +563,11 @@ def markdown(value: Mapping[str, Any]) -> str:
             f"Visual intensity levels: {', '.join(str(item) for item in diversity.get('visual_intensity_levels', []))}",
             f"Overly similar pairs: {len(diversity.get('overly_similar_pairs', []))}",
         ])
+        source_policy = value.get("source_policy") or {}
+        lines.extend([
+            "", "## External source policy", "",
+            f"Passed cases: {source_policy.get('passed_cases', 0)} / {source_policy.get('cases', 0)}",
+        ])
     else:
         lines.extend([f"Scored cases: {value.get('scored_cases', 0)} / {value.get('case_count', 0)}", "", value.get("integrity_rule", "")])
     lines.extend(["", "## Case status", ""])
@@ -508,6 +596,7 @@ def retrieval_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Run baseline/static/lexical/hybrid retrieval comparisons.")
     parser.add_argument("--cases", type=Path, default=EVAL_ROOT / "cases.json")
     parser.add_argument("--knowledge-dir", type=Path, default=PLUGIN_ROOT / "knowledge")
+    parser.add_argument("--source-policy-cases", type=Path, default=SOURCE_POLICY_CASES)
     parser.add_argument("--json-out", "--output", type=Path, default=EVAL_ROOT / "results" / "retrieval.json")
     parser.add_argument("--md-out", type=Path, default=EVAL_ROOT / "results" / "retrieval.md")
     parser.add_argument("--min-mandatory-recall", type=float, default=0.45)

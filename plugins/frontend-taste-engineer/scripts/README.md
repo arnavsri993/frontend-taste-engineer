@@ -15,6 +15,7 @@ python3 scripts/license_report.py --output audits/licenses.json
 FTE_PRIVATE_TERMS_FILE=.private-terms python3 scripts/scan_private_terms.py --require-terms
 python3 scripts/generate_index.py --dry-run
 python3 scripts/evaluate_retrieval.py
+python3 scripts/discover_frontend_sources.py --dry-run --max-results 50
 python3 scripts/package_skill.py --dry-run
 python3 scripts/package_plugin.py --dry-run
 ```
@@ -39,3 +40,5 @@ The private-term scanner reads an untracked newline-delimited denylist, scans
 ordinary files, filenames, added Git diff lines, logs/evidence, and ZIP entries,
 and reports only file/line locations plus term fingerprints. It does not echo
 the term or OCR raster screenshots.
+
+`discover_frontend_sources.py` is the only maintenance script here with an optional public-network mode. `--dry-run` is offline, seed-backed, deterministic, and write-free. A non-dry run fetches bounded text content only, blocks private/authenticated destinations and binary assets, executes no page or package code, de-duplicates the registry and seeds, and writes candidate reports only under the selected candidate directory. It never modifies `knowledge/` or promotes a source.

@@ -65,6 +65,14 @@ Checked 2026-07-10. This is an engineering provenance review, not legal advice. 
 | `atlassian-design-system` | Public docs subject to Atlassian terms; package licenses vary | `summarized`; package-by-package review | Do not copy internal-only material, marks, fonts, or assets. Check each Atlaskit/package license before code reuse. |
 | `lightning-design-system` | Source BSD-3-Clause; icons/images CC-BY-ND 4.0 | `summarized`; source `adaptable-with-notice`; icons/images no-derivatives | Preserve BSD notice/non-endorsement. Attribute icons/images and do not alter them; avoid Salesforce marks outside authorized contexts. |
 
+## Candidate seed catalog
+
+The 245 entries in `source-discovery/seed-catalog.yml` are discovery metadata, not accepted license evidence. Their inherited default is “unverified; do not copy or adapt.” Explicit gallery families are `inspiration-only`; other unreviewed seeds are `unresolved`. A visible component, copy button, npm command, public HTML response, “free” label, paid subscription, or account entitlement does not establish redistribution rights.
+
+Before moving any seed into `source-registry.yml`, review the exact code/docs/template/asset license; ownership; attribution/notice/share-alike duties; paid or account boundaries; fonts/icons/images/marks; dependency licenses; and intended use. OpenAI Build Week and similar corporate/product/event marketing pages are never pullable catalogs and do not enter this review unless the user supplied one as a case study for a specific task.
+
+The stricter classification policy reserves `core` for authoritative standards and platform documentation. GOV.UK, USWDS, React Aria, and OWASP remain reviewed and useful but are classified `specialized`; this changes retrieval scope, not their recorded license facts.
+
 ## Rules for the knowledge corpus
 
 1. Every promoted record stores source IDs, a `license_status`, and `last_reviewed`.

@@ -6,7 +6,7 @@
       "duplicate_rate": 0.0,
       "irrelevant_token_rate": 0.0,
       "latency_median_ms": 0.001,
-      "latency_p95_ms": 0.002,
+      "latency_p95_ms": 0.001,
       "mandatory_rule_recall": 0.0,
       "precision": 0.0,
       "provenance_correctness": 0.0,
@@ -19,8 +19,8 @@
       "context_tokens": 3187.3,
       "duplicate_rate": 0.0,
       "irrelevant_token_rate": 0.189,
-      "latency_median_ms": 3.002,
-      "latency_p95_ms": 5.207,
+      "latency_median_ms": 1.554,
+      "latency_p95_ms": 3.69,
       "mandatory_rule_recall": 0.95,
       "precision": 0.81,
       "provenance_correctness": 1.0,
@@ -33,8 +33,8 @@
       "context_tokens": 3157.333,
       "duplicate_rate": 0.0,
       "irrelevant_token_rate": 0.265,
-      "latency_median_ms": 1.365,
-      "latency_p95_ms": 2.194,
+      "latency_median_ms": 1.255,
+      "latency_p95_ms": 1.485,
       "mandatory_rule_recall": 0.822,
       "precision": 0.735,
       "provenance_correctness": 1.0,
@@ -47,8 +47,8 @@
       "context_tokens": 1183.133,
       "duplicate_rate": 0.0,
       "irrelevant_token_rate": 0.38,
-      "latency_median_ms": 0.274,
-      "latency_p95_ms": 0.619,
+      "latency_median_ms": 0.245,
+      "latency_p95_ms": 0.307,
       "mandatory_rule_recall": 0.645,
       "precision": 0.613,
       "provenance_correctness": 1.0,
@@ -131,7 +131,7 @@
             ]
           },
           "irrelevant_token_rate": 0.607,
-          "latency_ms": 1.635,
+          "latency_ms": 1.284,
           "mandatory_rule_recall": 1.0,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -186,7 +186,7 @@
             ]
           },
           "irrelevant_token_rate": 0.608,
-          "latency_ms": 1.343,
+          "latency_ms": 1.349,
           "mandatory_rule_recall": 1.0,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -229,7 +229,7 @@
             ]
           },
           "irrelevant_token_rate": 0.545,
-          "latency_ms": 0.275,
+          "latency_ms": 0.243,
           "mandatory_rule_recall": 0.667,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -310,7 +310,7 @@
             ]
           },
           "irrelevant_token_rate": 0.489,
-          "latency_ms": 1.46,
+          "latency_ms": 1.204,
           "mandatory_rule_recall": 0.5,
           "precision": 0.5,
           "provenance_correctness": 1.0,
@@ -365,7 +365,7 @@
             ]
           },
           "irrelevant_token_rate": 0.489,
-          "latency_ms": 1.473,
+          "latency_ms": 1.214,
           "mandatory_rule_recall": 0.5,
           "precision": 0.5,
           "provenance_correctness": 1.0,
@@ -404,7 +404,7 @@
             ]
           },
           "irrelevant_token_rate": 1.0,
-          "latency_ms": 0.284,
+          "latency_ms": 0.249,
           "mandatory_rule_recall": 0.5,
           "precision": 0.0,
           "provenance_correctness": 1.0,
@@ -488,7 +488,7 @@
             ]
           },
           "irrelevant_token_rate": 0.288,
-          "latency_ms": 1.546,
+          "latency_ms": 1.233,
           "mandatory_rule_recall": 1.0,
           "precision": 0.7,
           "provenance_correctness": 1.0,
@@ -546,7 +546,7 @@
             ]
           },
           "irrelevant_token_rate": 0.288,
-          "latency_ms": 1.639,
+          "latency_ms": 1.212,
           "mandatory_rule_recall": 1.0,
           "precision": 0.7,
           "provenance_correctness": 1.0,
@@ -591,7 +591,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.315,
+          "latency_ms": 0.243,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -675,7 +675,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 7.969,
+          "latency_ms": 1.416,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -732,7 +732,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 1.827,
+          "latency_ms": 1.226,
           "mandatory_rule_recall": 0.667,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -779,7 +779,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.649,
+          "latency_ms": 0.241,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -861,7 +861,7 @@
             ]
           },
           "irrelevant_token_rate": 0.305,
-          "latency_ms": 1.431,
+          "latency_ms": 1.266,
           "mandatory_rule_recall": 1.0,
           "precision": 0.7,
           "provenance_correctness": 1.0,
@@ -917,7 +917,7 @@
             ]
           },
           "irrelevant_token_rate": 0.305,
-          "latency_ms": 2.205,
+          "latency_ms": 1.38,
           "mandatory_rule_recall": 1.0,
           "precision": 0.7,
           "provenance_correctness": 1.0,
@@ -960,7 +960,7 @@
             ]
           },
           "irrelevant_token_rate": 0.68,
-          "latency_ms": 0.341,
+          "latency_ms": 0.307,
           "mandatory_rule_recall": 0.667,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -1043,7 +1043,7 @@
             ]
           },
           "irrelevant_token_rate": 0.397,
-          "latency_ms": 2.604,
+          "latency_ms": 1.193,
           "mandatory_rule_recall": 1.0,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -1100,7 +1100,7 @@
             ]
           },
           "irrelevant_token_rate": 0.399,
-          "latency_ms": 1.72,
+          "latency_ms": 1.235,
           "mandatory_rule_recall": 1.0,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -1143,7 +1143,7 @@
             ]
           },
           "irrelevant_token_rate": 0.389,
-          "latency_ms": 0.277,
+          "latency_ms": 0.246,
           "mandatory_rule_recall": 1.0,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -1169,7 +1169,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.002,
+          "latency_ms": 0.001,
           "mandatory_rule_recall": 0.0,
           "precision": 0.0,
           "provenance_correctness": 0.0,
@@ -1225,7 +1225,7 @@
             ]
           },
           "irrelevant_token_rate": 0.402,
-          "latency_ms": 2.563,
+          "latency_ms": 1.608,
           "mandatory_rule_recall": 1.0,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -1280,7 +1280,7 @@
             ]
           },
           "irrelevant_token_rate": 0.397,
-          "latency_ms": 2.194,
+          "latency_ms": 1.259,
           "mandatory_rule_recall": 1.0,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -1324,7 +1324,7 @@
             ]
           },
           "irrelevant_token_rate": 0.68,
-          "latency_ms": 0.291,
+          "latency_ms": 0.244,
           "mandatory_rule_recall": 1.0,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -1350,7 +1350,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.002,
+          "latency_ms": 0.001,
           "mandatory_rule_recall": 0.0,
           "precision": 0.0,
           "provenance_correctness": 0.0,
@@ -1406,7 +1406,7 @@
             ]
           },
           "irrelevant_token_rate": 0.698,
-          "latency_ms": 1.432,
+          "latency_ms": 1.405,
           "mandatory_rule_recall": 1.0,
           "precision": 0.3,
           "provenance_correctness": 1.0,
@@ -1461,7 +1461,7 @@
             ]
           },
           "irrelevant_token_rate": 0.601,
-          "latency_ms": 1.379,
+          "latency_ms": 1.467,
           "mandatory_rule_recall": 1.0,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -1501,7 +1501,7 @@
             ]
           },
           "irrelevant_token_rate": 0.835,
-          "latency_ms": 0.284,
+          "latency_ms": 0.285,
           "mandatory_rule_recall": 0.667,
           "precision": 0.2,
           "provenance_correctness": 1.0,
@@ -1583,7 +1583,7 @@
             ]
           },
           "irrelevant_token_rate": 0.3,
-          "latency_ms": 1.706,
+          "latency_ms": 1.5,
           "mandatory_rule_recall": 0.5,
           "precision": 0.7,
           "provenance_correctness": 1.0,
@@ -1636,7 +1636,7 @@
             ]
           },
           "irrelevant_token_rate": 0.299,
-          "latency_ms": 1.684,
+          "latency_ms": 1.776,
           "mandatory_rule_recall": 0.5,
           "precision": 0.7,
           "provenance_correctness": 1.0,
@@ -1682,7 +1682,7 @@
             ]
           },
           "irrelevant_token_rate": 0.457,
-          "latency_ms": 0.283,
+          "latency_ms": 0.269,
           "mandatory_rule_recall": 1.0,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -1768,7 +1768,7 @@
             ]
           },
           "irrelevant_token_rate": 0.384,
-          "latency_ms": 1.345,
+          "latency_ms": 1.214,
           "mandatory_rule_recall": 1.0,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -1828,7 +1828,7 @@
             ]
           },
           "irrelevant_token_rate": 0.382,
-          "latency_ms": 1.317,
+          "latency_ms": 1.243,
           "mandatory_rule_recall": 1.0,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -1869,7 +1869,7 @@
             ]
           },
           "irrelevant_token_rate": 0.621,
-          "latency_ms": 0.28,
+          "latency_ms": 0.275,
           "mandatory_rule_recall": 0.5,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -1952,7 +1952,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 1.256,
+          "latency_ms": 1.139,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -2009,7 +2009,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 1.31,
+          "latency_ms": 1.151,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -2049,7 +2049,7 @@
             ]
           },
           "irrelevant_token_rate": 0.669,
-          "latency_ms": 0.273,
+          "latency_ms": 0.245,
           "mandatory_rule_recall": 1.0,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -2075,7 +2075,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.0,
           "mandatory_rule_recall": 0.0,
           "precision": 0.0,
           "provenance_correctness": 0.0,
@@ -2133,7 +2133,7 @@
             ]
           },
           "irrelevant_token_rate": 0.414,
-          "latency_ms": 1.445,
+          "latency_ms": 1.22,
           "mandatory_rule_recall": 1.0,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -2190,7 +2190,7 @@
             ]
           },
           "irrelevant_token_rate": 0.31,
-          "latency_ms": 1.512,
+          "latency_ms": 1.301,
           "mandatory_rule_recall": 1.0,
           "precision": 0.7,
           "provenance_correctness": 1.0,
@@ -2234,7 +2234,7 @@
             ]
           },
           "irrelevant_token_rate": 0.666,
-          "latency_ms": 0.619,
+          "latency_ms": 0.232,
           "mandatory_rule_recall": 0.667,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -2260,7 +2260,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.002,
+          "latency_ms": 0.0,
           "mandatory_rule_recall": 0.0,
           "precision": 0.0,
           "provenance_correctness": 0.0,
@@ -2317,7 +2317,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 1.403,
+          "latency_ms": 1.277,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -2374,7 +2374,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 1.536,
+          "latency_ms": 1.222,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -2416,7 +2416,7 @@
             ]
           },
           "irrelevant_token_rate": 0.54,
-          "latency_ms": 0.297,
+          "latency_ms": 0.25,
           "mandatory_rule_recall": 0.5,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -2498,7 +2498,7 @@
             ]
           },
           "irrelevant_token_rate": 0.591,
-          "latency_ms": 1.405,
+          "latency_ms": 1.228,
           "mandatory_rule_recall": 0.5,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -2554,7 +2554,7 @@
             ]
           },
           "irrelevant_token_rate": 0.597,
-          "latency_ms": 1.519,
+          "latency_ms": 1.228,
           "mandatory_rule_recall": 0.5,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -2593,7 +2593,7 @@
             ]
           },
           "irrelevant_token_rate": 0.663,
-          "latency_ms": 0.392,
+          "latency_ms": 0.238,
           "mandatory_rule_recall": 0.5,
           "precision": 0.4,
           "provenance_correctness": 1.0,
@@ -2678,7 +2678,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 1.284,
+          "latency_ms": 1.201,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -2737,7 +2737,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 1.346,
+          "latency_ms": 1.215,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -2778,7 +2778,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.277,
+          "latency_ms": 0.245,
           "mandatory_rule_recall": 0.5,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -2804,7 +2804,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.0,
           "mandatory_rule_recall": 0.0,
           "precision": 0.0,
           "provenance_correctness": 0.0,
@@ -2861,7 +2861,7 @@
             ]
           },
           "irrelevant_token_rate": 0.806,
-          "latency_ms": 1.315,
+          "latency_ms": 1.252,
           "mandatory_rule_recall": 1.0,
           "precision": 0.2,
           "provenance_correctness": 1.0,
@@ -2918,7 +2918,7 @@
             ]
           },
           "irrelevant_token_rate": 0.806,
-          "latency_ms": 1.284,
+          "latency_ms": 1.485,
           "mandatory_rule_recall": 1.0,
           "precision": 0.2,
           "provenance_correctness": 1.0,
@@ -2958,7 +2958,7 @@
             ]
           },
           "irrelevant_token_rate": 0.843,
-          "latency_ms": 0.269,
+          "latency_ms": 0.238,
           "mandatory_rule_recall": 0.667,
           "precision": 0.2,
           "provenance_correctness": 1.0,
@@ -3122,7 +3122,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 5.207,
+          "latency_ms": 5.15,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -3185,7 +3185,7 @@
             ]
           },
           "irrelevant_token_rate": 0.184,
-          "latency_ms": 1.307,
+          "latency_ms": 1.31,
           "mandatory_rule_recall": 0.75,
           "precision": 0.818,
           "provenance_correctness": 1.0,
@@ -3230,7 +3230,7 @@
             ]
           },
           "irrelevant_token_rate": 0.155,
-          "latency_ms": 0.255,
+          "latency_ms": 0.259,
           "mandatory_rule_recall": 0.75,
           "precision": 0.8,
           "provenance_correctness": 1.0,
@@ -3387,7 +3387,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.834,
+          "latency_ms": 3.476,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -3449,7 +3449,7 @@
             ]
           },
           "irrelevant_token_rate": 0.449,
-          "latency_ms": 1.365,
+          "latency_ms": 1.269,
           "mandatory_rule_recall": 0.75,
           "precision": 0.545,
           "provenance_correctness": 1.0,
@@ -3493,7 +3493,7 @@
             ]
           },
           "irrelevant_token_rate": 0.166,
-          "latency_ms": 0.26,
+          "latency_ms": 0.269,
           "mandatory_rule_recall": 0.5,
           "precision": 0.8,
           "provenance_correctness": 1.0,
@@ -3650,7 +3650,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.701,
+          "latency_ms": 3.69,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -3709,7 +3709,7 @@
             ]
           },
           "irrelevant_token_rate": 0.091,
-          "latency_ms": 1.364,
+          "latency_ms": 1.298,
           "mandatory_rule_recall": 0.5,
           "precision": 0.909,
           "provenance_correctness": 1.0,
@@ -3752,7 +3752,7 @@
             ]
           },
           "irrelevant_token_rate": 0.165,
-          "latency_ms": 0.251,
+          "latency_ms": 0.238,
           "mandatory_rule_recall": 0.5,
           "precision": 0.8,
           "provenance_correctness": 1.0,
@@ -3907,7 +3907,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.809,
+          "latency_ms": 3.523,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -3968,7 +3968,7 @@
             ]
           },
           "irrelevant_token_rate": 0.091,
-          "latency_ms": 1.395,
+          "latency_ms": 1.278,
           "mandatory_rule_recall": 0.75,
           "precision": 0.909,
           "provenance_correctness": 1.0,
@@ -4012,7 +4012,7 @@
             ]
           },
           "irrelevant_token_rate": 0.323,
-          "latency_ms": 0.252,
+          "latency_ms": 0.25,
           "mandatory_rule_recall": 0.5,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -4169,7 +4169,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.59,
+          "latency_ms": 3.489,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -4231,7 +4231,7 @@
             ]
           },
           "irrelevant_token_rate": 0.182,
-          "latency_ms": 1.484,
+          "latency_ms": 1.237,
           "mandatory_rule_recall": 1.0,
           "precision": 0.818,
           "provenance_correctness": 1.0,
@@ -4275,7 +4275,7 @@
             ]
           },
           "irrelevant_token_rate": 0.166,
-          "latency_ms": 0.257,
+          "latency_ms": 0.245,
           "mandatory_rule_recall": 0.5,
           "precision": 0.8,
           "provenance_correctness": 1.0,
@@ -4430,7 +4430,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.565,
+          "latency_ms": 3.592,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -4492,7 +4492,7 @@
             ]
           },
           "irrelevant_token_rate": 0.086,
-          "latency_ms": 1.311,
+          "latency_ms": 1.229,
           "mandatory_rule_recall": 0.5,
           "precision": 0.909,
           "provenance_correctness": 1.0,
@@ -4537,7 +4537,7 @@
             ]
           },
           "irrelevant_token_rate": 0.155,
-          "latency_ms": 0.288,
+          "latency_ms": 0.246,
           "mandatory_rule_recall": 0.75,
           "precision": 0.8,
           "provenance_correctness": 1.0,
@@ -4692,7 +4692,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.414,
+          "latency_ms": 3.308,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -4758,7 +4758,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 1.261,
+          "latency_ms": 1.161,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -4803,7 +4803,7 @@
             ]
           },
           "irrelevant_token_rate": 0.167,
-          "latency_ms": 0.238,
+          "latency_ms": 0.362,
           "mandatory_rule_recall": 0.75,
           "precision": 0.8,
           "provenance_correctness": 1.0,
@@ -4891,7 +4891,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.0,
           "mandatory_rule_recall": 0.0,
           "precision": 0.0,
           "provenance_correctness": 0.0,
@@ -4958,7 +4958,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 4.004,
+          "latency_ms": 3.671,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -5019,7 +5019,7 @@
             ]
           },
           "irrelevant_token_rate": 0.188,
-          "latency_ms": 1.301,
+          "latency_ms": 1.246,
           "mandatory_rule_recall": 0.5,
           "precision": 0.818,
           "provenance_correctness": 1.0,
@@ -5063,7 +5063,7 @@
             ]
           },
           "irrelevant_token_rate": 0.166,
-          "latency_ms": 0.256,
+          "latency_ms": 0.219,
           "mandatory_rule_recall": 0.5,
           "precision": 0.8,
           "provenance_correctness": 1.0,
@@ -5218,7 +5218,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.658,
+          "latency_ms": 3.373,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -5279,7 +5279,7 @@
             ]
           },
           "irrelevant_token_rate": 0.275,
-          "latency_ms": 1.349,
+          "latency_ms": 1.299,
           "mandatory_rule_recall": 0.75,
           "precision": 0.727,
           "provenance_correctness": 1.0,
@@ -5323,7 +5323,7 @@
             ]
           },
           "irrelevant_token_rate": 0.166,
-          "latency_ms": 0.262,
+          "latency_ms": 0.24,
           "mandatory_rule_recall": 0.5,
           "precision": 0.8,
           "provenance_correctness": 1.0,
@@ -5478,7 +5478,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.401,
+          "latency_ms": 3.378,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -5540,7 +5540,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 1.439,
+          "latency_ms": 1.251,
           "mandatory_rule_recall": 0.75,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -5584,7 +5584,7 @@
             ]
           },
           "irrelevant_token_rate": 0.166,
-          "latency_ms": 0.262,
+          "latency_ms": 0.237,
           "mandatory_rule_recall": 0.5,
           "precision": 0.8,
           "provenance_correctness": 1.0,
@@ -5739,7 +5739,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.464,
+          "latency_ms": 3.393,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -5798,7 +5798,7 @@
             ]
           },
           "irrelevant_token_rate": 0.276,
-          "latency_ms": 1.243,
+          "latency_ms": 1.247,
           "mandatory_rule_recall": 0.5,
           "precision": 0.727,
           "provenance_correctness": 1.0,
@@ -5842,7 +5842,7 @@
             ]
           },
           "irrelevant_token_rate": 0.166,
-          "latency_ms": 0.244,
+          "latency_ms": 0.246,
           "mandatory_rule_recall": 0.5,
           "precision": 0.8,
           "provenance_correctness": 1.0,
@@ -5997,7 +5997,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.585,
+          "latency_ms": 3.453,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -6059,7 +6059,7 @@
             ]
           },
           "irrelevant_token_rate": 0.092,
-          "latency_ms": 1.329,
+          "latency_ms": 1.261,
           "mandatory_rule_recall": 0.75,
           "precision": 0.909,
           "provenance_correctness": 1.0,
@@ -6103,7 +6103,7 @@
             ]
           },
           "irrelevant_token_rate": 0.346,
-          "latency_ms": 0.255,
+          "latency_ms": 0.247,
           "mandatory_rule_recall": 0.5,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -6258,7 +6258,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.561,
+          "latency_ms": 3.496,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -6324,7 +6324,7 @@
             ]
           },
           "irrelevant_token_rate": 0.458,
-          "latency_ms": 1.28,
+          "latency_ms": 1.272,
           "mandatory_rule_recall": 1.0,
           "precision": 0.545,
           "provenance_correctness": 1.0,
@@ -6368,7 +6368,7 @@
             ]
           },
           "irrelevant_token_rate": 0.166,
-          "latency_ms": 0.245,
+          "latency_ms": 0.25,
           "mandatory_rule_recall": 0.5,
           "precision": 0.8,
           "provenance_correctness": 1.0,
@@ -6523,7 +6523,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.49,
+          "latency_ms": 3.604,
           "mandatory_rule_recall": 1.0,
           "precision": 1.0,
           "provenance_correctness": 1.0,
@@ -6587,7 +6587,7 @@
             ]
           },
           "irrelevant_token_rate": 0.096,
-          "latency_ms": 1.278,
+          "latency_ms": 1.273,
           "mandatory_rule_recall": 1.0,
           "precision": 0.909,
           "provenance_correctness": 1.0,
@@ -6629,7 +6629,7 @@
             ]
           },
           "irrelevant_token_rate": 0.326,
-          "latency_ms": 0.248,
+          "latency_ms": 0.232,
           "mandatory_rule_recall": 0.25,
           "precision": 0.6,
           "provenance_correctness": 1.0,
@@ -6933,6 +6933,7 @@
     "context_adaptive_direction_diversity": true,
     "context_budget": true,
     "duplicate_rate": true,
+    "external_source_policy": true,
     "hybrid_not_below_lexical": true,
     "irrelevant_token_rate": true,
     "latency": true,
@@ -6967,6 +6968,217 @@
       "redesign this frontend": true,
       "turn this idea into a website": true
     }
+  },
+  "source_policy": {
+    "cases": 8,
+    "fixtures": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/source-policy-cases.json",
+    "passed": true,
+    "passed_cases": 8,
+    "results": [
+      {
+        "checks": [
+          {
+            "actual": "unresolved",
+            "expected": "unresolved",
+            "passed": true,
+            "type": "source-field"
+          },
+          {
+            "actual": false,
+            "expected": false,
+            "passed": true,
+            "type": "source-field"
+          }
+        ],
+        "execution_error": null,
+        "id": "premium-copy-blocked",
+        "name": "Premium/pro source cannot be copied without entitlement and terms",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "actual": [
+              "inspiration-only",
+              "inspiration-only",
+              "inspiration-only"
+            ],
+            "expected": "inspiration-only",
+            "passed": true,
+            "type": "all-source-field"
+          },
+          {
+            "actual": [
+              false,
+              false,
+              false
+            ],
+            "expected": false,
+            "passed": true,
+            "type": "all-source-field"
+          }
+        ],
+        "execution_error": null,
+        "id": "galleries-inspiration-only",
+        "name": "Awwwards, Mobbin, and Page Flows remain inspiration-only",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "actual": [
+              "react-aria",
+              "radix-primitives",
+              "ariakit"
+            ],
+            "expected": [
+              "react-aria",
+              "radix-primitives",
+              "ariakit"
+            ],
+            "passed": true,
+            "type": "source-prefix"
+          },
+          {
+            "actual": {
+              "returned": 8,
+              "stage_budget": 8
+            },
+            "expected": null,
+            "passed": true,
+            "type": "budget-bounded"
+          }
+        ],
+        "execution_error": null,
+        "id": "complex-widgets-use-primitives",
+        "name": "Complex accessible widgets route to maintained primitives",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "actual": "not-configured",
+            "expected": "not-configured",
+            "passed": true,
+            "type": "source-field"
+          },
+          {
+            "actual": false,
+            "expected": false,
+            "passed": true,
+            "type": "top-field"
+          }
+        ],
+        "execution_error": null,
+        "id": "twenty-first-mcp-optional",
+        "name": "21st.dev MCP is optional tooling rather than design authority",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "actual": false,
+            "expected": false,
+            "passed": true,
+            "type": "top-field"
+          },
+          {
+            "actual": "openai build week",
+            "expected": null,
+            "passed": true,
+            "type": "json-excludes"
+          }
+        ],
+        "execution_error": null,
+        "id": "build-week-excluded",
+        "name": "Corporate event marketing is excluded from pullable catalogs",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "actual": false,
+            "expected": false,
+            "passed": true,
+            "type": "top-field"
+          },
+          {
+            "actual": false,
+            "expected": false,
+            "passed": true,
+            "type": "top-field"
+          },
+          {
+            "actual": 8,
+            "expected": 8,
+            "passed": true,
+            "type": "top-field"
+          },
+          {
+            "actual": [],
+            "expected": [],
+            "passed": true,
+            "type": "top-field"
+          }
+        ],
+        "execution_error": null,
+        "id": "candidate-report-no-promotion",
+        "name": "Discovery produces deterministic candidate reports without promotion",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "actual": "unresolved",
+            "expected": "unresolved",
+            "passed": true,
+            "type": "source-field"
+          },
+          {
+            "actual": false,
+            "expected": false,
+            "passed": true,
+            "type": "source-field"
+          }
+        ],
+        "execution_error": null,
+        "id": "unclear-license-unresolved",
+        "name": "Unclear-license sources stay unresolved",
+        "passed": true
+      },
+      {
+        "checks": [
+          {
+            "actual": {
+              "returned": 6,
+              "stage_budget": 6
+            },
+            "expected": null,
+            "passed": true,
+            "type": "budget-bounded"
+          },
+          {
+            "actual": {
+              "catalog_size": 245,
+              "returned": 6
+            },
+            "expected": null,
+            "passed": true,
+            "type": "catalog-not-fully-loaded"
+          },
+          {
+            "actual": false,
+            "expected": false,
+            "passed": true,
+            "type": "top-field"
+          }
+        ],
+        "execution_error": null,
+        "id": "stage-budget-preserved",
+        "name": "Ordinary retrieval remains stage-bounded",
+        "passed": true
+      }
+    ]
   },
   "summary": {
     "errors": 0,

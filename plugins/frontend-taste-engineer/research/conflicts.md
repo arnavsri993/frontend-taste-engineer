@@ -156,3 +156,24 @@ Recency does not override authority by itself, but it does decide between versio
 - **Risk:** Custom styling changes a control until it no longer looks or behaves like its semantic role.
 - **Resolution:** Brand expression may change appearance, density, and composition, but must preserve discoverability, semantics, keyboard/pointer/touch behavior, system settings, and recognizable affordances. Platform conventions win where deviation creates measurable confusion or exclusion.
 - **Priority:** User expectations/accessibility > brand novelty.
+
+## C-021 — Broad autonomous discovery versus stable-knowledge integrity
+
+- **Claims:** A large recurring search can find useful new sources quickly; stable guidance requires provenance, licensing, contextual exceptions, verification, and review.
+- **Risk:** Fresh candidates silently become trusted rules or inflate ordinary retrieval with unreviewed metadata.
+- **Resolution:** Discovery writes deterministic candidate reports only. Stable promotion requires a candidate branch/PR, full registry/license/provenance updates, evaluations, and review. Stage budgets keep the 245-source catalog out of default packets.
+- **Priority:** Stable-knowledge integrity over discovery speed.
+
+## C-022 — Agentic installers versus repository control
+
+- **Claims:** 21st.dev MCP and agentic UI builders can accelerate semantic discovery and installation; returned commands and components can add opaque dependencies, copied expression, or unsafe scripts.
+- **Risk:** Tool convenience bypasses architecture, license, security, accessibility, performance, and originality review.
+- **Resolution:** Use an agent/MCP source only when configured and relevant. Treat output as untrusted, apply the full source-selection gate before installation, inspect diffs/dependencies, and keep Frontend Taste Engineer responsible for verification.
+- **Priority:** Project constraints and source-selection evidence over tool recommendation.
+
+## C-023 — Marketing inspiration versus reusable catalogs
+
+- **Claims:** Corporate/product/event pages can be visually instructive; public visibility does not make their code, assets, text, identity, or composition reusable.
+- **Risk:** A case study is misclassified as a pullable component/template source or becomes brand imitation.
+- **Resolution:** Corporate marketing must expose reusable components/templates/docs under inspectable terms to enter discovery. OpenAI Build Week remains user-supplied case-study evidence only and is explicitly excluded from the reusable catalog.
+- **Priority:** Originality, license, and user-supplied task context.
