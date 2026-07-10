@@ -1,14 +1,34 @@
 # Evaluations
 
-`cases.json` contains 16 heterogeneous frontend tasks. Retrieval evaluation
+`cases.json` contains 30 heterogeneous frontend tasks, including eight minimal
+website/page prompts for autonomous classification and stage routing. Retrieval evaluation
 compares no-plugin baseline, compact static Skill kernel, lexical retrieval, and
 hybrid retrieval. It reports precision, recall, mandatory-rule recall, duplicate
 rate, irrelevant-token rate, provenance correctness, observed latency, context
 size, and stable/experimental ordering with retrieved IDs as evidence.
 
+Minimal-prompt cases also score Skill trigger coverage, autonomous mode, profile
+completeness, page type, tone, entity/quote extraction, fact/assumption
+separation, no-question policy, copy-integrity guardrails, staged retrieval, and
+production-completion selection. A tiny CSS-fix non-trigger is covered by the
+MCP unit tests.
+
+Ten marked direction-diversity cases cover personal finance, banking,
+investment analytics, public service, enterprise software, developer tools,
+premium ecommerce, robotics, a playful friend-directed page, and an
+experimental portfolio. The evaluator gates palette/material, typography,
+composition, hero treatment, component styling, tone, motion, and all five
+visual-intensity levels against aesthetic convergence.
+
+Recipient tests use fictional names, verify dynamic extraction and report
+redaction, and assert that canonical knowledge remains recipient-agnostic.
+Private real-project evidence stays local; public evaluation artifacts must be
+synthetic and pass the configurable private-term scanner.
+
 ```bash
 python3 evals/run_retrieval_evals.py
 python3 evals/run_frontend_evals.py
+python3 evals/run_autonomous_e2e.py
 ```
 
 Both stable entrypoints write deterministic-structure JSON and Markdown to
@@ -20,6 +40,13 @@ to score a case unless every criterion has a 0–5 score backed by a concrete
 artifact or executed-command observation. This preserves the central integrity
 rule: an unevaluated frontend is marked `not-run`, never assigned a flattering
 synthetic score.
+
+The `minimal-alex-message` case is the release's synthetic end-to-end target.
+Its evidence is accepted only after a fresh Codex task creates and runs the
+fixture, captures desktop/mobile output, records refinement, and completes the
+production build. The harness sends only the synthetic prompt; its pre-created
+files provide build, preview, and Chrome capture infrastructure, not hidden
+design direction.
 
 No evaluator uses the network, installs dependencies, mutates stable knowledge,
 or executes code from researched sources.

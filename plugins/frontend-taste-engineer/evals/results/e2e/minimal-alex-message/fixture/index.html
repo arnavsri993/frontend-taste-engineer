@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3eddf">
+    <meta name="description" content="A small note for Alex: You made it — Arnav">
+    <title>For Alex — You made it</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#message">Skip to the message</a>
+
+    <main class="poster">
+      <header class="topline reveal reveal--one" aria-label="Page introduction">
+        <p>A small note</p>
+        <p>One page <span aria-hidden="true">•</span> One message</p>
+        <p>Keep this moment</p>
+      </header>
+
+      <div class="layout">
+        <section class="recipient" aria-labelledby="recipient-name">
+          <div class="recipient__heading reveal reveal--two">
+            <p class="eyebrow">For your eyes,</p>
+            <h1 id="recipient-name">Alex</h1>
+          </div>
+
+          <div class="route" aria-hidden="true">
+            <span class="route__line"></span>
+            <span class="route__dot route__dot--start"></span>
+            <span class="route__dot route__dot--end"></span>
+            <span class="route__label route__label--start">then</span>
+            <span class="route__label route__label--end">now</span>
+          </div>
+
+          <p class="side-note reveal reveal--three">
+            No long speech.<br>
+            Just the part<br>
+            worth keeping.
+          </p>
+        </section>
+
+        <section class="message-panel" id="message" aria-labelledby="message-title" tabindex="-1">
+          <div class="checker" aria-hidden="true"></div>
+          <p class="arrival-tag reveal reveal--two"><span aria-hidden="true">↗</span> Arrival confirmed</p>
+
+          <h2 class="message" id="message-title" aria-label="You made it — Arnav">
+            <span class="message__line message__line--you reveal reveal--three">You</span>
+            <span class="message__line message__line--made reveal reveal--four">made</span>
+            <span class="message__line message__line--it reveal reveal--five">it</span>
+            <span class="signature reveal reveal--six" aria-hidden="true">— Arnav</span>
+          </h2>
+
+          <div class="message-footer reveal reveal--six">
+            <p>Take a breath.<br>Look at you.</p>
+            <button class="replay" type="button" aria-describedby="replay-status">
+              <span>Replay the moment</span>
+              <span class="replay__icon" aria-hidden="true">↻</span>
+            </button>
+          </div>
+
+          <p class="sr-only" id="replay-status" aria-live="polite"></p>
+        </section>
+      </div>
+
+      <footer class="bottomline reveal reveal--six">
+        <p>Made for Alex</p>
+        <p aria-hidden="true">/////</p>
+        <p>An internet high five</p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

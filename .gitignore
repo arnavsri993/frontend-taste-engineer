@@ -12,12 +12,15 @@ coverage/
 .env
 .env.*
 !.env.example
+.private-terms
+.private-terms.*
 *.log
 *.tmp
 *.swp
 artifacts/tmp/
 plugins/frontend-taste-engineer/audits/generated/
 plugins/frontend-taste-engineer/evals/results/local-*
+plugins/frontend-taste-engineer/evals/results/e2e/local-*
 plugins/frontend-taste-engineer/knowledge/index.generated.json
 plugins/frontend-taste-engineer/*.zip
 !plugins/frontend-taste-engineer/dist/*.zip

@@ -18,6 +18,8 @@ from typing import Any, Mapping, Sequence
 EVAL_ROOT = Path(__file__).resolve().parent
 PLUGIN_ROOT = EVAL_ROOT.parent
 SERVER_PATH = PLUGIN_ROOT / "mcp-server" / "server.py"
+SKILL_PATH = PLUGIN_ROOT / "skills" / "frontend-taste-engineer" / "SKILL.md"
+SKILL_AGENT_PATH = PLUGIN_ROOT / "skills" / "frontend-taste-engineer" / "agents" / "openai.yaml"
 
 
 def _module(path: Path, name: str):
@@ -45,6 +47,10 @@ def load_cases(path: Path) -> list[dict[str, Any]]:
         for field in ("brief", "expected_topics", "expected_terms", "mandatory_terms"):
             if not case.get(field):
                 raise ValueError(f"{case['id']} lacks {field}")
+        if case.get("expected_mode") == SERVER.AUTONOMOUS_MODE:
+            for field in ("expected_page_type", "expected_tone_terms", "expect_no_questions", "expect_production_completion"):
+                if field not in case:
+                    raise ValueError(f"{case['id']} lacks autonomous classification field {field}")
     return value
 
 
@@ -79,7 +85,8 @@ def static_packets(query: str, budget: int) -> list[dict[str, Any]]:
 
 def retrieve_variant(engine: Any, case: Mapping[str, Any], variant: str) -> dict[str, Any]:
     started = time.perf_counter_ns()
-    budget = 10
+    autonomous = case.get("expected_mode") == SERVER.AUTONOMOUS_MODE
+    budget = int(case.get("budget_records") or (11 if autonomous else 10))
     if variant == "baseline":
         packet = {"records": [], "summary": {"estimated_context_tokens": 0, "mandatory_returned": 0}}
     elif variant == "static-skill":
@@ -87,18 +94,164 @@ def retrieve_variant(engine: Any, case: Mapping[str, Any], variant: str) -> dict
         packet = {"records": result, "summary": {"estimated_context_tokens": SERVER.estimate_tokens(result), "mandatory_returned": sum(item.get("importance") == "mandatory" for item in result)}}
     else:
         filters = {
-            "task_types": [case.get("task_type")],
+            "task_types": list(SERVER.TASK_TYPE_ALIASES.get(str(case.get("task_type")), (str(case.get("task_type")),))),
             "statuses": ["stable", "active", "experimental"],
         }
-        packet = engine.search(
-            str(case["brief"]), filters,
-            budget_records=budget,
-            context_budget=int(case.get("context_budget") or 4200),
-            strategy="lexical" if variant == "lexical" else "hybrid",
-        )
+        if autonomous and variant == "hybrid":
+            packet = SERVER.get_workflow(engine, {
+                "task": str(case["brief"]),
+                "stage": str(case.get("stage") or "brief"),
+                "budget_records": budget,
+                "context_budget": int(case.get("context_budget") or 4800),
+                "strategy": "hybrid",
+            })
+        else:
+            packet = engine.search(
+                str(case["brief"]), filters,
+                budget_records=budget,
+                context_budget=int(case.get("context_budget") or 4200),
+                strategy="lexical" if variant == "lexical" else "hybrid",
+            )
     elapsed = (time.perf_counter_ns() - started) / 1_000_000.0
     packet["observed_latency_ms"] = round(elapsed, 3)
     return packet
+
+
+PROFILE_FIELDS = {
+    "build_mode", "domain", "product_type", "interface_archetype", "page_type",
+    "purpose", "audience", "named_recipient_status", "primary_user_task",
+    "secondary_tasks", "primary_message", "supporting_narrative", "emotional_objective",
+    "emotional_tone", "seriousness", "trust_level", "risk_level",
+    "information_density", "frequency_of_use", "content_maturity", "brand_maturity",
+    "product_maturity", "accessibility_needs", "expected_devices", "visual_ambition",
+    "visual_intensity", "motion_intensity", "experimental_tolerance",
+    "familiarity_requirement", "interaction_depth", "suggested_composition",
+    "hero_treatment", "typography_direction", "color_material_direction",
+    "imagery_strategy", "motion_stance", "component_styling", "direction",
+    "required_states", "retrieval_topics", "verification_priorities",
+    "user_supplied_facts", "inferred_assumptions", "quality_interpretation",
+    "design_thesis",
+}
+
+
+def score_classification(case: Mapping[str, Any]) -> dict[str, Any] | None:
+    expected_mode = case.get("expected_mode")
+    if not expected_mode:
+        return None
+    result = SERVER.classify_task(str(case["brief"]), {"stage": case.get("stage")})
+    profile = result.get("creative_profile") or {}
+    ledger = result.get("decision_ledger") or {}
+    entities = result.get("entities") or {}
+    guardrails = set(result.get("copy_guardrails") or [])
+    tone = set(profile.get("emotional_tone") or [])
+    checks = {
+        "mode": result.get("task_type") == expected_mode,
+        "minimal_prompt": bool(result.get("minimal_prompt")),
+        "profile_complete": PROFILE_FIELDS <= set(profile) and all(profile.get(field) not in (None, "", []) for field in PROFILE_FIELDS),
+        "page_type": profile.get("page_type") == case.get("expected_page_type"),
+        "domain": not case.get("expected_domain") or profile.get("domain") == case.get("expected_domain"),
+        "tone": set(case.get("expected_tone_terms") or []) <= tone,
+        "visual_intensity": case.get("expected_visual_intensity") is None or profile.get("visual_intensity") == case.get("expected_visual_intensity"),
+        "motion_intensity": not case.get("expected_motion_intensity") or profile.get("motion_intensity") == case.get("expected_motion_intensity"),
+        "trust_level": not case.get("expected_trust_level") or profile.get("trust_level") == case.get("expected_trust_level"),
+        "risk_level": not case.get("expected_risk_level") or profile.get("risk_level") == case.get("expected_risk_level"),
+        "information_density": not case.get("expected_information_density") or profile.get("information_density") == case.get("expected_information_density"),
+        "facts_and_assumptions": bool(ledger.get("supplied_facts")) and bool(ledger.get("inferred_assumptions")),
+        "recipient": not case.get("expected_recipient") or case.get("expected_recipient") in (entities.get("named_recipients") or []),
+        "quoted_text": not case.get("expected_quoted_text") or case.get("expected_quoted_text") in (entities.get("quoted_text") or []),
+        "no_unnecessary_questions": not case.get("expect_no_questions") or bool((result.get("clarification_policy") or {}).get("continue_without_questions")),
+        "no_invented_claims": {"no-fake-testimonials", "no-fake-metrics", "no-unsupported-claims"} <= guardrails,
+        "staged_retrieval": bool((result.get("recommended_retrieval") or {}).get("record_ids")) and set((result.get("recommended_retrieval") or {}).get("defer_until_needed") or []) == {"framework", "component", "motion", "performance", "browser"},
+        "production_completion": not case.get("expect_production_completion") or result.get("completion_workflow") == "production-completion-with-screenshot-refinement",
+        "request_local_privacy": (result.get("privacy") or {}).get("user_supplied_names") == "request-local" and not (result.get("privacy") or {}).get("persist_to_plugin_knowledge", True),
+    }
+    return {
+        "passed": all(checks.values()),
+        "case_id": case.get("id"),
+        "direction_diversity_case": bool(case.get("direction_diversity_case")),
+        "checks": checks,
+        "mode": result.get("task_type"),
+        "page_type": profile.get("page_type"),
+        "tone": profile.get("emotional_tone"),
+        "entities": entities,
+        "design_thesis": profile.get("design_thesis"),
+        "direction_profile": {
+            "domain": profile.get("domain"),
+            "page_type": profile.get("page_type"),
+            "visual_intensity": profile.get("visual_intensity"),
+            "motion_intensity": profile.get("motion_intensity"),
+            "tone": profile.get("emotional_tone"),
+            "composition": profile.get("suggested_composition"),
+            "hero": profile.get("hero_treatment"),
+            "typography": profile.get("typography_direction"),
+            "palette_material": profile.get("color_material_direction"),
+            "components": profile.get("component_styling"),
+            "direction": profile.get("direction"),
+        },
+    }
+
+
+def skill_activation_evidence() -> dict[str, Any]:
+    skill = SKILL_PATH.read_text(encoding="utf-8").lower()
+    agent = SKILL_AGENT_PATH.read_text(encoding="utf-8").lower()
+    triggers = (
+        "make a website", "build a site", "build a landing page", "create a frontend",
+        "turn this idea into a website", "make this page stunning", "redesign this frontend",
+        "make this production-ready", "build a page addressed to someone", "create a visual web experience",
+    )
+    found = {trigger: trigger in skill for trigger in triggers}
+    return {
+        "passed": all(found.values()) and "allow_implicit_invocation: true" in agent,
+        "trigger_phrases": found,
+        "implicit_invocation": "allow_implicit_invocation: true" in agent,
+        "skill": str(SKILL_PATH),
+        "agent_metadata": str(SKILL_AGENT_PATH),
+    }
+
+
+def direction_diversity_evidence(rows: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
+    selected = [row for row in rows if row.get("direction_diversity_case")]
+    profiles = [row["direction_profile"] for row in selected]
+    style_fields = ("palette_material", "typography", "composition", "hero", "components", "tone")
+    unique_counts = {
+        field: len({json.dumps(profile.get(field), sort_keys=True, ensure_ascii=False) for profile in profiles})
+        for field in (*style_fields, "motion_intensity", "visual_intensity", "page_type", "direction")
+    }
+    unique_rates = {field: round(count / max(1, len(profiles)), 3) for field, count in unique_counts.items()}
+    signatures = {
+        json.dumps({field: profile.get(field) for field in (*style_fields, "motion_intensity", "visual_intensity", "page_type")}, sort_keys=True, ensure_ascii=False)
+        for profile in profiles
+    }
+    similar_pairs = []
+    for left_index, left in enumerate(selected):
+        left_tokens = tokens(left["direction_profile"])
+        for right in selected[left_index + 1:]:
+            right_tokens = tokens(right["direction_profile"])
+            union = left_tokens | right_tokens
+            similarity = len(left_tokens & right_tokens) / len(union) if union else 1.0
+            if similarity >= 0.78:
+                similar_pairs.append({"left": left["case_id"], "right": right["case_id"], "similarity": round(similarity, 3)})
+    intensity_levels = sorted({profile.get("visual_intensity") for profile in profiles if isinstance(profile.get("visual_intensity"), int)})
+    motion_levels = sorted({str(profile.get("motion_intensity")) for profile in profiles})
+    gates = {
+        "case_coverage": len(selected) >= 10,
+        "full_signature_uniqueness": len(signatures) / max(1, len(selected)) >= 0.9,
+        "style_dimension_diversity": all(unique_rates[field] >= 0.65 for field in style_fields),
+        "visual_intensity_range": set(intensity_levels) == {1, 2, 3, 4, 5},
+        "motion_range": len(motion_levels) >= 4,
+        "no_overly_similar_cross-domain_pairs": not similar_pairs,
+    }
+    return {
+        "passed": all(gates.values()),
+        "cases": len(selected),
+        "gates": gates,
+        "unique_counts": unique_counts,
+        "unique_rates": unique_rates,
+        "visual_intensity_levels": intensity_levels,
+        "motion_levels": motion_levels,
+        "overly_similar_pairs": similar_pairs,
+        "profiles": [{"case_id": row["case_id"], **row["direction_profile"]} for row in selected],
+    }
 
 
 def score_retrieval(case: Mapping[str, Any], packet: Mapping[str, Any]) -> dict[str, Any]:
@@ -180,6 +333,7 @@ def retrieval_eval(args: argparse.Namespace) -> dict[str, Any]:
     engine = SERVER.RetrievalEngine(Path(args.knowledge_dir))
     variants = ["baseline", "static-skill", "lexical", "hybrid"]
     case_rows = []
+    classification_rows = []
     grouped: dict[str, list[dict[str, Any]]] = {variant: [] for variant in variants}
     for case in cases:
         variant_rows = {}
@@ -188,17 +342,36 @@ def retrieval_eval(args: argparse.Namespace) -> dict[str, Any]:
             score = score_retrieval(case, packet)
             grouped[variant].append(score)
             variant_rows[variant] = score
-        case_rows.append({"id": case["id"], "name": case["name"], "variants": variant_rows})
+        classification = score_classification(case)
+        if classification is not None:
+            classification_rows.append(classification)
+        case_rows.append({"id": case["id"], "name": case["name"], "variants": variant_rows, "classification": classification})
     aggregates = {variant: aggregate(rows) for variant, rows in grouped.items()}
     hybrid = aggregates["hybrid"]
     lexical = aggregates["lexical"]
+    activation = skill_activation_evidence()
+    direction_diversity = direction_diversity_evidence(classification_rows)
+    classification_checks = sorted({name for row in classification_rows for name in row["checks"]})
+    classification_summary = {
+        "cases": len(classification_rows),
+        "passed_cases": sum(row["passed"] for row in classification_rows),
+        "pass_rate": round(sum(row["passed"] for row in classification_rows) / max(1, len(classification_rows)), 3),
+        "check_rates": {
+            name: round(sum(bool(row["checks"].get(name)) for row in classification_rows) / max(1, len(classification_rows)), 3)
+            for name in classification_checks
+        },
+    }
     gates = {
         "mandatory_rule_recall": hybrid["mandatory_rule_recall"] >= float(args.min_mandatory_recall),
         "duplicate_rate": hybrid["duplicate_rate"] <= float(args.max_duplicate_rate),
+        "irrelevant_token_rate": hybrid["irrelevant_token_rate"] <= float(args.max_irrelevant_token_rate),
         "context_budget": all(row["context_tokens"] <= int(case.get("context_budget") or 4200) for row, case in zip(grouped["hybrid"], cases)),
         "provenance_correctness": hybrid["provenance_correctness"] >= float(args.min_provenance),
         "hybrid_not_below_lexical": hybrid["quality_score"] + 0.001 >= lexical["quality_score"],
         "latency": hybrid["latency_p95_ms"] <= float(args.max_p95_latency_ms),
+        "minimal_prompt_skill_activation": activation["passed"],
+        "minimal_prompt_classification": bool(classification_rows) and classification_summary["pass_rate"] == 1.0,
+        "context_adaptive_direction_diversity": direction_diversity["passed"],
     }
     return {
         "schema_version": 1,
@@ -207,10 +380,14 @@ def retrieval_eval(args: argparse.Namespace) -> dict[str, Any]:
         "summary": {"errors": sum(not value for value in gates.values()), "warnings": 0},
         "cases": case_rows,
         "aggregates": aggregates,
+        "classification": classification_summary,
+        "direction_diversity": direction_diversity,
+        "skill_activation": activation,
         "gates": gates,
         "thresholds": {
             "min_mandatory_recall": args.min_mandatory_recall,
             "max_duplicate_rate": args.max_duplicate_rate,
+            "max_irrelevant_token_rate": args.max_irrelevant_token_rate,
             "min_provenance": args.min_provenance,
             "max_p95_latency_ms": args.max_p95_latency_ms,
         },
@@ -219,7 +396,7 @@ def retrieval_eval(args: argparse.Namespace) -> dict[str, Any]:
             "baseline": "No plugin guidance.",
             "static-skill": "Small offline mandatory kernel, capped at five records.",
             "lexical": "Canonical corpus with metadata and exact/keyword scoring; synonym expansion disabled.",
-            "hybrid": "Canonical corpus with classification, metadata, exact/lexical scoring, deterministic synonym expansion, reranking, dedupe, mandatory preservation, and budgets.",
+            "hybrid": "Canonical corpus with creative-profile classification, stage-specific autonomous routing, metadata, exact/lexical scoring, deterministic synonym expansion, reranking, dedupe, mandatory preservation, and budgets.",
             "latency_note": "Latency is observed wall time and therefore informational, while relevance scoring and selection are deterministic for a fixed corpus.",
         },
     }
@@ -289,13 +466,29 @@ def markdown(value: Mapping[str, Any]) -> str:
             lines.append(f"| {variant} | {row['quality_score']:.3f} | {row['precision']:.3f} | {row['recall']:.3f} | {row['mandatory_rule_recall']:.3f} | {row['duplicate_rate']:.3f} | {row['irrelevant_token_rate']:.3f} | {row['provenance_correctness']:.3f} | {row['context_tokens']:.0f} | {row['latency_p95_ms']:.3f} |")
         lines.extend(["", "## Gates", ""])
         lines.extend(f"- {'PASS' if passed else 'FAIL'} — {name}" for name, passed in value["gates"].items())
+        classification = value.get("classification") or {}
+        lines.extend([
+            "", "## Minimal-prompt classification", "",
+            f"Passed cases: {classification.get('passed_cases', 0)} / {classification.get('cases', 0)}",
+            f"Skill activation: {'PASS' if (value.get('skill_activation') or {}).get('passed') else 'FAIL'}",
+        ])
+        diversity = value.get("direction_diversity") or {}
+        lines.extend([
+            "", "## Context-adaptive direction", "",
+            f"Direction cases: {diversity.get('cases', 0)}",
+            f"Diversity gate: {'PASS' if diversity.get('passed') else 'FAIL'}",
+            f"Visual intensity levels: {', '.join(str(item) for item in diversity.get('visual_intensity_levels', []))}",
+            f"Overly similar pairs: {len(diversity.get('overly_similar_pairs', []))}",
+        ])
     else:
         lines.extend([f"Scored cases: {value.get('scored_cases', 0)} / {value.get('case_count', 0)}", "", value.get("integrity_rule", "")])
     lines.extend(["", "## Case status", ""])
     for case in value.get("cases", []):
         if "variants" in case:
             score = case["variants"]["hybrid"]["quality_score"]
-            lines.append(f"- `{case['id']}` — hybrid quality {score:.3f}")
+            classification = case.get("classification")
+            suffix = f"; classification {'PASS' if classification.get('passed') else 'FAIL'} ({classification.get('mode')})" if classification else ""
+            lines.append(f"- `{case['id']}` — hybrid quality {score:.3f}{suffix}")
         else:
             lines.append(f"- `{case['id']}` — {case['status']}")
     lines.append("")
@@ -319,6 +512,7 @@ def retrieval_parser() -> argparse.ArgumentParser:
     parser.add_argument("--md-out", type=Path, default=EVAL_ROOT / "results" / "retrieval.md")
     parser.add_argument("--min-mandatory-recall", type=float, default=0.45)
     parser.add_argument("--max-duplicate-rate", type=float, default=0.10)
+    parser.add_argument("--max-irrelevant-token-rate", type=float, default=0.38)
     parser.add_argument("--min-provenance", type=float, default=0.95)
     parser.add_argument("--max-p95-latency-ms", type=float, default=100.0)
     return parser

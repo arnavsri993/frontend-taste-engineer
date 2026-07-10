@@ -1,0 +1,106 @@
+{
+  "id": "workflow.autonomous-zero-brief-build",
+  "title": "Autonomous zero-brief frontend build workflow",
+  "version": "0.2.0",
+  "status": "active",
+  "last_reviewed": "2026-07-10",
+  "applies_to": [
+    "minimal website or page creation prompt",
+    "minimal landing-page or portfolio prompt",
+    "minimal substantial frontend redesign prompt"
+  ],
+  "inputs": [
+    "short user prompt",
+    "current repository and running product when available",
+    "supplied facts, names, quoted text, assets, and constraints"
+  ],
+  "steps": [
+    {
+      "id": "inspect-classify",
+      "title": "Inspect the project and classify the build",
+      "actions": [
+        "Inspect framework, routes, assets, dependencies, design-system conventions, and the running product when available.",
+        "Choose new-build or redesign without replacing useful architecture.",
+        "Extract named people, quoted text, products, groups, events, and concepts from the request."
+      ],
+      "evidence": ["repository inventory", "classification packet", "before-state evidence for redesigns"],
+      "rule_refs": ["product.outcome-first-brief", "architecture.progressive-enhancement"],
+      "exit_criteria": ["The operating mode is autonomous-zero-brief-build and project constraints are explicit."]
+    },
+    {
+      "id": "infer-brief",
+      "title": "Infer a reversible creative brief",
+      "actions": [
+        "Infer domain, product type, interface archetype, purpose, primary and secondary tasks, audience, message, emotional objective, trust, risk, density, frequency, seriousness, maturity, devices, accessibility needs, visual and motion intensity, experimental tolerance, familiarity, page type, and required states.",
+        "Separate supplied facts from creative assumptions.",
+        "Continue without routine questions when uncertainty is reversible."
+      ],
+      "evidence": ["creative profile", "fact and assumption ledger", "acceptance criteria"],
+      "rule_refs": ["product.outcome-first-brief", "product.requirement-priority", "ia.one-primary-task"],
+      "exit_criteria": ["The brief is specific enough to reject generic or contextually wrong output."]
+    },
+    {
+      "id": "direction-copy",
+      "title": "Choose direction and write complete copy",
+      "actions": [
+        "Write a one-sentence design thesis and select a context-specific intensity, composition, hero treatment, type, color/material, imagery, component, and motion stance.",
+        "Treat quality adjectives as execution targets rather than automatic permission for flashy, dark, cinematic, or highly animated styling.",
+        "Retrieve only brief-stage product, content, direction, composition, typography, responsive, accessibility, integrity, and completion records.",
+        "Write original finished copy without placeholders or unsupported factual claims."
+      ],
+      "evidence": ["DESIGN.md", "design thesis", "content outline", "stage retrieval packet"],
+      "rule_refs": ["direction.choose-intentional-axis", "direction.content-before-chrome", "content.front-load-meaning", "integrity.truthful-proof"],
+      "exit_criteria": ["Direction and copy support the inferred purpose and differ meaningfully across different prompts."]
+    },
+    {
+      "id": "implement",
+      "title": "Implement the complete frontend",
+      "actions": [
+        "Implement semantic structure, responsive composition, finished copy, functional controls, and reachable states.",
+        "Add keyboard behavior, visible focus, accessible names, error recovery, and reduced-motion behavior during implementation.",
+        "Add purposeful motion only when it supports continuity, feedback, causality, or narrative orientation."
+      ],
+      "evidence": ["working implementation", "state fixtures", "interaction checks"],
+      "rule_refs": ["component.native-first", "component.state-completeness", "a11y.keyboard-complete", "motion.reduced-motion-equivalence", "responsive.recompose-not-shrink"],
+      "exit_criteria": ["The primary experience is complete and honest rather than a scaffold, plan, or wireframe."]
+    },
+    {
+      "id": "render-inspect",
+      "title": "Run and inspect rendered desktop and mobile output",
+      "actions": [
+        "Run the application and capture meaningful desktop and mobile screenshots.",
+        "Inspect hierarchy, composition, typography, spacing, color, imagery, copy, motion, responsive behavior, focus, overflow, and console state.",
+        "Compare the rendered result with the design thesis and record the three highest-impact weaknesses."
+      ],
+      "evidence": ["desktop capture", "mobile capture", "runtime observations", "top-three weakness list"],
+      "rule_refs": ["responsive.content-driven-reflow", "type.readable-measure", "a11y.contrast-and-focus", "testing.story-state-coverage"],
+      "exit_criteria": ["The implementation was visually inspected at both desktop and mobile widths; static analysis alone is insufficient."]
+    },
+    {
+      "id": "refine",
+      "title": "Replace generic output and fix the largest gaps",
+      "actions": [
+        "Run the contextual anti-slop review and require a product or narrative reason for familiar generated patterns.",
+        "Fix the three highest-impact weaknesses.",
+        "Capture and inspect the revised interface again."
+      ],
+      "evidence": ["anti-slop review", "implemented fixes", "revised captures", "before and after comparison"],
+      "rule_refs": ["anti.card-everything", "anti.hero-empty-scale", "anti.motion-everywhere", "direction.systemic-distinctiveness"],
+      "exit_criteria": ["Remaining changes are low value or a real limitation is documented."]
+    },
+    {
+      "id": "verify-complete",
+      "title": "Verify production completion and report concisely",
+      "actions": [
+        "Run the production build and applicable type, lint, test, accessibility, link, metadata, console, overflow, and configured private-term checks.",
+        "Verify routes and asset paths from production output.",
+        "Report the result, evidence, assumptions, limitations, and deployment boundary without narrating routine process."
+      ],
+      "evidence": ["production build result", "gate report", "completion report", "deployment-ready output"],
+      "rule_refs": ["delivery.definition-of-done", "testing.browser-risk-matrix", "performance.core-web-vitals-budget", "integrity.truthful-proof"],
+      "exit_criteria": ["Every applicable blocking gate passes or is reported honestly with reproducible evidence."]
+    }
+  ],
+  "outputs": ["complete frontend", "DESIGN.md", "desktop and mobile captures", "refinement evidence", "privacy-reviewed production verification", "concise completion report"],
+  "completion_gate_refs": ["gate.requirements", "gate.content", "gate.visual-direction", "gate.states", "gate.accessibility", "gate.responsive", "gate.performance", "gate.browsers", "gate.integrity", "gate.release"]
+}

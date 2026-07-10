@@ -1,5 +1,5 @@
 {
-  "corpus_fingerprint": "fd6f5f78fc19c52aea23e1997b173456ed36f49a018d03dcf5e8b9c5af8a8b48",
+  "corpus_fingerprint": "08e2313ef65ddeb0f7966de3141bdacc2d28dc7162cfd873843c8c04d9dd2a10",
   "generator": "scripts/generate_index.py",
   "record_count": 73,
   "records": [
@@ -20,7 +20,7 @@
       "sources": [
         "wcag-22",
         "uswds",
-        "material3"
+        "material-3"
       ],
       "status": "stable",
       "subtopic": "perception",
@@ -144,9 +144,9 @@
       "importance": "recommended",
       "origin": "records/anti-slop.json",
       "sources": [
-        "taste-skill",
-        "material3",
-        "carbon"
+        "taste-skill-repo",
+        "material-3",
+        "carbon-design-system"
       ],
       "status": "experimental",
       "subtopic": "bento-overuse",
@@ -173,9 +173,9 @@
       "importance": "mandatory",
       "origin": "records/anti-slop.json",
       "sources": [
-        "taste-skill",
+        "taste-skill-repo",
         "govuk-design-system",
-        "carbon"
+        "carbon-design-system"
       ],
       "status": "specialized",
       "subtopic": "card-overuse",
@@ -204,8 +204,8 @@
       "importance": "recommended",
       "origin": "records/anti-slop.json",
       "sources": [
-        "taste-skill",
-        "material3",
+        "taste-skill-repo",
+        "material-3",
         "apple-hig",
         "webdev"
       ],
@@ -234,9 +234,9 @@
       "importance": "recommended",
       "origin": "records/anti-slop.json",
       "sources": [
-        "taste-skill",
+        "taste-skill-repo",
         "wcag-22",
-        "material3"
+        "material-3"
       ],
       "status": "experimental",
       "subtopic": "gradient-overuse",
@@ -263,7 +263,7 @@
       "importance": "mandatory",
       "origin": "records/anti-slop.json",
       "sources": [
-        "taste-skill",
+        "taste-skill-repo",
         "webdev",
         "govuk-design-system"
       ],
@@ -294,10 +294,10 @@
       "importance": "mandatory",
       "origin": "records/anti-slop.json",
       "sources": [
-        "taste-skill",
+        "taste-skill-repo",
         "wcag-22",
-        "transitions-dev",
-        "emil-kowalski-animation"
+        "transitions-dev-repo",
+        "emil-design-skills"
       ],
       "status": "specialized",
       "subtopic": "motion-overuse",
@@ -327,10 +327,10 @@
       "importance": "recommended",
       "origin": "records/anti-slop.json",
       "sources": [
-        "taste-skill",
-        "material3",
+        "taste-skill-repo",
+        "material-3",
         "polaris",
-        "carbon"
+        "carbon-design-system"
       ],
       "status": "experimental",
       "subtopic": "pill-overuse",
@@ -543,7 +543,7 @@
       "sources": [
         "wcag-22",
         "uswds",
-        "spectrum"
+        "spectrum-design-system"
       ],
       "status": "stable",
       "subtopic": "state-communication",
@@ -569,9 +569,9 @@
       "origin": "records/layout-type-color.json",
       "sources": [
         "wcag-22",
-        "material3",
-        "fluent2",
-        "spectrum"
+        "material-3",
+        "fluent-2",
+        "spectrum-design-system"
       ],
       "status": "stable",
       "subtopic": "palette",
@@ -599,7 +599,7 @@
       "origin": "records/components-forms.json",
       "sources": [
         "apple-hig",
-        "material3",
+        "material-3",
         "govuk-design-system",
         "wai-aria-apg"
       ],
@@ -631,9 +631,9 @@
       "importance": "recommended",
       "origin": "records/components-forms.json",
       "sources": [
-        "material3",
+        "material-3",
         "polaris",
-        "carbon",
+        "carbon-design-system",
         "react-aria"
       ],
       "status": "stable",
@@ -732,7 +732,7 @@
         "wai-aria-apg",
         "react-aria",
         "radix-primitives",
-        "material3"
+        "material-3"
       ],
       "status": "stable",
       "subtopic": "states",
@@ -818,7 +818,7 @@
       "importance": "mandatory",
       "origin": "records/architecture-delivery.json",
       "sources": [
-        "taste-skill",
+        "taste-skill-repo",
         "wcag-22",
         "webdev",
         "mdn-web-docs"
@@ -853,7 +853,7 @@
         "nextjs-docs",
         "react-docs",
         "webdev",
-        "carbon"
+        "carbon-design-system"
       ],
       "status": "specialized",
       "subtopic": "release-strategy",
@@ -877,8 +877,8 @@
       "importance": "mandatory",
       "origin": "records/direction-systems.json",
       "sources": [
-        "taste-skill",
-        "material3",
+        "taste-skill-repo",
+        "material-3",
         "apple-hig"
       ],
       "status": "specialized",
@@ -905,7 +905,7 @@
       "importance": "mandatory",
       "origin": "records/direction-systems.json",
       "sources": [
-        "taste-skill",
+        "taste-skill-repo",
         "govuk-design-system"
       ],
       "status": "stable",
@@ -931,8 +931,8 @@
       "importance": "mandatory",
       "origin": "records/direction-systems.json",
       "sources": [
-        "taste-skill",
-        "spectrum"
+        "taste-skill-repo",
+        "spectrum-design-system"
       ],
       "status": "specialized",
       "subtopic": "reference-analysis",
@@ -957,9 +957,9 @@
       "importance": "recommended",
       "origin": "records/direction-systems.json",
       "sources": [
-        "taste-skill",
-        "material3",
-        "fluent2"
+        "taste-skill-repo",
+        "material-3",
+        "fluent-2"
       ],
       "status": "specialized",
       "subtopic": "brand-expression",
@@ -1083,8 +1083,8 @@
       "origin": "records/trust-global-browser.json",
       "sources": [
         "mdn-web-docs",
-        "material3",
-        "spectrum"
+        "material-3",
+        "spectrum-design-system"
       ],
       "status": "stable",
       "subtopic": "bidirectionality",
@@ -1117,9 +1117,9 @@
       "origin": "records/trust-global-browser.json",
       "sources": [
         "mdn-web-docs",
-        "material3",
+        "material-3",
         "apple-hig",
-        "spectrum"
+        "spectrum-design-system"
       ],
       "status": "stable",
       "subtopic": "text-expansion",
@@ -1180,8 +1180,8 @@
       "origin": "records/product-content.json",
       "sources": [
         "govuk-design-system",
-        "material3",
-        "taste-skill"
+        "material-3",
+        "taste-skill-repo"
       ],
       "status": "stable",
       "subtopic": "task-hierarchy",
@@ -1210,7 +1210,7 @@
       "sources": [
         "wai-aria-apg",
         "mdn-web-docs",
-        "carbon"
+        "carbon-design-system"
       ],
       "status": "stable",
       "subtopic": "progressive-disclosure",
@@ -1239,9 +1239,9 @@
       "importance": "mandatory",
       "origin": "records/responsive-motion-media.json",
       "sources": [
-        "material3",
+        "material-3",
         "apple-hig",
-        "fluent2",
+        "fluent-2",
         "wcag-22"
       ],
       "status": "stable",
@@ -1301,7 +1301,7 @@
       "importance": "mandatory",
       "origin": "records/anti-slop.json",
       "sources": [
-        "taste-skill",
+        "taste-skill-repo",
         "mdn-web-docs"
       ],
       "status": "stable",
@@ -1331,7 +1331,7 @@
       "importance": "mandatory",
       "origin": "records/anti-slop.json",
       "sources": [
-        "taste-skill",
+        "taste-skill-repo",
         "govuk-design-system",
         "uswds",
         "polaris"
@@ -1392,9 +1392,9 @@
       "importance": "recommended",
       "origin": "records/layout-type-color.json",
       "sources": [
-        "taste-skill",
-        "material3",
-        "carbon"
+        "taste-skill-repo",
+        "material-3",
+        "carbon-design-system"
       ],
       "status": "stable",
       "subtopic": "spacing-rhythm",
@@ -1454,9 +1454,9 @@
       "importance": "recommended",
       "origin": "records/responsive-motion-media.json",
       "sources": [
-        "transitions-dev",
-        "emil-kowalski-animation",
-        "material3",
+        "transitions-dev-repo",
+        "emil-design-skills",
+        "material-3",
         "apple-hig"
       ],
       "status": "specialized",
@@ -1488,8 +1488,8 @@
       "importance": "mandatory",
       "origin": "records/responsive-motion-media.json",
       "sources": [
-        "transitions-dev",
-        "emil-kowalski-animation",
+        "transitions-dev-repo",
+        "emil-design-skills",
         "mdn-web-docs",
         "react-docs"
       ],
@@ -1520,8 +1520,8 @@
       "sources": [
         "wcag-22",
         "mdn-web-docs",
-        "transitions-dev",
-        "emil-kowalski-animation"
+        "transitions-dev-repo",
+        "emil-design-skills"
       ],
       "status": "stable",
       "subtopic": "user-preference",
@@ -1611,7 +1611,7 @@
       "sources": [
         "mdn-web-docs",
         "react-docs",
-        "taste-skill"
+        "taste-skill-repo"
       ],
       "status": "stable",
       "subtopic": "data-reality",
@@ -1636,7 +1636,7 @@
       "importance": "recommended",
       "origin": "records/product-content.json",
       "sources": [
-        "taste-skill",
+        "taste-skill-repo",
         "webdev"
       ],
       "status": "stable",
@@ -1661,7 +1661,7 @@
       "importance": "mandatory",
       "origin": "records/product-content.json",
       "sources": [
-        "taste-skill",
+        "taste-skill-repo",
         "govuk-design-system"
       ],
       "status": "stable",
@@ -1687,7 +1687,7 @@
       "importance": "mandatory",
       "origin": "records/product-content.json",
       "sources": [
-        "taste-skill",
+        "taste-skill-repo",
         "uswds"
       ],
       "status": "stable",
@@ -1719,7 +1719,7 @@
       "sources": [
         "webdev",
         "mdn-web-docs",
-        "material3"
+        "material-3"
       ],
       "status": "stable",
       "subtopic": "breakpoints",
@@ -1781,7 +1781,7 @@
         "wcag-22",
         "webdev",
         "apple-hig",
-        "material3"
+        "material-3"
       ],
       "status": "stable",
       "subtopic": "small-screens",
@@ -1844,7 +1844,7 @@
       "origin": "records/trust-global-browser.json",
       "sources": [
         "apple-hig",
-        "material3",
+        "material-3",
         "govuk-design-system"
       ],
       "status": "stable",
@@ -1965,10 +1965,10 @@
       "importance": "recommended",
       "origin": "records/direction-systems.json",
       "sources": [
-        "carbon",
+        "carbon-design-system",
         "polaris",
-        "primer",
-        "spectrum"
+        "primer-design-system",
+        "spectrum-design-system"
       ],
       "status": "specialized",
       "subtopic": "governance",
@@ -2021,9 +2021,9 @@
       "importance": "mandatory",
       "origin": "records/direction-systems.json",
       "sources": [
-        "carbon",
+        "carbon-design-system",
         "polaris",
-        "primer",
+        "primer-design-system",
         "uswds"
       ],
       "status": "stable",
@@ -2050,9 +2050,9 @@
       "importance": "mandatory",
       "origin": "records/direction-systems.json",
       "sources": [
-        "material3",
-        "fluent2",
-        "carbon",
+        "material-3",
+        "fluent-2",
+        "carbon-design-system",
         "polaris"
       ],
       "status": "stable",
@@ -2165,9 +2165,9 @@
       "importance": "mandatory",
       "origin": "records/layout-type-color.json",
       "sources": [
-        "material3",
-        "fluent2",
-        "carbon",
+        "material-3",
+        "fluent-2",
+        "carbon-design-system",
         "webdev"
       ],
       "status": "stable",

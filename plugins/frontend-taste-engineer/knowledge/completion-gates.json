@@ -1,7 +1,7 @@
 {
   "id": "gates.frontend-completion",
   "title": "Frontend completion gates",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "stable",
   "last_reviewed": "2026-07-10",
   "policy": {
@@ -34,8 +34,8 @@
       "title": "Visual direction and system coherence",
       "severity": "blocking",
       "applies_when": ["The change adds or materially revises visual language."],
-      "pass_conditions": ["Direction is tied to audience, content, and explicit axes.", "Signature signals are repeatable and restrained.", "Tokens and component roles replace unexplained local values.", "Anti-pattern detectors have been reviewed rather than ignored."],
-      "required_evidence": ["Direction decision", "token or role mapping", "anti-slop review"],
+      "pass_conditions": ["Direction is tied to audience, content, and explicit axes.", "Signature signals are repeatable and restrained.", "Tokens and component roles replace unexplained local values.", "Anti-pattern detectors have been reviewed rather than ignored.", "Substantial generated builds have desktop and mobile captures compared against the design thesis, followed by a documented high-impact refinement pass."],
+      "required_evidence": ["Direction decision", "token or role mapping", "anti-slop review", "desktop and mobile captures plus refinement notes for substantial generated builds"],
       "rule_refs": ["direction.choose-intentional-axis", "direction.systemic-distinctiveness", "system.semantic-tokens"]
     },
     {
@@ -106,8 +106,8 @@
       "title": "Anti-slop and reconstruction integrity",
       "severity": "blocking",
       "applies_when": ["Any generated, reference-led, screenshot-led, or materially art-directed work."],
-      "pass_conditions": ["Observed, inferred, and assumed decisions are distinguished when fidelity is claimed.", "No proof, metrics, logos, content, or states are fabricated.", "Cards, pills, gradients, bento, oversized heroes, effects, and motion have contextual reasons rather than template defaults.", "Alternatives and false-positive rationale were reviewed."],
-      "required_evidence": ["Evidence or assumption ledger", "anti-pattern review", "claim provenance", "reference comparison when applicable"],
+      "pass_conditions": ["Observed, inferred, and assumed decisions are distinguished when fidelity is claimed.", "No proof, metrics, logos, content, or states are fabricated.", "Cards, pills, gradients, bento, oversized heroes, effects, and motion have contextual reasons rather than template defaults.", "Alternatives and false-positive rationale were reviewed.", "Request-local names and messages are absent from reusable knowledge, public fixtures, public evidence, and packages unless publication was explicitly approved."],
+      "required_evidence": ["Evidence or assumption ledger", "anti-pattern review", "claim provenance", "reference comparison when applicable", "configured private-term scan and manual screenshot review when request-local content exists"],
       "rule_refs": ["integrity.reconstruction-evidence", "integrity.truthful-proof", "anti.card-everything", "anti.gradient-everywhere", "anti.pill-overload", "anti.bento-by-default", "anti.hero-empty-scale", "anti.effects-stack", "anti.motion-everywhere"]
     },
     {
@@ -124,7 +124,7 @@
       "title": "Release and observability",
       "severity": "blocking",
       "applies_when": ["Any production deployment."],
-      "pass_conditions": ["Production output—not only development mode—was tested.", "Rollback or disable path exists for material risk.", "Outcome, error, performance, and critical integrity signals have owners and thresholds.", "Known waivers and changes are communicated."],
+      "pass_conditions": ["Production output—not only development mode—was tested.", "Routes, asset paths, metadata, console state, broken links, and horizontal overflow were checked against production output.", "Rollback or disable path exists for material risk.", "Outcome, error, performance, and critical integrity signals have owners and thresholds.", "Known waivers and changes are communicated."],
       "required_evidence": ["Production-build results", "release plan", "rollback test", "monitoring and ownership record"],
       "rule_refs": ["delivery.incremental-release", "delivery.definition-of-done", "performance.core-web-vitals-budget"]
     }

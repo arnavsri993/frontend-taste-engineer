@@ -1,6 +1,6 @@
 ---
 name: frontend-taste-engineer
-description: Plan, design, implement, audit, refine, reconstruct, and verify production web interfaces with source-backed frontend guidance. Use for greenfield sites and applications, redesigns, screenshot reconstruction, component or design-system work, accessibility and performance remediation, responsive behavior, motion refinement, visual audits, and frontend quality reviews across HTML/CSS/JavaScript, React, Next.js, Vue, Nuxt, Svelte, SvelteKit, Astro, Web Components, and common styling systems.
+description: Autonomously expand minimal frontend prompts into complete, context-appropriate, distinctive, responsive, accessible, tested, deployment-ready implementations, while also planning, building, auditing, refining, reconstructing, and verifying production web interfaces. Use for requests such as make a website, build a site, build a landing page, create a frontend, turn this idea into a website, make this page stunning, redesign this frontend, make this production-ready, build a page addressed to someone, or create a visual web experience; also use for detailed greenfield sites and applications, screenshot reconstruction, component or design-system work, accessibility and performance remediation, responsive behavior, motion refinement, and visual audits across HTML/CSS/JavaScript, React, Next.js, Vue, Nuxt, Svelte, SvelteKit, Astro, Web Components, and common styling systems.
 ---
 
 # Frontend Taste Engineer
@@ -10,7 +10,7 @@ Build interfaces that are visually intentional and product-correct. Treat an att
 ## Start here
 
 1. Inspect the repository, relevant files, existing design system, and running product when available.
-2. Classify the task and operating mode before proposing changes.
+2. Classify the task and operating mode before proposing changes. For short page/site/redesign prompts, call `classify_frontend_task` with the user's exact prompt.
 3. Form a concise product/UX brief and a one-sentence design thesis.
 4. Retrieve only guidance relevant to the current stage and risk.
 5. Implement real behavior and required states before decorative polish.
@@ -22,6 +22,7 @@ For substantial work, create or update `DESIGN.md` using `assets/DESIGN.template
 
 Choose one primary mode:
 
+- `autonomous-zero-brief-build`: default for a minimal website, page, landing page, frontend, portfolio, web-experience, product-polish, or substantial redesign request.
 - `greenfield-build`: new page, product surface, or application.
 - `existing-redesign`: improve an existing interface without needless rewrites.
 - `screenshot-reconstruction`: reproduce supplied visual evidence responsively.
@@ -33,6 +34,39 @@ Choose one primary mode:
 - `performance-remediation`: improve measured delivery, rendering, or interaction cost.
 
 Also record task size (`tiny`, `component`, `page`, `multi-page`, `audit`), page type, frameworks, components, risk, and workflow stage (`brief`, `planning`, `implementation`, `refinement`, `verification`).
+
+## Autonomous zero-brief build
+
+Select `autonomous-zero-brief-build` when the user requests a page/site/frontend or substantial visual redesign with little detail. A short prompt grants permission to infer reversible creative decisions. It does not grant permission to invent product facts, credentials, proof, integrations, or external actions.
+
+Do not select it for a tiny CSS/copy correction, a specific component, an audit-only request, screenshot reconstruction, or explicit accessibility/performance/motion remediation. Those retain their narrower modes.
+
+Execute this workflow without waiting for routine creative approval:
+
+1. Inspect the project, routes, assets, dependencies, design system, and running product. Decide new build versus redesign.
+2. Call `classify_frontend_task` with the exact prompt. Preserve quoted text and request-local named entities. Record the returned domain, product/task/trust profile, contextual intensity, supplied facts, inferred assumptions, and design thesis in `DESIGN.md`.
+3. Call `get_workflow` for the `brief` stage. Retrieve only its focused product, audience, content, direction, composition, typography, responsive, accessibility, integrity, and completion records. Retrieve framework, components, motion, performance, and browser guidance only when their stages begin.
+4. Write complete original copy. Choose a context-specific composition, type, color/material, imagery, and motion system. Do not stop at a plan, wireframe, scaffold, or hero.
+5. Implement the complete frontend, functional controls, relevant states, responsive behavior, accessibility, metadata, and honest integration boundaries.
+6. Run the interface. Capture and inspect meaningful desktop and mobile screenshots. Compare them with the thesis, run the anti-slop review, name the three highest-impact weaknesses, fix them, then capture and inspect again.
+7. Run the production build and applicable tests. Verify routes/assets, keyboard/focus, reduced motion, console state, links, content extremes, and horizontal overflow. Leave the project deployable or report the concrete blocker.
+8. Return a concise outcome-first completion report with evidence and remaining limits.
+
+Ask only for a missing required credential, approval for an irreversible external action, a legally material fact, directly contradictory requirements, or a critical factual asset that cannot be replaced honestly. Infer and continue for colors, fonts, style, sections, cards, animation, mobile support, framework choice, and other reversible creative choices.
+
+Interpret “stunning,” “world-class,” “premium,” “beautiful,” “high quality,” and “distinctive” as exceptionally appropriate and well executed—not automatically loud, dark, cinematic, gradient-heavy, or highly animated. Infer visual and motion intensity from domain, task, audience, trust, risk, density, frequency, seriousness, maturity, devices, experimental tolerance, and familiarity needs. A calm finance or public-service interface can be stunning at intensity 1–2; an expressive personal page may justify 4–5.
+
+Keep user-provided names and messages request-local by default. They may appear in the intentionally requested project, but do not copy them into this Skill, canonical knowledge, reusable examples, public evaluations, packages, or committed screenshots. Use fictional names or placeholders for reusable material and run the private-term scanner before release.
+
+Load these focused references directly when running this mode:
+
+- Read `references/autonomous-build.md` for trigger boundaries, the required sequence, and exception policy.
+- Read `references/minimal-brief-inference.md` to construct and verify the creative profile.
+- Read `references/creative-direction.md` to choose a distinctive, context-led thesis and visual system.
+- Read `references/automatic-copy.md` when supplied content is sparse.
+- Read `references/visual-refinement-loop.md` before runtime screenshot inspection and refinement.
+- Read `references/production-completion.md` before declaring the build complete.
+- Read `references/privacy-and-artifacts.md` before persisting evaluation evidence, screenshots, logs, or packages.
 
 ## Mandatory principles
 
@@ -46,6 +80,7 @@ Also record task size (`tiny`, `component`, `page`, `multi-page`, `audit`), page
 - Set proportionate performance budgets. Avoid unnecessary JavaScript, dependencies, hydration, fonts, images, animation work, and third-party scripts.
 - Preserve content integrity and localization readiness. Stress-test expansion, RTL where relevant, dates/numbers, empty data, and realistic errors.
 - Never claim testing, pixel accuracy, accessibility, or performance results that were not observed.
+- Keep request-local names and messages out of reusable plugin knowledge and public evidence unless the user explicitly approves publication.
 
 Read `references/offline-core.md` whenever MCP retrieval is unavailable or the task contains accessibility, security, or integrity risk.
 
@@ -94,6 +129,8 @@ Do not average incompatible rules. State the conflict, context, decision, conseq
 5. Decide whether to adopt, extend, or create a design system. Avoid premature abstractions.
 6. Implement functional structure and real content before art direction and motion.
 7. Verify, capture evidence, and refine the highest-impact mismatch.
+
+Use `autonomous-zero-brief-build` instead when the greenfield request is minimal; this greenfield workflow remains appropriate when the user supplies a substantive brief.
 
 ## Existing frontend redesign
 
@@ -181,6 +218,8 @@ For substantial work, perform and record the applicable checks:
 11. Comparison against the design thesis, reference, or before state.
 12. Repeat checks after high-impact refinement.
 
+For `autonomous-zero-brief-build`, desktop/mobile capture, inspection against the thesis, the anti-slop pass, correction of the three highest-impact weaknesses, recapture, and a production build are defaults rather than optional checks.
+
 Use `references/verification-matrix.md` to choose proportionate checks. Automated tools do not prove screen-reader usability, visual quality, or functional integrity.
 
 ## Completion gates
@@ -198,6 +237,8 @@ Do not call work complete until all applicable gates pass:
 - Integrity: no fake claims, dead actions, placeholders, exposed secrets, or fabricated validation.
 
 Produce a completion report with commands run, evidence captured, results, untested areas, assumptions, and known limitations. Use `assets/completion-report.template.md`.
+
+For autonomous builds, keep the user-facing report concise: lead with what was built, name the visual direction and functional scope, list executed checks and screenshot evidence, and state only material limitations. Do not make the user read the internal brief or routine process log.
 
 ## Offline fallback
 

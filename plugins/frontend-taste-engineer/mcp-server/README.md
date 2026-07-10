@@ -1,5 +1,7 @@
 # Frontend Taste Engineer MCP server
 
+Version 0.2.0 adds deterministic `autonomous-zero-brief-build` classification, entity and quoted-text extraction, inferred creative profiles, staged minimal-prompt retrieval, and rendered production-completion routing.
+
 `server.py` is a Python 3.9+ stdio MCP server with no third-party runtime
 dependencies. It reads `../knowledge/**/*.json` at startup, builds an in-memory
 index, and never writes to the corpus or uses the network.

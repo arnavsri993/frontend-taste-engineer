@@ -1,0 +1,68 @@
+{
+  "rubric": {
+    "product_fit": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "The friend-directed page turns the exact synthetic message into a focused celebratory moment with no unrelated product sections.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/DESIGN.md"}]
+    },
+    "visual_hierarchy": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "Manual desktop and mobile review found a decisive recipient-to-message-to-signature sequence with supporting copy kept subordinate.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/artifacts/screenshots/desktop.png"}]
+    },
+    "typography": {
+      "score": 4.5,
+      "evidence": [{"status": "pass", "observation": "System type is used as an authored display system with strong scale contrast, tabular micro-label rhythm, readable support copy, and no font-loading cost.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/styles.css"}]
+    },
+    "composition": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "The asymmetric desktop poster recomposes into a purposeful vertical mobile sequence instead of shrinking the desktop layout.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/artifacts/screenshots/mobile-long.png"}]
+    },
+    "information_architecture": {
+      "score": 4.5,
+      "evidence": [{"status": "pass", "observation": "One message and one replay action dominate; labels, reading order, and closing metadata remain clear at both viewport classes.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/index.html"}]
+    },
+    "interaction_quality": {
+      "score": 4,
+      "evidence": [{"status": "pass", "observation": "The replay control has keyboard/pointer behavior, visible focus, pressed/disabled feedback, focus restoration, and a local live-status update.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/script.js"}]
+    },
+    "state_completeness": {
+      "score": 4,
+      "evidence": [{"status": "partial", "observation": "Default, revealed-message, replaying/disabled, and reduced-motion outcomes are implemented; no data, permission, or network states apply to this static page.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/artifacts/screenshots/mobile-message.png"}]
+    },
+    "accessibility": {
+      "score": 4,
+      "evidence": [{"status": "partial", "observation": "Semantic structure, source order, high contrast, visible focus, forced colors, keyboard replay, live status, no-JavaScript content, and reduced motion are implemented; no full screen-reader session ran.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/index.html"}]
+    },
+    "responsive_behavior": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "Manual review covered 1440×1000, 390×844, and 390×1200 captures after a mobile-specific refinement; no horizontal overflow or clipped message remained.", "artifact": "evals/results/e2e/minimal-alex-message/result.json"}]
+    },
+    "performance": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "The production build is dependency-free with no network assets, a 15,227-byte measured payload, and 867 bytes of JavaScript.", "artifact": "evals/results/e2e/minimal-alex-message/independent-build.log", "command": "npm run build"}]
+    },
+    "content_quality": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "The exact synthetic user message is preserved and the brief supporting lines are original expressive copy without fabricated claims, metrics, or testimonials.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/index.html"}]
+    },
+    "originality": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "The finish-line editorial metaphor, route line, checker mark, warm paper, cobalt field, and safety-orange signature form a repeatable concept-specific system.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/artifacts/screenshots/desktop.png"}]
+    },
+    "maintainability": {
+      "score": 4.5,
+      "evidence": [{"status": "pass", "observation": "The implementation is split into semantic HTML, tokenized CSS, and a small single-purpose script with no dependency or framework overhead.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/styles.css"}]
+    },
+    "reference_fidelity": {
+      "score": 4,
+      "evidence": [{"status": "partial", "observation": "No visual reference was supplied; fidelity was verified against the exact synthetic message and the recorded design thesis instead.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/DESIGN.md"}]
+    },
+    "anti_generic_patterns": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "Manual review found no generic centered hero, three-card row, gradient personality, glass stack, fake proof, arbitrary icons, or scroll-reveal proliferation.", "artifact": "evals/results/e2e/minimal-alex-message/fixture/artifacts/screenshots/desktop.png"}]
+    },
+    "functional_integrity": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "The visible replay control is real, the page remains complete without JavaScript, the independent production build passes, and no external submission or backend success is implied.", "artifact": "evals/results/e2e/minimal-alex-message/result.json", "command": "python3 evals/run_autonomous_e2e.py"}]
+    }
+  }
+}

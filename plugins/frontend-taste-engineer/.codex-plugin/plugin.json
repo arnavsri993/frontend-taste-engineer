@@ -1,7 +1,7 @@
 {
   "name": "frontend-taste-engineer",
-  "version": "0.1.0",
-  "description": "Source-backed frontend intelligence for planning, building, auditing, refining, and verifying production web interfaces.",
+  "version": "0.2.0",
+  "description": "Context-adaptive minimal-prompt frontend generation plus source-backed planning, building, auditing, refinement, privacy review, and production verification.",
   "author": {
     "name": "arnavsri993",
     "email": "arnavsri993@gmail.com",
@@ -25,8 +25,8 @@
   "apps": "./.app.json",
   "interface": {
     "displayName": "Frontend Taste Engineer",
-    "shortDescription": "Build and audit exceptional production interfaces",
-    "longDescription": "A source-backed frontend operating system that combines a compact Codex Skill, hybrid MCP retrieval, deterministic audits, explicit completion gates, and maintainable research provenance. It balances product fit, visual distinction, accessibility, responsive behavior, performance, content integrity, and honest functionality.",
+    "shortDescription": "Turn tiny prompts into complete production frontends",
+    "longDescription": "A source-backed frontend operating system that autonomously expands short website and redesign prompts into complete, context-appropriate, distinctive, responsive, accessible, screenshot-refined, deployment-ready implementations. Domain-aware intensity prevents one flashy house style, while request-local content policy and private-term scanning protect reusable knowledge and public artifacts.",
     "developerName": "arnavsri993",
     "category": "Developer Tools",
     "capabilities": [
@@ -36,6 +36,7 @@
     ],
     "websiteURL": "https://github.com/arnavsri993/frontend-taste-engineer",
     "defaultPrompt": [
+      "Make a website for this idea.",
       "Design and build a distinctive, production-ready landing page for this product.",
       "Audit this frontend and fix its highest-impact usability and design problems.",
       "Rebuild this screenshot responsively while preserving accessibility."

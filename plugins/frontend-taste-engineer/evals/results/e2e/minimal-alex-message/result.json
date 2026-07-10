@@ -1,0 +1,131 @@
+{
+  "artifacts": {
+    "final_message": "final-message.md",
+    "fixture": "fixture/",
+    "independent_build": "independent-build.log",
+    "screenshots": [
+      {
+        "dimensions": [
+          1440,
+          1000
+        ],
+        "path": "artifacts/screenshots/desktop.png"
+      },
+      {
+        "dimensions": [
+          390,
+          1200
+        ],
+        "path": "artifacts/screenshots/mobile-long.png"
+      },
+      {
+        "dimensions": [
+          390,
+          844
+        ],
+        "path": "artifacts/screenshots/mobile-message.png"
+      },
+      {
+        "dimensions": [
+          390,
+          844
+        ],
+        "path": "artifacts/screenshots/mobile.png"
+      }
+    ],
+    "stderr": "codex-stderr.log",
+    "trace": "codex-events.jsonl"
+  },
+  "checks": {
+    "application_run": {
+      "evidence": "Trace records a running local interface or capture command.",
+      "passed": true
+    },
+    "autonomous_mode": {
+      "evidence": "Mode appears in trace or DESIGN.md.",
+      "passed": true
+    },
+    "codex_exit": {
+      "evidence": "exit=0",
+      "passed": true
+    },
+    "complete_frontend": {
+      "evidence": "HTML, CSS, and substantial authored source exist.",
+      "passed": true
+    },
+    "concept_inference": {
+      "evidence": "Synthetic recipient and expressive concept are present.",
+      "passed": true
+    },
+    "design_thesis": {
+      "evidence": "DESIGN.md contains a substantive design thesis.",
+      "passed": true
+    },
+    "desktop_mobile_capture": {
+      "evidence": [
+        {
+          "dimensions": [
+            1440,
+            1000
+          ],
+          "path": "artifacts/screenshots/desktop.png"
+        },
+        {
+          "dimensions": [
+            390,
+            1200
+          ],
+          "path": "artifacts/screenshots/mobile-long.png"
+        },
+        {
+          "dimensions": [
+            390,
+            844
+          ],
+          "path": "artifacts/screenshots/mobile-message.png"
+        },
+        {
+          "dimensions": [
+            390,
+            844
+          ],
+          "path": "artifacts/screenshots/mobile.png"
+        }
+      ],
+      "passed": true
+    },
+    "finished_copy": {
+      "evidence": "Requested synthetic content is present without placeholder copy.",
+      "passed": true
+    },
+    "honest_report": {
+      "evidence": "Final message reports executed evidence or limitations.",
+      "passed": true
+    },
+    "production_build": {
+      "evidence": "independent_exit=0; agent build observed=True",
+      "passed": true
+    },
+    "refinement": {
+      "evidence": "Top-three review and recapture evidence found.",
+      "passed": true
+    },
+    "screenshot_inspection": {
+      "evidence": "Trace records visual inspection and desktop/mobile artifacts exist.",
+      "passed": true
+    },
+    "skill_activation": {
+      "evidence": "Codex trace contains plugin and classifier activity.",
+      "passed": true
+    }
+  },
+  "evaluation": "autonomous-zero-brief-build-e2e",
+  "fixture_policy": "synthetic-public-safe",
+  "limitations": [
+    "Automated evidence does not prove screen-reader usability.",
+    "Raster screenshots require manual visual privacy and quality inspection."
+  ],
+  "passed": true,
+  "prompt": "Make a website directed to Alex containing “You made it — Arnav”",
+  "schema_version": 1
+}

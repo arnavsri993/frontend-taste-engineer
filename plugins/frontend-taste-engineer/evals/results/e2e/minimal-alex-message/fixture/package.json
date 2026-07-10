@@ -1,0 +1,11 @@
+{
+  "name": "frontend-taste-engineer-synthetic-e2e",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "python3 -m http.server 4173 --directory dist",
+    "capture": "node capture.mjs"
+  }
+}

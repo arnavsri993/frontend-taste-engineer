@@ -1,5 +1,5 @@
 {
-  "case_count": 16,
+  "case_count": 30,
   "cases": [
     {
       "id": "b2b-landing",
@@ -384,6 +384,505 @@
         "visual_hierarchy": null
       },
       "status": "not-run"
+    },
+    {
+      "id": "minimal-alex-message",
+      "manifest": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/evidence/minimal-alex-message.json",
+      "name": "Minimal personal message site",
+      "overall": 4.656,
+      "rubric": {
+        "accessibility": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/index.html",
+              "observation": "Semantic structure, source order, high contrast, visible focus, forced colors, keyboard replay, live status, no-JavaScript content, and reduced motion are implemented; no full screen-reader session ran.",
+              "status": "partial"
+            }
+          ],
+          "score": 4.0,
+          "valid": true
+        },
+        "anti_generic_patterns": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/artifacts/screenshots/desktop.png",
+              "observation": "Manual review found no generic centered hero, three-card row, gradient personality, glass stack, fake proof, arbitrary icons, or scroll-reveal proliferation.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "composition": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/artifacts/screenshots/mobile-long.png",
+              "observation": "The asymmetric desktop poster recomposes into a purposeful vertical mobile sequence instead of shrinking the desktop layout.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "content_quality": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/index.html",
+              "observation": "The exact synthetic user message is preserved and the brief supporting lines are original expressive copy without fabricated claims, metrics, or testimonials.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "functional_integrity": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/result.json",
+              "command": "python3 evals/run_autonomous_e2e.py",
+              "observation": "The visible replay control is real, the page remains complete without JavaScript, the independent production build passes, and no external submission or backend success is implied.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "information_architecture": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/index.html",
+              "observation": "One message and one replay action dominate; labels, reading order, and closing metadata remain clear at both viewport classes.",
+              "status": "pass"
+            }
+          ],
+          "score": 4.5,
+          "valid": true
+        },
+        "interaction_quality": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/script.js",
+              "observation": "The replay control has keyboard/pointer behavior, visible focus, pressed/disabled feedback, focus restoration, and a local live-status update.",
+              "status": "pass"
+            }
+          ],
+          "score": 4.0,
+          "valid": true
+        },
+        "maintainability": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/styles.css",
+              "observation": "The implementation is split into semantic HTML, tokenized CSS, and a small single-purpose script with no dependency or framework overhead.",
+              "status": "pass"
+            }
+          ],
+          "score": 4.5,
+          "valid": true
+        },
+        "originality": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/artifacts/screenshots/desktop.png",
+              "observation": "The finish-line editorial metaphor, route line, checker mark, warm paper, cobalt field, and safety-orange signature form a repeatable concept-specific system.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "performance": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/independent-build.log",
+              "command": "npm run build",
+              "observation": "The production build is dependency-free with no network assets, a 15,227-byte measured payload, and 867 bytes of JavaScript.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "product_fit": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/DESIGN.md",
+              "observation": "The friend-directed page turns the exact synthetic message into a focused celebratory moment with no unrelated product sections.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "reference_fidelity": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/DESIGN.md",
+              "observation": "No visual reference was supplied; fidelity was verified against the exact synthetic message and the recorded design thesis instead.",
+              "status": "partial"
+            }
+          ],
+          "score": 4.0,
+          "valid": true
+        },
+        "responsive_behavior": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/result.json",
+              "observation": "Manual review covered 1440×1000, 390×844, and 390×1200 captures after a mobile-specific refinement; no horizontal overflow or clipped message remained.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "state_completeness": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/artifacts/screenshots/mobile-message.png",
+              "observation": "Default, revealed-message, replaying/disabled, and reduced-motion outcomes are implemented; no data, permission, or network states apply to this static page.",
+              "status": "partial"
+            }
+          ],
+          "score": 4.0,
+          "valid": true
+        },
+        "typography": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/styles.css",
+              "observation": "System type is used as an authored display system with strong scale contrast, tabular micro-label rhythm, readable support copy, and no font-loading cost.",
+              "status": "pass"
+            }
+          ],
+          "score": 4.5,
+          "valid": true
+        },
+        "visual_hierarchy": {
+          "evidence": [
+            {
+              "artifact": "evals/results/e2e/minimal-alex-message/fixture/artifacts/screenshots/desktop.png",
+              "observation": "Manual desktop and mobile review found a decisive recipient-to-message-to-signature sequence with supporting copy kept subordinate.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        }
+      },
+      "status": "scored"
+    },
+    {
+      "id": "minimal-robotics-team",
+      "name": "Minimal robotics team site",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "minimal-ai-study-group",
+      "name": "Minimal AI study group landing page",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "minimal-portfolio",
+      "name": "Minimal impossible-to-ignore portfolio",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "minimal-machines-alive",
+      "name": "Minimal conceptual sentence experience",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "minimal-funny-late-friend",
+      "name": "Minimal humorous friend site",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "minimal-premium-product",
+      "name": "Minimal premium product redesign",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "minimal-public-service",
+      "name": "Minimal serious public-service page",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "adaptive-personal-finance",
+      "name": "Calm personal-finance dashboard",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "adaptive-banking-onboarding",
+      "name": "Serious banking onboarding flow",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "adaptive-investment-analytics",
+      "name": "Dense investment analytics interface",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "adaptive-enterprise-product",
+      "name": "Professional enterprise product",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "adaptive-developer-tool",
+      "name": "Precise developer tool",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "adaptive-premium-ecommerce",
+      "name": "Premium ecommerce product page",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
     }
   ],
   "evaluation": "frontend-output",
@@ -409,10 +908,10 @@
     "functional_integrity"
   ],
   "schema_version": 1,
-  "scored_cases": 0,
+  "scored_cases": 1,
   "summary": {
-    "errors": 16,
+    "errors": 29,
     "warnings": 0
   },
-  "unscored_cases": 16
+  "unscored_cases": 29
 }

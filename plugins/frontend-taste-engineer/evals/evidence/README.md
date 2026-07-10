@@ -24,3 +24,9 @@ a `score` from 0–5 and at least one evidence item:
 
 The evaluator intentionally leaves missing cases unscored. It does not infer
 frontend quality from retrieval quality or file existence.
+
+For the `minimal-alex-message` end-to-end case, store the executed Codex trace,
+fixture snapshot, desktop/mobile screenshots, build/check results, and manual
+rendered observations under `evals/results/e2e/minimal-alex-message/`. Reference
+those concrete artifacts from `minimal-alex-message.json`; never score the case
+from classifier or retrieval output alone.

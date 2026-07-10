@@ -1,5 +1,12 @@
 # Design brief
 
+## Operating mode and evidence
+
+- Operating mode:
+- Build mode (new build or redesign):
+- Supplied facts and quoted text:
+- Creative assumptions:
+
 ## Product and user
 
 - Product type:
@@ -34,3 +41,10 @@ One sentence that defines product character and the intended hierarchy.
 ## States and acceptance criteria
 
 List required loading, empty, error, success, permission, offline, destructive, and recovery states plus measurable completion criteria.
+
+## Rendered refinement
+
+- Desktop/mobile captures:
+- Three highest-impact weaknesses:
+- Fixes implemented:
+- Revised captures and remaining limitations:

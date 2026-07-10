@@ -1,6 +1,6 @@
 # Frontend Taste Engineer
 
-Frontend Taste Engineer is an installable Codex plugin for planning, building, auditing, refining, and verifying production web interfaces. It treats visual quality, product correctness, accessibility, responsive behavior, performance, content integrity, and maintainability as one system.
+Frontend Taste Engineer is an installable Codex plugin that turns minimal requests such as “Make a website for my robotics team” into complete, distinctive, responsive, accessible, screenshot-refined, deployment-ready frontends. It also supports detailed planning, building, auditing, reconstruction, refinement, and verification work, treating visual quality, product correctness, accessibility, responsive behavior, performance, content integrity, and maintainability as one system.
 
 The repository uses the official repo-marketplace layout:
 
@@ -57,7 +57,13 @@ If MCP startup fails, the Skill routes to bundled offline references and `offlin
 
 ## Skill behavior
 
-The Skill supports greenfield work, existing-product redesign, screenshot reconstruction, component builds, design-system work, visual audits, motion refinement, accessibility remediation, and performance remediation. It requires a concise product brief, a design thesis, explicit states, proportionate verification, and an honest completion report.
+The Skill defaults minimal page/site/frontend and substantial redesign prompts to `autonomous-zero-brief-build`. It inspects the project, infers a fact-separated creative brief and design thesis, writes finished copy, selects a context-specific direction, retrieves stage-specific guidance, implements the complete frontend, captures and inspects desktop/mobile output, fixes the three highest-impact weaknesses, runs a production build, and reports evidence without routine creative questions.
+
+Visual direction is domain-adaptive. Quality adjectives do not force a flashy house style: a personal-finance dashboard can target intensity 2 with calm numeric precision, while an expressive personal page can justify intensity 4. The classifier considers product/task type, audience, trust, risk, information density, frequency, seriousness, maturity, accessibility, devices, familiarity, and experimental tolerance before choosing composition, typography, palette/material, component styling, and motion.
+
+User-provided names and messages remain request-local by default. Reusable examples and committed evidence use synthetic content. Configure `FTE_PRIVATE_TERMS_FILE=.private-terms` and run `python3 plugins/frontend-taste-engineer/scripts/scan_private_terms.py --require-terms` to scan files, added diff lines, reports, logs, evaluation evidence, filenames, and ZIP contents without printing the configured value. Raster screenshots still require manual visual review.
+
+Detailed greenfield work, existing-product redesign, screenshot reconstruction, component builds, design-system work, visual audits, motion refinement, accessibility remediation, and performance remediation retain their existing focused modes.
 
 The standalone Skill package is created under `dist/frontend-taste-engineer-skill.zip`. It includes the compact operating Skill, offline references, templates, static audit script, and Skill UI assets—not the full research repository.
 
@@ -127,9 +133,13 @@ The MCP server reads local plugin data and does not require credentials or netwo
 - Some visually oriented and social sources can be inaccessible, unstable, or license-ambiguous; those records are not promoted as mandatory guidance.
 - The Apps SDK registration step is manual because no app ID is fabricated.
 - Framework and browser guidance must be rechecked as versions change.
+- The private-term scanner does not OCR text rendered into raster screenshots.
 
 ## Starter prompts
 
+- “Make a website directed to Alex containing a playful message from Arnav.”
+- “Build a site for my robotics team.”
+- “Turn this sentence into a website: machines should feel alive.”
 - “Design and build a distinctive production-ready landing page for this product.”
 - “Audit this frontend and fix its highest-impact design and usability problems.”
 - “Rebuild this screenshot responsively while preserving accessibility.”

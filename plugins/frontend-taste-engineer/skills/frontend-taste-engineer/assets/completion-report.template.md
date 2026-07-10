@@ -2,12 +2,13 @@
 
 ## Outcome
 
-Describe the user-visible result and the design thesis it implements.
+Describe the user-visible result, visual direction, and functional scope in a few sentences.
 
 ## Evidence
 
 - Commands and tests run:
 - Viewports/screenshots captured:
+- Three visual weaknesses fixed and revised captures:
 - Keyboard and accessibility checks:
 - State/content stress checks:
 - Performance/browser checks:

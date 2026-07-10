@@ -106,6 +106,129 @@ class EngineTests(unittest.TestCase):
         self.assertTrue(packet["summary"]["offline_fallback"])
         self.assertGreater(len(packet["records"]), 0)
 
+    def test_minimal_creation_prompts_select_autonomous_mode(self) -> None:
+        cases = {
+            "Make a website directed to Alex containing “You made it — Arnav”": ("expressive-personal-web-experience", "editorial"),
+            "Build a site for my robotics team": ("community-team-site", "inventive"),
+            "Make a landing page for an AI study group": ("community-team-site", "welcoming"),
+            "Create a portfolio that feels impossible to ignore": ("expressive-portfolio", "editorial"),
+            "Turn this sentence into a website: machines should feel alive": ("conceptual-web-experience", "speculative"),
+            "Make a funny site asking my friend to stop being late": ("expressive-personal-web-experience", "funny"),
+            "Make this product look premium": ("premium-product-redesign", "refined"),
+            "Build a serious public-service application page": ("public-service-application-page", "serious"),
+        }
+        required_profile = {
+            "build_mode", "domain", "product_type", "interface_archetype", "page_type",
+            "purpose", "audience", "named_recipient_status", "primary_user_task",
+            "secondary_tasks", "primary_message", "supporting_narrative",
+            "emotional_objective", "emotional_tone", "seriousness", "trust_level",
+            "risk_level", "information_density", "frequency_of_use", "content_maturity",
+            "brand_maturity", "product_maturity", "accessibility_needs", "expected_devices",
+            "visual_ambition", "visual_intensity", "motion_intensity",
+            "experimental_tolerance", "familiarity_requirement", "interaction_depth",
+            "suggested_composition", "hero_treatment", "typography_direction",
+            "color_material_direction", "imagery_strategy", "motion_stance",
+            "component_styling", "direction", "required_states", "retrieval_topics",
+            "verification_priorities", "user_supplied_facts", "inferred_assumptions",
+            "quality_interpretation", "design_thesis",
+        }
+        for prompt, (page_type, tone) in cases.items():
+            with self.subTest(prompt=prompt):
+                result = server.classify_task(prompt)
+                self.assertEqual(result["task_type"], server.AUTONOMOUS_MODE)
+                self.assertTrue(result["minimal_prompt"])
+                self.assertEqual(result["stage"], "brief")
+                self.assertEqual(result["creative_profile"]["page_type"], page_type)
+                self.assertIn(tone, result["creative_profile"]["emotional_tone"])
+                self.assertTrue(required_profile <= set(result["creative_profile"]))
+                self.assertTrue(result["decision_ledger"]["supplied_facts"])
+                self.assertTrue(result["decision_ledger"]["inferred_assumptions"])
+                self.assertTrue(result["clarification_policy"]["continue_without_questions"])
+                self.assertEqual(result["completion_workflow"], "production-completion-with-screenshot-refinement")
+
+    def test_named_recipient_and_quoted_text_are_extracted(self) -> None:
+        prompt = "Make a website directed to Alex containing “You made it — Arnav”"
+        result = server.classify_task(prompt)
+        self.assertEqual(result["entities"]["named_recipients"], ["Alex"])
+        self.assertEqual(result["entities"]["quoted_text"], ["You made it — Arnav"])
+        self.assertEqual(result["entities"]["message_authors"], ["Arnav"])
+        self.assertEqual(result["creative_profile"]["primary_message"], "You made it — Arnav")
+
+    def test_tiny_css_fix_does_not_trigger_autonomous_build(self) -> None:
+        result = server.classify_task("Fix the CSS padding on the submit button")
+        self.assertNotEqual(result["task_type"], server.AUTONOMOUS_MODE)
+        self.assertFalse(result["minimal_prompt"])
+        self.assertEqual(result["task_size"], "tiny")
+
+    def test_context_adaptive_direction_spans_institutional_to_experimental(self) -> None:
+        cases = {
+            "Build a finance dashboard for tracking family investments": ("personal-finance", 2, "low"),
+            "Create a serious banking onboarding flow": ("banking", 1, "low"),
+            "Build a dense investment analytics interface": ("investment-analytics", 3, "low"),
+            "Build a public-service benefits application": ("public-service", 1, "minimal"),
+            "Make a professional enterprise product interface": ("enterprise-software", 2, "low"),
+            "Build a developer tool for inspecting API requests": ("developer-tools", 3, "low-to-medium"),
+            "Create a premium ecommerce product page": ("premium-ecommerce", 3, "low-to-medium"),
+            "Build a site for my robotics team": ("robotics-community", 4, "medium"),
+            "Make a funny site asking my friend to stop being late": ("personal-expressive", 4, "medium-high"),
+            "Create an experimental creative portfolio": ("creative-portfolio", 5, "high"),
+        }
+        signatures = set()
+        intensities = set()
+        for prompt, (domain, intensity, motion) in cases.items():
+            with self.subTest(prompt=prompt):
+                result = server.classify_task(prompt)
+                profile = result["creative_profile"]
+                self.assertEqual(result["task_type"], server.AUTONOMOUS_MODE)
+                self.assertEqual(profile["domain"], domain)
+                self.assertEqual(profile["visual_intensity"], intensity)
+                self.assertEqual(profile["motion_intensity"], motion)
+                signatures.add((profile["direction"], profile["suggested_composition"], profile["hero_treatment"], profile["component_styling"]))
+                intensities.add(intensity)
+        self.assertEqual(intensities, {1, 2, 3, 4, 5})
+        self.assertGreaterEqual(len(signatures), 9)
+
+    def test_quality_adjectives_do_not_force_visual_intensity(self) -> None:
+        calm = server.classify_task("Make a stunning personal-finance dashboard")["creative_profile"]
+        expressive = server.classify_task("Make a stunning experimental creative portfolio")["creative_profile"]
+        self.assertEqual(calm["visual_intensity"], 2)
+        self.assertEqual(calm["motion_intensity"], "low")
+        self.assertEqual(expressive["visual_intensity"], 5)
+        self.assertIn("appropriateness", calm["quality_interpretation"].lower())
+
+    def test_recipient_extraction_is_dynamic_request_local_and_redactable(self) -> None:
+        for name in ("Alex", "Jordan"):
+            result = server.classify_task(f"Make a website directed to {name} containing “Hello there”")
+            self.assertEqual(result["entities"]["named_recipients"], [name])
+            status = result["creative_profile"]["named_recipient_status"]
+            self.assertEqual(status["persistence"], "request-local")
+            self.assertEqual(status["publication_risk"], "review-before-public-release")
+            redacted = server.classify_task(f"Make a website directed to {name} containing “Hello there”", {"redact_user_content": True})
+            self.assertNotIn(name, json.dumps(redacted))
+            self.assertTrue(redacted["privacy"]["redacted"])
+        knowledge = server.default_knowledge_dir()
+        canonical_text = " ".join(path.read_text(encoding="utf-8") for path in knowledge.rglob("*") if path.is_file() and path.suffix in {".json", ".md"})
+        self.assertNotIn("Alex", canonical_text)
+        self.assertNotIn("Jordan", canonical_text)
+
+    def test_autonomous_brief_retrieval_is_focused_and_staged(self) -> None:
+        prompt = "Make a website directed to Alex containing “You made it — Arnav”"
+        packet = server.get_workflow(server.RetrievalEngine(server.default_knowledge_dir()), {"task": prompt, "stage": "brief"})
+        ids = {item["id"] for item in packet["records"]}
+        topics = {item["topic"] for item in packet["records"]}
+        self.assertEqual(packet["workflow"]["mode"], server.AUTONOMOUS_MODE)
+        self.assertEqual(packet["workflow"]["full_autonomous_sequence"], list(server.AUTONOMOUS_REQUIRED_SEQUENCE))
+        self.assertIn("product.outcome-first-brief", ids)
+        self.assertIn("integrity.truthful-proof", ids)
+        self.assertTrue(topics.isdisjoint({"frameworks-code-architecture", "components-states-forms", "motion", "performance", "browsers"}))
+
+    def test_autonomous_completion_gate_requires_rendered_production_evidence(self) -> None:
+        report = server.get_completion_gate(self.engine, {"task": "Build a site for my robotics team"})
+        gate_ids = {gate["id"] for gate in report["gates"]}
+        self.assertIn("rendered-refinement", gate_ids)
+        self.assertIn("production-build", gate_ids)
+        self.assertIn("desktop screenshot", report["minimum_autonomous_evidence"])
+
     def test_audit_reports_missing_evidence(self) -> None:
         report = server.call_tool(self.engine, "audit_frontend_plan", {"plan": "Build a clean page."})
         ids = {item["id"] for item in report["findings"]}

@@ -2,7 +2,7 @@
 
 **Result:** INCOMPLETE/FAIL
 
-Scored cases: 0 / 16
+Scored cases: 1 / 30
 
 No score is accepted without a concrete artifact or executed-command observation. Missing evidence remains unscored, never inferred.
 
@@ -24,3 +24,17 @@ No score is accepted without a concrete artifact or executed-command observation
 - `rtl-interface` — not-run
 - `animated-component` — not-run
 - `performance-remediation` — not-run
+- `minimal-alex-message` — scored
+- `minimal-robotics-team` — not-run
+- `minimal-ai-study-group` — not-run
+- `minimal-portfolio` — not-run
+- `minimal-machines-alive` — not-run
+- `minimal-funny-late-friend` — not-run
+- `minimal-premium-product` — not-run
+- `minimal-public-service` — not-run
+- `adaptive-personal-finance` — not-run
+- `adaptive-banking-onboarding` — not-run
+- `adaptive-investment-analytics` — not-run
+- `adaptive-enterprise-product` — not-run
+- `adaptive-developer-tool` — not-run
+- `adaptive-premium-ecommerce` — not-run

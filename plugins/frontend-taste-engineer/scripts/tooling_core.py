@@ -633,6 +633,146 @@ def secret_scan(args: argparse.Namespace) -> Report:
     return report
 
 
+def _configured_private_terms(args: argparse.Namespace, report: Report) -> tuple[list[str], Path | None]:
+    configured = getattr(args, "terms_file", None) or os.environ.get("FTE_PRIVATE_TERMS_FILE")
+    if not configured:
+        if bool(getattr(args, "require_terms", False)):
+            report.error("private-terms-required", "No private-terms file was configured.")
+        else:
+            report.warn("private-terms-not-configured", "No private terms were configured; the privacy scan inspected no denylisted values.")
+        return [], None
+    path = Path(configured).expanduser().resolve()
+    if not path.exists():
+        report.error("private-terms-file-missing", "Configured private-terms file does not exist.", file=str(path))
+        return [], path
+    text = read_text(path)
+    if text is None:
+        report.error("private-terms-file-unreadable", "Configured private-terms file is not readable UTF-8 text.", file=str(path))
+        return [], path
+    terms = list(dict.fromkeys(line.strip() for line in text.splitlines() if line.strip() and not line.lstrip().startswith("#")))
+    if not terms:
+        report.error("private-terms-empty", "Configured private-terms file contains no scan terms.", file=str(path))
+    return terms, path
+
+
+def _privacy_scan_files(root: Path, terms_path: Path | None) -> Iterable[Path]:
+    excluded = {".git", "node_modules", "__pycache__", ".venv", "venv", ".pytest_cache", ".mypy_cache", ".ruff_cache"}
+    if root.is_file():
+        if not terms_path or root.resolve() != terms_path:
+            yield root
+        return
+    for path in sorted(root.rglob("*")):
+        if not path.is_file() or any(part in excluded for part in path.parts):
+            continue
+        if terms_path and path.resolve() == terms_path:
+            continue
+        yield path
+
+
+def _private_term_metadata(term: str) -> dict[str, Any]:
+    return {"term_fingerprint": hashlib.sha256(term.casefold().encode("utf-8")).hexdigest()[:12], "term_length": len(term)}
+
+
+def _private_term_pattern(term: str) -> re.Pattern[str]:
+    return re.compile(rf"(?<![\w-]){re.escape(term)}(?![\w-])", re.IGNORECASE)
+
+
+def _scan_private_text(report: Report, text: str, terms: Sequence[str], location: str) -> int:
+    count = 0
+    for term in terms:
+        for match in _private_term_pattern(term).finditer(text):
+            count += 1
+            report.error(
+                "private-term-match",
+                "A configured private term appears in output; the value is suppressed.",
+                file=location,
+                line=text.count("\n", 0, match.start()) + 1,
+                **_private_term_metadata(term),
+            )
+    return count
+
+
+def _added_diff_text(root: Path, cached: bool) -> str:
+    command = ["git", "-C", str(root), "diff", "--no-ext-diff", "--unified=0"]
+    if cached:
+        command.insert(4, "--cached")
+    completed = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=False)
+    if completed.returncode != 0:
+        return ""
+    return "\n".join(line[1:] for line in completed.stdout.splitlines() if line.startswith("+") and not line.startswith("+++"))
+
+
+def privacy_scan(args: argparse.Namespace) -> Report:
+    report = Report("private-term-privacy-scan")
+    root = Path(getattr(args, "target", None) or PLUGIN_ROOT.parents[1]).resolve()
+    terms, terms_path = _configured_private_terms(args, report)
+    if not terms:
+        report.details = {"target": str(root), "configured": bool(terms_path), "term_count": 0, "values_suppressed": True}
+        return report
+    maximum = int(getattr(args, "max_file_bytes", 5_000_000))
+    files_scanned = 0
+    archives_scanned = 0
+    archive_entries = 0
+    matches = 0
+    image_files = 0
+    for path in _privacy_scan_files(root, terms_path):
+        relative = str(path.relative_to(root)) if root in path.parents else str(path)
+        for term in terms:
+            if _private_term_pattern(term).search(path.name):
+                matches += 1
+                report.error("private-term-filename", "A configured private term appears in a filename; the value is suppressed.", file=relative, **_private_term_metadata(term))
+        if path.suffix.lower() == ".zip":
+            archives_scanned += 1
+            try:
+                with zipfile.ZipFile(path) as archive:
+                    for info in archive.infolist():
+                        if info.is_dir() or info.file_size > maximum:
+                            continue
+                        archive_entries += 1
+                        for term in terms:
+                            if _private_term_pattern(term).search(info.filename):
+                                matches += 1
+                                report.error("private-term-archive-filename", "A configured private term appears in an archive filename; the value is suppressed.", file=f"{relative}!{info.filename}", **_private_term_metadata(term))
+                        content = archive.read(info)
+                        if b"\0" not in content[:4096]:
+                            matches += _scan_private_text(report, content.decode("utf-8", errors="ignore"), terms, f"{relative}!{info.filename}")
+            except (OSError, zipfile.BadZipFile) as exc:
+                report.error("privacy-archive-unreadable", "Archive could not be inspected.", file=relative, error_type=exc.__class__.__name__)
+            continue
+        if path.suffix.lower() in {".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"}:
+            image_files += 1
+            continue
+        try:
+            if path.stat().st_size > maximum:
+                continue
+            content = path.read_bytes()
+        except OSError:
+            continue
+        if b"\0" in content[:4096]:
+            continue
+        files_scanned += 1
+        matches += _scan_private_text(report, content.decode("utf-8", errors="ignore"), terms, relative)
+    if (root / ".git").exists():
+        matches += _scan_private_text(report, _added_diff_text(root, False), terms, "pending-diff:unstaged-added-lines")
+        matches += _scan_private_text(report, _added_diff_text(root, True), terms, "pending-diff:staged-added-lines")
+    report.details = {
+        "target": str(root),
+        "configured": True,
+        "terms_file": str(terms_path) if terms_path else None,
+        "term_count": len(terms),
+        "term_fingerprints": [_private_term_metadata(term) for term in terms],
+        "files_scanned": files_scanned,
+        "archives_scanned": archives_scanned,
+        "archive_entries_scanned": archive_entries,
+        "matches": matches,
+        "values_suppressed": True,
+        "pending_added_diff_scanned": (root / ".git").exists(),
+        "image_files_not_ocr_scanned": image_files,
+        "limitation": "Raster images are inventoried but not OCR-scanned; inspect public screenshots visually before release.",
+    }
+    return report
+
+
 def license_report(_: argparse.Namespace) -> Report:
     report = Report("license-report")
     license_files = [
@@ -694,7 +834,7 @@ def _deterministic_zip(root: Path, destination: Path, entries: Sequence[Path], d
 def package_skill(args: argparse.Namespace) -> Report:
     report = Report("skill-package")
     root = PLUGIN_ROOT / "skills" / "frontend-taste-engineer"
-    destination = Path(args.output or (PLUGIN_ROOT / "dist" / "skill.zip"))
+    destination = Path(args.output or (PLUGIN_ROOT / "dist" / "frontend-taste-engineer-skill.zip"))
     entries = _zip_entries(root, skill_only=True)
     count, digest = _deterministic_zip(root, destination, entries, args.dry_run)
     if not (root / "SKILL.md").exists():
@@ -705,7 +845,9 @@ def package_skill(args: argparse.Namespace) -> Report:
 
 def package_plugin(args: argparse.Namespace) -> Report:
     report = Report("plugin-package")
-    destination = Path(args.output or (PLUGIN_ROOT / "dist" / "frontend-taste-engineer-plugin-0.1.0.zip"))
+    manifest = load_json(PLUGIN_ROOT / ".codex-plugin" / "plugin.json")
+    version = str(manifest.get("version") or "unknown").split("+", 1)[0] if isinstance(manifest, Mapping) else "unknown"
+    destination = Path(args.output or (PLUGIN_ROOT / "dist" / f"frontend-taste-engineer-plugin-{version}.zip"))
     entries = _zip_entries(PLUGIN_ROOT, skill_only=False)
     count, digest = _deterministic_zip(PLUGIN_ROOT, destination, entries, args.dry_run)
     if not (PLUGIN_ROOT / ".codex-plugin" / "plugin.json").exists():
@@ -716,7 +858,7 @@ def package_plugin(args: argparse.Namespace) -> Report:
 
 CHECK_FUNCTIONS: tuple[Callable[[argparse.Namespace], Report], ...] = (
     validate_plugin, validate_skill, check_links, validate_refs, validate_provenance,
-    detect_duplicates, detect_contradictions, coverage_report, knowledge_depth, secret_scan, license_report,
+    detect_duplicates, detect_contradictions, coverage_report, knowledge_depth, secret_scan, privacy_scan, license_report,
 )
 
 
@@ -793,6 +935,11 @@ def make_parser(default_command: str | None = None) -> argparse.ArgumentParser:
     p = command("secret-scan", "Scan text files for likely secrets without printing values.", secret_scan)
     p.add_argument("--target", default=str(PLUGIN_ROOT))
     p.add_argument("--max-file-bytes", type=int, default=2_000_000)
+    p = command("privacy-scan", "Scan files, added diffs, evidence, logs, and ZIP archives for locally configured private terms without printing the values.", privacy_scan)
+    p.add_argument("--target", default=str(PLUGIN_ROOT.parents[1]))
+    p.add_argument("--terms-file", type=Path)
+    p.add_argument("--require-terms", action="store_true")
+    p.add_argument("--max-file-bytes", type=int, default=5_000_000)
     command("licenses", "Inventory license evidence and dependency manifests.", license_report)
     p = command("package-skill", "Create a deterministic standalone skill.zip.", package_skill, writes=True)
     p.add_argument("--output", type=Path)
