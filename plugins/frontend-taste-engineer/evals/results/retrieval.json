@@ -1,0 +1,2990 @@
+{
+  "aggregates": {
+    "baseline": {
+      "cases": 16,
+      "context_tokens": 0.0,
+      "duplicate_rate": 0.0,
+      "irrelevant_token_rate": 0.0,
+      "latency_median_ms": 0.0,
+      "latency_p95_ms": 0.004,
+      "mandatory_rule_recall": 0.0,
+      "precision": 0.0,
+      "provenance_correctness": 0.0,
+      "quality_score": 0.0,
+      "recall": 0.0,
+      "stable_experimental_separation": 1.0
+    },
+    "hybrid": {
+      "cases": 16,
+      "context_tokens": 3054.625,
+      "duplicate_rate": 0.0,
+      "irrelevant_token_rate": 0.349,
+      "latency_median_ms": 1.338,
+      "latency_p95_ms": 4.655,
+      "mandatory_rule_recall": 0.906,
+      "precision": 0.65,
+      "provenance_correctness": 1.0,
+      "quality_score": 0.751,
+      "recall": 0.481,
+      "stable_experimental_separation": 1.0
+    },
+    "lexical": {
+      "cases": 16,
+      "context_tokens": 3013.25,
+      "duplicate_rate": 0.0,
+      "irrelevant_token_rate": 0.348,
+      "latency_median_ms": 1.292,
+      "latency_p95_ms": 6.552,
+      "mandatory_rule_recall": 0.865,
+      "precision": 0.65,
+      "provenance_correctness": 1.0,
+      "quality_score": 0.737,
+      "recall": 0.469,
+      "stable_experimental_separation": 1.0
+    },
+    "static-skill": {
+      "cases": 16,
+      "context_tokens": 972.0,
+      "duplicate_rate": 0.0,
+      "irrelevant_token_rate": 0.498,
+      "latency_median_ms": 0.198,
+      "latency_p95_ms": 1.979,
+      "mandatory_rule_recall": 0.854,
+      "precision": 0.5,
+      "provenance_correctness": 1.0,
+      "quality_score": 0.656,
+      "recall": 0.325,
+      "stable_experimental_separation": 1.0
+    }
+  },
+  "cases": [
+    {
+      "id": "b2b-landing",
+      "name": "Serious B2B landing page",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.004,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3010,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "reflow"
+            ],
+            "mandatory_terms_found": [
+              "keyboard",
+              "real",
+              "responsive"
+            ],
+            "relevance_by_id": {
+              "a11y.contrast-and-focus": true,
+              "a11y.keyboard-complete": true,
+              "architecture.progressive-enhancement": false,
+              "component.state-completeness": false,
+              "direction.content-before-chrome": true,
+              "ia.one-primary-task": false,
+              "images.reserve-space": false,
+              "layout.source-order": true,
+              "performance.core-web-vitals-budget": false,
+              "security.data-minimization": false
+            },
+            "retrieved_ids": [
+              "direction.content-before-chrome",
+              "layout.source-order",
+              "images.reserve-space",
+              "ia.one-primary-task",
+              "performance.core-web-vitals-budget",
+              "security.data-minimization",
+              "a11y.contrast-and-focus",
+              "a11y.keyboard-complete",
+              "architecture.progressive-enhancement",
+              "component.state-completeness"
+            ],
+            "topics_found": [
+              "accessibility",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "images-icons",
+              "information-architecture-content",
+              "layout",
+              "performance",
+              "security-privacy-trust",
+              "visual-direction"
+            ]
+          },
+          "irrelevant_token_rate": 0.607,
+          "latency_ms": 1.801,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.4,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.659,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3040,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [
+              "keyboard",
+              "real"
+            ],
+            "relevance_by_id": {
+              "a11y.contrast-and-focus": true,
+              "a11y.keyboard-complete": true,
+              "architecture.progressive-enhancement": false,
+              "component.state-completeness": false,
+              "content.error-recovery-copy": false,
+              "direction.content-before-chrome": true,
+              "i18n.bidirectional-logical": false,
+              "i18n.expansion-safe-layout": false,
+              "ia.one-primary-task": false,
+              "integrity.reconstruction-evidence": false
+            },
+            "retrieved_ids": [
+              "a11y.contrast-and-focus",
+              "a11y.keyboard-complete",
+              "architecture.progressive-enhancement",
+              "component.state-completeness",
+              "content.error-recovery-copy",
+              "direction.content-before-chrome",
+              "i18n.bidirectional-logical",
+              "i18n.expansion-safe-layout",
+              "ia.one-primary-task",
+              "integrity.reconstruction-evidence"
+            ],
+            "topics_found": [
+              "accessibility",
+              "anti-slop-integrity",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "information-architecture-content",
+              "internationalization",
+              "visual-direction"
+            ]
+          },
+          "irrelevant_token_rate": 0.711,
+          "latency_ms": 3.938,
+          "mandatory_rule_recall": 0.667,
+          "precision": 0.3,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.513,
+          "recall": 0.2,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "reflow"
+            ],
+            "mandatory_terms_found": [
+              "keyboard",
+              "real",
+              "responsive"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": false,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": false,
+              "offline-responsive-reflow": true,
+              "offline-state-completeness": false
+            },
+            "retrieved_ids": [
+              "offline-native-semantics",
+              "offline-state-completeness",
+              "offline-preserve-functionality",
+              "offline-responsive-reflow",
+              "offline-honest-verification"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.585,
+          "latency_ms": 1.979,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.4,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.661,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "consumer-landing",
+      "name": "Consumer product landing page",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.001,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3020,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "reduced motion",
+              "image"
+            ],
+            "mandatory_terms_found": [
+              "reduced motion"
+            ],
+            "relevance_by_id": {
+              "direction.content-before-chrome": true,
+              "i18n.bidirectional-logical": false,
+              "i18n.expansion-safe-layout": true,
+              "images.reserve-space": true,
+              "motion.interruption-safe": true,
+              "motion.reduced-motion-equivalence": true,
+              "performance.core-web-vitals-budget": false,
+              "performance.ship-less-javascript": false,
+              "product.requirement-priority": false,
+              "testing.story-state-coverage": true
+            },
+            "retrieved_ids": [
+              "testing.story-state-coverage",
+              "direction.content-before-chrome",
+              "i18n.bidirectional-logical",
+              "i18n.expansion-safe-layout",
+              "images.reserve-space",
+              "motion.interruption-safe",
+              "motion.reduced-motion-equivalence",
+              "performance.core-web-vitals-budget",
+              "performance.ship-less-javascript",
+              "product.requirement-priority"
+            ],
+            "topics_found": [
+              "images-icons",
+              "internationalization",
+              "motion",
+              "performance",
+              "product-requirements",
+              "testing-deployment",
+              "visual-direction"
+            ]
+          },
+          "irrelevant_token_rate": 0.392,
+          "latency_ms": 1.664,
+          "mandatory_rule_recall": 0.5,
+          "precision": 0.6,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.605,
+          "recall": 0.4,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3012,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "reduced motion",
+              "image"
+            ],
+            "mandatory_terms_found": [
+              "reduced motion"
+            ],
+            "relevance_by_id": {
+              "direction.content-before-chrome": true,
+              "i18n.bidirectional-logical": false,
+              "i18n.expansion-safe-layout": true,
+              "images.reserve-space": true,
+              "motion.interruption-safe": true,
+              "motion.reduced-motion-equivalence": true,
+              "performance.core-web-vitals-budget": false,
+              "performance.ship-less-javascript": false,
+              "product.requirement-priority": false,
+              "testing.story-state-coverage": true
+            },
+            "retrieved_ids": [
+              "direction.content-before-chrome",
+              "i18n.bidirectional-logical",
+              "i18n.expansion-safe-layout",
+              "images.reserve-space",
+              "motion.interruption-safe",
+              "motion.reduced-motion-equivalence",
+              "performance.core-web-vitals-budget",
+              "performance.ship-less-javascript",
+              "product.requirement-priority",
+              "testing.story-state-coverage"
+            ],
+            "topics_found": [
+              "images-icons",
+              "internationalization",
+              "motion",
+              "performance",
+              "product-requirements",
+              "testing-deployment",
+              "visual-direction"
+            ]
+          },
+          "irrelevant_token_rate": 0.393,
+          "latency_ms": 1.529,
+          "mandatory_rule_recall": 0.5,
+          "precision": 0.6,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.604,
+          "recall": 0.4,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [
+              "honest"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": false,
+              "offline-native-semantics": false,
+              "offline-preserve-functionality": false,
+              "offline-responsive-reflow": true,
+              "offline-state-completeness": false
+            },
+            "retrieved_ids": [
+              "offline-native-semantics",
+              "offline-preserve-functionality",
+              "offline-state-completeness",
+              "offline-honest-verification",
+              "offline-responsive-reflow"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.786,
+          "latency_ms": 0.217,
+          "mandatory_rule_recall": 0.5,
+          "precision": 0.2,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.415,
+          "recall": 0.1,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "developer-tool",
+      "name": "Developer-tool website",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.001,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3022,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "code",
+              "technical",
+              "keyboard",
+              "performance"
+            ],
+            "mandatory_terms_found": [
+              "keyboard",
+              "source"
+            ],
+            "relevance_by_id": {
+              "architecture.progressive-enhancement": true,
+              "component.action-hierarchy": false,
+              "content.error-recovery-copy": true,
+              "delivery.definition-of-done": true,
+              "i18n.expansion-safe-layout": true,
+              "ia.one-primary-task": false,
+              "integrity.truthful-proof": true,
+              "performance.core-web-vitals-budget": true,
+              "performance.ship-less-javascript": true,
+              "product.define-real-data": false
+            },
+            "retrieved_ids": [
+              "performance.ship-less-javascript",
+              "architecture.progressive-enhancement",
+              "component.action-hierarchy",
+              "content.error-recovery-copy",
+              "delivery.definition-of-done",
+              "i18n.expansion-safe-layout",
+              "ia.one-primary-task",
+              "integrity.truthful-proof",
+              "performance.core-web-vitals-budget",
+              "product.define-real-data"
+            ],
+            "topics_found": [
+              "anti-slop-integrity",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "information-architecture-content",
+              "internationalization",
+              "performance",
+              "product-requirements",
+              "testing-deployment"
+            ]
+          },
+          "irrelevant_token_rate": 0.288,
+          "latency_ms": 2.672,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.7,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.798,
+          "recall": 0.5,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3014,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "code",
+              "technical",
+              "keyboard",
+              "performance"
+            ],
+            "mandatory_terms_found": [
+              "keyboard",
+              "source"
+            ],
+            "relevance_by_id": {
+              "architecture.progressive-enhancement": true,
+              "component.action-hierarchy": false,
+              "content.error-recovery-copy": true,
+              "delivery.definition-of-done": true,
+              "i18n.expansion-safe-layout": true,
+              "ia.one-primary-task": false,
+              "integrity.truthful-proof": true,
+              "performance.core-web-vitals-budget": true,
+              "performance.ship-less-javascript": true,
+              "product.define-real-data": false
+            },
+            "retrieved_ids": [
+              "architecture.progressive-enhancement",
+              "component.action-hierarchy",
+              "content.error-recovery-copy",
+              "delivery.definition-of-done",
+              "i18n.expansion-safe-layout",
+              "ia.one-primary-task",
+              "integrity.truthful-proof",
+              "performance.core-web-vitals-budget",
+              "performance.ship-less-javascript",
+              "product.define-real-data"
+            ],
+            "topics_found": [
+              "anti-slop-integrity",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "information-architecture-content",
+              "internationalization",
+              "performance",
+              "product-requirements",
+              "testing-deployment"
+            ]
+          },
+          "irrelevant_token_rate": 0.288,
+          "latency_ms": 1.658,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.7,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.798,
+          "recall": 0.5,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "code",
+              "keyboard",
+              "performance"
+            ],
+            "mandatory_terms_found": [
+              "keyboard",
+              "source"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": true,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": true,
+              "offline-responsive-reflow": false,
+              "offline-state-completeness": false
+            },
+            "retrieved_ids": [
+              "offline-honest-verification",
+              "offline-native-semantics",
+              "offline-preserve-functionality",
+              "offline-state-completeness",
+              "offline-responsive-reflow"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.404,
+          "latency_ms": 0.315,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.6,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.744,
+          "recall": 0.4,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "enterprise-dashboard",
+      "name": "Dense enterprise dashboard",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.001,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3101,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "table",
+              "permission",
+              "keyboard",
+              "loading"
+            ],
+            "mandatory_terms_found": [
+              "error",
+              "keyboard",
+              "permission"
+            ],
+            "relevance_by_id": {
+              "a11y.contrast-and-focus": true,
+              "architecture.progressive-enhancement": true,
+              "component.focus-contract": true,
+              "component.native-first": true,
+              "component.state-completeness": true,
+              "delivery.definition-of-done": true,
+              "form.preserve-user-work": true,
+              "layout.source-order": true,
+              "product.define-real-data": true,
+              "product.outcome-first-brief": true
+            },
+            "retrieved_ids": [
+              "product.define-real-data",
+              "component.state-completeness",
+              "a11y.contrast-and-focus",
+              "architecture.progressive-enhancement",
+              "component.native-first",
+              "form.preserve-user-work",
+              "layout.source-order",
+              "product.outcome-first-brief",
+              "component.focus-contract",
+              "delivery.definition-of-done"
+            ],
+            "topics_found": [
+              "accessibility",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "layout",
+              "product-requirements",
+              "testing-deployment"
+            ]
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 4.655,
+          "mandatory_rule_recall": 1.0,
+          "precision": 1.0,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.912,
+          "recall": 0.6,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3004,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "density",
+              "table",
+              "keyboard",
+              "loading"
+            ],
+            "mandatory_terms_found": [
+              "error",
+              "keyboard"
+            ],
+            "relevance_by_id": {
+              "a11y.contrast-and-focus": true,
+              "a11y.keyboard-complete": true,
+              "architecture.progressive-enhancement": true,
+              "browser.baseline-with-enhancement": true,
+              "component.focus-contract": true,
+              "component.native-first": true,
+              "delivery.definition-of-done": true,
+              "form.preserve-user-work": true,
+              "i18n.expansion-safe-layout": true,
+              "layout.measure-and-density": true
+            },
+            "retrieved_ids": [
+              "a11y.contrast-and-focus",
+              "a11y.keyboard-complete",
+              "architecture.progressive-enhancement",
+              "browser.baseline-with-enhancement",
+              "component.focus-contract",
+              "component.native-first",
+              "delivery.definition-of-done",
+              "form.preserve-user-work",
+              "i18n.expansion-safe-layout",
+              "layout.measure-and-density"
+            ],
+            "topics_found": [
+              "accessibility",
+              "browsers",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "internationalization",
+              "layout",
+              "testing-deployment"
+            ]
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 6.552,
+          "mandatory_rule_recall": 0.667,
+          "precision": 1.0,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.819,
+          "recall": 0.6,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "table",
+              "permission",
+              "keyboard",
+              "loading"
+            ],
+            "mandatory_terms_found": [
+              "error",
+              "keyboard",
+              "permission"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": true,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": true,
+              "offline-responsive-reflow": true,
+              "offline-state-completeness": true
+            },
+            "retrieved_ids": [
+              "offline-native-semantics",
+              "offline-preserve-functionality",
+              "offline-state-completeness",
+              "offline-responsive-reflow",
+              "offline-honest-verification"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.214,
+          "mandatory_rule_recall": 1.0,
+          "precision": 1.0,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.912,
+          "recall": 0.6,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "mobile-onboarding",
+      "name": "Mobile onboarding flow",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.0,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3077,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "error",
+              "focus"
+            ],
+            "mandatory_terms_found": [
+              "label",
+              "error",
+              "focus"
+            ],
+            "relevance_by_id": {
+              "a11y.keyboard-complete": true,
+              "architecture.progressive-enhancement": false,
+              "architecture.state-ownership": false,
+              "component.focus-contract": true,
+              "component.native-first": true,
+              "content.error-recovery-copy": true,
+              "form.preserve-user-work": true,
+              "form.validation-timing": true,
+              "i18n.expansion-safe-layout": false,
+              "product.define-real-data": true
+            },
+            "retrieved_ids": [
+              "a11y.keyboard-complete",
+              "architecture.progressive-enhancement",
+              "architecture.state-ownership",
+              "component.focus-contract",
+              "component.native-first",
+              "content.error-recovery-copy",
+              "form.preserve-user-work",
+              "form.validation-timing",
+              "i18n.expansion-safe-layout",
+              "product.define-real-data"
+            ],
+            "topics_found": [
+              "accessibility",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "information-architecture-content",
+              "internationalization",
+              "product-requirements"
+            ]
+          },
+          "irrelevant_token_rate": 0.305,
+          "latency_ms": 1.713,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.7,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.753,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3010,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "error",
+              "focus"
+            ],
+            "mandatory_terms_found": [
+              "label",
+              "error",
+              "focus"
+            ],
+            "relevance_by_id": {
+              "a11y.keyboard-complete": true,
+              "architecture.progressive-enhancement": false,
+              "architecture.state-ownership": false,
+              "component.focus-contract": true,
+              "component.native-first": true,
+              "content.error-recovery-copy": true,
+              "form.preserve-user-work": true,
+              "form.validation-timing": true,
+              "i18n.expansion-safe-layout": false,
+              "product.define-real-data": true
+            },
+            "retrieved_ids": [
+              "a11y.keyboard-complete",
+              "architecture.progressive-enhancement",
+              "architecture.state-ownership",
+              "component.focus-contract",
+              "component.native-first",
+              "content.error-recovery-copy",
+              "form.preserve-user-work",
+              "form.validation-timing",
+              "i18n.expansion-safe-layout",
+              "product.define-real-data"
+            ],
+            "topics_found": [
+              "accessibility",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "information-architecture-content",
+              "internationalization",
+              "product-requirements"
+            ]
+          },
+          "irrelevant_token_rate": 0.305,
+          "latency_ms": 1.428,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.7,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.753,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "error",
+              "focus"
+            ],
+            "mandatory_terms_found": [
+              "label",
+              "error",
+              "focus"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": false,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": false,
+              "offline-responsive-reflow": true,
+              "offline-state-completeness": true
+            },
+            "retrieved_ids": [
+              "offline-native-semantics",
+              "offline-state-completeness",
+              "offline-preserve-functionality",
+              "offline-honest-verification",
+              "offline-responsive-reflow"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.395,
+          "latency_ms": 0.209,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.6,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.766,
+          "recall": 0.5,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "settings-interface",
+      "name": "Settings interface",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.001,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3066,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "destructive",
+              "permission",
+              "confirmation"
+            ],
+            "mandatory_terms_found": [
+              "error",
+              "focus",
+              "recovery"
+            ],
+            "relevance_by_id": {
+              "architecture.progressive-enhancement": false,
+              "color.non-color-cues": false,
+              "color.role-based-palette": false,
+              "component.action-hierarchy": true,
+              "component.state-completeness": true,
+              "content.error-recovery-copy": true,
+              "form.validation-timing": false,
+              "product.define-real-data": true,
+              "product.outcome-first-brief": false,
+              "security.destructive-action-safety": true
+            },
+            "retrieved_ids": [
+              "component.state-completeness",
+              "product.define-real-data",
+              "architecture.progressive-enhancement",
+              "color.non-color-cues",
+              "content.error-recovery-copy",
+              "product.outcome-first-brief",
+              "security.destructive-action-safety",
+              "color.role-based-palette",
+              "component.action-hierarchy",
+              "form.validation-timing"
+            ],
+            "topics_found": [
+              "color",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "information-architecture-content",
+              "product-requirements",
+              "security-privacy-trust"
+            ]
+          },
+          "irrelevant_token_rate": 0.491,
+          "latency_ms": 1.76,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.5,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.692,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 2974,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "destructive",
+              "permission",
+              "confirmation"
+            ],
+            "mandatory_terms_found": [
+              "error",
+              "focus",
+              "recovery"
+            ],
+            "relevance_by_id": {
+              "a11y.keyboard-complete": true,
+              "architecture.progressive-enhancement": false,
+              "color.non-color-cues": false,
+              "color.role-based-palette": false,
+              "component.action-hierarchy": true,
+              "content.error-recovery-copy": true,
+              "form.validation-timing": false,
+              "integrity.truthful-proof": true,
+              "product.define-real-data": true,
+              "product.outcome-first-brief": false
+            },
+            "retrieved_ids": [
+              "a11y.keyboard-complete",
+              "architecture.progressive-enhancement",
+              "color.non-color-cues",
+              "color.role-based-palette",
+              "component.action-hierarchy",
+              "content.error-recovery-copy",
+              "form.validation-timing",
+              "integrity.truthful-proof",
+              "product.define-real-data",
+              "product.outcome-first-brief"
+            ],
+            "topics_found": [
+              "accessibility",
+              "anti-slop-integrity",
+              "color",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "information-architecture-content",
+              "product-requirements"
+            ]
+          },
+          "irrelevant_token_rate": 0.492,
+          "latency_ms": 1.999,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.5,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.714,
+          "recall": 0.4,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "permission"
+            ],
+            "mandatory_terms_found": [
+              "error",
+              "focus",
+              "recovery"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": false,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": false,
+              "offline-responsive-reflow": false,
+              "offline-state-completeness": true
+            },
+            "retrieved_ids": [
+              "offline-state-completeness",
+              "offline-native-semantics",
+              "offline-preserve-functionality",
+              "offline-honest-verification",
+              "offline-responsive-reflow"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.609,
+          "latency_ms": 0.295,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.4,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.659,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "searchable-table",
+      "name": "Searchable data table",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.0,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3091,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "empty",
+              "keyboard"
+            ],
+            "mandatory_terms_found": [
+              "empty",
+              "error",
+              "keyboard"
+            ],
+            "relevance_by_id": {
+              "a11y.contrast-and-focus": true,
+              "a11y.keyboard-complete": true,
+              "component.state-completeness": true,
+              "content.error-recovery-copy": false,
+              "form.preserve-user-work": false,
+              "form.validation-timing": false,
+              "layout.source-order": true,
+              "product.define-real-data": true,
+              "responsive.content-driven-reflow": true,
+              "system.component-contract": true
+            },
+            "retrieved_ids": [
+              "component.state-completeness",
+              "form.preserve-user-work",
+              "layout.source-order",
+              "product.define-real-data",
+              "a11y.keyboard-complete",
+              "form.validation-timing",
+              "responsive.content-driven-reflow",
+              "system.component-contract",
+              "content.error-recovery-copy",
+              "a11y.contrast-and-focus"
+            ],
+            "topics_found": [
+              "accessibility",
+              "components-states-forms",
+              "design-systems",
+              "information-architecture-content",
+              "layout",
+              "product-requirements",
+              "responsive"
+            ]
+          },
+          "irrelevant_token_rate": 0.303,
+          "latency_ms": 1.348,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.7,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.775,
+          "recall": 0.4,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 2949,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "empty",
+              "keyboard"
+            ],
+            "mandatory_terms_found": [
+              "empty",
+              "error",
+              "keyboard"
+            ],
+            "relevance_by_id": {
+              "a11y.contrast-and-focus": true,
+              "a11y.keyboard-complete": true,
+              "architecture.state-ownership": false,
+              "browser.test-real-platform-behavior": true,
+              "color.non-color-cues": false,
+              "color.role-based-palette": false,
+              "component.focus-contract": true,
+              "component.state-completeness": true,
+              "delivery.definition-of-done": true,
+              "form.preserve-user-work": false
+            },
+            "retrieved_ids": [
+              "a11y.contrast-and-focus",
+              "a11y.keyboard-complete",
+              "architecture.state-ownership",
+              "browser.test-real-platform-behavior",
+              "color.non-color-cues",
+              "color.role-based-palette",
+              "component.focus-contract",
+              "component.state-completeness",
+              "delivery.definition-of-done",
+              "form.preserve-user-work"
+            ],
+            "topics_found": [
+              "accessibility",
+              "browsers",
+              "color",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "testing-deployment"
+            ]
+          },
+          "irrelevant_token_rate": 0.392,
+          "latency_ms": 1.219,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.6,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.723,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "empty",
+              "keyboard"
+            ],
+            "mandatory_terms_found": [
+              "empty",
+              "error",
+              "keyboard"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": false,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": false,
+              "offline-responsive-reflow": true,
+              "offline-state-completeness": true
+            },
+            "retrieved_ids": [
+              "offline-state-completeness",
+              "offline-native-semantics",
+              "offline-preserve-functionality",
+              "offline-responsive-reflow",
+              "offline-honest-verification"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.395,
+          "latency_ms": 0.188,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.6,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.766,
+          "recall": 0.5,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "checkout-form",
+      "name": "Checkout or application form",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.0,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3116,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "error summary",
+              "privacy"
+            ],
+            "mandatory_terms_found": [
+              "label",
+              "error",
+              "recovery"
+            ],
+            "relevance_by_id": {
+              "a11y.status-without-disruption": true,
+              "architecture.progressive-enhancement": false,
+              "browser.test-real-platform-behavior": false,
+              "component.focus-contract": false,
+              "component.state-completeness": false,
+              "content.error-recovery-copy": true,
+              "form.preserve-user-work": false,
+              "form.validation-timing": false,
+              "product.define-real-data": false,
+              "security.safe-error-detail": true
+            },
+            "retrieved_ids": [
+              "form.validation-timing",
+              "content.error-recovery-copy",
+              "form.preserve-user-work",
+              "security.safe-error-detail",
+              "a11y.status-without-disruption",
+              "product.define-real-data",
+              "architecture.progressive-enhancement",
+              "browser.test-real-platform-behavior",
+              "component.focus-contract",
+              "component.state-completeness"
+            ],
+            "topics_found": [
+              "accessibility",
+              "browsers",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "information-architecture-content",
+              "product-requirements",
+              "security-privacy-trust"
+            ]
+          },
+          "irrelevant_token_rate": 0.698,
+          "latency_ms": 1.297,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.3,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.629,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3017,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "error summary",
+              "international"
+            ],
+            "mandatory_terms_found": [
+              "label",
+              "error",
+              "recovery"
+            ],
+            "relevance_by_id": {
+              "a11y.keyboard-complete": true,
+              "architecture.progressive-enhancement": false,
+              "browser.test-real-platform-behavior": false,
+              "component.focus-contract": false,
+              "component.state-completeness": false,
+              "content.error-recovery-copy": true,
+              "form.preserve-user-work": false,
+              "form.validation-timing": false,
+              "i18n.bidirectional-logical": true,
+              "i18n.expansion-safe-layout": true
+            },
+            "retrieved_ids": [
+              "a11y.keyboard-complete",
+              "architecture.progressive-enhancement",
+              "browser.test-real-platform-behavior",
+              "component.focus-contract",
+              "component.state-completeness",
+              "content.error-recovery-copy",
+              "form.preserve-user-work",
+              "form.validation-timing",
+              "i18n.bidirectional-logical",
+              "i18n.expansion-safe-layout"
+            ],
+            "topics_found": [
+              "accessibility",
+              "browsers",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "information-architecture-content",
+              "internationalization"
+            ]
+          },
+          "irrelevant_token_rate": 0.601,
+          "latency_ms": 1.377,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.4,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.682,
+          "recall": 0.4,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [
+              "label",
+              "error",
+              "recovery"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": false,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": false,
+              "offline-responsive-reflow": false,
+              "offline-state-completeness": false
+            },
+            "retrieved_ids": [
+              "offline-native-semantics",
+              "offline-state-completeness",
+              "offline-preserve-functionality",
+              "offline-honest-verification",
+              "offline-responsive-reflow"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.799,
+          "latency_ms": 0.197,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.2,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.554,
+          "recall": 0.1,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "existing-redesign",
+      "name": "Existing ugly frontend redesign",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.0,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3026,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "preserve",
+              "before",
+              "regression",
+              "audit",
+              "evidence"
+            ],
+            "mandatory_terms_found": [
+              "preserve"
+            ],
+            "relevance_by_id": {
+              "architecture.progressive-enhancement": true,
+              "architecture.state-ownership": false,
+              "browser.baseline-with-enhancement": true,
+              "browser.test-real-platform-behavior": true,
+              "color.role-based-palette": true,
+              "component.focus-contract": false,
+              "component.native-first": false,
+              "delivery.definition-of-done": true,
+              "performance.ship-less-javascript": true,
+              "testing.browser-risk-matrix": true
+            },
+            "retrieved_ids": [
+              "performance.ship-less-javascript",
+              "testing.browser-risk-matrix",
+              "architecture.progressive-enhancement",
+              "architecture.state-ownership",
+              "browser.baseline-with-enhancement",
+              "browser.test-real-platform-behavior",
+              "color.role-based-palette",
+              "component.focus-contract",
+              "component.native-first",
+              "delivery.definition-of-done"
+            ],
+            "topics_found": [
+              "browsers",
+              "color",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "performance",
+              "testing-deployment"
+            ]
+          },
+          "irrelevant_token_rate": 0.3,
+          "latency_ms": 1.399,
+          "mandatory_rule_recall": 0.5,
+          "precision": 0.7,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.657,
+          "recall": 0.5,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3034,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "preserve",
+              "before",
+              "evidence"
+            ],
+            "mandatory_terms_found": [
+              "preserve"
+            ],
+            "relevance_by_id": {
+              "architecture.progressive-enhancement": true,
+              "architecture.state-ownership": false,
+              "browser.baseline-with-enhancement": true,
+              "browser.test-real-platform-behavior": true,
+              "color.role-based-palette": true,
+              "component.focus-contract": false,
+              "component.native-first": false,
+              "delivery.definition-of-done": true,
+              "form.preserve-user-work": true,
+              "form.validation-timing": true
+            },
+            "retrieved_ids": [
+              "architecture.progressive-enhancement",
+              "architecture.state-ownership",
+              "browser.baseline-with-enhancement",
+              "browser.test-real-platform-behavior",
+              "color.role-based-palette",
+              "component.focus-contract",
+              "component.native-first",
+              "delivery.definition-of-done",
+              "form.preserve-user-work",
+              "form.validation-timing"
+            ],
+            "topics_found": [
+              "browsers",
+              "color",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "testing-deployment"
+            ]
+          },
+          "irrelevant_token_rate": 0.299,
+          "latency_ms": 1.302,
+          "mandatory_rule_recall": 0.5,
+          "precision": 0.7,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.613,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "preserve",
+              "before",
+              "regression",
+              "audit",
+              "evidence"
+            ],
+            "mandatory_terms_found": [
+              "preserve",
+              "verify"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": true,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": true,
+              "offline-responsive-reflow": false,
+              "offline-state-completeness": true
+            },
+            "retrieved_ids": [
+              "offline-preserve-functionality",
+              "offline-native-semantics",
+              "offline-responsive-reflow",
+              "offline-state-completeness",
+              "offline-honest-verification"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.214,
+          "latency_ms": 0.199,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.8,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.871,
+          "recall": 0.7,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "screenshot-reconstruction",
+      "name": "Screenshot reconstruction",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.0,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3100,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "reference",
+              "geometry",
+              "inference",
+              "screenshot"
+            ],
+            "mandatory_terms_found": [
+              "responsive",
+              "evidence"
+            ],
+            "relevance_by_id": {
+              "a11y.name-role-value": false,
+              "component.native-first": false,
+              "delivery.definition-of-done": true,
+              "i18n.expansion-safe-layout": false,
+              "ia.one-primary-task": false,
+              "integrity.reconstruction-evidence": true,
+              "motion.reduced-motion-equivalence": true,
+              "product.requirement-priority": true,
+              "responsive.recompose-not-shrink": true,
+              "type.hierarchy-by-role": true
+            },
+            "retrieved_ids": [
+              "integrity.reconstruction-evidence",
+              "component.native-first",
+              "delivery.definition-of-done",
+              "i18n.expansion-safe-layout",
+              "ia.one-primary-task",
+              "motion.reduced-motion-equivalence",
+              "product.requirement-priority",
+              "a11y.name-role-value",
+              "type.hierarchy-by-role",
+              "responsive.recompose-not-shrink"
+            ],
+            "topics_found": [
+              "accessibility",
+              "anti-slop-integrity",
+              "components-states-forms",
+              "information-architecture-content",
+              "internationalization",
+              "motion",
+              "product-requirements",
+              "responsive",
+              "testing-deployment",
+              "typography"
+            ]
+          },
+          "irrelevant_token_rate": 0.384,
+          "latency_ms": 1.301,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.6,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.789,
+          "recall": 0.6,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3067,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "reference",
+              "geometry",
+              "inference",
+              "screenshot"
+            ],
+            "mandatory_terms_found": [
+              "responsive",
+              "evidence"
+            ],
+            "relevance_by_id": {
+              "a11y.name-role-value": false,
+              "component.native-first": false,
+              "delivery.definition-of-done": true,
+              "i18n.expansion-safe-layout": false,
+              "ia.one-primary-task": false,
+              "integrity.reconstruction-evidence": true,
+              "motion.reduced-motion-equivalence": true,
+              "product.requirement-priority": true,
+              "responsive.recompose-not-shrink": true,
+              "type.hierarchy-by-role": true
+            },
+            "retrieved_ids": [
+              "integrity.reconstruction-evidence",
+              "component.native-first",
+              "delivery.definition-of-done",
+              "i18n.expansion-safe-layout",
+              "ia.one-primary-task",
+              "motion.reduced-motion-equivalence",
+              "product.requirement-priority",
+              "responsive.recompose-not-shrink",
+              "a11y.name-role-value",
+              "type.hierarchy-by-role"
+            ],
+            "topics_found": [
+              "accessibility",
+              "anti-slop-integrity",
+              "components-states-forms",
+              "information-architecture-content",
+              "internationalization",
+              "motion",
+              "product-requirements",
+              "responsive",
+              "testing-deployment",
+              "typography"
+            ]
+          },
+          "irrelevant_token_rate": 0.382,
+          "latency_ms": 1.222,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.6,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.789,
+          "recall": 0.6,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [
+              "responsive",
+              "evidence"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": true,
+              "offline-native-semantics": false,
+              "offline-preserve-functionality": false,
+              "offline-responsive-reflow": true,
+              "offline-state-completeness": false
+            },
+            "retrieved_ids": [
+              "offline-native-semantics",
+              "offline-honest-verification",
+              "offline-preserve-functionality",
+              "offline-responsive-reflow",
+              "offline-state-completeness"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.594,
+          "latency_ms": 0.193,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.4,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.638,
+          "recall": 0.2,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "constrained-system",
+      "name": "Design-system-constrained implementation",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.001,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3020,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "semantic token",
+              "variant",
+              "contract",
+              "exception",
+              "component"
+            ],
+            "mandatory_terms_found": [
+              "semantic",
+              "state"
+            ],
+            "relevance_by_id": {
+              "a11y.contrast-and-focus": true,
+              "a11y.keyboard-complete": true,
+              "browser.baseline-with-enhancement": true,
+              "component.native-first": true,
+              "component.state-completeness": true,
+              "product.outcome-first-brief": true,
+              "system.component-contract": true,
+              "system.document-decisions": true,
+              "system.semantic-tokens": true,
+              "type.hierarchy-by-role": true
+            },
+            "retrieved_ids": [
+              "component.state-completeness",
+              "system.component-contract",
+              "system.document-decisions",
+              "browser.baseline-with-enhancement",
+              "system.semantic-tokens",
+              "type.hierarchy-by-role",
+              "component.native-first",
+              "product.outcome-first-brief",
+              "a11y.contrast-and-focus",
+              "a11y.keyboard-complete"
+            ],
+            "topics_found": [
+              "accessibility",
+              "browsers",
+              "components-states-forms",
+              "design-systems",
+              "product-requirements",
+              "typography"
+            ]
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 1.267,
+          "mandatory_rule_recall": 1.0,
+          "precision": 1.0,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.934,
+          "recall": 0.7,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3009,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "semantic token",
+              "variant",
+              "contract",
+              "exception",
+              "component"
+            ],
+            "mandatory_terms_found": [
+              "semantic",
+              "state"
+            ],
+            "relevance_by_id": {
+              "a11y.contrast-and-focus": true,
+              "a11y.keyboard-complete": true,
+              "architecture.progressive-enhancement": true,
+              "browser.baseline-with-enhancement": true,
+              "component.native-first": true,
+              "component.state-completeness": true,
+              "system.component-contract": true,
+              "system.document-decisions": true,
+              "system.semantic-tokens": true,
+              "type.hierarchy-by-role": true
+            },
+            "retrieved_ids": [
+              "browser.baseline-with-enhancement",
+              "component.state-completeness",
+              "system.component-contract",
+              "system.document-decisions",
+              "system.semantic-tokens",
+              "type.hierarchy-by-role",
+              "component.native-first",
+              "a11y.contrast-and-focus",
+              "a11y.keyboard-complete",
+              "architecture.progressive-enhancement"
+            ],
+            "topics_found": [
+              "accessibility",
+              "browsers",
+              "components-states-forms",
+              "design-systems",
+              "frameworks-code-architecture",
+              "typography"
+            ]
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 1.25,
+          "mandatory_rule_recall": 1.0,
+          "precision": 1.0,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.934,
+          "recall": 0.7,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [
+              "semantic",
+              "state"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": true,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": true,
+              "offline-responsive-reflow": false,
+              "offline-state-completeness": false
+            },
+            "retrieved_ids": [
+              "offline-preserve-functionality",
+              "offline-native-semantics",
+              "offline-state-completeness",
+              "offline-honest-verification",
+              "offline-responsive-reflow"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.404,
+          "latency_ms": 0.195,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.6,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.722,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "public-service",
+      "name": "Accessibility-sensitive public-service page",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.0,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3043,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "native",
+              "keyboard",
+              "zoom"
+            ],
+            "mandatory_terms_found": [
+              "native",
+              "keyboard",
+              "error"
+            ],
+            "relevance_by_id": {
+              "a11y.keyboard-complete": true,
+              "a11y.name-role-value": true,
+              "architecture.progressive-enhancement": false,
+              "browser.test-real-platform-behavior": true,
+              "component.native-first": true,
+              "form.validation-timing": false,
+              "i18n.bidirectional-logical": false,
+              "layout.source-order": true,
+              "responsive.input-agnostic": true,
+              "testing.story-state-coverage": false
+            },
+            "retrieved_ids": [
+              "a11y.keyboard-complete",
+              "a11y.name-role-value",
+              "architecture.progressive-enhancement",
+              "component.native-first",
+              "testing.story-state-coverage",
+              "browser.test-real-platform-behavior",
+              "form.validation-timing",
+              "i18n.bidirectional-logical",
+              "layout.source-order",
+              "responsive.input-agnostic"
+            ],
+            "topics_found": [
+              "accessibility",
+              "browsers",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "internationalization",
+              "layout",
+              "responsive",
+              "testing-deployment"
+            ]
+          },
+          "irrelevant_token_rate": 0.414,
+          "latency_ms": 1.328,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.6,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.765,
+          "recall": 0.5,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3011,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "native",
+              "keyboard",
+              "zoom"
+            ],
+            "mandatory_terms_found": [
+              "native",
+              "keyboard",
+              "error"
+            ],
+            "relevance_by_id": {
+              "a11y.keyboard-complete": true,
+              "a11y.name-role-value": true,
+              "architecture.progressive-enhancement": false,
+              "browser.test-real-platform-behavior": true,
+              "component.native-first": true,
+              "form.validation-timing": false,
+              "i18n.bidirectional-logical": false,
+              "layout.source-order": true,
+              "responsive.input-agnostic": true,
+              "responsive.recompose-not-shrink": true
+            },
+            "retrieved_ids": [
+              "a11y.keyboard-complete",
+              "a11y.name-role-value",
+              "architecture.progressive-enhancement",
+              "browser.test-real-platform-behavior",
+              "component.native-first",
+              "form.validation-timing",
+              "i18n.bidirectional-logical",
+              "layout.source-order",
+              "responsive.input-agnostic",
+              "responsive.recompose-not-shrink"
+            ],
+            "topics_found": [
+              "accessibility",
+              "browsers",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "internationalization",
+              "layout",
+              "responsive"
+            ]
+          },
+          "irrelevant_token_rate": 0.31,
+          "latency_ms": 1.25,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.7,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.796,
+          "recall": 0.5,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "native",
+              "keyboard",
+              "zoom"
+            ],
+            "mandatory_terms_found": [
+              "native",
+              "keyboard",
+              "error"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": false,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": false,
+              "offline-responsive-reflow": true,
+              "offline-state-completeness": false
+            },
+            "retrieved_ids": [
+              "offline-native-semantics",
+              "offline-preserve-functionality",
+              "offline-responsive-reflow",
+              "offline-state-completeness",
+              "offline-honest-verification"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.585,
+          "latency_ms": 0.186,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.4,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.705,
+          "recall": 0.5,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "dark-mode-product",
+      "name": "Dark-mode product interface",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.001,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3005,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "semantic",
+              "contrast",
+              "dark",
+              "preference"
+            ],
+            "mandatory_terms_found": [
+              "contrast",
+              "focus"
+            ],
+            "relevance_by_id": {
+              "a11y.name-role-value": true,
+              "color.non-color-cues": true,
+              "color.role-based-palette": true,
+              "component.native-first": true,
+              "product.requirement-priority": true,
+              "system.component-contract": true,
+              "system.document-decisions": true,
+              "system.semantic-tokens": true,
+              "testing.story-state-coverage": true,
+              "type.hierarchy-by-role": true
+            },
+            "retrieved_ids": [
+              "color.role-based-palette",
+              "system.semantic-tokens",
+              "type.hierarchy-by-role",
+              "component.native-first",
+              "product.requirement-priority",
+              "system.document-decisions",
+              "testing.story-state-coverage",
+              "system.component-contract",
+              "a11y.name-role-value",
+              "color.non-color-cues"
+            ],
+            "topics_found": [
+              "accessibility",
+              "color",
+              "components-states-forms",
+              "design-systems",
+              "product-requirements",
+              "testing-deployment",
+              "typography"
+            ]
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 1.203,
+          "mandatory_rule_recall": 1.0,
+          "precision": 1.0,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.934,
+          "recall": 0.7,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 2992,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "semantic",
+              "contrast",
+              "dark",
+              "preference"
+            ],
+            "mandatory_terms_found": [
+              "contrast",
+              "focus"
+            ],
+            "relevance_by_id": {
+              "a11y.contrast-and-focus": true,
+              "a11y.keyboard-complete": true,
+              "color.role-based-palette": true,
+              "component.native-first": true,
+              "product.requirement-priority": true,
+              "system.component-contract": true,
+              "system.document-decisions": true,
+              "system.semantic-tokens": true,
+              "testing.story-state-coverage": true,
+              "type.hierarchy-by-role": true
+            },
+            "retrieved_ids": [
+              "color.role-based-palette",
+              "component.native-first",
+              "product.requirement-priority",
+              "system.document-decisions",
+              "system.semantic-tokens",
+              "type.hierarchy-by-role",
+              "testing.story-state-coverage",
+              "system.component-contract",
+              "a11y.contrast-and-focus",
+              "a11y.keyboard-complete"
+            ],
+            "topics_found": [
+              "accessibility",
+              "color",
+              "components-states-forms",
+              "design-systems",
+              "product-requirements",
+              "testing-deployment",
+              "typography"
+            ]
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 1.282,
+          "mandatory_rule_recall": 1.0,
+          "precision": 1.0,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.934,
+          "recall": 0.7,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "semantic"
+            ],
+            "mandatory_terms_found": [
+              "focus"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": false,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": false,
+              "offline-responsive-reflow": false,
+              "offline-state-completeness": false
+            },
+            "retrieved_ids": [
+              "offline-native-semantics",
+              "offline-state-completeness",
+              "offline-honest-verification",
+              "offline-preserve-functionality",
+              "offline-responsive-reflow"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.799,
+          "latency_ms": 0.2,
+          "mandatory_rule_recall": 0.5,
+          "precision": 0.2,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.436,
+          "recall": 0.2,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "rtl-interface",
+      "name": "RTL-localized interface",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.0,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3065,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "rtl",
+              "bidirectional",
+              "locale",
+              "expansion",
+              "source order"
+            ],
+            "mandatory_terms_found": [
+              "language"
+            ],
+            "relevance_by_id": {
+              "a11y.keyboard-complete": true,
+              "architecture.state-ownership": false,
+              "content.error-recovery-copy": false,
+              "form.label-and-instructions": false,
+              "form.validation-timing": false,
+              "i18n.bidirectional-logical": true,
+              "i18n.expansion-safe-layout": true,
+              "i18n.locale-aware-formatting": true,
+              "ia.one-primary-task": false,
+              "images.reserve-space": false
+            },
+            "retrieved_ids": [
+              "i18n.bidirectional-logical",
+              "i18n.expansion-safe-layout",
+              "i18n.locale-aware-formatting",
+              "a11y.keyboard-complete",
+              "architecture.state-ownership",
+              "content.error-recovery-copy",
+              "form.label-and-instructions",
+              "form.validation-timing",
+              "ia.one-primary-task",
+              "images.reserve-space"
+            ],
+            "topics_found": [
+              "accessibility",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "images-icons",
+              "information-architecture-content",
+              "internationalization"
+            ]
+          },
+          "irrelevant_token_rate": 0.591,
+          "latency_ms": 1.261,
+          "mandatory_rule_recall": 0.5,
+          "precision": 0.4,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.609,
+          "recall": 0.7,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3033,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "rtl",
+              "bidirectional",
+              "locale",
+              "expansion",
+              "source order"
+            ],
+            "mandatory_terms_found": [
+              "language"
+            ],
+            "relevance_by_id": {
+              "a11y.keyboard-complete": true,
+              "architecture.state-ownership": false,
+              "content.error-recovery-copy": false,
+              "form.label-and-instructions": false,
+              "form.validation-timing": false,
+              "i18n.bidirectional-logical": true,
+              "i18n.expansion-safe-layout": true,
+              "i18n.locale-aware-formatting": true,
+              "ia.one-primary-task": false,
+              "images.reserve-space": false
+            },
+            "retrieved_ids": [
+              "a11y.keyboard-complete",
+              "architecture.state-ownership",
+              "content.error-recovery-copy",
+              "form.label-and-instructions",
+              "form.validation-timing",
+              "i18n.bidirectional-logical",
+              "i18n.expansion-safe-layout",
+              "i18n.locale-aware-formatting",
+              "ia.one-primary-task",
+              "images.reserve-space"
+            ],
+            "topics_found": [
+              "accessibility",
+              "components-states-forms",
+              "frameworks-code-architecture",
+              "images-icons",
+              "information-architecture-content",
+              "internationalization"
+            ]
+          },
+          "irrelevant_token_rate": 0.597,
+          "latency_ms": 1.186,
+          "mandatory_rule_recall": 0.5,
+          "precision": 0.4,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.608,
+          "recall": 0.7,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [
+              "reflow"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": false,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": false,
+              "offline-responsive-reflow": true,
+              "offline-state-completeness": false
+            },
+            "retrieved_ids": [
+              "offline-responsive-reflow",
+              "offline-state-completeness",
+              "offline-native-semantics",
+              "offline-honest-verification",
+              "offline-preserve-functionality"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.585,
+          "latency_ms": 0.187,
+          "mandatory_rule_recall": 0.5,
+          "precision": 0.4,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.499,
+          "recall": 0.2,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "animated-component",
+      "name": "Small animated component",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.0,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3052,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "origin",
+              "interrupt",
+              "reverse",
+              "reduced motion"
+            ],
+            "mandatory_terms_found": [
+              "reduced motion",
+              "keyboard"
+            ],
+            "relevance_by_id": {
+              "browser.test-real-platform-behavior": true,
+              "component.focus-contract": true,
+              "delivery.definition-of-done": true,
+              "i18n.bidirectional-logical": true,
+              "images.reserve-space": true,
+              "motion.interruption-safe": true,
+              "motion.reduced-motion-equivalence": true,
+              "performance.core-web-vitals-budget": true,
+              "performance.ship-less-javascript": true,
+              "type.hierarchy-by-role": true
+            },
+            "retrieved_ids": [
+              "browser.test-real-platform-behavior",
+              "i18n.bidirectional-logical",
+              "images.reserve-space",
+              "performance.ship-less-javascript",
+              "component.focus-contract",
+              "motion.interruption-safe",
+              "motion.reduced-motion-equivalence",
+              "type.hierarchy-by-role",
+              "performance.core-web-vitals-budget",
+              "delivery.definition-of-done"
+            ],
+            "topics_found": [
+              "browsers",
+              "components-states-forms",
+              "images-icons",
+              "internationalization",
+              "motion",
+              "performance",
+              "testing-deployment",
+              "typography"
+            ]
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 1.188,
+          "mandatory_rule_recall": 1.0,
+          "precision": 1.0,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.912,
+          "recall": 0.6,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3020,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "origin",
+              "interrupt",
+              "reverse",
+              "reduced motion"
+            ],
+            "mandatory_terms_found": [
+              "reduced motion",
+              "keyboard"
+            ],
+            "relevance_by_id": {
+              "browser.test-real-platform-behavior": true,
+              "component.focus-contract": true,
+              "delivery.definition-of-done": true,
+              "i18n.bidirectional-logical": true,
+              "images.reserve-space": true,
+              "motion.interruption-safe": true,
+              "motion.reduced-motion-equivalence": true,
+              "performance.core-web-vitals-budget": true,
+              "performance.ship-less-javascript": true,
+              "type.hierarchy-by-role": true
+            },
+            "retrieved_ids": [
+              "browser.test-real-platform-behavior",
+              "component.focus-contract",
+              "i18n.bidirectional-logical",
+              "images.reserve-space",
+              "motion.interruption-safe",
+              "motion.reduced-motion-equivalence",
+              "performance.ship-less-javascript",
+              "type.hierarchy-by-role",
+              "performance.core-web-vitals-budget",
+              "delivery.definition-of-done"
+            ],
+            "topics_found": [
+              "browsers",
+              "components-states-forms",
+              "images-icons",
+              "internationalization",
+              "motion",
+              "performance",
+              "testing-deployment",
+              "typography"
+            ]
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 1.213,
+          "mandatory_rule_recall": 1.0,
+          "precision": 1.0,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.912,
+          "recall": 0.6,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "origin"
+            ],
+            "mandatory_terms_found": [
+              "keyboard"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": true,
+              "offline-native-semantics": true,
+              "offline-preserve-functionality": true,
+              "offline-responsive-reflow": true,
+              "offline-state-completeness": true
+            },
+            "retrieved_ids": [
+              "offline-native-semantics",
+              "offline-preserve-functionality",
+              "offline-honest-verification",
+              "offline-state-completeness",
+              "offline-responsive-reflow"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.191,
+          "mandatory_rule_recall": 0.5,
+          "precision": 1.0,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.684,
+          "recall": 0.2,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    },
+    {
+      "id": "performance-remediation",
+      "name": "Performance remediation task",
+      "variants": {
+        "baseline": {
+          "context_tokens": 0,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [],
+            "relevance_by_id": {},
+            "retrieved_ids": [],
+            "topics_found": []
+          },
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 0.0,
+          "mandatory_rule_recall": 0.0,
+          "precision": 0.0,
+          "provenance_correctness": 0.0,
+          "quality_score": 0.0,
+          "recall": 0.0,
+          "stable_experimental_separation": 1.0
+        },
+        "hybrid": {
+          "context_tokens": 3060,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "budget",
+              "javascript"
+            ],
+            "mandatory_terms_found": [
+              "measure",
+              "budget",
+              "regression"
+            ],
+            "relevance_by_id": {
+              "a11y.contrast-and-focus": false,
+              "architecture.progressive-enhancement": false,
+              "content.front-load-meaning": false,
+              "delivery.definition-of-done": false,
+              "images.reserve-space": false,
+              "integrity.reconstruction-evidence": false,
+              "performance.core-web-vitals-budget": true,
+              "performance.ship-less-javascript": true,
+              "product.define-real-data": false,
+              "testing.story-state-coverage": false
+            },
+            "retrieved_ids": [
+              "performance.core-web-vitals-budget",
+              "testing.story-state-coverage",
+              "a11y.contrast-and-focus",
+              "architecture.progressive-enhancement",
+              "content.front-load-meaning",
+              "delivery.definition-of-done",
+              "images.reserve-space",
+              "integrity.reconstruction-evidence",
+              "performance.ship-less-javascript",
+              "product.define-real-data"
+            ],
+            "topics_found": [
+              "accessibility",
+              "anti-slop-integrity",
+              "frameworks-code-architecture",
+              "images-icons",
+              "information-architecture-content",
+              "performance",
+              "product-requirements",
+              "testing-deployment"
+            ]
+          },
+          "irrelevant_token_rate": 0.806,
+          "latency_ms": 1.17,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.2,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.598,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3026,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "budget",
+              "javascript"
+            ],
+            "mandatory_terms_found": [
+              "measure",
+              "budget",
+              "regression"
+            ],
+            "relevance_by_id": {
+              "a11y.contrast-and-focus": false,
+              "architecture.progressive-enhancement": false,
+              "content.front-load-meaning": false,
+              "delivery.definition-of-done": false,
+              "images.reserve-space": false,
+              "integrity.reconstruction-evidence": false,
+              "performance.core-web-vitals-budget": true,
+              "performance.ship-less-javascript": true,
+              "product.define-real-data": false,
+              "testing.browser-risk-matrix": false
+            },
+            "retrieved_ids": [
+              "a11y.contrast-and-focus",
+              "architecture.progressive-enhancement",
+              "content.front-load-meaning",
+              "delivery.definition-of-done",
+              "images.reserve-space",
+              "integrity.reconstruction-evidence",
+              "performance.core-web-vitals-budget",
+              "performance.ship-less-javascript",
+              "product.define-real-data",
+              "testing.browser-risk-matrix"
+            ],
+            "topics_found": [
+              "accessibility",
+              "anti-slop-integrity",
+              "frameworks-code-architecture",
+              "images-icons",
+              "information-architecture-content",
+              "performance",
+              "product-requirements",
+              "testing-deployment"
+            ]
+          },
+          "irrelevant_token_rate": 0.806,
+          "latency_ms": 1.153,
+          "mandatory_rule_recall": 1.0,
+          "precision": 0.2,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.598,
+          "recall": 0.3,
+          "stable_experimental_separation": 1.0
+        },
+        "static-skill": {
+          "context_tokens": 972,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [],
+            "mandatory_terms_found": [
+              "measure",
+              "regression"
+            ],
+            "relevance_by_id": {
+              "offline-honest-verification": true,
+              "offline-native-semantics": false,
+              "offline-preserve-functionality": false,
+              "offline-responsive-reflow": false,
+              "offline-state-completeness": false
+            },
+            "retrieved_ids": [
+              "offline-preserve-functionality",
+              "offline-honest-verification",
+              "offline-native-semantics",
+              "offline-state-completeness",
+              "offline-responsive-reflow"
+            ],
+            "topics_found": [
+              "accessibility",
+              "code-architecture",
+              "responsive",
+              "states",
+              "testing"
+            ]
+          },
+          "irrelevant_token_rate": 0.808,
+          "latency_ms": 0.172,
+          "mandatory_rule_recall": 0.667,
+          "precision": 0.2,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.46,
+          "recall": 0.1,
+          "stable_experimental_separation": 1.0
+        }
+      }
+    }
+  ],
+  "corpus": {
+    "fallback": false,
+    "knowledge_dir": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/knowledge",
+    "offline": true,
+    "parse_errors": [],
+    "record_count": 73,
+    "source_files": [
+      "records/accessibility-quality.json",
+      "records/anti-slop.json",
+      "records/architecture-delivery.json",
+      "records/components-forms.json",
+      "records/direction-systems.json",
+      "records/layout-type-color.json",
+      "records/product-content.json",
+      "records/responsive-motion-media.json",
+      "records/trust-global-browser.json"
+    ]
+  },
+  "evaluation": "retrieval",
+  "gates": {
+    "context_budget": true,
+    "duplicate_rate": true,
+    "hybrid_not_below_lexical": true,
+    "latency": true,
+    "mandatory_rule_recall": true,
+    "provenance_correctness": true
+  },
+  "methodology": {
+    "baseline": "No plugin guidance.",
+    "hybrid": "Canonical corpus with classification, metadata, exact/lexical scoring, deterministic synonym expansion, reranking, dedupe, mandatory preservation, and budgets.",
+    "latency_note": "Latency is observed wall time and therefore informational, while relevance scoring and selection are deterministic for a fixed corpus.",
+    "lexical": "Canonical corpus with metadata and exact/keyword scoring; synonym expansion disabled.",
+    "static-skill": "Small offline mandatory kernel, capped at five records."
+  },
+  "passed": true,
+  "schema_version": 1,
+  "summary": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "thresholds": {
+    "max_duplicate_rate": 0.1,
+    "max_p95_latency_ms": 100.0,
+    "min_mandatory_recall": 0.45,
+    "min_provenance": 0.95
+  }
+}

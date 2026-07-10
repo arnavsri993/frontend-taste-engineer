@@ -1,0 +1,61 @@
+{
+  "id": "workflow.greenfield",
+  "title": "Greenfield frontend workflow",
+  "version": "0.1.0",
+  "status": "active",
+  "last_reviewed": "2026-07-10",
+  "applies_to": ["new product", "new route family", "new marketing experience"],
+  "inputs": ["product goal", "audience evidence", "constraints", "brand assets if any", "delivery environment"],
+  "steps": [
+    {
+      "id": "brief",
+      "title": "Frame outcome and constraints",
+      "actions": ["Write the outcome-first brief.", "Classify requirements, preferences, hypotheses, and unknowns.", "Declare browser, accessibility, privacy, and performance expectations."],
+      "evidence": ["brief.md", "requirement ledger", "assumption ledger"],
+      "rule_refs": ["product.outcome-first-brief", "product.requirement-priority", "browser.baseline-with-enhancement"],
+      "exit_criteria": ["Primary user, job, action, success signal, and hard constraints are testable."]
+    },
+    {
+      "id": "structure",
+      "title": "Model content and task structure",
+      "actions": ["Create a text-only page outline and primary task flow.", "Define representative data and failure fixtures.", "Remove sections that do not advance the outcome."],
+      "evidence": ["content outline", "task flow", "fixture inventory"],
+      "rule_refs": ["ia.one-primary-task", "direction.content-before-chrome", "product.define-real-data"],
+      "exit_criteria": ["The experience is understandable without styling and includes recovery paths."]
+    },
+    {
+      "id": "direction",
+      "title": "Choose and compare directions",
+      "actions": ["Define relevant visual axes.", "Create two or three materially different direction candidates using real content.", "Score candidates with the design-direction rubric and record the decision."],
+      "evidence": ["direction comparison", "decision record"],
+      "rule_refs": ["direction.choose-intentional-axis", "direction.systemic-distinctiveness"],
+      "exit_criteria": ["The selected direction serves audience and content and has repeatable signals."]
+    },
+    {
+      "id": "foundations",
+      "title": "Establish resilient foundations",
+      "actions": ["Define semantic color, type, spacing, radius, and motion tokens.", "Implement semantic document structure and responsive containers.", "Set asset and performance budgets."],
+      "evidence": ["token map", "foundation examples", "budget config"],
+      "rule_refs": ["system.semantic-tokens", "type.hierarchy-by-role", "color.role-based-palette", "responsive.content-driven-reflow"],
+      "exit_criteria": ["Foundations support all selected themes, widths, and accessibility states."]
+    },
+    {
+      "id": "build",
+      "title": "Build from contracts and complete states",
+      "actions": ["Implement native-first components from explicit contracts.", "Exercise the component state matrix with realistic fixtures.", "Keep server-client and state ownership boundaries explicit."],
+      "evidence": ["component contracts", "state stories", "architecture notes"],
+      "rule_refs": ["system.component-contract", "component.native-first", "component.state-completeness", "architecture.state-ownership"],
+      "exit_criteria": ["Primary and recovery flows work with keyboard, slow data, and representative content."]
+    },
+    {
+      "id": "verify-release",
+      "title": "Verify, harden, and release",
+      "actions": ["Run completion gates and the browser risk matrix.", "Validate metadata, privacy, performance, and localization.", "Release incrementally when risk warrants and monitor defined success signals."],
+      "evidence": ["gate report", "test report", "performance report", "release plan"],
+      "rule_refs": ["delivery.definition-of-done", "testing.browser-risk-matrix", "performance.core-web-vitals-budget", "delivery.incremental-release"],
+      "exit_criteria": ["All mandatory applicable gates pass or have an owned, expiring waiver."]
+    }
+  ],
+  "outputs": ["implemented experience", "decision record", "test evidence", "release evidence"],
+  "completion_gate_refs": ["gate.requirements", "gate.states", "gate.accessibility", "gate.responsive", "gate.performance", "gate.browsers", "gate.integrity", "gate.release"]
+}

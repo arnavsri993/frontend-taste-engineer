@@ -1,0 +1,367 @@
+schema_version: 1
+reviewed: "2026-07-10"
+default_license_status: summarized
+promotion_note: >-
+  This maps research findings to candidate knowledge records. It does not mean the
+  records already exist in the stable corpus. Primary sources establish the rule;
+  supporting sources add context or implementation detail.
+records:
+  - finding: F-001
+    candidate_record: product-brief-before-interface
+    primary_sources: [uswds, govuk-design-system]
+    supporting_sources: [taste-skill-repo, hive-mind-landing-page]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-002
+    candidate_record: never-fabricate-ui-evidence
+    primary_sources: [google-search-docs, uswds]
+    supporting_sources: [taste-skill-repo, hive-mind-landing-page]
+    conflicts: [C-017]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-003
+    candidate_record: audit-before-redesign
+    primary_sources: [taste-skill-repo, taste-skill-site]
+    supporting_sources: [playwright-docs, hive-mind-landing-page]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-004
+    candidate_record: evidence-based-completion
+    primary_sources: [playwright-docs, wcag-22]
+    supporting_sources: [hive-mind-landing-page, taste-skill-repo]
+    conflicts: [C-016, C-017]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-005
+    candidate_record: durable-ui-state-in-url
+    primary_sources: [whatwg-html, nextjs-docs, svelte-docs]
+    supporting_sources: [astro-docs]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-006
+    candidate_record: action-and-destination-labels
+    primary_sources: [wcag-22, wai-aria-apg, primer-design-system]
+    supporting_sources: [atlassian-design-system]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-007
+    candidate_record: actionable-state-messages
+    primary_sources: [govuk-design-system, uswds, wcag-22]
+    supporting_sources: [atlassian-design-system, polaris]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-008
+    candidate_record: content-stress-testing
+    primary_sources: [w3c-i18n, mdn-web-docs]
+    supporting_sources: [polaris, uswds]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-009
+    candidate_record: product-specific-design-thesis
+    primary_sources: [apple-hig]
+    supporting_sources: [hive-mind-landing-page, taste-skill-repo, awesome-design-md]
+    conflicts: [C-001, C-002]
+    license_status: summarized
+    promotion: contextual-candidate
+
+  - finding: F-010
+    candidate_record: references-as-qualities-not-templates
+    primary_sources: [apple-hig, material-3, primer-design-system]
+    supporting_sources: [awesome-design-md]
+    conflicts: [C-002, C-018]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-011
+    candidate_record: choose-design-system-strategy
+    primary_sources: [fluent-2, carbon-design-system, react-aria, radix-primitives]
+    supporting_sources: [taste-skill-site]
+    conflicts: [C-019, C-020]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-012
+    candidate_record: primitive-and-semantic-token-layers
+    primary_sources: [fluent-2, uswds, carbon-design-system]
+    supporting_sources: [spectrum-design-system]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-013
+    candidate_record: abstract-after-repetition
+    primary_sources: [react-docs, radix-primitives]
+    supporting_sources: [carbon-design-system, primer-design-system]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-014
+    candidate_record: content-driven-responsive-breakpoints
+    primary_sources: [webdev, mdn-web-docs, wcag-22]
+    supporting_sources: [polaris, uswds]
+    conflicts: [C-007]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-015
+    candidate_record: meaningful-source-order
+    primary_sources: [wcag-22, webdev, mdn-web-docs]
+    supporting_sources: []
+    conflicts: [C-015]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-016
+    candidate_record: resilient-typography
+    primary_sources: [apple-hig, webdev, mdn-web-docs]
+    supporting_sources: [w3c-i18n]
+    conflicts: [C-007]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-017
+    candidate_record: semantic-color-and-redundant-cues
+    primary_sources: [wcag-22, spectrum-design-system, carbon-design-system]
+    supporting_sources: [fluent-2]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-018
+    candidate_record: surface-effects-need-purpose
+    primary_sources: [fluent-2, material-3]
+    supporting_sources: [taste-skill-repo, hive-mind-landing-page]
+    conflicts: [C-001]
+    license_status: summarized
+    promotion: contextual-candidate
+
+  - finding: F-019
+    candidate_record: native-html-before-aria
+    primary_sources: [whatwg-html, wai-aria-apg, mdn-web-docs]
+    supporting_sources: [polaris]
+    conflicts: [C-005, C-019]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-020
+    candidate_record: explicit-component-state-matrix
+    primary_sources: [carbon-design-system, primer-design-system, react-aria]
+    supporting_sources: [radix-primitives, taste-skill-repo]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-021
+    candidate_record: dialog-focus-restoration
+    primary_sources: [wai-aria-apg, react-aria, radix-primitives]
+    supporting_sources: [polaris]
+    conflicts: [C-008]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-022
+    candidate_record: tooltips-are-supplementary
+    primary_sources: [primer-design-system, wcag-22, wai-aria-apg]
+    supporting_sources: []
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-023
+    candidate_record: non-drag-alternative
+    primary_sources: [wcag-22, atlassian-design-system]
+    supporting_sources: [apple-hig]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-024
+    candidate_record: recoverable-form-errors
+    primary_sources: [govuk-design-system, wcag-22, react-aria]
+    supporting_sources: [polaris]
+    conflicts: [C-008]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-025
+    candidate_record: unavailable-actions-explain-prerequisites
+    primary_sources: [wcag-22, carbon-design-system]
+    supporting_sources: [atlassian-design-system]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-026
+    candidate_record: motion-needs-communicative-purpose
+    primary_sources: [apple-hig, fluent-2]
+    supporting_sources: [emil-design-skills, transitions-dev-repo]
+    conflicts: [C-003]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-027
+    candidate_record: interaction-specific-motion-tokens
+    primary_sources: [apple-hig, fluent-2]
+    supporting_sources: [emil-design-skills, transitions-dev-repo]
+    conflicts: [C-004]
+    license_status: summarized
+    promotion: contextual-candidate
+
+  - finding: F-028
+    candidate_record: reduced-motion-behavioral-alternative
+    primary_sources: [wcag-22, apple-hig, fluent-2]
+    supporting_sources: [astro-docs, transitions-dev-repo]
+    conflicts: [C-003]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-029
+    candidate_record: reversible-motion-refinement
+    primary_sources: [transitions-refine-page]
+    supporting_sources: [hive-mind-landing-page]
+    conflicts: []
+    license_status: summarized
+    promotion: experimental-candidate
+
+  - finding: F-030
+    candidate_record: accessibility-throughout-lifecycle
+    primary_sources: [wcag-22, uswds, govuk-design-system]
+    supporting_sources: [carbon-design-system, playwright-docs]
+    conflicts: [C-006, C-016]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-031
+    candidate_record: visible-unobscured-logical-focus
+    primary_sources: [wcag-22, wai-aria-apg]
+    supporting_sources: [polaris, radix-primitives]
+    conflicts: [C-008]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-032
+    candidate_record: component-accessibility-not-app-conformance
+    primary_sources: [uswds, govuk-design-system, playwright-docs]
+    supporting_sources: [polaris, react-aria, radix-primitives]
+    conflicts: [C-006, C-016]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-033
+    candidate_record: progressive-enhancement-core-tasks
+    primary_sources: [whatwg-html, mdn-web-docs, webdev]
+    supporting_sources: [astro-docs, uswds]
+    conflicts: [C-013]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-034
+    candidate_record: rendering-by-route-needs
+    primary_sources: [vue-docs, nextjs-docs, svelte-docs, astro-docs]
+    supporting_sources: [webdev]
+    conflicts: [C-013]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-035
+    candidate_record: measured-performance-budgets
+    primary_sources: [webdev, mdn-web-docs]
+    supporting_sources: [vue-docs, nextjs-docs]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-036
+    candidate_record: image-font-layout-performance
+    primary_sources: [webdev, mdn-web-docs]
+    supporting_sources: [nextjs-docs, astro-docs]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-037
+    candidate_record: dependency-value-and-ownership
+    primary_sources: [vue-docs, owasp-cheat-sheets]
+    supporting_sources: [react-aria, radix-primitives]
+    conflicts: [C-019]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-038
+    candidate_record: frontend-security-trust-boundaries
+    primary_sources: [owasp-cheat-sheets, webdev]
+    supporting_sources: [nextjs-docs]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-039
+    candidate_record: honest-crawlable-metadata
+    primary_sources: [google-search-docs]
+    supporting_sources: [nextjs-docs, astro-docs]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-040
+    candidate_record: internationalization-as-layout-and-data
+    primary_sources: [w3c-i18n]
+    supporting_sources: [polaris, webdev, mdn-web-docs]
+    conflicts: []
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-041
+    candidate_record: combined-testing-evidence
+    primary_sources: [playwright-docs, wcag-22, uswds]
+    supporting_sources: [govuk-design-system]
+    conflicts: [C-016, C-017]
+    license_status: summarized
+    promotion: stable-candidate
+
+  - finding: F-042
+    candidate_record: human-readable-corpus-canonical
+    primary_sources: []
+    supporting_sources: [transitions-dev-repo, hive-mind-landing-page]
+    conflicts: []
+    license_status: original-architecture
+    promotion: stable-candidate
+
+  - finding: F-043
+    candidate_record: conflict-precedence-authority-scope
+    primary_sources: [wcag-22, mdn-web-docs]
+    supporting_sources: [apple-hig, taste-skill-repo, awesome-design-md]
+    conflicts: [C-001, C-002, C-003, C-006, C-009, C-010, C-011, C-012, C-018]
+    license_status: original-architecture
+    promotion: stable-candidate
+
+excluded_sources:
+  - id: motionsites
+    reason: "Substantive content and license inaccessible; contributes no promoted record."
+  - id: monokern-x-post
+    reason: "Post body/media/authorship inaccessible; contributes no promoted record."
+
+quarantined_as_instructions:
+  - id: emil-design-skills
+    material: "persona, initial response, and mandatory output-format commands"
+  - id: taste-skill-repo
+    material: "agent-control directives, fixed settings, and universal aesthetic bans"
+  - id: awesome-design-md
+    material: "brand-imitation prompt guide"
+  - id: transitions-dev-repo
+    material: "installation/apply/refine commands"

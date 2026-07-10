@@ -1,0 +1,40 @@
+name: Quarterly regression and architecture review
+
+on:
+  schedule:
+    - cron: "17 10 1 1,4,7,10 *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run complete validation
+        run: python3 plugins/frontend-taste-engineer/scripts/validate_all.py
+      - name: Run MCP tests
+        run: python3 -m unittest discover -s plugins/frontend-taste-engineer/mcp-server/tests -v
+      - name: Run retrieval regression
+        run: python3 plugins/frontend-taste-engineer/evals/run_retrieval_evals.py
+      - name: Run frontend regression
+        run: python3 plugins/frontend-taste-engineer/evals/run_frontend_evals.py
+        continue-on-error: true
+      - name: Generate license report
+        run: >-
+          python3 plugins/frontend-taste-engineer/scripts/license_report.py
+          --json-out plugins/frontend-taste-engineer/audits/generated/quarterly-license-report.json
+          --md-out plugins/frontend-taste-engineer/audits/generated/quarterly-license-report.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quarterly-regression
+          path: |
+            plugins/frontend-taste-engineer/audits/generated/
+            plugins/frontend-taste-engineer/evals/results/
+          if-no-files-found: error

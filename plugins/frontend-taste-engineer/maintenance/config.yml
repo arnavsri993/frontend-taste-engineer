@@ -1,0 +1,21 @@
+version: 1
+cadence:
+  source_change_check: weekly
+  source_discovery: monthly
+  full_regression: quarterly
+policies:
+  stable_branch: main
+  candidate_branch: candidate
+  direct_stable_writes: false
+  auto_merge: false
+  experimental_auto_promotion: false
+  require_license_review: true
+  require_retrieval_evals: true
+  require_frontend_evals: true
+outputs:
+  machine_readable: audits/generated
+  human_readable: maintenance/source-audit.md
+freshness_days:
+  core: 45
+  specialized: 90
+  experimental: 30

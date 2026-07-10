@@ -1,0 +1,61 @@
+{
+  "id": "workflow.redesign",
+  "title": "Evidence-led redesign workflow",
+  "version": "0.1.0",
+  "status": "active",
+  "last_reviewed": "2026-07-10",
+  "applies_to": ["visual refresh", "structural redesign", "legacy frontend modernization"],
+  "inputs": ["current production experience", "analytics and research", "support issues", "existing design system", "technical constraints"],
+  "steps": [
+    {
+      "id": "baseline",
+      "title": "Capture the current baseline",
+      "actions": ["Record critical flows, states, viewport behavior, accessibility, performance, and browser behavior.", "Create representative screenshots and reproducible fixtures.", "Separate known defects from intentional constraints."],
+      "evidence": ["baseline audit", "flow recordings", "metrics snapshot"],
+      "rule_refs": ["product.define-real-data", "testing.browser-risk-matrix", "performance.core-web-vitals-budget"],
+      "exit_criteria": ["Current behavior and risk are reproducible before code changes."]
+    },
+    {
+      "id": "diagnosis",
+      "title": "Diagnose causes, not symptoms",
+      "actions": ["Map user and business problems to structure, content, visual, interaction, and implementation causes.", "Identify what already works and must not regress.", "Prioritize changes by outcome and evidence."],
+      "evidence": ["problem map", "preservation list", "prioritized requirements"],
+      "rule_refs": ["product.outcome-first-brief", "product.requirement-priority", "product.evidence-before-feature"],
+      "exit_criteria": ["Every proposed change addresses a named problem or measured risk."]
+    },
+    {
+      "id": "direction",
+      "title": "Compare redesign directions",
+      "actions": ["Decompose current and reference visual systems.", "Generate direction candidates against real difficult content.", "Score distinctiveness, clarity, system fit, accessibility, responsiveness, and cost."],
+      "evidence": ["reference decomposition", "direction scorecard", "decision record"],
+      "rule_refs": ["direction.reference-decomposition", "direction.choose-intentional-axis", "integrity.reconstruction-evidence"],
+      "exit_criteria": ["The chosen direction improves named problems without discarding useful product identity."]
+    },
+    {
+      "id": "migration-plan",
+      "title": "Plan compatibility and adoption",
+      "actions": ["Map old tokens and components to new contracts.", "Choose incremental route or component seams.", "Define telemetry, rollback, and deprecation windows."],
+      "evidence": ["migration map", "compatibility plan", "rollback plan"],
+      "rule_refs": ["system.adoption-path", "delivery.incremental-release", "architecture.server-client-boundary"],
+      "exit_criteria": ["A representative critical flow can migrate without a full-system cutover."]
+    },
+    {
+      "id": "implementation",
+      "title": "Implement and compare continuously",
+      "actions": ["Build foundations and components from complete contracts.", "Use baseline fixtures to compare behavior and visual hierarchy.", "Track intentional differences separately from regressions."],
+      "evidence": ["state stories", "comparison captures", "difference log"],
+      "rule_refs": ["component.state-completeness", "system.semantic-tokens", "testing.story-state-coverage"],
+      "exit_criteria": ["The new path covers existing tasks and improves the prioritized outcomes."]
+    },
+    {
+      "id": "rollout",
+      "title": "Gate and observe rollout",
+      "actions": ["Run completion gates against old and new paths.", "Release to increasing cohorts.", "Compare outcome, error, accessibility, and performance signals and rollback on defined thresholds."],
+      "evidence": ["gate report", "cohort metrics", "decision log"],
+      "rule_refs": ["delivery.definition-of-done", "delivery.incremental-release", "performance.core-web-vitals-budget"],
+      "exit_criteria": ["Migration meets success thresholds and deprecation conditions are satisfied."]
+    }
+  ],
+  "outputs": ["redesigned experience", "migration map", "baseline comparison", "rollout evidence"],
+  "completion_gate_refs": ["gate.requirements", "gate.content", "gate.states", "gate.accessibility", "gate.responsive", "gate.performance", "gate.browsers", "gate.integrity", "gate.release"]
+}

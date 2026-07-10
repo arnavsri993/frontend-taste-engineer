@@ -1,0 +1,61 @@
+{
+  "id": "workflow.design-system",
+  "title": "Design-system creation and evolution workflow",
+  "version": "0.1.0",
+  "status": "active",
+  "last_reviewed": "2026-07-10",
+  "applies_to": ["new design system", "token migration", "component library evolution"],
+  "inputs": ["product inventory", "brand direction", "usage evidence", "technical stacks", "accessibility and browser baseline"],
+  "steps": [
+    {
+      "id": "inventory",
+      "title": "Inventory real product decisions",
+      "actions": ["Cluster existing colors, type, spacing, geometry, components, states, and exceptions.", "Identify high-frequency and high-risk patterns.", "Separate intentional variation from drift."],
+      "evidence": ["pattern inventory", "drift report", "priority map"],
+      "rule_refs": ["product.define-real-data", "direction.reference-decomposition", "system.adoption-path"],
+      "exit_criteria": ["Foundation and component priorities come from product evidence."]
+    },
+    {
+      "id": "principles",
+      "title": "Define direction and system principles",
+      "actions": ["Choose visual direction axes and signature signals.", "Set semantic naming principles, density strategy, and accessibility commitments.", "Record what the system intentionally will not standardize."],
+      "evidence": ["system principles", "direction decision"],
+      "rule_refs": ["direction.choose-intentional-axis", "direction.systemic-distinctiveness", "layout.measure-and-density"],
+      "exit_criteria": ["Principles can resolve a new design decision without a screenshot reference."]
+    },
+    {
+      "id": "tokens",
+      "title": "Build semantic foundations",
+      "actions": ["Create primitive scales, semantic roles, modes, and component aliases.", "Test foreground/background and interactive state pairs.", "Define typography, spacing, radius, motion, and asset conventions."],
+      "evidence": ["token graph", "theme specimens", "contrast matrix"],
+      "rule_refs": ["system.semantic-tokens", "color.role-based-palette", "type.hierarchy-by-role", "motion.reduced-motion-equivalence"],
+      "exit_criteria": ["Foundations support required modes and high-risk component states."]
+    },
+    {
+      "id": "primitives",
+      "title": "Build primitives from contracts",
+      "actions": ["Prioritize high-frequency semantic controls and layout primitives.", "Complete state, focus, content, and responsive contracts.", "Use native or proven accessible behavior."],
+      "evidence": ["component contracts", "state stories", "API review"],
+      "rule_refs": ["system.component-contract", "component.native-first", "component.state-completeness"],
+      "exit_criteria": ["Representative product flows can compose from stable primitives."]
+    },
+    {
+      "id": "adoption",
+      "title": "Design migration and governance",
+      "actions": ["Publish adoption tiers, migration recipes, compatibility windows, and exception intake.", "Automate deprecated usage detection where practical.", "Define ownership, review cadence, and contribution expectations."],
+      "evidence": ["migration plan", "governance model", "deprecation policy"],
+      "rule_refs": ["system.adoption-path", "system.document-decisions", "delivery.incremental-release"],
+      "exit_criteria": ["Teams can adopt incrementally and legitimate gaps have a governed path."]
+    },
+    {
+      "id": "validate",
+      "title": "Validate in product, not only the library",
+      "actions": ["Migrate representative simple, dense, internationalized, and high-risk flows.", "Measure visual coherence, accessibility, bundle cost, and exception frequency.", "Revise foundations before scaling adoption."],
+      "evidence": ["pilot migrations", "gate reports", "exception analysis"],
+      "rule_refs": ["delivery.definition-of-done", "i18n.expansion-safe-layout", "performance.ship-less-javascript"],
+      "exit_criteria": ["Pilots pass gates and exceptions reveal no foundational design flaw."]
+    }
+  ],
+  "outputs": ["token system", "component library", "documentation", "governance model", "migration tooling"],
+  "completion_gate_refs": ["gate.requirements", "gate.visual-direction", "gate.states", "gate.accessibility", "gate.responsive", "gate.performance", "gate.browsers", "gate.documentation", "gate.release"]
+}

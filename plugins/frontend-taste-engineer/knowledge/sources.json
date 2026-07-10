@@ -1,0 +1,168 @@
+{
+  "schema_version": "0.1.0",
+  "last_reviewed": "2026-07-10",
+  "authoritative_registry": "../research/source-registry.yml",
+  "usage_policy": "Rules are original synthesis. Source IDs identify upstream evidence and established practice; do not reproduce upstream passages, code, icons, or assets without checking their current terms.",
+  "sources": [
+    {
+      "id": "wcag-22",
+      "title": "Web Content Accessibility Guidelines (WCAG) 2.2",
+      "publisher": "W3C",
+      "canonical_url": "https://www.w3.org/TR/WCAG22/",
+      "source_type": "standard",
+      "license_note": "Use under current W3C document terms; this corpus contains original synthesis, not copied normative text."
+    },
+    {
+      "id": "wai-aria-apg",
+      "title": "WAI-ARIA Authoring Practices Guide",
+      "publisher": "W3C Web Accessibility Initiative",
+      "canonical_url": "https://www.w3.org/WAI/ARIA/apg/",
+      "source_type": "official-pattern-guidance",
+      "license_note": "Use under current W3C terms; verify the live pattern and support notes before implementation."
+    },
+    {
+      "id": "mdn-web-docs",
+      "title": "MDN Web Docs",
+      "publisher": "Mozilla and contributors",
+      "canonical_url": "https://developer.mozilla.org/",
+      "source_type": "platform-documentation",
+      "license_note": "Consult MDN's current attribution and licensing terms; this corpus paraphrases platform behavior."
+    },
+    {
+      "id": "webdev",
+      "title": "web.dev",
+      "publisher": "Google Chrome team and contributors",
+      "canonical_url": "https://web.dev/",
+      "source_type": "official-web-guidance",
+      "license_note": "Consult the current site terms; this corpus synthesizes concepts without reproducing articles."
+    },
+    {
+      "id": "react-docs",
+      "title": "React documentation",
+      "publisher": "React team and contributors",
+      "canonical_url": "https://react.dev/",
+      "source_type": "framework-documentation",
+      "license_note": "Consult the documentation repository's current license and attribution terms."
+    },
+    {
+      "id": "nextjs-docs",
+      "title": "Next.js documentation",
+      "publisher": "Vercel and contributors",
+      "canonical_url": "https://nextjs.org/docs",
+      "source_type": "framework-documentation",
+      "license_note": "Consult the documentation repository's current license and attribution terms."
+    },
+    {
+      "id": "material-3",
+      "title": "Material Design 3 and Material Web",
+      "publisher": "Google",
+      "canonical_url": "https://m3.material.io/",
+      "source_type": "Official design system and implementation repository",
+      "license_note": "Material Web Apache-2.0; Material site/brand assets subject to Google terms"
+    },
+    {
+      "id": "apple-hig",
+      "title": "Apple Human Interface Guidelines",
+      "publisher": "Apple",
+      "canonical_url": "https://developer.apple.com/design/human-interface-guidelines/",
+      "source_type": "platform-design-guidance",
+      "license_note": "Use as platform guidance under Apple's current terms; this corpus contains no copied Apple assets."
+    },
+    {
+      "id": "fluent-2",
+      "title": "Fluent 2 Design System",
+      "publisher": "Microsoft",
+      "canonical_url": "https://fluent2.microsoft.design/",
+      "source_type": "Official design system",
+      "license_note": "Fluent UI repository MIT; referenced fonts/icons can have separate asset terms"
+    },
+    {
+      "id": "carbon-design-system",
+      "title": "Carbon Design System",
+      "publisher": "IBM",
+      "canonical_url": "https://carbondesignsystem.com/",
+      "source_type": "Official design system and component repository",
+      "license_note": "Apache-2.0"
+    },
+    {
+      "id": "polaris",
+      "title": "Shopify Polaris",
+      "publisher": "Shopify",
+      "canonical_url": "https://polaris.shopify.com/",
+      "source_type": "design-system",
+      "license_note": "Guidance is synthesized; product marks and assets may have separate restrictions."
+    },
+    {
+      "id": "primer-design-system",
+      "title": "Primer",
+      "publisher": "GitHub",
+      "canonical_url": "https://primer.style/",
+      "source_type": "Official product and brand design system",
+      "license_note": "Primer React MIT; brand assets and GitHub marks have separate terms"
+    },
+    {
+      "id": "govuk-design-system",
+      "title": "GOV.UK Design System",
+      "publisher": "Government Digital Service",
+      "canonical_url": "https://design-system.service.gov.uk/",
+      "source_type": "public-service-design-system",
+      "license_note": "Guidance is synthesized; consult the site's current licensing and attribution notice for reuse."
+    },
+    {
+      "id": "uswds",
+      "title": "U.S. Web Design System",
+      "publisher": "U.S. General Services Administration and contributors",
+      "canonical_url": "https://designsystem.digital.gov/",
+      "source_type": "public-service-design-system",
+      "license_note": "Guidance is synthesized; verify current federal, third-party, trademark, and repository notices."
+    },
+    {
+      "id": "spectrum-design-system",
+      "title": "Spectrum",
+      "publisher": "Adobe",
+      "canonical_url": "https://spectrum.adobe.com/",
+      "source_type": "Official design system",
+      "license_note": "Spectrum site/brand assets subject to Adobe terms; React Spectrum repository Apache-2.0"
+    },
+    {
+      "id": "react-aria",
+      "title": "React Aria",
+      "publisher": "Adobe and contributors",
+      "canonical_url": "https://react-spectrum.adobe.com/react-aria/",
+      "source_type": "accessible-component-documentation",
+      "license_note": "Guidance is synthesized; check the current repository license before reusing code."
+    },
+    {
+      "id": "radix-primitives",
+      "title": "Radix Primitives",
+      "publisher": "WorkOS and contributors",
+      "canonical_url": "https://www.radix-ui.com/primitives",
+      "source_type": "component-primitive-documentation",
+      "license_note": "Guidance is synthesized; check the current repository license before reusing code."
+    },
+    {
+      "id": "transitions-dev-repo",
+      "title": "Transitions.dev repository",
+      "publisher": "Jakub Antalik",
+      "canonical_url": "https://github.com/Jakubantalik/transitions.dev",
+      "source_type": "GitHub repository, examples, skill, and build generator",
+      "license_note": "MIT for Refine per terms.html; no root LICENSE was visible, so repository-wide scope is not assumed"
+    },
+    {
+      "id": "emil-design-skills",
+      "title": "Skills for Design Engineers",
+      "publisher": "Emil Kowalski",
+      "canonical_url": "https://github.com/emilkowalski/skills",
+      "source_type": "GitHub agent-skill collection",
+      "license_note": "MIT"
+    },
+    {
+      "id": "taste-skill-repo",
+      "title": "Taste Skill — Anti-Slop Frontend Framework",
+      "publisher": "Leonxlnx contributors",
+      "canonical_url": "https://github.com/Leonxlnx/taste-skill",
+      "source_type": "GitHub agent-skill collection",
+      "license_note": "MIT"
+    }
+  ]
+}

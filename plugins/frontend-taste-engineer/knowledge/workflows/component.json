@@ -1,0 +1,53 @@
+{
+  "id": "workflow.component",
+  "title": "Production component workflow",
+  "version": "0.1.0",
+  "status": "active",
+  "last_reviewed": "2026-07-10",
+  "applies_to": ["new reusable component", "component revision", "primitive wrapping"],
+  "inputs": ["use cases", "content fixtures", "design tokens", "platform baseline", "existing primitives"],
+  "steps": [
+    {
+      "id": "need",
+      "title": "Prove the component boundary",
+      "actions": ["Collect at least two stable uses or a clear primitive need.", "Distinguish component logic from page composition.", "Check the existing system before creating a new primitive."],
+      "evidence": ["use-case inventory", "reuse decision"],
+      "rule_refs": ["product.evidence-before-feature", "system.component-contract"],
+      "exit_criteria": ["The boundary owns a coherent purpose and is not premature abstraction."]
+    },
+    {
+      "id": "contract",
+      "title": "Write the contract and state matrix",
+      "actions": ["Define purpose, anatomy, content limits, variants, states, events, semantics, focus, and extension points.", "Mark impossible and conditional state cells explicitly.", "Prefer composition or discriminated modes over flag combinations."],
+      "evidence": ["component contract", "completed state matrix"],
+      "rule_refs": ["system.component-contract", "component.state-completeness", "architecture.composition-over-flags"],
+      "exit_criteria": ["Invalid combinations are impossible, rejected, or documented."]
+    },
+    {
+      "id": "primitive",
+      "title": "Choose semantics and behavior",
+      "actions": ["Start from the native element or a proven accessible primitive.", "Define keyboard and focus behavior from an established pattern.", "Assign controlled and uncontrolled ownership only when needed."],
+      "evidence": ["semantics decision", "interaction specification"],
+      "rule_refs": ["component.native-first", "component.focus-contract", "a11y.name-role-value"],
+      "exit_criteria": ["Name, role, value, state, focus, and keyboard behavior are unambiguous."]
+    },
+    {
+      "id": "implement",
+      "title": "Implement with tokens and resilient content",
+      "actions": ["Consume semantic tokens and allow content expansion.", "Implement states and transitions from one source of truth.", "Keep optional behavior out of the base payload."],
+      "evidence": ["implementation", "fixtures"],
+      "rule_refs": ["system.semantic-tokens", "i18n.expansion-safe-layout", "architecture.state-ownership"],
+      "exit_criteria": ["Representative and boundary fixtures render without local design-value drift."]
+    },
+    {
+      "id": "test-document",
+      "title": "Test and document decisions",
+      "actions": ["Create deterministic state stories and interaction tests.", "Test keyboard, assistive technology, widths, themes, and browsers by risk.", "Document when to use, avoid, compose, and migrate the component."],
+      "evidence": ["state stories", "test results", "usage documentation"],
+      "rule_refs": ["testing.story-state-coverage", "system.document-decisions", "testing.browser-risk-matrix"],
+      "exit_criteria": ["A new consumer can use the component correctly without author guidance."]
+    }
+  ],
+  "outputs": ["component implementation", "contract", "state stories", "tests", "usage documentation"],
+  "completion_gate_refs": ["gate.requirements", "gate.states", "gate.accessibility", "gate.responsive", "gate.performance", "gate.browsers", "gate.documentation"]
+}

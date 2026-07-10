@@ -1,0 +1,51 @@
+{
+  "name": "frontend-taste-engineer",
+  "version": "0.1.0",
+  "description": "Source-backed frontend intelligence for planning, building, auditing, refining, and verifying production web interfaces.",
+  "author": {
+    "name": "arnavsri993",
+    "email": "arnavsri993@gmail.com",
+    "url": "https://github.com/arnavsri993"
+  },
+  "homepage": "https://github.com/arnavsri993/frontend-taste-engineer",
+  "repository": "https://github.com/arnavsri993/frontend-taste-engineer",
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "design-engineering",
+    "accessibility",
+    "responsive-design",
+    "performance",
+    "ui-audit",
+    "design-systems",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "Frontend Taste Engineer",
+    "shortDescription": "Build and audit exceptional production interfaces",
+    "longDescription": "A source-backed frontend operating system that combines a compact Codex Skill, hybrid MCP retrieval, deterministic audits, explicit completion gates, and maintainable research provenance. It balances product fit, visual distinction, accessibility, responsive behavior, performance, content integrity, and honest functionality.",
+    "developerName": "arnavsri993",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/arnavsri993/frontend-taste-engineer",
+    "defaultPrompt": [
+      "Design and build a distinctive, production-ready landing page for this product.",
+      "Audit this frontend and fix its highest-impact usability and design problems.",
+      "Rebuild this screenshot responsively while preserving accessibility."
+    ],
+    "brandColor": "#0B6E69",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.svg",
+    "logoDark": "./assets/logo-dark.svg",
+    "screenshots": [
+      "./assets/screenshot-1.png"
+    ]
+  }
+}

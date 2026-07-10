@@ -1,0 +1,31 @@
+name: Weekly source audit
+
+on:
+  schedule:
+    - cron: "23 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check registered-source freshness
+        run: >-
+          python3 plugins/frontend-taste-engineer/scripts/check_source_freshness.py
+          --json-out plugins/frontend-taste-engineer/audits/generated/weekly-source-audit.json
+          --md-out plugins/frontend-taste-engineer/audits/generated/weekly-source-audit.md
+      - name: Validate links, provenance, secrets, and licenses
+        run: python3 plugins/frontend-taste-engineer/scripts/validate_all.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weekly-source-audit
+          path: plugins/frontend-taste-engineer/audits/generated/
+          if-no-files-found: error

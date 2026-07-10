@@ -1,0 +1,69 @@
+{
+  "id": "workflow.screenshot-reconstruction",
+  "title": "Screenshot reconstruction workflow",
+  "version": "0.1.0",
+  "status": "active",
+  "last_reviewed": "2026-07-10",
+  "applies_to": ["pixel reconstruction", "reference parity", "design recovery from images"],
+  "inputs": ["all available screenshots", "viewport dimensions if known", "assets", "fonts", "existing code or system context"],
+  "steps": [
+    {
+      "id": "evidence",
+      "title": "Inventory evidence and uncertainty",
+      "actions": ["Record image dimensions, crop, scale, browser clues, and visible states.", "Classify each decision as observed, inferred, or assumed.", "List missing assets, fonts, viewports, and interactions."],
+      "evidence": ["evidence ledger", "asset inventory", "uncertainty map"],
+      "rule_refs": ["integrity.reconstruction-evidence", "direction.reference-decomposition"],
+      "exit_criteria": ["Material uncertainty is visible and not presented as observed fact."]
+    },
+    {
+      "id": "measurement",
+      "title": "Measure structure before styling",
+      "actions": ["Estimate viewport, outer frame, columns, anchors, gaps, measures, and repeated dimensions.", "Identify likely layout primitives and source order.", "Create proportional annotations rather than isolated pixel guesses."],
+      "evidence": ["measurement overlay", "layout hypothesis"],
+      "rule_refs": ["layout.source-order", "layout.measure-and-density"],
+      "exit_criteria": ["A coherent layout model explains repeated alignments and spacing."]
+    },
+    {
+      "id": "foundations",
+      "title": "Recover visual foundations",
+      "actions": ["Identify type roles, color roles, radius families, border/elevation rules, icon grammar, and image treatment.", "Match font metrics before tuning local spacing.", "Create tokens for repeated observed values."],
+      "evidence": ["recovered token map", "font comparison", "asset map"],
+      "rule_refs": ["type.hierarchy-by-role", "color.role-based-palette", "icons.semantic-consistency"],
+      "exit_criteria": ["Repeated visual decisions are systemic rather than per-element overrides."]
+    },
+    {
+      "id": "build-observed",
+      "title": "Build the observed viewport first",
+      "actions": ["Implement semantic structure and visible state.", "Use known assets and neutral system-consistent handling for gaps.", "Avoid inventing off-screen sections or unsupported behavior."],
+      "evidence": ["working implementation", "assumption annotations"],
+      "rule_refs": ["component.native-first", "integrity.reconstruction-evidence", "integrity.truthful-proof"],
+      "exit_criteria": ["Observed content and geometry are represented without fabricated proof or patterns."]
+    },
+    {
+      "id": "compare",
+      "title": "Compare with overlays and regions",
+      "actions": ["Capture at the exact reference viewport.", "Use opacity overlays, region crops, and anchor deltas.", "Correct in order: frame, geometry, type metrics, color, effects, then micro-detail."],
+      "evidence": ["overlay images", "region delta log"],
+      "rule_refs": ["integrity.reconstruction-evidence", "direction.reference-decomposition"],
+      "exit_criteria": ["Remaining differences are below the agreed tolerance or documented as evidence gaps."]
+    },
+    {
+      "id": "infer-responsive",
+      "title": "Infer only defensible responsive rules",
+      "actions": ["Use additional references and content failure points to define adaptation.", "Preserve source order and task hierarchy.", "Label responsive behavior not directly observed as designed inference."],
+      "evidence": ["responsive decision log", "boundary captures"],
+      "rule_refs": ["responsive.content-driven-reflow", "responsive.recompose-not-shrink", "layout.source-order"],
+      "exit_criteria": ["All supported widths work and inferred behavior is distinguished from reference fidelity."]
+    },
+    {
+      "id": "verify",
+      "title": "Verify implementation quality beyond pixels",
+      "actions": ["Run accessibility, state, performance, and browser gates.", "Confirm no screenshot artifact was reproduced as intentional behavior.", "Deliver a fidelity report with assumptions and known deltas."],
+      "evidence": ["gate report", "fidelity report"],
+      "rule_refs": ["delivery.definition-of-done", "component.state-completeness", "browser.test-real-platform-behavior"],
+      "exit_criteria": ["Visual parity and production-quality behavior are independently evidenced."]
+    }
+  ],
+  "outputs": ["reconstructed implementation", "evidence ledger", "fidelity report", "assumption list"],
+  "completion_gate_refs": ["gate.requirements", "gate.visual-direction", "gate.states", "gate.accessibility", "gate.responsive", "gate.performance", "gate.browsers", "gate.integrity"]
+}

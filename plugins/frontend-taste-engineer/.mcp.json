@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "frontend-taste-engineer": {
+      "command": "python3",
+      "args": [
+        "./mcp-server/server.py"
+      ],
+      "cwd": "."
+    }
+  }
+}

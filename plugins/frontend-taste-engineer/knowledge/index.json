@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "corpus_id": "frontend-taste-engineer",
+  "title": "Frontend Taste Engineer canonical knowledge corpus",
+  "introduced_in": "0.1.0",
+  "last_reviewed": "2026-07-10",
+  "record_schema": "rule.schema.json",
+  "source_registry": "sources.json",
+  "authoritative_research_source_registry": "../research/source-registry.yml",
+  "record_count": 73,
+  "record_file_count": 9,
+  "workflow_count": 7,
+  "workflow_step_count": 42,
+  "source_count": 20,
+  "status_counts": {"stable": 56, "specialized": 13, "experimental": 4, "deprecated": 0},
+  "importance_counts": {"mandatory": 60, "recommended": 13, "contextual": 0},
+  "confidence_counts": {"high": 73, "medium": 0, "low": 0},
+  "topic_counts": {
+    "product-requirements": 4,
+    "information-architecture-content": 4,
+    "visual-direction": 4,
+    "design-systems": 4,
+    "layout": 3,
+    "typography": 3,
+    "color": 2,
+    "components-states-forms": 8,
+    "responsive": 3,
+    "motion": 3,
+    "images-icons": 2,
+    "accessibility": 4,
+    "performance": 2,
+    "seo": 2,
+    "security-privacy-trust": 3,
+    "internationalization": 3,
+    "browsers": 2,
+    "frameworks-code-architecture": 4,
+    "testing-deployment": 4,
+    "anti-slop-integrity": 9
+  },
+  "record_files": [
+    {"path": "records/product-content.json", "record_count": 8, "topics": ["product-requirements", "information-architecture-content"]},
+    {"path": "records/direction-systems.json", "record_count": 8, "topics": ["visual-direction", "design-systems"]},
+    {"path": "records/layout-type-color.json", "record_count": 8, "topics": ["layout", "typography", "color"]},
+    {"path": "records/components-forms.json", "record_count": 8, "topics": ["components-states-forms"]},
+    {"path": "records/responsive-motion-media.json", "record_count": 8, "topics": ["responsive", "motion", "images-icons"]},
+    {"path": "records/accessibility-quality.json", "record_count": 8, "topics": ["accessibility", "performance", "seo"]},
+    {"path": "records/trust-global-browser.json", "record_count": 8, "topics": ["security-privacy-trust", "internationalization", "browsers"]},
+    {"path": "records/architecture-delivery.json", "record_count": 8, "topics": ["frameworks-code-architecture", "testing-deployment"]},
+    {"path": "records/anti-slop.json", "record_count": 9, "topics": ["anti-slop-integrity"]}
+  ],
+  "workflows": [
+    {"id": "workflow.greenfield", "path": "workflows/greenfield.json"},
+    {"id": "workflow.redesign", "path": "workflows/redesign.json"},
+    {"id": "workflow.screenshot-reconstruction", "path": "workflows/screenshot-reconstruction.json"},
+    {"id": "workflow.component", "path": "workflows/component.json"},
+    {"id": "workflow.design-system", "path": "workflows/design-system.json"},
+    {"id": "workflow.visual-audit", "path": "workflows/visual-audit.json"},
+    {"id": "workflow.motion", "path": "workflows/motion.json"}
+  ],
+  "supporting_artifacts": [
+    {"id": "matrix.component-states", "path": "component-state-matrix.json", "item_count": 10, "count_unit": "component archetypes"},
+    {"id": "gates.frontend-completion", "path": "completion-gates.json", "item_count": 13, "count_unit": "gates"},
+    {"id": "rubric.design-direction-comparison", "path": "direction-comparison-rubric.json", "item_count": 9, "count_unit": "criteria"}
+  ],
+  "guides": [
+    {"id": "guide.design-direction-comparison", "path": "guides/design-direction-comparison.md"}
+  ],
+  "retrieval": {
+    "canonical_entrypoint": "index.json",
+    "load_order": ["rule.schema.json", "sources.json", "record_files", "supporting_artifacts", "workflows", "guides"],
+    "primary_key": "id",
+    "filters": ["topic", "subtopic", "status", "importance", "confidence", "task_types", "page_types", "components", "frameworks", "platforms", "sources"],
+    "status_policy": {
+      "stable": "Authoritative across the listed contexts; prefer by default.",
+      "specialized": "Authoritative inside the listed contexts; retrieve only when scope matches.",
+      "experimental": "Trend-sensitive or aesthetic diagnostic; use as a review prompt and verify context.",
+      "deprecated": "Retained for migration history; do not recommend when a replacement exists."
+    },
+    "importance_policy": {
+      "mandatory": "A release blocker whenever applies_when is satisfied and no documented exception applies.",
+      "recommended": "Default practice that may yield to a documented context-specific tradeoff.",
+      "contextual": "Optional guidance selected by explicit product or platform conditions."
+    },
+    "precedence": ["applicable mandatory rules", "applicable completion gates", "stable rules", "specialized rules with matching scope", "experimental diagnostics"],
+    "relationship_fields": ["related_rules", "supersedes"]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "id": "gates.frontend-completion",
+  "title": "Frontend completion gates",
+  "version": "0.1.0",
+  "status": "stable",
+  "last_reviewed": "2026-07-10",
+  "policy": {
+    "mandatory_behavior": "Every applicable gate with severity blocking must pass before a production release.",
+    "not_applicable": "Record why the gate cannot apply; absence of evidence is not not-applicable.",
+    "waiver": "A waiver names owner, reason, user impact, compensating control, expiry date, and follow-up issue.",
+    "evidence": "Evidence must be reproducible from a named fixture, route, command, capture, or monitoring view."
+  },
+  "gates": [
+    {
+      "id": "gate.requirements",
+      "title": "Outcome and requirements",
+      "severity": "blocking",
+      "applies_when": ["Any user-facing change."],
+      "pass_conditions": ["Primary user, job, action, outcome, and acceptance criteria are named.", "Requirements, preferences, hypotheses, and exceptions are separated.", "Every material section and feature maps to the brief."],
+      "required_evidence": ["Outcome-first brief", "requirement ledger", "acceptance mapping"],
+      "rule_refs": ["product.outcome-first-brief", "product.requirement-priority"]
+    },
+    {
+      "id": "gate.content",
+      "title": "Information architecture and content",
+      "severity": "blocking",
+      "applies_when": ["The change adds or alters visible content, navigation, labels, or errors."],
+      "pass_conditions": ["The dominant task and reading sequence are clear.", "Labels remain meaningful out of context.", "Errors name recovery and do not blame the user.", "Representative, empty, long, and failure content is exercised."],
+      "required_evidence": ["Text outline", "content fixtures", "error and empty-state captures"],
+      "rule_refs": ["ia.one-primary-task", "content.front-load-meaning", "content.error-recovery-copy", "product.define-real-data"]
+    },
+    {
+      "id": "gate.visual-direction",
+      "title": "Visual direction and system coherence",
+      "severity": "blocking",
+      "applies_when": ["The change adds or materially revises visual language."],
+      "pass_conditions": ["Direction is tied to audience, content, and explicit axes.", "Signature signals are repeatable and restrained.", "Tokens and component roles replace unexplained local values.", "Anti-pattern detectors have been reviewed rather than ignored."],
+      "required_evidence": ["Direction decision", "token or role mapping", "anti-slop review"],
+      "rule_refs": ["direction.choose-intentional-axis", "direction.systemic-distinctiveness", "system.semantic-tokens"]
+    },
+    {
+      "id": "gate.states",
+      "title": "Component states and recovery",
+      "severity": "blocking",
+      "applies_when": ["Any component is interactive, asynchronous, data-driven, selectable, or permission-aware."],
+      "pass_conditions": ["Applicable state-matrix cells are implemented or explicitly impossible.", "Transitions, interruption, focus, retry, and preservation are defined.", "Visual, DOM, ARIA, and canonical application states agree."],
+      "required_evidence": ["Completed state matrix", "deterministic stories or fixtures", "interaction test results"],
+      "rule_refs": ["component.state-completeness", "component.focus-contract", "form.preserve-user-work"]
+    },
+    {
+      "id": "gate.accessibility",
+      "title": "Accessibility",
+      "severity": "blocking",
+      "applies_when": ["Any user-facing change."],
+      "pass_conditions": ["Primary and recovery tasks are keyboard complete.", "Name, role, value, state, reading order, and status behavior are correct.", "Contrast, focus, large text, non-color cues, reduced motion, and relevant assistive-technology behavior pass.", "Automated findings are triaged and complex widgets receive manual review."],
+      "required_evidence": ["Keyboard walkthrough", "automated report", "manual checks by risk", "accessibility-tree or assistive-technology evidence for complex patterns"],
+      "rule_refs": ["a11y.keyboard-complete", "a11y.name-role-value", "a11y.contrast-and-focus", "a11y.status-without-disruption"]
+    },
+    {
+      "id": "gate.responsive",
+      "title": "Responsive layout and input",
+      "severity": "blocking",
+      "applies_when": ["Any user-facing web layout or interaction."],
+      "pass_conditions": ["Continuous resizing reveals no clipping, overlap, missing content, or page-level reading scroll.", "Breakpoints correspond to content failure points.", "Source, focus, and task order remain coherent.", "Keyboard, touch, pointer, zoom, orientation, and virtual keyboard risks are addressed."],
+      "required_evidence": ["Boundary-width captures", "continuous resize review", "input-mode walkthrough"],
+      "rule_refs": ["responsive.content-driven-reflow", "responsive.recompose-not-shrink", "responsive.input-agnostic", "layout.source-order"]
+    },
+    {
+      "id": "gate.performance",
+      "title": "Performance",
+      "severity": "blocking",
+      "applies_when": ["Any production route or component with measurable loading or interaction cost."],
+      "pass_conditions": ["Route budgets for loading, responsiveness, stability, script, media, and requests pass or have an approved waiver.", "Primary content and controls are useful before optional code.", "Images and fonts reserve space and deliver appropriate bytes.", "Representative constrained-device evidence is included."],
+      "required_evidence": ["Production-build lab report", "bundle or payload report", "representative device trace", "field monitoring plan or data"],
+      "rule_refs": ["performance.core-web-vitals-budget", "performance.ship-less-javascript", "images.reserve-space", "type.font-loading-resilience"]
+    },
+    {
+      "id": "gate.browsers",
+      "title": "Browser and platform support",
+      "severity": "blocking",
+      "applies_when": ["Any production web change."],
+      "pass_conditions": ["The declared baseline supports every essential task.", "Enhancements use capability detection and usable fallbacks.", "High-risk native, input, viewport, accessibility, and rendering behavior is tested on real platforms."],
+      "required_evidence": ["Browser risk matrix", "automated cross-browser results", "real-platform results for high-risk boundaries"],
+      "rule_refs": ["browser.baseline-with-enhancement", "browser.test-real-platform-behavior", "testing.browser-risk-matrix"]
+    },
+    {
+      "id": "gate.globalization",
+      "title": "Internationalization",
+      "severity": "blocking",
+      "applies_when": ["The product supports or anticipates more than one locale, script, direction, currency, or timezone."],
+      "pass_conditions": ["Pseudo-localized expansion and compact strings do not break tasks.", "Locale and timezone formatting is correct and unambiguous.", "RTL and mixed-direction content preserve reading, focus, and layout logic.", "Fonts and locale resources cover target scripts without unstable loading."],
+      "required_evidence": ["Pseudo-localization captures", "locale/timezone fixture results", "RTL walkthrough"],
+      "rule_refs": ["i18n.expansion-safe-layout", "i18n.locale-aware-formatting", "i18n.bidirectional-logical"]
+    },
+    {
+      "id": "gate.security-privacy",
+      "title": "Security, privacy, and trust",
+      "severity": "blocking",
+      "applies_when": ["The change handles user data, identity, permissions, destructive actions, claims, or diagnostics."],
+      "pass_conditions": ["Collected, exposed, logged, and retained data is minimized.", "Destructive safeguards match consequence and are duplicate-safe.", "Errors aid recovery without leakage.", "Claims, proof, permissions, and metadata are truthful and current."],
+      "required_evidence": ["Data inventory", "permission and destructive-flow tests", "error disclosure review", "claim provenance"],
+      "rule_refs": ["security.data-minimization", "security.destructive-action-safety", "security.safe-error-detail", "integrity.truthful-proof"]
+    },
+    {
+      "id": "gate.integrity",
+      "title": "Anti-slop and reconstruction integrity",
+      "severity": "blocking",
+      "applies_when": ["Any generated, reference-led, screenshot-led, or materially art-directed work."],
+      "pass_conditions": ["Observed, inferred, and assumed decisions are distinguished when fidelity is claimed.", "No proof, metrics, logos, content, or states are fabricated.", "Cards, pills, gradients, bento, oversized heroes, effects, and motion have contextual reasons rather than template defaults.", "Alternatives and false-positive rationale were reviewed."],
+      "required_evidence": ["Evidence or assumption ledger", "anti-pattern review", "claim provenance", "reference comparison when applicable"],
+      "rule_refs": ["integrity.reconstruction-evidence", "integrity.truthful-proof", "anti.card-everything", "anti.gradient-everywhere", "anti.pill-overload", "anti.bento-by-default", "anti.hero-empty-scale", "anti.effects-stack", "anti.motion-everywhere"]
+    },
+    {
+      "id": "gate.documentation",
+      "title": "Documentation and maintainability",
+      "severity": "blocking",
+      "applies_when": ["A shared component, token, workflow, or architecture boundary changes."],
+      "pass_conditions": ["Purpose, usage, counterexamples, states, semantics, responsive behavior, performance cost, and browser notes are documented.", "Migration and deprecation behavior are documented when public contracts change.", "Examples and tests exercise the documented behavior."],
+      "required_evidence": ["Updated documentation", "examples", "migration notes", "linked tests"],
+      "rule_refs": ["system.document-decisions", "system.adoption-path", "testing.story-state-coverage"]
+    },
+    {
+      "id": "gate.release",
+      "title": "Release and observability",
+      "severity": "blocking",
+      "applies_when": ["Any production deployment."],
+      "pass_conditions": ["Production output—not only development mode—was tested.", "Rollback or disable path exists for material risk.", "Outcome, error, performance, and critical integrity signals have owners and thresholds.", "Known waivers and changes are communicated."],
+      "required_evidence": ["Production-build results", "release plan", "rollback test", "monitoring and ownership record"],
+      "rule_refs": ["delivery.incremental-release", "delivery.definition-of-done", "performance.core-web-vitals-budget"]
+    }
+  ]
+}

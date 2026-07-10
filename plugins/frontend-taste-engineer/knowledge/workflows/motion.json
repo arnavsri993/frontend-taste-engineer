@@ -1,0 +1,61 @@
+{
+  "id": "workflow.motion",
+  "title": "Purposeful motion workflow",
+  "version": "0.1.0",
+  "status": "active",
+  "last_reviewed": "2026-07-10",
+  "applies_to": ["component motion", "page transitions", "interaction choreography", "motion audit"],
+  "inputs": ["state model", "interaction trigger", "geometry", "motion tokens", "user preferences", "performance baseline"],
+  "steps": [
+    {
+      "id": "purpose",
+      "title": "State the information purpose",
+      "actions": ["Name the before and after states.", "Describe what continuity, causality, feedback, or hierarchy the motion must communicate.", "Reject motion whose only rationale is polish."],
+      "evidence": ["motion intent statement"],
+      "rule_refs": ["motion.explain-causality", "anti.motion-everywhere"],
+      "exit_criteria": ["The animation has a specific information job or is removed."]
+    },
+    {
+      "id": "state",
+      "title": "Define state, focus, and interruption behavior",
+      "actions": ["Specify trigger, duration bounds, reversal, cancellation, rapid repeated input, route change, and cleanup.", "Define focus ownership before, during, and after.", "Ensure business state does not depend on animation completion."],
+      "evidence": ["transition state table", "focus contract"],
+      "rule_refs": ["motion.interruption-safe", "component.focus-contract", "architecture.state-ownership"],
+      "exit_criteria": ["Every interruption lands in the latest valid application state."]
+    },
+    {
+      "id": "reduced",
+      "title": "Design the reduced-motion equivalent",
+      "actions": ["Identify vestibular, automatic, repeated, and attention-demanding movement.", "Create an instant, fade, or static equivalent that preserves information.", "Define pause controls for ongoing motion."],
+      "evidence": ["reduced-motion specification"],
+      "rule_refs": ["motion.reduced-motion-equivalence", "anti.motion-everywhere"],
+      "exit_criteria": ["The reduced path preserves every task, state, and piece of information."]
+    },
+    {
+      "id": "implement",
+      "title": "Implement from geometry and tokens",
+      "actions": ["Use bounded duration, consistent easing, and spatial origins tied to the trigger.", "Prefer transform and opacity, but do not promote excessive layers.", "Adapt paths when layout geometry changes."],
+      "evidence": ["implementation", "motion-token usage"],
+      "rule_refs": ["motion.explain-causality", "responsive.content-driven-reflow"],
+      "exit_criteria": ["Motion feels connected to the interaction at every supported geometry."]
+    },
+    {
+      "id": "stress",
+      "title": "Stress-test input and performance",
+      "actions": ["Spam triggers, reverse intent, resize, navigate, and toggle preferences mid-animation.", "Profile long frames, layout, paint, and layer memory on representative low-power hardware.", "Test script and API fallback."],
+      "evidence": ["stress-test recording", "performance trace", "fallback report"],
+      "rule_refs": ["motion.interruption-safe", "performance.core-web-vitals-budget", "browser.test-real-platform-behavior"],
+      "exit_criteria": ["Final visual, DOM, focus, and ARIA states agree under stress and remain within budget."]
+    },
+    {
+      "id": "review",
+      "title": "Review motion in the full experience",
+      "actions": ["Evaluate simultaneous animations and page-level cadence.", "Remove repeated reveal patterns and competing focal moments.", "Run default and reduced paths through completion gates."],
+      "evidence": ["motion audit", "gate report"],
+      "rule_refs": ["anti.motion-everywhere", "delivery.definition-of-done"],
+      "exit_criteria": ["Motion supports comprehension without delaying reading, interaction, or release readiness."]
+    }
+  ],
+  "outputs": ["motion specification", "reduced-motion specification", "implementation", "stress-test evidence"],
+  "completion_gate_refs": ["gate.states", "gate.accessibility", "gate.responsive", "gate.performance", "gate.browsers", "gate.integrity"]
+}

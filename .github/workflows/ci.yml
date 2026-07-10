@@ -1,0 +1,43 @@
+name: Validate and package
+
+on:
+  pull_request:
+  push:
+    branches: [main, candidate]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate plugin, Skill, corpus, provenance, and packages
+        run: python3 plugins/frontend-taste-engineer/scripts/validate_all.py
+      - name: Test MCP protocol and retrieval
+        run: python3 -m unittest discover -s plugins/frontend-taste-engineer/mcp-server/tests -v
+      - name: Run retrieval evaluations
+        run: python3 plugins/frontend-taste-engineer/evals/run_retrieval_evals.py
+      - name: Run frontend rubric evaluations
+        run: python3 plugins/frontend-taste-engineer/evals/run_frontend_evals.py
+        continue-on-error: true
+      - name: Package standalone Skill
+        run: python3 plugins/frontend-taste-engineer/scripts/package_skill.py
+      - name: Package plugin
+        run: python3 plugins/frontend-taste-engineer/scripts/package_plugin.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frontend-taste-engineer-packages
+          path: plugins/frontend-taste-engineer/dist/*.zip
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frontend-evaluation-evidence-status
+          path: plugins/frontend-taste-engineer/evals/results/
+          if-no-files-found: error

@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:frontend-taste-engineer:rule-schema:0.1.0",
+  "title": "Frontend Taste Engineer rule collection",
+  "description": "Schema for a JSON file containing canonical frontend knowledge records.",
+  "type": "array",
+  "items": {"$ref": "#/$defs/rule"},
+  "$defs": {
+    "nonEmptyStringArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "idArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"}
+    },
+    "antiPattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["why_ai_overuses", "detection", "appropriate_contexts", "inappropriate_contexts", "alternatives", "verification"],
+      "properties": {
+        "why_ai_overuses": {"type": "string", "minLength": 20},
+        "detection": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "appropriate_contexts": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "inappropriate_contexts": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "alternatives": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "verification": {"$ref": "#/$defs/nonEmptyStringArray"}
+      }
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "title", "topic", "subtopic", "status", "importance", "confidence",
+        "task_types", "page_types", "components", "frameworks", "platforms",
+        "principle", "rationale", "applies_when", "exceptions", "implementation", "verification",
+        "accessibility", "responsive", "performance", "browser_notes", "sources", "license_status",
+        "introduced_in", "last_reviewed", "related_rules", "supersedes"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"},
+        "title": {"type": "string", "minLength": 8},
+        "topic": {
+          "type": "string",
+          "enum": [
+            "product-requirements", "information-architecture-content", "visual-direction", "design-systems",
+            "layout", "typography", "color", "components-states-forms", "responsive", "motion",
+            "images-icons", "accessibility", "performance", "seo", "security-privacy-trust",
+            "internationalization", "browsers", "frameworks-code-architecture", "testing-deployment",
+            "anti-slop-integrity"
+          ]
+        },
+        "subtopic": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "status": {
+          "type": "string",
+          "enum": ["stable", "specialized", "experimental", "deprecated"],
+          "description": "Stability classification, independent from enforcement importance."
+        },
+        "importance": {"type": "string", "enum": ["mandatory", "recommended", "contextual"]},
+        "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
+        "task_types": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "page_types": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "components": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "frameworks": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "platforms": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "principle": {"type": "string", "minLength": 30},
+        "rationale": {"type": "string", "minLength": 30},
+        "applies_when": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "exceptions": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "implementation": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "verification": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "accessibility": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "responsive": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "performance": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "browser_notes": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "wcag-22", "wai-aria-apg", "mdn-web-docs", "webdev", "react-docs", "nextjs-docs",
+              "material-3", "apple-hig", "fluent-2", "carbon-design-system", "polaris", "primer-design-system",
+              "govuk-design-system", "uswds", "spectrum-design-system", "react-aria", "radix-primitives",
+              "transitions-dev-repo", "emil-design-skills", "taste-skill-repo"
+            ]
+          }
+        },
+        "license_status": {"type": "string", "const": "synthesized-original-with-source-attribution"},
+        "introduced_in": {"type": "string", "const": "0.1.0"},
+        "last_reviewed": {"type": "string", "const": "2026-07-10"},
+        "related_rules": {"$ref": "#/$defs/idArray"},
+        "supersedes": {"$ref": "#/$defs/idArray"},
+        "anti_pattern": {"$ref": "#/$defs/antiPattern"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"topic": {"const": "anti-slop-integrity"}}, "required": ["topic"]},
+          "then": {"required": ["anti_pattern"]}
+        }
+      ]
+    }
+  }
+}

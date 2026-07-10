@@ -1,0 +1,108 @@
+{
+  "id": "matrix.component-states",
+  "title": "Canonical component state matrix",
+  "version": "0.1.0",
+  "status": "stable",
+  "last_reviewed": "2026-07-10",
+  "legend": {
+    "R": "required whenever the component supports the underlying capability",
+    "C": "conditional; implement when the state can occur and document the condition",
+    "N": "not normally applicable; justify if introduced"
+  },
+  "states": [
+    {"id": "default", "question": "What is available before interaction or data transition?"},
+    {"id": "hover", "question": "What changes for a hover-capable pointer without becoming the only cue?"},
+    {"id": "focus-visible", "question": "How can a keyboard user locate focus against every adjacent surface?"},
+    {"id": "active", "question": "How is current press or drag activation acknowledged?"},
+    {"id": "selected", "question": "How is persistent choice exposed visually and programmatically?"},
+    {"id": "disabled", "question": "Why is action unavailable, and should it remain discoverable?"},
+    {"id": "read-only", "question": "How is viewable but non-editable content distinguished from disabled content?"},
+    {"id": "loading", "question": "What remains stable and what action or progress is available while waiting?"},
+    {"id": "empty", "question": "Which empty cause occurred and what resolves it?"},
+    {"id": "error", "question": "What happened, what was preserved, and what recovery is possible?"},
+    {"id": "success", "question": "How is completion confirmed without unnecessary interruption?"},
+    {"id": "partial", "question": "How is incomplete or mixed data represented without implying failure or completion?"},
+    {"id": "permission-limited", "question": "What can the user see or do, and why is the rest unavailable?"},
+    {"id": "offline", "question": "Which content is current, which actions are queued, and how will reconnection behave?"}
+  ],
+  "component_archetypes": [
+    {
+      "id": "action-control",
+      "examples": ["button", "menu item", "toolbar command"],
+      "matrix": {"default": "R", "hover": "R", "focus-visible": "R", "active": "R", "selected": "C", "disabled": "C", "read-only": "N", "loading": "C", "empty": "N", "error": "C", "success": "C", "partial": "N", "permission-limited": "C", "offline": "C"},
+      "required_checks": ["Semantic button or appropriate command role.", "Duplicate activation is prevented.", "Loading retains an accessible name and stable dimensions.", "Destructive consequence and recovery are explicit."],
+      "rule_refs": ["component.action-hierarchy", "component.native-first", "a11y.keyboard-complete"]
+    },
+    {
+      "id": "navigation-control",
+      "examples": ["link", "breadcrumb", "pagination", "tab"],
+      "matrix": {"default": "R", "hover": "R", "focus-visible": "R", "active": "R", "selected": "R", "disabled": "C", "read-only": "N", "loading": "C", "empty": "N", "error": "C", "success": "N", "partial": "N", "permission-limited": "C", "offline": "C"},
+      "required_checks": ["Current destination is programmatically exposed.", "URL and history behavior remain native and predictable.", "Focus follows navigation outcome, not animation timing."],
+      "rule_refs": ["component.native-first", "architecture.progressive-enhancement", "seo.semantic-discoverability"]
+    },
+    {
+      "id": "text-input",
+      "examples": ["input", "textarea", "search", "combobox text field"],
+      "matrix": {"default": "R", "hover": "R", "focus-visible": "R", "active": "R", "selected": "N", "disabled": "C", "read-only": "C", "loading": "C", "empty": "R", "error": "R", "success": "C", "partial": "C", "permission-limited": "C", "offline": "C"},
+      "required_checks": ["Persistent visible label and associated hint/error.", "Autofill, paste, IME composition, and password managers work.", "Validation timing does not punish partial entry.", "User input survives recoverable failure."],
+      "rule_refs": ["form.label-and-instructions", "form.validation-timing", "form.preserve-user-work"]
+    },
+    {
+      "id": "choice-input",
+      "examples": ["checkbox", "radio", "switch", "select", "listbox"],
+      "matrix": {"default": "R", "hover": "R", "focus-visible": "R", "active": "R", "selected": "R", "disabled": "C", "read-only": "C", "loading": "C", "empty": "C", "error": "R", "success": "C", "partial": "C", "permission-limited": "C", "offline": "C"},
+      "required_checks": ["Group label and selection constraints are exposed.", "Mixed and indeterminate states are distinct when supported.", "Keyboard behavior matches the native or APG pattern.", "Selection is not encoded by color alone."],
+      "rule_refs": ["component.native-first", "color.non-color-cues", "a11y.name-role-value"]
+    },
+    {
+      "id": "disclosure-overlay",
+      "examples": ["details", "accordion", "popover", "dialog", "drawer", "tooltip"],
+      "matrix": {"default": "R", "hover": "C", "focus-visible": "R", "active": "C", "selected": "N", "disabled": "C", "read-only": "N", "loading": "C", "empty": "C", "error": "C", "success": "N", "partial": "N", "permission-limited": "C", "offline": "C"},
+      "required_checks": ["Trigger exposes expanded or open state.", "Initial, contained, and restored focus follow the component contract.", "Escape and outside interaction behavior are explicit.", "Content remains available in reduced motion and during animation interruption."],
+      "rule_refs": ["ia.progressive-disclosure", "component.focus-contract", "motion.interruption-safe"]
+    },
+    {
+      "id": "collection",
+      "examples": ["list", "table", "grid", "search results", "inbox"],
+      "matrix": {"default": "R", "hover": "C", "focus-visible": "C", "active": "C", "selected": "C", "disabled": "N", "read-only": "C", "loading": "R", "empty": "R", "error": "R", "success": "C", "partial": "R", "permission-limited": "C", "offline": "C"},
+      "required_checks": ["Loading, first-use empty, filtered empty, partial, and error are distinct.", "Sorting, filtering, pagination, and selection have one state owner.", "Large data strategies preserve semantics and focus.", "Representative long and localized values are exercised."],
+      "rule_refs": ["component.empty-state-next-step", "product.define-real-data", "architecture.state-ownership"]
+    },
+    {
+      "id": "feedback",
+      "examples": ["alert", "toast", "status", "progress", "error summary"],
+      "matrix": {"default": "C", "hover": "C", "focus-visible": "C", "active": "C", "selected": "N", "disabled": "N", "read-only": "N", "loading": "R", "empty": "N", "error": "R", "success": "R", "partial": "C", "permission-limited": "C", "offline": "C"},
+      "required_checks": ["Urgency matches live-region behavior.", "Important feedback remains discoverable after announcement.", "Dismissal is keyboard accessible and not required to continue unless blocking.", "Rapid updates are coalesced."],
+      "rule_refs": ["a11y.status-without-disruption", "content.error-recovery-copy", "component.state-completeness"]
+    },
+    {
+      "id": "media",
+      "examples": ["image", "video", "audio", "carousel", "gallery"],
+      "matrix": {"default": "R", "hover": "C", "focus-visible": "C", "active": "C", "selected": "C", "disabled": "C", "read-only": "N", "loading": "R", "empty": "C", "error": "R", "success": "N", "partial": "C", "permission-limited": "C", "offline": "C"},
+      "required_checks": ["Intrinsic dimensions or stable aspect ratio are reserved.", "Meaningful alternatives and captions exist.", "Autoplay and motion have pause and preference behavior.", "Load failure has a useful fallback."],
+      "rule_refs": ["images.reserve-space", "motion.reduced-motion-equivalence", "a11y.status-without-disruption"]
+    },
+    {
+      "id": "navigation-shell",
+      "examples": ["header", "sidebar", "mobile navigation", "command palette"],
+      "matrix": {"default": "R", "hover": "R", "focus-visible": "R", "active": "R", "selected": "R", "disabled": "C", "read-only": "N", "loading": "C", "empty": "C", "error": "C", "success": "N", "partial": "C", "permission-limited": "R", "offline": "C"},
+      "required_checks": ["Landmarks and bypass links remain stable.", "Current location is exposed without color alone.", "Responsive replacement preserves source and focus order.", "Permission-limited navigation does not disclose unauthorized destinations."],
+      "rule_refs": ["layout.source-order", "responsive.recompose-not-shrink", "security.data-minimization"]
+    },
+    {
+      "id": "editor-upload",
+      "examples": ["rich text editor", "file uploader", "canvas", "multi-step creator"],
+      "matrix": {"default": "R", "hover": "C", "focus-visible": "R", "active": "R", "selected": "C", "disabled": "C", "read-only": "C", "loading": "R", "empty": "R", "error": "R", "success": "R", "partial": "R", "permission-limited": "C", "offline": "R"},
+      "required_checks": ["Draft and recovery behavior are explicit.", "Progress, retry, cancellation, and conflict are modeled.", "Keyboard and non-drag alternatives exist.", "Sensitive file and content handling follows minimization and disclosure rules."],
+      "rule_refs": ["form.preserve-user-work", "responsive.input-agnostic", "security.data-minimization"]
+    }
+  ],
+  "cross_state_checks": [
+    "Visual state, DOM state, accessible state, and canonical application state agree.",
+    "Focus remains visible, logical, and attached to a surviving task target across transitions.",
+    "Loading never silently converts to empty; error never silently converts to disabled.",
+    "Disabled and permission-limited states have different semantics and explanations.",
+    "Reduced motion, forced colors, large text, RTL, offline, and slow network are combined with relevant component states.",
+    "Repeated or reversed input cannot queue stale transitions or duplicate commits."
+  ]
+}

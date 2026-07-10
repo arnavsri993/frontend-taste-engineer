@@ -1,0 +1,302 @@
+schema_version: 1
+reviewed: "2026-07-10"
+source_count: 36
+supplied_source_count: 9
+status_legend:
+  strong: "Multiple primary/authoritative sources support promotion of stable baseline guidance."
+  moderate: "Useful primary coverage exists, but specialist depth, implementation examples, or independent evidence should grow."
+  limited: "Only partial or context-bound evidence is registered; do not claim comprehensive coverage."
+  blocked: "A supplied source is inaccessible; no knowledge is promoted from it."
+areas:
+  product_requirements:
+    status: strong
+    primary_sources: [uswds, govuk-design-system, atlassian-design-system]
+    supporting_sources: [taste-skill-repo, hive-mind-landing-page]
+    covers: [product type, audience, jobs, trust, risk, device context, acceptance criteria, assumption management, scope]
+    gaps: [formal product analytics ethics, regulated-industry requirement templates]
+
+  information_architecture:
+    status: moderate
+    primary_sources: [uswds, govuk-design-system, polaris, atlassian-design-system]
+    supporting_sources: [whatwg-html, nextjs-docs, svelte-docs]
+    covers: [navigation, hierarchy, progressive disclosure, search, filtering, labels, URL state, back behavior]
+    gaps: [large-scale taxonomy research, enterprise permission-navigation case studies]
+
+  content_design:
+    status: strong
+    primary_sources: [govuk-design-system, atlassian-design-system, uswds, polaris]
+    supporting_sources: [google-search-docs, wcag-22]
+    covers: [labels, calls to action, help, errors, empty states, success, destructive confirmation, plain language, localization readiness]
+    gaps: [long-form editorial governance, legal/compliance copy review]
+
+  visual_direction:
+    status: moderate
+    primary_sources: [apple-hig, material-3, fluent-2, spectrum-design-system]
+    supporting_sources: [hive-mind-landing-page, taste-skill-repo, awesome-design-md]
+    covers: [design thesis, product fit, familiarity versus originality, reference analysis, art direction, trend restraint]
+    gaps: [independent design-research studies, non-Western visual traditions, broader art-direction case studies]
+
+  design_system_strategy:
+    status: strong
+    primary_sources: [fluent-2, carbon-design-system, primer-design-system, uswds, material-3, spectrum-design-system]
+    supporting_sources: [react-aria, radix-primitives]
+    covers: [system selection, tokens, semantic aliases, theming, density, component variants, governance, deprecation, escape hatches]
+    gaps: [multi-brand token governance, design-token standard interoperability]
+
+  layout_composition:
+    status: strong
+    primary_sources: [mdn-web-docs, webdev, uswds, material-3]
+    supporting_sources: [apple-hig, polaris]
+    covers: [grid, flexbox, intrinsic layout, container queries, fluid sizing, max width, source order, sticky/fixed, zoom/reflow]
+    gaps: [foldable-specific production evidence, print-heavy application layouts]
+
+  typography:
+    status: strong
+    primary_sources: [apple-hig, mdn-web-docs, webdev, spectrum-design-system]
+    supporting_sources: [fluent-2, carbon-design-system, w3c-i18n]
+    covers: [selection, hierarchy, loading, fallbacks, variable fonts, line length, scaling, international scripts, CLS]
+    gaps: [advanced non-Latin typographic systems, font licensing discovery automation]
+
+  color_surfaces:
+    status: strong
+    primary_sources: [wcag-22, spectrum-design-system, carbon-design-system, fluent-2]
+    supporting_sources: [material-3, apple-hig]
+    covers: [semantic color, contrast, themes, forced colors, high contrast, color independence, surface hierarchy, perceptual color]
+    gaps: [data-visualization palette testing with real tasks, HDR/wide-gamut deployment evidence]
+
+  component_native_primitives:
+    status: strong
+    primary_sources: [whatwg-html, mdn-web-docs, wcag-22]
+    supporting_sources: [react-aria, radix-primitives, polaris]
+    covers: [button, link, input, textarea, select, checkbox, radio, switch, slider, file upload]
+    gaps: [cross-browser native-control visual regression corpus]
+
+  component_composite_widgets:
+    status: strong
+    primary_sources: [wai-aria-apg, react-aria, radix-primitives]
+    supporting_sources: [primer-design-system, carbon-design-system]
+    covers: [combobox, tabs, accordion, menu, popover, tooltip, dialog, drawer, carousel, command palette, calendar]
+    gaps: [rich text editors, maps, complex media players]
+
+  component_navigation:
+    status: strong
+    primary_sources: [uswds, govuk-design-system, primer-design-system]
+    supporting_sources: [wai-aria-apg, whatwg-html]
+    covers: [nav bars, sidebars, breadcrumbs, pagination, tabs, search, skip links]
+    gaps: [very large enterprise information architectures, spatial navigation]
+
+  component_data_display:
+    status: moderate
+    primary_sources: [carbon-design-system, polaris, spectrum-design-system]
+    supporting_sources: [primer-design-system, material-3]
+    covers: [tables, lists, cards, badges, avatars, charts, responsive data display]
+    gaps: [accessible complex charts, virtualization with assistive technology, maps]
+
+  component_feedback_status:
+    status: strong
+    primary_sources: [govuk-design-system, atlassian-design-system, polaris, carbon-design-system]
+    supporting_sources: [wcag-22, wai-aria-apg]
+    covers: [alerts, banners, toasts, progress, skeletons, empty, error, success, warning, offline]
+    gaps: [high-frequency live data announcement research]
+
+  component_product_flows:
+    status: moderate
+    primary_sources: [polaris, govuk-design-system, uswds]
+    supporting_sources: [react-aria, owasp-cheat-sheets]
+    covers: [authentication, onboarding, settings, checkout, notifications, permission prompts, multi-step forms]
+    gaps: [payments regulation, healthcare/finance specialist flows, account recovery abuse prevention]
+
+  component_state_matrix:
+    status: strong
+    primary_sources: [carbon-design-system, primer-design-system, react-aria, radix-primitives]
+    supporting_sources: [taste-skill-repo, wcag-22]
+    covers: [default, hover, focus-visible, active, selected, disabled, read-only, loading, empty, error, offline, stale, saving, optimistic, permission denied]
+    gaps: [formal cross-component state compatibility schema]
+
+  forms_validation:
+    status: strong
+    primary_sources: [govuk-design-system, polaris, react-aria, wcag-22]
+    supporting_sources: [webdev, whatwg-html, owasp-cheat-sheets]
+    covers: [grouping, labels, required/optional, validation, summaries, focus, autofill, mobile inputs, server errors, recovery]
+    gaps: [international address datasets, password-manager compatibility matrix]
+
+  responsive_behavior:
+    status: strong
+    primary_sources: [webdev, mdn-web-docs, wcag-22, uswds]
+    supporting_sources: [polaris, astro-docs]
+    covers: [mobile-first, content breakpoints, container queries, touch, orientation, zoom, safe areas, dynamic viewport, between-breakpoint tests]
+    gaps: [foldable hardware lab evidence, TV/spatial web]
+
+  motion_interaction:
+    status: strong
+    primary_sources: [apple-hig, fluent-2, wcag-22, webdev]
+    supporting_sources: [emil-design-skills, transitions-dev-repo, transitions-refine-page, astro-docs]
+    covers: [purpose, continuity, feedback, easing, duration, origin, interruptibility, reduced motion, view transitions, runtime cost]
+    gaps: [independent motion usability studies, gesture physics across devices]
+
+  images_icons:
+    status: strong
+    primary_sources: [webdev, mdn-web-docs, apple-hig, primer-design-system]
+    supporting_sources: [astro-docs, nextjs-docs, spectrum-design-system]
+    covers: [responsive delivery, formats, cropping, alt text, decorative images, icon labeling, optical alignment, licensing]
+    gaps: [generated-image disclosure policy, automated focal-point QA]
+
+  accessibility_semantics:
+    status: strong
+    primary_sources: [wcag-22, wai-aria-apg, whatwg-html, mdn-web-docs]
+    supporting_sources: [react-aria, radix-primitives]
+    covers: [semantic HTML, landmarks, headings, names, descriptions, roles, native-before-ARIA]
+    gaps: []
+
+  accessibility_keyboard_focus:
+    status: strong
+    primary_sources: [wcag-22, wai-aria-apg, react-aria, radix-primitives]
+    supporting_sources: [polaris, primer-design-system]
+    covers: [keyboard navigation, focus order, focus visibility, trapping, restoration, route/error focus]
+    gaps: [voice-control automated test harness]
+
+  accessibility_visual_motion:
+    status: strong
+    primary_sources: [wcag-22, apple-hig, fluent-2, spectrum-design-system]
+    supporting_sources: [webdev, carbon-design-system]
+    covers: [contrast, color independence, zoom, reflow, forced colors, target size, reduced motion, flashes]
+    gaps: [APCA as supplemental experimental metric policy]
+
+  accessibility_cognitive_content:
+    status: moderate
+    primary_sources: [wcag-22, apple-hig, atlassian-design-system, uswds]
+    supporting_sources: [govuk-design-system]
+    covers: [plain language, consistent interaction, time limits, error prevention, accessible authentication, reduced complexity]
+    gaps: [deeper COGA task-pattern coverage, user-research recruitment guidance]
+
+  accessibility_media:
+    status: moderate
+    primary_sources: [wcag-22, mdn-web-docs]
+    supporting_sources: [apple-hig, atlassian-design-system]
+    covers: [captions, transcripts, alternatives, autoplay restraint, audio-independent cues]
+    gaps: [accessible custom player implementation corpus, sign-language requirements]
+
+  performance:
+    status: strong
+    primary_sources: [webdev, mdn-web-docs]
+    supporting_sources: [vue-docs, nextjs-docs, svelte-docs, astro-docs]
+    covers: [budgets, CWV, rendering, hydration, splitting, images, fonts, scripts, caching, lazy loading, profiling, regression]
+    gaps: [RUM vendor-neutral implementation recipes, energy usage]
+
+  seo_metadata:
+    status: strong
+    primary_sources: [google-search-docs]
+    supporting_sources: [nextjs-docs, astro-docs, mdn-web-docs]
+    covers: [titles, descriptions, canonicals, robots, sitemaps, structured data, crawlability, social metadata, localization]
+    gaps: [non-Google search-engine specifics]
+
+  security:
+    status: strong
+    primary_sources: [owasp-cheat-sheets]
+    supporting_sources: [webdev, nextjs-docs, whatwg-html]
+    covers: [XSS, sanitization, CSP, URL handling, third-party scripts, uploads, secret boundaries, embeds]
+    gaps: [full threat modeling, authorization/backend review, supply-chain scanning implementation]
+
+  privacy_consent_trust:
+    status: moderate
+    primary_sources: [webdev, uswds, govuk-design-system]
+    supporting_sources: [owasp-cheat-sheets, polaris]
+    covers: [privacy-preserving design, consent integrity, trust indicators, honest claims, sensitive information]
+    gaps: [jurisdiction-specific consent law, analytics governance]
+
+  internationalization:
+    status: strong
+    primary_sources: [w3c-i18n]
+    supporting_sources: [polaris, webdev, mdn-web-docs]
+    covers: [UTF-8, language tags, RTL, bidi, local dates/numbers/currency, names/addresses, text expansion, translation-safe strings]
+    gaps: [locale-specific form datasets, collation/search implementation by backend]
+
+  browser_platform:
+    status: strong
+    primary_sources: [mdn-web-docs, whatwg-html, webdev]
+    supporting_sources: [playwright-docs, astro-docs]
+    covers: [progressive enhancement, feature detection, compatibility, viewport, autofill, print, preferences, history, offline]
+    gaps: [browser-specific assistive-technology matrix, WebKit/Gecko primary engineering docs beyond MDN]
+
+  framework_react:
+    status: strong
+    primary_sources: [react-docs]
+    supporting_sources: [react-aria, radix-primitives, playwright-docs]
+    covers: [components, state, effects, Suspense, errors, accessibility primitives, testing]
+    gaps: [React Native excluded by scope]
+
+  framework_nextjs:
+    status: strong
+    primary_sources: [nextjs-docs]
+    supporting_sources: [react-docs, webdev, google-search-docs]
+    covers: [App versus Pages Router, server/client boundaries, rendering, cache, images/fonts, metadata, security, tests]
+    gaps: [host-specific deployment beyond official docs]
+
+  framework_vue_nuxt:
+    status: moderate
+    primary_sources: [vue-docs]
+    supporting_sources: [webdev]
+    covers: [Vue 3 architecture, performance, SSR/SSG, transitions, accessibility]
+    gaps: [Nuxt is consulted but not separately registered; add a Nuxt versioned source before deep Nuxt promotion]
+
+  framework_svelte_sveltekit:
+    status: strong
+    primary_sources: [svelte-docs]
+    supporting_sources: [webdev, playwright-docs]
+    covers: [Svelte 5 runes, components, transitions, routing, forms, rendering, performance, accessibility]
+    gaps: []
+
+  framework_astro:
+    status: strong
+    primary_sources: [astro-docs]
+    supporting_sources: [webdev, mdn-web-docs]
+    covers: [static/on-demand rendering, client/server islands, images, i18n, view transitions, reduced motion]
+    gaps: []
+
+  framework_css_web_components:
+    status: moderate
+    primary_sources: [mdn-web-docs, whatwg-html]
+    supporting_sources: [material-3, polaris]
+    covers: [CSS layout/platform features, custom elements in official systems, progressive enhancement]
+    gaps: [dedicated CSSWG specifications, shadow-DOM accessibility, form-associated custom elements]
+
+  code_architecture:
+    status: strong
+    primary_sources: [react-docs, vue-docs, svelte-docs, nextjs-docs]
+    supporting_sources: [radix-primitives, carbon-design-system]
+    covers: [component boundaries, state ownership, controlled APIs, side effects, types, styling, testing, refactoring, dependency selection]
+    gaps: [large monorepo case studies, CSS architecture comparisons]
+
+  testing_verification:
+    status: strong
+    primary_sources: [playwright-docs, wcag-22]
+    supporting_sources: [uswds, govuk-design-system, hive-mind-landing-page]
+    covers: [types, lint, unit, component, integration, E2E, visual, a11y, keyboard, responsive, performance, error states, console]
+    gaps: [screen-reader automation limits, real-device lab orchestration]
+
+  deployment_handoff:
+    status: moderate
+    primary_sources: [nextjs-docs, svelte-docs, astro-docs]
+    supporting_sources: [playwright-docs, webdev]
+    covers: [production builds, rendering/deploy modes, routes/assets, source maps, preview checks, known limitations, honest claims]
+    gaps: [monitoring/rollback vendor-neutral playbooks, incident response]
+
+  anti_slop_integrity:
+    status: strong
+    primary_sources: [uswds, govuk-design-system, google-search-docs, wcag-22]
+    supporting_sources: [taste-skill-repo, hive-mind-landing-page, awesome-design-md]
+    covers: [generic layout detection, fake content/functions, uncontrolled decoration, weak hierarchy, needless rewrites, missing states, unsupported claims]
+    gaps: [quantitative classifier evaluation, diverse visual benchmark set]
+
+  provenance_maintenance:
+    status: strong
+    primary_sources: [wcag-22, mdn-web-docs]
+    supporting_sources: [transitions-dev-repo, hive-mind-landing-page]
+    covers: [stable IDs, source revisions, license status, conflict records, supersession, review dates, generated-index rebuild]
+    gaps: [automated upstream diffing, content hashing, link-rot monitoring]
+
+blocked_supplied_sources:
+  - id: monokern-x-post
+    reason: "No post body, media, transcript, or verified official mirror was accessible."
+  - id: motionsites
+    reason: "Substantive JavaScript-rendered catalog and terms were inaccessible; browser backend unavailable."

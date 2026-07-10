@@ -1,0 +1,61 @@
+{
+  "id": "workflow.visual-audit",
+  "title": "Visual quality and taste audit workflow",
+  "version": "0.1.0",
+  "status": "active",
+  "last_reviewed": "2026-07-10",
+  "applies_to": ["visual QA", "design critique", "consistency audit", "anti-slop audit"],
+  "inputs": ["running experience", "product brief", "design-system documentation", "representative routes and states"],
+  "steps": [
+    {
+      "id": "scope",
+      "title": "Set audit scope and evidence",
+      "actions": ["Select representative routes, state fixtures, content lengths, themes, and viewport boundaries.", "Record the intended audience, task, and visual direction.", "Capture reproducible screenshots from the running experience."],
+      "evidence": ["audit matrix", "capture set", "intent summary"],
+      "rule_refs": ["product.outcome-first-brief", "product.define-real-data", "direction.choose-intentional-axis"],
+      "exit_criteria": ["The sample covers critical, repeated, and high-variance surfaces."]
+    },
+    {
+      "id": "hierarchy",
+      "title": "Audit hierarchy and composition",
+      "actions": ["Review task dominance, reading sequence, proximity, measure, density, and responsive reflow.", "Inspect in grayscale, text outline, and continuous resize.", "Flag container or scale choices that substitute for hierarchy."],
+      "evidence": ["hierarchy findings", "annotated captures"],
+      "rule_refs": ["ia.one-primary-task", "layout.rhythm-over-boxes", "layout.measure-and-density", "responsive.recompose-not-shrink"],
+      "exit_criteria": ["Every high-impact finding names the broken relationship and user consequence."]
+    },
+    {
+      "id": "system",
+      "title": "Audit visual language and consistency",
+      "actions": ["Inventory type roles, color roles, spacing, radii, icons, media, surfaces, and motion.", "Distinguish intentional signature from accidental drift.", "Run the anti-pattern detectors and record false positives with rationale."],
+      "evidence": ["token drift list", "component inventory", "anti-slop report"],
+      "rule_refs": ["system.semantic-tokens", "direction.systemic-distinctiveness", "icons.semantic-consistency", "anti.card-everything", "anti.effects-stack"],
+      "exit_criteria": ["Findings distinguish system defects from isolated polish issues."]
+    },
+    {
+      "id": "states-access",
+      "title": "Audit states and inclusive behavior",
+      "actions": ["Traverse keyboard and focus behavior.", "Check contrast, non-color cues, large text, reduced motion, forced colors, and status announcements.", "Review default, loading, empty, error, success, disabled, and permission states."],
+      "evidence": ["state audit", "accessibility findings"],
+      "rule_refs": ["component.state-completeness", "a11y.keyboard-complete", "a11y.contrast-and-focus", "motion.reduced-motion-equivalence"],
+      "exit_criteria": ["Critical task blockers are separated from aesthetic recommendations."]
+    },
+    {
+      "id": "prioritize",
+      "title": "Prioritize systemic fixes",
+      "actions": ["Score findings by user impact, frequency, confidence, effort, and system leverage.", "Group repeated symptoms under a token, component, content, or architecture cause.", "Propose the smallest coherent correction and verification method."],
+      "evidence": ["ranked findings", "systemic fix map"],
+      "rule_refs": ["product.requirement-priority", "system.adoption-path", "delivery.incremental-release"],
+      "exit_criteria": ["Top recommendations are evidence-backed, actionable, and testable."]
+    },
+    {
+      "id": "recheck",
+      "title": "Recheck corrections against gates",
+      "actions": ["Compare before and after with the same fixtures and capture settings.", "Verify adjacent states and routes for regressions.", "Record resolved, deferred, and rejected findings with reasons."],
+      "evidence": ["before-after set", "gate report", "decision log"],
+      "rule_refs": ["delivery.definition-of-done", "testing.story-state-coverage"],
+      "exit_criteria": ["Accepted fixes improve the named relationship without new gate regressions."]
+    }
+  ],
+  "outputs": ["ranked audit report", "annotated evidence", "systemic fix map", "verification report"],
+  "completion_gate_refs": ["gate.visual-direction", "gate.content", "gate.states", "gate.accessibility", "gate.responsive", "gate.performance", "gate.integrity"]
+}

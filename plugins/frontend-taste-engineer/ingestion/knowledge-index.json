@@ -1,0 +1,2213 @@
+{
+  "corpus_fingerprint": "fd6f5f78fc19c52aea23e1997b173456ed36f49a018d03dcf5e8b9c5af8a8b48",
+  "generator": "scripts/generate_index.py",
+  "record_count": 73,
+  "records": [
+    {
+      "components": [
+        "text",
+        "control",
+        "focus-indicator",
+        "status"
+      ],
+      "fingerprint": "5ef82de894ea8f9e",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "a11y.contrast-and-focus",
+      "importance": "mandatory",
+      "origin": "records/accessibility-quality.json",
+      "sources": [
+        "wcag-22",
+        "uswds",
+        "material3"
+      ],
+      "status": "stable",
+      "subtopic": "perception",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "visual-audit"
+      ],
+      "title": "Verify contrast and focus in context",
+      "topic": "accessibility"
+    },
+    {
+      "components": [
+        "interactive",
+        "navigation",
+        "form"
+      ],
+      "fingerprint": "fa92d9e103935cbb",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "a11y.keyboard-complete",
+      "importance": "mandatory",
+      "origin": "records/accessibility-quality.json",
+      "sources": [
+        "wcag-22",
+        "wai-aria-apg",
+        "react-aria"
+      ],
+      "status": "stable",
+      "subtopic": "keyboard",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "visual-audit"
+      ],
+      "title": "Make every task keyboard complete",
+      "topic": "accessibility"
+    },
+    {
+      "components": [
+        "interactive",
+        "form",
+        "status",
+        "navigation"
+      ],
+      "fingerprint": "75d1f91a1d0e3f1c",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "a11y.name-role-value",
+      "importance": "mandatory",
+      "origin": "records/accessibility-quality.json",
+      "sources": [
+        "wcag-22",
+        "wai-aria-apg",
+        "mdn-web-docs"
+      ],
+      "status": "stable",
+      "subtopic": "semantics",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "visual-audit"
+      ],
+      "title": "Expose accurate name, role, value, and state",
+      "topic": "accessibility"
+    },
+    {
+      "components": [
+        "toast",
+        "alert",
+        "status",
+        "upload",
+        "search-results",
+        "form"
+      ],
+      "fingerprint": "78d7cda5696aa9cb",
+      "frameworks": [
+        "react",
+        "nextjs",
+        "agnostic"
+      ],
+      "id": "a11y.status-without-disruption",
+      "importance": "mandatory",
+      "origin": "records/accessibility-quality.json",
+      "sources": [
+        "wai-aria-apg",
+        "wcag-22",
+        "react-aria"
+      ],
+      "status": "stable",
+      "subtopic": "dynamic-updates",
+      "task_types": [
+        "component",
+        "greenfield",
+        "redesign"
+      ],
+      "title": "Announce status without disrupting work",
+      "topic": "accessibility"
+    },
+    {
+      "components": [
+        "grid",
+        "card",
+        "feature-list",
+        "dashboard"
+      ],
+      "fingerprint": "dd9372c01e5ede25",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "anti.bento-by-default",
+      "importance": "recommended",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "taste-skill",
+        "material3",
+        "carbon"
+      ],
+      "status": "experimental",
+      "subtopic": "bento-overuse",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Do not force content into a bento grid",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "card",
+        "section",
+        "list",
+        "dashboard"
+      ],
+      "fingerprint": "30628de843716418",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "anti.card-everything",
+      "importance": "mandatory",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "taste-skill",
+        "govuk-design-system",
+        "carbon"
+      ],
+      "status": "specialized",
+      "subtopic": "card-overuse",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit",
+        "screenshot-reconstruction"
+      ],
+      "title": "Do not turn every group into a card",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "card",
+        "dialog",
+        "popover",
+        "navigation",
+        "hero"
+      ],
+      "fingerprint": "e49edc4d191b4365",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "anti.effects-stack",
+      "importance": "recommended",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "taste-skill",
+        "material3",
+        "apple-hig",
+        "webdev"
+      ],
+      "status": "experimental",
+      "subtopic": "surface-effects",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Do not stack glass, glow, blur, border, and shadow by default",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "hero",
+        "background",
+        "button",
+        "card"
+      ],
+      "fingerprint": "a9ad59dad0a1843c",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "anti.gradient-everywhere",
+      "importance": "recommended",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "taste-skill",
+        "wcag-22",
+        "material3"
+      ],
+      "status": "experimental",
+      "subtopic": "gradient-overuse",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Do not use ambient gradients as default personality",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "hero",
+        "heading",
+        "call-to-action",
+        "navigation"
+      ],
+      "fingerprint": "f019a0ba4c78769e",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "anti.hero-empty-scale",
+      "importance": "mandatory",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "taste-skill",
+        "webdev",
+        "govuk-design-system"
+      ],
+      "status": "specialized",
+      "subtopic": "hero-overuse",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Do not spend the first viewport on oversized generic hero copy",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "page",
+        "section",
+        "card",
+        "text",
+        "navigation"
+      ],
+      "fingerprint": "96ad0166a17403ef",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "anti.motion-everywhere",
+      "importance": "mandatory",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "taste-skill",
+        "wcag-22",
+        "transitions-dev",
+        "emil-kowalski-animation"
+      ],
+      "status": "specialized",
+      "subtopic": "motion-overuse",
+      "task_types": [
+        "motion",
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Do not animate every element into view",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "button",
+        "badge",
+        "tag",
+        "filter",
+        "navigation",
+        "input"
+      ],
+      "fingerprint": "64d9d195106a1ef0",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "anti.pill-overload",
+      "importance": "recommended",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "taste-skill",
+        "material3",
+        "polaris",
+        "carbon"
+      ],
+      "status": "experimental",
+      "subtopic": "pill-overuse",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "visual-audit"
+      ],
+      "title": "Do not make every control and label a pill",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "all"
+      ],
+      "fingerprint": "04bdf7a2f6e8e1d0",
+      "frameworks": [
+        "react",
+        "nextjs"
+      ],
+      "id": "architecture.composition-over-flags",
+      "importance": "recommended",
+      "origin": "records/architecture-delivery.json",
+      "sources": [
+        "react-docs",
+        "radix-primitives",
+        "react-aria"
+      ],
+      "status": "specialized",
+      "subtopic": "component-architecture",
+      "task_types": [
+        "component",
+        "design-system",
+        "redesign"
+      ],
+      "title": "Prefer composition over boolean prop combinations",
+      "topic": "frameworks-code-architecture"
+    },
+    {
+      "components": [
+        "page",
+        "form",
+        "navigation",
+        "media",
+        "interactive"
+      ],
+      "fingerprint": "0835d152f01e6935",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "architecture.progressive-enhancement",
+      "importance": "mandatory",
+      "origin": "records/architecture-delivery.json",
+      "sources": [
+        "mdn-web-docs",
+        "webdev",
+        "govuk-design-system"
+      ],
+      "status": "stable",
+      "subtopic": "resilience",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component"
+      ],
+      "title": "Build a useful baseline before enhancement",
+      "topic": "frameworks-code-architecture"
+    },
+    {
+      "components": [
+        "page",
+        "interactive-island",
+        "data-view"
+      ],
+      "fingerprint": "63ea2e9a071790e8",
+      "frameworks": [
+        "nextjs",
+        "react"
+      ],
+      "id": "architecture.server-client-boundary",
+      "importance": "mandatory",
+      "origin": "records/architecture-delivery.json",
+      "sources": [
+        "nextjs-docs",
+        "react-docs",
+        "webdev"
+      ],
+      "status": "specialized",
+      "subtopic": "rendering-boundaries",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "performance-audit"
+      ],
+      "title": "Place the server-client boundary intentionally",
+      "topic": "frameworks-code-architecture"
+    },
+    {
+      "components": [
+        "form",
+        "filter",
+        "selection",
+        "dialog",
+        "data-view"
+      ],
+      "fingerprint": "6261f0d81e536d25",
+      "frameworks": [
+        "react",
+        "nextjs",
+        "agnostic"
+      ],
+      "id": "architecture.state-ownership",
+      "importance": "mandatory",
+      "origin": "records/architecture-delivery.json",
+      "sources": [
+        "react-docs",
+        "nextjs-docs"
+      ],
+      "status": "stable",
+      "subtopic": "state-management",
+      "task_types": [
+        "component",
+        "greenfield",
+        "redesign"
+      ],
+      "title": "Give state one clear owner",
+      "topic": "frameworks-code-architecture"
+    },
+    {
+      "components": [
+        "all"
+      ],
+      "fingerprint": "7b461dcdaf1321a8",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "browser.baseline-with-enhancement",
+      "importance": "mandatory",
+      "origin": "records/trust-global-browser.json",
+      "sources": [
+        "mdn-web-docs",
+        "webdev"
+      ],
+      "status": "stable",
+      "subtopic": "support-policy",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "design-system",
+        "deployment"
+      ],
+      "title": "Declare a browser baseline and enhance beyond it",
+      "topic": "browsers"
+    },
+    {
+      "components": [
+        "form",
+        "dialog",
+        "popover",
+        "media",
+        "sticky",
+        "drag-and-drop"
+      ],
+      "fingerprint": "06e1a4b3bb857007",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "browser.test-real-platform-behavior",
+      "importance": "mandatory",
+      "origin": "records/trust-global-browser.json",
+      "sources": [
+        "mdn-web-docs",
+        "webdev",
+        "wcag-22"
+      ],
+      "status": "stable",
+      "subtopic": "interoperability",
+      "task_types": [
+        "component",
+        "redesign",
+        "testing",
+        "deployment"
+      ],
+      "title": "Test real platform behavior at risk boundaries",
+      "topic": "browsers"
+    },
+    {
+      "components": [
+        "form",
+        "chart",
+        "alert",
+        "badge",
+        "link",
+        "selection"
+      ],
+      "fingerprint": "b968f40c69944dc3",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "color.non-color-cues",
+      "importance": "mandatory",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "wcag-22",
+        "uswds",
+        "spectrum"
+      ],
+      "status": "stable",
+      "subtopic": "state-communication",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "visual-audit"
+      ],
+      "title": "Pair color with a redundant cue",
+      "topic": "color"
+    },
+    {
+      "components": [
+        "all"
+      ],
+      "fingerprint": "a408d9dd5894c8ac",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "color.role-based-palette",
+      "importance": "mandatory",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "wcag-22",
+        "material3",
+        "fluent2",
+        "spectrum"
+      ],
+      "status": "stable",
+      "subtopic": "palette",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "design-system"
+      ],
+      "title": "Use color roles, not isolated swatches",
+      "topic": "color"
+    },
+    {
+      "components": [
+        "button",
+        "link",
+        "menu-item",
+        "toolbar"
+      ],
+      "fingerprint": "a0a5a78111809a16",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "component.action-hierarchy",
+      "importance": "mandatory",
+      "origin": "records/components-forms.json",
+      "sources": [
+        "apple-hig",
+        "material3",
+        "govuk-design-system",
+        "wai-aria-apg"
+      ],
+      "status": "stable",
+      "subtopic": "actions",
+      "task_types": [
+        "component",
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Match action styling to consequence",
+      "topic": "components-states-forms"
+    },
+    {
+      "components": [
+        "list",
+        "table",
+        "search-results",
+        "dashboard",
+        "inbox"
+      ],
+      "fingerprint": "0a5c5f018769cca0",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "component.empty-state-next-step",
+      "importance": "recommended",
+      "origin": "records/components-forms.json",
+      "sources": [
+        "material3",
+        "polaris",
+        "carbon",
+        "react-aria"
+      ],
+      "status": "stable",
+      "subtopic": "empty-states",
+      "task_types": [
+        "component",
+        "greenfield",
+        "redesign"
+      ],
+      "title": "Make empty states explain cause and next step",
+      "topic": "components-states-forms"
+    },
+    {
+      "components": [
+        "dialog",
+        "popover",
+        "menu",
+        "tabs",
+        "disclosure",
+        "form"
+      ],
+      "fingerprint": "42af7c3013d66be7",
+      "frameworks": [
+        "react",
+        "nextjs",
+        "agnostic"
+      ],
+      "id": "component.focus-contract",
+      "importance": "mandatory",
+      "origin": "records/components-forms.json",
+      "sources": [
+        "wai-aria-apg",
+        "wcag-22",
+        "radix-primitives",
+        "react-aria"
+      ],
+      "status": "stable",
+      "subtopic": "focus",
+      "task_types": [
+        "component",
+        "design-system",
+        "redesign"
+      ],
+      "title": "Treat focus behavior as a component contract",
+      "topic": "components-states-forms"
+    },
+    {
+      "components": [
+        "button",
+        "link",
+        "input",
+        "select",
+        "dialog",
+        "details"
+      ],
+      "fingerprint": "36dc43af97ac14cc",
+      "frameworks": [
+        "react",
+        "nextjs",
+        "agnostic"
+      ],
+      "id": "component.native-first",
+      "importance": "mandatory",
+      "origin": "records/components-forms.json",
+      "sources": [
+        "mdn-web-docs",
+        "wai-aria-apg",
+        "react-aria"
+      ],
+      "status": "stable",
+      "subtopic": "semantics",
+      "task_types": [
+        "component",
+        "design-system",
+        "greenfield",
+        "redesign"
+      ],
+      "title": "Start with the native element",
+      "topic": "components-states-forms"
+    },
+    {
+      "components": [
+        "interactive",
+        "data-bound"
+      ],
+      "fingerprint": "c6b7883334fdc93c",
+      "frameworks": [
+        "react",
+        "nextjs",
+        "agnostic"
+      ],
+      "id": "component.state-completeness",
+      "importance": "mandatory",
+      "origin": "records/components-forms.json",
+      "sources": [
+        "wai-aria-apg",
+        "react-aria",
+        "radix-primitives",
+        "material3"
+      ],
+      "status": "stable",
+      "subtopic": "states",
+      "task_types": [
+        "component",
+        "design-system",
+        "greenfield",
+        "redesign"
+      ],
+      "title": "Implement the complete state model",
+      "topic": "components-states-forms"
+    },
+    {
+      "components": [
+        "form",
+        "alert",
+        "toast",
+        "error-summary"
+      ],
+      "fingerprint": "b31cca60ba568644",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "content.error-recovery-copy",
+      "importance": "mandatory",
+      "origin": "records/product-content.json",
+      "sources": [
+        "wcag-22",
+        "govuk-design-system",
+        "uswds"
+      ],
+      "status": "stable",
+      "subtopic": "errors",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component"
+      ],
+      "title": "Write errors as recovery instructions",
+      "topic": "information-architecture-content"
+    },
+    {
+      "components": [
+        "heading",
+        "button",
+        "link",
+        "navigation",
+        "form"
+      ],
+      "fingerprint": "e961c9b92dd3bb83",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "content.front-load-meaning",
+      "importance": "mandatory",
+      "origin": "records/product-content.json",
+      "sources": [
+        "wcag-22",
+        "govuk-design-system",
+        "apple-hig"
+      ],
+      "status": "stable",
+      "subtopic": "microcopy",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Front-load meaning in labels and headings",
+      "topic": "information-architecture-content"
+    },
+    {
+      "components": [
+        "all"
+      ],
+      "fingerprint": "b5fe28f31e593eb8",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "delivery.definition-of-done",
+      "importance": "mandatory",
+      "origin": "records/architecture-delivery.json",
+      "sources": [
+        "taste-skill",
+        "wcag-22",
+        "webdev",
+        "mdn-web-docs"
+      ],
+      "status": "stable",
+      "subtopic": "completion",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "deployment",
+        "visual-audit"
+      ],
+      "title": "Use completion gates, not visual approval alone",
+      "topic": "testing-deployment"
+    },
+    {
+      "components": [
+        "page",
+        "design-system"
+      ],
+      "fingerprint": "9b3ee82e449f56a6",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "delivery.incremental-release",
+      "importance": "recommended",
+      "origin": "records/architecture-delivery.json",
+      "sources": [
+        "nextjs-docs",
+        "react-docs",
+        "webdev",
+        "carbon"
+      ],
+      "status": "specialized",
+      "subtopic": "release-strategy",
+      "task_types": [
+        "redesign",
+        "design-system",
+        "deployment"
+      ],
+      "title": "Release visual and structural change incrementally",
+      "topic": "testing-deployment"
+    },
+    {
+      "components": [
+        "page"
+      ],
+      "fingerprint": "77ba035bce975d41",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "direction.choose-intentional-axis",
+      "importance": "mandatory",
+      "origin": "records/direction-systems.json",
+      "sources": [
+        "taste-skill",
+        "material3",
+        "apple-hig"
+      ],
+      "status": "specialized",
+      "subtopic": "art-direction",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Choose a visual direction on explicit axes",
+      "topic": "visual-direction"
+    },
+    {
+      "components": [
+        "page",
+        "section",
+        "card"
+      ],
+      "fingerprint": "e6f509201c9229bc",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "direction.content-before-chrome",
+      "importance": "mandatory",
+      "origin": "records/direction-systems.json",
+      "sources": [
+        "taste-skill",
+        "govuk-design-system"
+      ],
+      "status": "stable",
+      "subtopic": "content-led-composition",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "screenshot-reconstruction"
+      ],
+      "title": "Let content determine the composition",
+      "topic": "visual-direction"
+    },
+    {
+      "components": [
+        "page",
+        "component"
+      ],
+      "fingerprint": "245a8dd2ddeddff7",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "direction.reference-decomposition",
+      "importance": "mandatory",
+      "origin": "records/direction-systems.json",
+      "sources": [
+        "taste-skill",
+        "spectrum"
+      ],
+      "status": "specialized",
+      "subtopic": "reference-analysis",
+      "task_types": [
+        "redesign",
+        "screenshot-reconstruction",
+        "visual-audit"
+      ],
+      "title": "Decompose references before borrowing",
+      "topic": "visual-direction"
+    },
+    {
+      "components": [
+        "page",
+        "component"
+      ],
+      "fingerprint": "5974fe97ee8f2463",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "direction.systemic-distinctiveness",
+      "importance": "recommended",
+      "origin": "records/direction-systems.json",
+      "sources": [
+        "taste-skill",
+        "material3",
+        "fluent2"
+      ],
+      "status": "specialized",
+      "subtopic": "brand-expression",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "design-system"
+      ],
+      "title": "Create distinctiveness through a repeatable system",
+      "topic": "visual-direction"
+    },
+    {
+      "components": [
+        "form",
+        "input",
+        "select",
+        "textarea",
+        "fieldset"
+      ],
+      "fingerprint": "b6d7642b22801905",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "form.label-and-instructions",
+      "importance": "mandatory",
+      "origin": "records/components-forms.json",
+      "sources": [
+        "wcag-22",
+        "govuk-design-system",
+        "uswds"
+      ],
+      "status": "stable",
+      "subtopic": "form-labeling",
+      "task_types": [
+        "component",
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Keep persistent labels and concise instructions",
+      "topic": "components-states-forms"
+    },
+    {
+      "components": [
+        "form",
+        "editor",
+        "wizard",
+        "upload"
+      ],
+      "fingerprint": "95912c9216d16888",
+      "frameworks": [
+        "react",
+        "nextjs",
+        "agnostic"
+      ],
+      "id": "form.preserve-user-work",
+      "importance": "mandatory",
+      "origin": "records/components-forms.json",
+      "sources": [
+        "webdev",
+        "react-docs",
+        "govuk-design-system"
+      ],
+      "status": "stable",
+      "subtopic": "resilience",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component"
+      ],
+      "title": "Preserve user work across failures and navigation",
+      "topic": "components-states-forms"
+    },
+    {
+      "components": [
+        "form",
+        "input",
+        "error-summary"
+      ],
+      "fingerprint": "701c9eccb0995ee6",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "form.validation-timing",
+      "importance": "mandatory",
+      "origin": "records/components-forms.json",
+      "sources": [
+        "wcag-22",
+        "govuk-design-system",
+        "react-aria"
+      ],
+      "status": "stable",
+      "subtopic": "validation",
+      "task_types": [
+        "component",
+        "greenfield",
+        "redesign"
+      ],
+      "title": "Validate at a useful, non-punitive moment",
+      "topic": "components-states-forms"
+    },
+    {
+      "components": [
+        "page",
+        "navigation",
+        "form",
+        "table",
+        "icon"
+      ],
+      "fingerprint": "6bc82265a3b162eb",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "i18n.bidirectional-logical",
+      "importance": "mandatory",
+      "origin": "records/trust-global-browser.json",
+      "sources": [
+        "mdn-web-docs",
+        "material3",
+        "spectrum"
+      ],
+      "status": "stable",
+      "subtopic": "bidirectionality",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "i18n-review"
+      ],
+      "title": "Use logical layout and isolate bidirectional content",
+      "topic": "internationalization"
+    },
+    {
+      "components": [
+        "button",
+        "navigation",
+        "form",
+        "table",
+        "card",
+        "dialog"
+      ],
+      "fingerprint": "b3111d40efd56b18",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "i18n.expansion-safe-layout",
+      "importance": "mandatory",
+      "origin": "records/trust-global-browser.json",
+      "sources": [
+        "mdn-web-docs",
+        "material3",
+        "apple-hig",
+        "spectrum"
+      ],
+      "status": "stable",
+      "subtopic": "text-expansion",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "i18n-review"
+      ],
+      "title": "Design for translation expansion and contraction",
+      "topic": "internationalization"
+    },
+    {
+      "components": [
+        "date",
+        "time",
+        "number",
+        "currency",
+        "address",
+        "name"
+      ],
+      "fingerprint": "e2f0f1c9cbac9c6d",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "i18n.locale-aware-formatting",
+      "importance": "mandatory",
+      "origin": "records/trust-global-browser.json",
+      "sources": [
+        "mdn-web-docs",
+        "react-docs"
+      ],
+      "status": "stable",
+      "subtopic": "formatting",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "i18n-review"
+      ],
+      "title": "Format data with locale-aware primitives",
+      "topic": "internationalization"
+    },
+    {
+      "components": [
+        "page",
+        "navigation",
+        "call-to-action"
+      ],
+      "fingerprint": "7c89bce33f16b86d",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "ia.one-primary-task",
+      "importance": "mandatory",
+      "origin": "records/product-content.json",
+      "sources": [
+        "govuk-design-system",
+        "material3",
+        "taste-skill"
+      ],
+      "status": "stable",
+      "subtopic": "task-hierarchy",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Give each page one dominant task",
+      "topic": "information-architecture-content"
+    },
+    {
+      "components": [
+        "form",
+        "accordion",
+        "disclosure",
+        "settings"
+      ],
+      "fingerprint": "03477aff6e6f4833",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "ia.progressive-disclosure",
+      "importance": "recommended",
+      "origin": "records/product-content.json",
+      "sources": [
+        "wai-aria-apg",
+        "mdn-web-docs",
+        "carbon"
+      ],
+      "status": "stable",
+      "subtopic": "progressive-disclosure",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component"
+      ],
+      "title": "Reveal complexity at the moment it becomes useful",
+      "topic": "information-architecture-content"
+    },
+    {
+      "components": [
+        "icon",
+        "button",
+        "navigation",
+        "status",
+        "toolbar"
+      ],
+      "fingerprint": "8ae599d3c7af996e",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "icons.semantic-consistency",
+      "importance": "mandatory",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "material3",
+        "apple-hig",
+        "fluent2",
+        "wcag-22"
+      ],
+      "status": "stable",
+      "subtopic": "iconography",
+      "task_types": [
+        "component",
+        "design-system",
+        "visual-audit"
+      ],
+      "title": "Use icons as a consistent supporting language",
+      "topic": "images-icons"
+    },
+    {
+      "components": [
+        "image",
+        "hero",
+        "card",
+        "gallery",
+        "avatar"
+      ],
+      "fingerprint": "2c15d352536f46c8",
+      "frameworks": [
+        "agnostic",
+        "nextjs",
+        "react"
+      ],
+      "id": "images.reserve-space",
+      "importance": "mandatory",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "webdev",
+        "mdn-web-docs",
+        "nextjs-docs"
+      ],
+      "status": "stable",
+      "subtopic": "responsive-images",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "performance-audit"
+      ],
+      "title": "Reserve image space and deliver the right bytes",
+      "topic": "images-icons"
+    },
+    {
+      "components": [
+        "page",
+        "component"
+      ],
+      "fingerprint": "e7f92e6ca8ad362b",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "integrity.reconstruction-evidence",
+      "importance": "mandatory",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "taste-skill",
+        "mdn-web-docs"
+      ],
+      "status": "stable",
+      "subtopic": "reconstruction-evidence",
+      "task_types": [
+        "screenshot-reconstruction",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Do not invent unsupported screenshot details",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "testimonial",
+        "logo-cloud",
+        "metric",
+        "badge",
+        "review",
+        "case-study"
+      ],
+      "fingerprint": "f891270ade5a6e74",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "integrity.truthful-proof",
+      "importance": "mandatory",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "taste-skill",
+        "govuk-design-system",
+        "uswds",
+        "polaris"
+      ],
+      "status": "stable",
+      "subtopic": "truthful-proof",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "screenshot-reconstruction",
+        "visual-audit"
+      ],
+      "title": "Do not fabricate proof, metrics, logos, or testimonials",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "article",
+        "table",
+        "form",
+        "list",
+        "page"
+      ],
+      "fingerprint": "dc1dee686ffc77ab",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "layout.measure-and-density",
+      "importance": "mandatory",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "wcag-22",
+        "govuk-design-system",
+        "apple-hig"
+      ],
+      "status": "stable",
+      "subtopic": "content-density",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Set line measure and density by reading task",
+      "topic": "layout"
+    },
+    {
+      "components": [
+        "page",
+        "section",
+        "card",
+        "list"
+      ],
+      "fingerprint": "66bedcd276c68735",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "layout.rhythm-over-boxes",
+      "importance": "recommended",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "taste-skill",
+        "material3",
+        "carbon"
+      ],
+      "status": "stable",
+      "subtopic": "spacing-rhythm",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Build hierarchy with rhythm before containers",
+      "topic": "layout"
+    },
+    {
+      "components": [
+        "page",
+        "section",
+        "grid"
+      ],
+      "fingerprint": "7adc0897506b0dcc",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "layout.source-order",
+      "importance": "mandatory",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "wcag-22",
+        "mdn-web-docs",
+        "webdev"
+      ],
+      "status": "stable",
+      "subtopic": "document-flow",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "screenshot-reconstruction"
+      ],
+      "title": "Keep source order aligned with meaning",
+      "topic": "layout"
+    },
+    {
+      "components": [
+        "dialog",
+        "popover",
+        "list",
+        "navigation",
+        "selection",
+        "feedback"
+      ],
+      "fingerprint": "b7c6b163abdd8b31",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "motion.explain-causality",
+      "importance": "recommended",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "transitions-dev",
+        "emil-kowalski-animation",
+        "material3",
+        "apple-hig"
+      ],
+      "status": "specialized",
+      "subtopic": "purpose",
+      "task_types": [
+        "motion",
+        "component",
+        "redesign"
+      ],
+      "title": "Use motion to explain causality and continuity",
+      "topic": "motion"
+    },
+    {
+      "components": [
+        "dialog",
+        "menu",
+        "drawer",
+        "list",
+        "navigation",
+        "button"
+      ],
+      "fingerprint": "37eb466e081b9392",
+      "frameworks": [
+        "react",
+        "nextjs",
+        "agnostic"
+      ],
+      "id": "motion.interruption-safe",
+      "importance": "mandatory",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "transitions-dev",
+        "emil-kowalski-animation",
+        "mdn-web-docs",
+        "react-docs"
+      ],
+      "status": "stable",
+      "subtopic": "interaction-integrity",
+      "task_types": [
+        "motion",
+        "component"
+      ],
+      "title": "Make animations interruptible and state-safe",
+      "topic": "motion"
+    },
+    {
+      "components": [
+        "animated",
+        "carousel",
+        "parallax",
+        "video"
+      ],
+      "fingerprint": "52ce135f25545cbe",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "motion.reduced-motion-equivalence",
+      "importance": "mandatory",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "wcag-22",
+        "mdn-web-docs",
+        "transitions-dev",
+        "emil-kowalski-animation"
+      ],
+      "status": "stable",
+      "subtopic": "user-preference",
+      "task_types": [
+        "motion",
+        "component",
+        "greenfield",
+        "redesign"
+      ],
+      "title": "Provide equivalent reduced-motion behavior",
+      "topic": "motion"
+    },
+    {
+      "components": [
+        "page"
+      ],
+      "fingerprint": "c37c0a76ae104195",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "performance.core-web-vitals-budget",
+      "importance": "mandatory",
+      "origin": "records/accessibility-quality.json",
+      "sources": [
+        "webdev",
+        "mdn-web-docs",
+        "nextjs-docs"
+      ],
+      "status": "stable",
+      "subtopic": "budgets",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "performance-audit",
+        "deployment"
+      ],
+      "title": "Set and enforce user-centered performance budgets",
+      "topic": "performance"
+    },
+    {
+      "components": [
+        "page",
+        "interactive"
+      ],
+      "fingerprint": "43a31d81bea7ac63",
+      "frameworks": [
+        "react",
+        "nextjs",
+        "agnostic"
+      ],
+      "id": "performance.ship-less-javascript",
+      "importance": "mandatory",
+      "origin": "records/accessibility-quality.json",
+      "sources": [
+        "webdev",
+        "nextjs-docs",
+        "mdn-web-docs",
+        "react-docs"
+      ],
+      "status": "stable",
+      "subtopic": "javascript",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "performance-audit"
+      ],
+      "title": "Ship the least JavaScript that preserves the experience",
+      "topic": "performance"
+    },
+    {
+      "components": [
+        "table",
+        "card",
+        "form",
+        "list",
+        "chart"
+      ],
+      "fingerprint": "091e397061cc77c1",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "product.define-real-data",
+      "importance": "mandatory",
+      "origin": "records/product-content.json",
+      "sources": [
+        "mdn-web-docs",
+        "react-docs",
+        "taste-skill"
+      ],
+      "status": "stable",
+      "subtopic": "data-reality",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component"
+      ],
+      "title": "Design with representative data and failure cases",
+      "topic": "product-requirements"
+    },
+    {
+      "components": [
+        "page",
+        "flow"
+      ],
+      "fingerprint": "7ebeb7b07b4c59d1",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "product.evidence-before-feature",
+      "importance": "recommended",
+      "origin": "records/product-content.json",
+      "sources": [
+        "taste-skill",
+        "webdev"
+      ],
+      "status": "stable",
+      "subtopic": "scope-control",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Demand evidence before adding a feature",
+      "topic": "product-requirements"
+    },
+    {
+      "components": [
+        "page"
+      ],
+      "fingerprint": "055d44b148bbf389",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "product.outcome-first-brief",
+      "importance": "mandatory",
+      "origin": "records/product-content.json",
+      "sources": [
+        "taste-skill",
+        "govuk-design-system"
+      ],
+      "status": "stable",
+      "subtopic": "briefing",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "screenshot-reconstruction"
+      ],
+      "title": "Begin with an outcome-first product brief",
+      "topic": "product-requirements"
+    },
+    {
+      "components": [
+        "page",
+        "flow"
+      ],
+      "fingerprint": "0f8bdbeba1807bea",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "product.requirement-priority",
+      "importance": "mandatory",
+      "origin": "records/product-content.json",
+      "sources": [
+        "taste-skill",
+        "uswds"
+      ],
+      "status": "stable",
+      "subtopic": "prioritization",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "design-system"
+      ],
+      "title": "Separate requirements from preferences",
+      "topic": "product-requirements"
+    },
+    {
+      "components": [
+        "page",
+        "grid",
+        "navigation",
+        "table"
+      ],
+      "fingerprint": "a78192c8df0bdf2d",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "responsive.content-driven-reflow",
+      "importance": "mandatory",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "webdev",
+        "mdn-web-docs",
+        "material3"
+      ],
+      "status": "stable",
+      "subtopic": "breakpoints",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "screenshot-reconstruction"
+      ],
+      "title": "Choose breakpoints where content stops working",
+      "topic": "responsive"
+    },
+    {
+      "components": [
+        "interactive",
+        "navigation",
+        "tooltip",
+        "drag-and-drop"
+      ],
+      "fingerprint": "a55278add02c0e10",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "responsive.input-agnostic",
+      "importance": "mandatory",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "wcag-22",
+        "mdn-web-docs",
+        "apple-hig"
+      ],
+      "status": "stable",
+      "subtopic": "input-capabilities",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component"
+      ],
+      "title": "Design for capabilities, not inferred device classes",
+      "topic": "responsive"
+    },
+    {
+      "components": [
+        "page",
+        "navigation",
+        "table",
+        "toolbar",
+        "dialog"
+      ],
+      "fingerprint": "6daa382028e33bda",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "responsive.recompose-not-shrink",
+      "importance": "mandatory",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "wcag-22",
+        "webdev",
+        "apple-hig",
+        "material3"
+      ],
+      "status": "stable",
+      "subtopic": "small-screens",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "screenshot-reconstruction"
+      ],
+      "title": "Recompose instead of shrinking the desktop layout",
+      "topic": "responsive"
+    },
+    {
+      "components": [
+        "form",
+        "profile",
+        "table",
+        "analytics",
+        "upload"
+      ],
+      "fingerprint": "793de1c5449ef888",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "security.data-minimization",
+      "importance": "mandatory",
+      "origin": "records/trust-global-browser.json",
+      "sources": [
+        "mdn-web-docs",
+        "uswds",
+        "govuk-design-system"
+      ],
+      "status": "stable",
+      "subtopic": "data-minimization",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "security-review"
+      ],
+      "title": "Collect and expose the minimum data needed",
+      "topic": "security-privacy-trust"
+    },
+    {
+      "components": [
+        "button",
+        "dialog",
+        "menu",
+        "settings",
+        "bulk-action"
+      ],
+      "fingerprint": "77d44265b3d12f03",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "security.destructive-action-safety",
+      "importance": "mandatory",
+      "origin": "records/trust-global-browser.json",
+      "sources": [
+        "apple-hig",
+        "material3",
+        "govuk-design-system"
+      ],
+      "status": "stable",
+      "subtopic": "destructive-actions",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "security-review"
+      ],
+      "title": "Match destructive safeguards to consequence",
+      "topic": "security-privacy-trust"
+    },
+    {
+      "components": [
+        "form",
+        "alert",
+        "authentication",
+        "error-page"
+      ],
+      "fingerprint": "89ff543672d164ca",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "security.safe-error-detail",
+      "importance": "mandatory",
+      "origin": "records/trust-global-browser.json",
+      "sources": [
+        "mdn-web-docs",
+        "govuk-design-system",
+        "uswds"
+      ],
+      "status": "stable",
+      "subtopic": "error-disclosure",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "security-review"
+      ],
+      "title": "Show useful errors without leaking sensitive detail",
+      "topic": "security-privacy-trust"
+    },
+    {
+      "components": [
+        "page-head",
+        "structured-data",
+        "social-preview"
+      ],
+      "fingerprint": "d2e0a83c7df41418",
+      "frameworks": [
+        "agnostic",
+        "nextjs"
+      ],
+      "id": "seo.metadata-integrity",
+      "importance": "mandatory",
+      "origin": "records/accessibility-quality.json",
+      "sources": [
+        "nextjs-docs",
+        "webdev",
+        "mdn-web-docs"
+      ],
+      "status": "specialized",
+      "subtopic": "metadata",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "seo-audit",
+        "deployment"
+      ],
+      "title": "Keep metadata truthful, unique, and route-specific",
+      "topic": "seo"
+    },
+    {
+      "components": [
+        "page",
+        "navigation",
+        "article",
+        "product"
+      ],
+      "fingerprint": "26764cb416ee356b",
+      "frameworks": [
+        "agnostic",
+        "nextjs",
+        "react"
+      ],
+      "id": "seo.semantic-discoverability",
+      "importance": "mandatory",
+      "origin": "records/accessibility-quality.json",
+      "sources": [
+        "webdev",
+        "mdn-web-docs",
+        "nextjs-docs"
+      ],
+      "status": "specialized",
+      "subtopic": "crawlability",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "seo-audit"
+      ],
+      "title": "Make primary content semantically discoverable",
+      "topic": "seo"
+    },
+    {
+      "components": [
+        "all"
+      ],
+      "fingerprint": "99a4e1150d1daf5b",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "system.adoption-path",
+      "importance": "recommended",
+      "origin": "records/direction-systems.json",
+      "sources": [
+        "carbon",
+        "polaris",
+        "primer",
+        "spectrum"
+      ],
+      "status": "specialized",
+      "subtopic": "governance",
+      "task_types": [
+        "design-system",
+        "redesign"
+      ],
+      "title": "Design the adoption path with the system",
+      "topic": "design-systems"
+    },
+    {
+      "components": [
+        "all"
+      ],
+      "fingerprint": "6df195959802dc15",
+      "frameworks": [
+        "react",
+        "nextjs",
+        "agnostic"
+      ],
+      "id": "system.component-contract",
+      "importance": "mandatory",
+      "origin": "records/direction-systems.json",
+      "sources": [
+        "react-docs",
+        "wai-aria-apg",
+        "react-aria",
+        "radix-primitives"
+      ],
+      "status": "stable",
+      "subtopic": "component-api",
+      "task_types": [
+        "design-system",
+        "component"
+      ],
+      "title": "Define component contracts before variants",
+      "topic": "design-systems"
+    },
+    {
+      "components": [
+        "all"
+      ],
+      "fingerprint": "595e58df93f1f1c7",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "system.document-decisions",
+      "importance": "mandatory",
+      "origin": "records/direction-systems.json",
+      "sources": [
+        "carbon",
+        "polaris",
+        "primer",
+        "uswds"
+      ],
+      "status": "stable",
+      "subtopic": "documentation",
+      "task_types": [
+        "design-system",
+        "component",
+        "visual-audit"
+      ],
+      "title": "Document decisions, not just component screenshots",
+      "topic": "design-systems"
+    },
+    {
+      "components": [
+        "all"
+      ],
+      "fingerprint": "bb861a9c80540a7e",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "system.semantic-tokens",
+      "importance": "mandatory",
+      "origin": "records/direction-systems.json",
+      "sources": [
+        "material3",
+        "fluent2",
+        "carbon",
+        "polaris"
+      ],
+      "status": "stable",
+      "subtopic": "tokens",
+      "task_types": [
+        "design-system",
+        "component",
+        "redesign"
+      ],
+      "title": "Encode meaning in design tokens",
+      "topic": "design-systems"
+    },
+    {
+      "components": [
+        "all"
+      ],
+      "fingerprint": "cfc2743deb7f1d1d",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "testing.browser-risk-matrix",
+      "importance": "mandatory",
+      "origin": "records/architecture-delivery.json",
+      "sources": [
+        "mdn-web-docs",
+        "webdev",
+        "wcag-22"
+      ],
+      "status": "stable",
+      "subtopic": "cross-browser-testing",
+      "task_types": [
+        "testing",
+        "deployment",
+        "redesign"
+      ],
+      "title": "Scale browser testing by feature and user risk",
+      "topic": "testing-deployment"
+    },
+    {
+      "components": [
+        "all"
+      ],
+      "fingerprint": "499f187a5a079bfe",
+      "frameworks": [
+        "react",
+        "nextjs",
+        "agnostic"
+      ],
+      "id": "testing.story-state-coverage",
+      "importance": "mandatory",
+      "origin": "records/architecture-delivery.json",
+      "sources": [
+        "react-docs",
+        "wai-aria-apg",
+        "webdev"
+      ],
+      "status": "stable",
+      "subtopic": "component-testing",
+      "task_types": [
+        "component",
+        "design-system",
+        "testing"
+      ],
+      "title": "Test representative component states as first-class artifacts",
+      "topic": "testing-deployment"
+    },
+    {
+      "components": [
+        "text",
+        "icon-font"
+      ],
+      "fingerprint": "39eb6fefa8aae479",
+      "frameworks": [
+        "agnostic",
+        "nextjs"
+      ],
+      "id": "type.font-loading-resilience",
+      "importance": "mandatory",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "webdev",
+        "mdn-web-docs",
+        "nextjs-docs"
+      ],
+      "status": "stable",
+      "subtopic": "web-fonts",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "performance-audit"
+      ],
+      "title": "Make typography resilient during font loading",
+      "topic": "typography"
+    },
+    {
+      "components": [
+        "heading",
+        "body",
+        "label",
+        "caption",
+        "data"
+      ],
+      "fingerprint": "b3096bca7c0d12d9",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "type.hierarchy-by-role",
+      "importance": "mandatory",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "material3",
+        "fluent2",
+        "carbon",
+        "webdev"
+      ],
+      "status": "stable",
+      "subtopic": "type-system",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "design-system"
+      ],
+      "title": "Assign typography by semantic role",
+      "topic": "typography"
+    },
+    {
+      "components": [
+        "article",
+        "prose",
+        "help-text"
+      ],
+      "fingerprint": "bb6d73b2beac265b",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "type.readable-measure",
+      "importance": "mandatory",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "wcag-22",
+        "webdev",
+        "govuk-design-system"
+      ],
+      "status": "stable",
+      "subtopic": "readability",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Control measure, leading, and paragraph rhythm",
+      "topic": "typography"
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,28 @@
+{
+  "id": "rubric.design-direction-comparison",
+  "title": "Design direction comparison rubric",
+  "version": "0.1.0",
+  "status": "stable",
+  "last_reviewed": "2026-07-10",
+  "scoring": {
+    "scale": {"1": "contradicts the criterion", "2": "weak or mostly generic", "3": "credible with material gaps", "4": "strong and evidenced", "5": "distinctive, robust, and clearly evidenced"},
+    "weighting": "Multiply score by weight. Do not use totals to override a failure on a non-negotiable criterion.",
+    "confidence": ["low", "medium", "high"]
+  },
+  "criteria": [
+    {"id": "outcome-fit", "title": "Outcome fit", "weight": 5, "non_negotiable": true, "questions": ["Does the direction make the primary task and decision hierarchy obvious?", "Does it support the audience's context and expected trust level?"], "rule_refs": ["product.outcome-first-brief", "ia.one-primary-task"]},
+    {"id": "content-fit", "title": "Content fit", "weight": 5, "non_negotiable": true, "questions": ["Does the composition express actual content relationships?", "Does it survive representative long, empty, error, and localized content?"], "rule_refs": ["direction.content-before-chrome", "product.define-real-data"]},
+    {"id": "distinctiveness", "title": "Distinctiveness", "weight": 3, "non_negotiable": false, "questions": ["Are two or three memorable signals specific to this product?", "Would a competitor substitution test reveal generic copy or styling?"], "rule_refs": ["direction.systemic-distinctiveness", "anti.gradient-everywhere"]},
+    {"id": "coherence", "title": "System coherence", "weight": 4, "non_negotiable": true, "questions": ["Can type, color, geometry, imagery, and motion be expressed as repeatable rules?", "Do component roles remain distinguishable?"], "rule_refs": ["system.semantic-tokens", "system.component-contract", "icons.semantic-consistency"]},
+    {"id": "accessibility", "title": "Accessibility", "weight": 5, "non_negotiable": true, "questions": ["Do contrast, focus, keyboard, reading order, target, and reduced-motion requirements fit without fighting the direction?", "Are color, motion, and shape redundant rather than exclusive cues?"], "rule_refs": ["a11y.keyboard-complete", "a11y.contrast-and-focus", "motion.reduced-motion-equivalence"]},
+    {"id": "responsive", "title": "Responsive resilience", "weight": 5, "non_negotiable": true, "questions": ["Does hierarchy survive reflow instead of relying on one composition?", "Do difficult widths, large text, RTL, and mixed input remain usable?"], "rule_refs": ["responsive.content-driven-reflow", "responsive.recompose-not-shrink", "i18n.bidirectional-logical"]},
+    {"id": "performance", "title": "Performance feasibility", "weight": 4, "non_negotiable": true, "questions": ["Can the direction meet route budgets on representative hardware?", "Are fonts, images, effects, and motion scoped to their value?"], "rule_refs": ["performance.core-web-vitals-budget", "images.reserve-space", "type.font-loading-resilience"]},
+    {"id": "implementation", "title": "Implementation and adoption", "weight": 3, "non_negotiable": false, "questions": ["Can the direction be tokenized and composed without excessive one-offs?", "Is migration or delivery risk proportionate to outcome value?"], "rule_refs": ["system.adoption-path", "delivery.incremental-release"]},
+    {"id": "integrity", "title": "Evidence and integrity", "weight": 5, "non_negotiable": true, "questions": ["Are reference-derived and assumed decisions separated?", "Are proof, claims, assets, and content verified?", "Have template-like anti-patterns been justified or removed?"], "rule_refs": ["integrity.reconstruction-evidence", "integrity.truthful-proof", "anti.card-everything", "anti.motion-everywhere"]}
+  ],
+  "comparison_record": {
+    "required_fields": ["candidate_id", "one_sentence_intent", "axis_positions", "signature_signals", "score_by_criterion", "confidence_by_criterion", "non_negotiable_failures", "risks", "assumptions", "decision"],
+    "decision_values": ["select", "combine-specific-parts", "revise", "reject"],
+    "combination_rule": "Combine only named compatible decisions, never average complete directions into a stylistic compromise."
+  }
+}

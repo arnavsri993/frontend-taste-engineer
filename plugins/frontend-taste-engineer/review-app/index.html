@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Frontend Taste Engineer review</title>
+  <link rel="stylesheet" href="/review-app/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to review</a>
+  <header class="masthead">
+    <div class="mark" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
+    <div>
+      <p class="eyebrow">Frontend Taste Engineer</p>
+      <h1>Evidence review</h1>
+    </div>
+    <p id="load-status" class="status" role="status">Loading local artifacts…</p>
+  </header>
+
+  <main id="main">
+    <section class="intro" aria-labelledby="intro-title">
+      <div>
+        <p class="eyebrow">Local · read-only</p>
+        <h2 id="intro-title">Inspect what supports a frontend decision.</h2>
+        <p>This view reads the plugin’s generated index, source registry, and evaluation summary. It does not approve or modify stable knowledge.</p>
+      </div>
+      <dl class="metrics" aria-label="Loaded artifact counts">
+        <div><dt>Knowledge records</dt><dd id="record-count">—</dd></div>
+        <div><dt>Registered sources</dt><dd id="source-count">—</dd></div>
+        <div><dt>Eval cases</dt><dd id="eval-count">—</dd></div>
+      </dl>
+    </section>
+
+    <section class="controls" aria-labelledby="browse-title">
+      <div>
+        <p class="eyebrow">Knowledge browser</p>
+        <h2 id="browse-title">Search the generated index</h2>
+      </div>
+      <label for="query">Rule ID, title, topic, or source</label>
+      <div class="search-row">
+        <input id="query" type="search" autocomplete="off" placeholder="Try focus, typography, motion…">
+        <select id="importance" aria-label="Filter by importance">
+          <option value="">All importance</option>
+          <option value="mandatory">Mandatory</option>
+          <option value="recommended">Recommended</option>
+          <option value="optional">Optional</option>
+        </select>
+      </div>
+    </section>
+
+    <div class="workspace">
+      <section class="results" aria-labelledby="results-title">
+        <div class="section-heading">
+          <h2 id="results-title">Matching records</h2>
+          <p id="result-summary" role="status" aria-live="polite" aria-atomic="true">Waiting for the index.</p>
+        </div>
+        <ol id="results-list" class="record-list">
+          <li class="empty">No local knowledge index has been loaded.</li>
+        </ol>
+      </section>
+
+      <aside aria-labelledby="evidence-title">
+        <p class="eyebrow">Release evidence</p>
+        <h2 id="evidence-title">Evaluation summary</h2>
+        <div id="eval-summary" class="evidence-box">
+          <p>No evaluation summary loaded.</p>
+        </div>
+        <details>
+          <summary>Manual app registration</summary>
+          <p>The Apps SDK mapping remains empty until a developer-mode app is registered and a real <code>plugin_asdk_app…</code> ID is supplied.</p>
+        </details>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <p>Stable knowledge changes require provenance, evaluation, and human-reviewed promotion.</p>
+  </footer>
+  <script src="/review-app/app.js" defer></script>
+</body>
+</html>

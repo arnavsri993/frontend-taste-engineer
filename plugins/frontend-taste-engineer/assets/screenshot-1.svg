@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Frontend Taste Engineer review interface</title>
+  <desc id="desc">A source-backed frontend audit showing task classification, retrieved rules, and completion gates.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EAF8F3"/><stop offset="1" stop-color="#D5EEE8"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="14" stdDeviation="24" flood-color="#092B29" flood-opacity=".12"/></filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <rect x="54" y="42" width="1332" height="816" rx="30" fill="#F8FCFA" filter="url(#shadow)"/>
+  <rect x="54" y="42" width="268" height="816" rx="30" fill="#102A2A"/>
+  <rect x="82" y="76" width="52" height="52" rx="13" fill="#0F817A"/>
+  <path d="M94 91h28M94 102h19M94 113h28" stroke="#E9FFF9" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="120" cy="102" r="4" fill="#FFCF70"/>
+  <text x="150" y="97" fill="#F3FBF8" font-family="system-ui, sans-serif" font-size="19" font-weight="700">Frontend Taste</text>
+  <text x="150" y="119" fill="#9ACCC7" font-family="ui-monospace, monospace" font-size="13" letter-spacing="1">ENGINEER</text>
+  <g font-family="system-ui, sans-serif" font-size="16">
+    <rect x="78" y="180" width="220" height="48" rx="12" fill="#18413F"/>
+    <text x="98" y="210" fill="#F3FBF8">Review overview</text>
+    <text x="98" y="270" fill="#9ACCC7">Knowledge browser</text>
+    <text x="98" y="320" fill="#9ACCC7">Source provenance</text>
+    <text x="98" y="370" fill="#9ACCC7">Coverage gaps</text>
+    <text x="98" y="420" fill="#9ACCC7">Evaluation runs</text>
+  </g>
+  <text x="364" y="103" fill="#102A2A" font-family="system-ui, sans-serif" font-size="34" font-weight="750">Audit a production interface</text>
+  <text x="364" y="138" fill="#52706E" font-family="system-ui, sans-serif" font-size="17">Compact evidence, mandatory rules, and honest completion gates.</text>
+  <rect x="364" y="174" width="608" height="118" rx="18" fill="#FFFFFF" stroke="#CFE4DF"/>
+  <text x="390" y="207" fill="#557370" font-family="ui-monospace, monospace" font-size="13" font-weight="700">TASK CLASSIFICATION</text>
+  <text x="390" y="244" fill="#102A2A" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Existing SaaS dashboard redesign</text>
+  <rect x="390" y="259" width="111" height="23" rx="7" fill="#E3F4EF"/><text x="405" y="276" fill="#0B6E69" font-family="system-ui, sans-serif" font-size="12">high-density</text>
+  <rect x="511" y="259" width="87" height="23" rx="7" fill="#FFF2D5"/><text x="526" y="276" fill="#815B12" font-family="system-ui, sans-serif" font-size="12">React</text>
+  <rect x="608" y="259" width="126" height="23" rx="7" fill="#F0EBFA"/><text x="623" y="276" fill="#5A428C" font-family="system-ui, sans-serif" font-size="12">accessibility</text>
+  <rect x="994" y="174" width="348" height="272" rx="18" fill="#102A2A"/>
+  <text x="1022" y="211" fill="#9ACCC7" font-family="ui-monospace, monospace" font-size="13" font-weight="700">COMPLETION GATES</text>
+  <g font-family="system-ui, sans-serif" font-size="15">
+    <circle cx="1030" cy="250" r="8" fill="#48C59E"/><text x="1050" y="256" fill="#F3FBF8">Primary flow verified</text>
+    <circle cx="1030" cy="290" r="8" fill="#48C59E"/><text x="1050" y="296" fill="#F3FBF8">Keyboard path complete</text>
+    <circle cx="1030" cy="330" r="8" fill="#FFCF70"/><text x="1050" y="336" fill="#F3FBF8">Mobile error state pending</text>
+    <circle cx="1030" cy="370" r="8" fill="#48C59E"/><text x="1050" y="376" fill="#F3FBF8">No fabricated claims</text>
+    <circle cx="1030" cy="410" r="8" fill="#E68170"/><text x="1050" y="416" fill="#F3FBF8">Performance not measured</text>
+  </g>
+  <text x="364" y="346" fill="#102A2A" font-family="system-ui, sans-serif" font-size="22" font-weight="720">Retrieved guidance</text>
+  <text x="902" y="346" fill="#587572" text-anchor="end" font-family="system-ui, sans-serif" font-size="14">8 records · 3 mandatory</text>
+  <g font-family="system-ui, sans-serif">
+    <rect x="364" y="370" width="608" height="126" rx="17" fill="#FFFFFF" stroke="#CFE4DF"/>
+    <rect x="384" y="390" width="86" height="24" rx="7" fill="#FFE3DD"/><text x="397" y="407" fill="#8A3A2E" font-size="12" font-weight="700">MANDATORY</text>
+    <text x="384" y="445" fill="#102A2A" font-size="19" font-weight="700">Keep focus visible and restore it after overlays</text>
+    <text x="384" y="474" fill="#5B7774" font-size="14">WAI-ARIA APG · WCAG 2.2 · verify with keyboard and removed triggers</text>
+    <rect x="364" y="514" width="608" height="126" rx="17" fill="#FFFFFF" stroke="#CFE4DF"/>
+    <rect x="384" y="534" width="70" height="24" rx="7" fill="#E3F4EF"/><text x="397" y="551" fill="#0B6E69" font-size="12" font-weight="700">STABLE</text>
+    <text x="384" y="589" fill="#102A2A" font-size="19" font-weight="700">Preserve table meaning when adapting narrow layouts</text>
+    <text x="384" y="618" fill="#5B7774" font-size="14">Use scroll, prioritization, or alternate views based on comparison needs</text>
+    <rect x="364" y="658" width="978" height="148" rx="17" fill="#FFF9EC" stroke="#F0D79C"/>
+    <text x="389" y="694" fill="#815B12" font-family="ui-monospace, monospace" font-size="13" font-weight="700">ANTI-SLOP SIGNAL</text>
+    <text x="389" y="735" fill="#3B3424" font-size="21" font-weight="700">Card boundaries are replacing hierarchy</text>
+    <text x="389" y="769" fill="#685D42" font-size="15">Remove containers that do not group behavior or meaning; restore rhythm with type, alignment, and whitespace.</text>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+name: Monthly coverage and source discovery
+
+on:
+  schedule:
+    - cron: "41 9 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate coverage report
+        run: >-
+          python3 plugins/frontend-taste-engineer/scripts/generate_coverage_report.py
+          --json-out plugins/frontend-taste-engineer/audits/generated/monthly-coverage.json
+          --md-out plugins/frontend-taste-engineer/audits/generated/monthly-discovery.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: monthly-discovery
+          path: plugins/frontend-taste-engineer/audits/generated/
+          if-no-files-found: error
+      - name: Open review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh issue create
+          --title "Monthly frontend knowledge coverage review"
+          --body-file plugins/frontend-taste-engineer/audits/generated/monthly-discovery.md

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.frontend-taste-engineer/ingestion/index.schema.json",
+  "title": "Frontend Taste Engineer generated knowledge index",
+  "type": "object",
+  "required": ["schema_version", "generator", "record_count", "corpus_fingerprint", "records"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "generator": {"const": "scripts/generate_index.py"},
+    "record_count": {"type": "integer", "minimum": 0},
+    "corpus_fingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "topic", "status", "importance", "sources", "fingerprint"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "topic": {"type": "string", "minLength": 1},
+          "status": {"type": "string"},
+          "importance": {"type": "string"},
+          "sources": {"type": "array", "items": {"type": "string"}},
+          "fingerprint": {"type": "string", "pattern": "^[a-f0-9]{16}$"}
+        },
+        "additionalProperties": true
+      }
+    }
+  }
+}
+
