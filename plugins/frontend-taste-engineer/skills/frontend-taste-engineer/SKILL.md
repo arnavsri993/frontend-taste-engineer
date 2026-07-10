@@ -209,7 +209,9 @@ Test motion in the running interface. Verify purpose, origin, easing, duration, 
 
 ## Anti-slop pass
 
-Challenge patterns, not aesthetics. Look for reflexive centered heroes, three-card sections, purple gradients, glow or glass without purpose, rounded-card and pill proliferation, decorative bento grids, fake dashboards, arbitrary icons, placeholder copy, random animation, generic framework defaults, desktop-only structure, and monolithic components.
+Challenge patterns, not aesthetics or presumed authorship. Look for reflexive centered heroes, three-card sections, purple gradients, glow or glass without purpose, rounded-card and pill proliferation, decorative bento grids, ornamental word emphasis, signal components with no real state, generic terminal costumes, fake dashboards, arbitrary icons, placeholder copy, random animation, generic framework defaults, desktop-only structure, and monolithic components.
+
+Treat static matches as leads, not verdicts. Inspect the product thesis, existing tokens, component contracts, brand decisions, and rendered result before labeling a choice. Group confirmed findings by root cause—such as theme tokens, typography, surface/elevation, signal components, copy voice, layout template, or motion—and prefer the smallest shared-system correction that preserves behavior and accessibility. For audit-only work, report the grouped evidence. For authorized implementation, compare matching before/after states and viewports and record intentional exceptions; do not replace one template with another.
 
 For each suspected pattern ask:
 

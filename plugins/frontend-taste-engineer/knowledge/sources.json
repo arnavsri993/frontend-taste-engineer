@@ -163,6 +163,14 @@
       "canonical_url": "https://github.com/Leonxlnx/taste-skill",
       "source_type": "GitHub agent-skill collection",
       "license_note": "MIT"
+    },
+    {
+      "id": "kill-ai-slop",
+      "title": "Kill AI Slop",
+      "publisher": "yetone",
+      "canonical_url": "https://github.com/yetone/kill-ai-slop",
+      "source_type": "GitHub field guide, agent skill, and static scanner",
+      "license_note": "No repository license was stated at revision eb4857a; inspiration-only, with no copied or adapted prose, examples, regexes, or code."
     }
   ]
 }

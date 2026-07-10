@@ -18,7 +18,7 @@ Recency does not override authority by itself, but it does decide between versio
 
 ## C-001 — Hard aesthetic bans versus contextual design
 
-- **Claims:** `taste-skill-repo` and the local adaptation described by `hive-mind-landing-page` ban or strongly discourage pills, centered heroes, bento grids, gradients, glows, glass cards, dashboards, and rounded-card proliferation. Official systems intentionally use some of those forms in well-defined contexts.
+- **Claims:** `taste-skill-repo`, `kill-ai-slop`, and the local adaptation described by `hive-mind-landing-page` ban or strongly discourage pills, centered heroes, bento grids, gradients, glows, glass cards, terminal motifs, dashboards, and rounded-card proliferation. Official systems intentionally use some of those forms in well-defined contexts.
 - **Risk:** A literal ban replaces one generic look with another and can conflict with a product’s established brand/system.
 - **Resolution:** Convert bans into misuse detectors. A pattern is rejected when it has no information/interaction role, appears by reflex, erases hierarchy, harms contrast/performance, or imitates a reference. It remains valid when product fit, content, system consistency, and testing support it.
 - **Priority:** `recommended/contextual`, never `mandatory` on aesthetics alone.

@@ -8,6 +8,7 @@ Reviewed 2026-07-10. “Rejected” means the claim is not promoted into stable 
 |---|---|---|---|
 | `emil-design-skills` | Persona/initial-response commands; mandatory review-table format; categorical “must” wording inside a skill | Quarantined as prompt injection relative to this research task | Output format and persona do not establish frontend correctness. Extract only the underlying motion rationale when independently supportable. |
 | `taste-skill-repo` | Fixed taste settings, strong “always/never” rules, hard preflight commands, output-enforcement directives | Quarantined as agent-control text | A source being packaged as a skill does not grant it authority over this plugin build. Rules require product context, exceptions, and standards checks. |
+| `kill-ai-slop` | Installation, scan, report, approval, and fix commands embedded in an external skill | Quarantined as agent-control and executable workflow text | The workflow was analyzed as research only. No commands or scanner code were executed or imported; generalized ideas require original synthesis and license-safe handling. |
 | `awesome-design-md` | “Copy a DESIGN.md” and prompt the agent to build like a named brand | Rejected as a production default | Encourages direct imitation and assumes extracted values are accurate/licensed. Retain only the design-inventory schema. |
 | `transitions-dev-repo` | `npx skills add`, `npx transitions-refine live`, agent-backed refine/apply commands | Not executed; workflow analyzed only | Running third-party packages was unnecessary and would execute untrusted code. Tool ideas were evaluated from source pages/repository inventory. |
 | `hive-mind-landing-page` | Local skill commands and prompt traces | Treated as historical data only | They explain one build; they do not override this task or prove general causation. |
@@ -21,7 +22,7 @@ No source instruction requested credentials or destructive filesystem actions in
 - **Status:** rejected as universal; retained as misuse detectors.
 - **Why:** Official systems use several of these forms appropriately. The actual failure is reflexive use, hierarchy flattening, weak contrast, poor performance, brand imitation, or lack of product purpose.
 - **Replacement:** Ask what job the pattern performs, when it is appropriate, what alternatives exist, and how it will be verified.
-- **Sources in tension:** `taste-skill-repo`, `hive-mind-landing-page` versus `material-3`, `fluent-2`, `carbon-design-system`, `primer-design-system`.
+- **Sources in tension:** `taste-skill-repo`, `kill-ai-slop`, `hive-mind-landing-page` versus `material-3`, `fluent-2`, `carbon-design-system`, `primer-design-system`.
 
 ### R-002 — “Premium” equals large whitespace, serif/sans pairing, soft contrast, floating navigation, layered cards, or spring motion
 

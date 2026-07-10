@@ -22,6 +22,7 @@ Checked 2026-07-10. This is an engineering provenance review, not legal advice. 
 | `monokern-x-post` | Unknown; platform terms apply | `unresolved` | No content was accessible. Do not quote, reproduce media, or infer permission. |
 | `taste-skill-site` | Site license not stated; linked repository MIT | `summarized` for public claims; site assets `link-only` | Do not apply the repository MIT license to website copy, screenshots, supporter identities, or logos without evidence. |
 | `taste-skill-repo` | MIT | `summarized`; repository files `adaptable-with-notice` | Retain MIT notice for substantial copies. Prefer generalized, exception-aware records over copying model-control text. |
+| `kill-ai-slop` | Unstated; no root license or repository license declaration at inspected revision | `link-only` / `inspiration-only`; copying and adaptation `unresolved` | Use generalized observations only. Do not copy or adapt its prose, examples, detection regexes, scanner, or skill text unless the license is clarified. |
 
 ## Standards, web references, and testing/security sources
 

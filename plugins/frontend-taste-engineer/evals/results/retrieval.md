@@ -4,10 +4,10 @@
 
 | Variant | Quality | Precision | Recall | Mandatory recall | Duplicates | Irrelevant tokens | Provenance | Context tokens | p95 ms |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| baseline | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0 | 0.001 |
-| static-skill | 0.633 | 0.613 | 0.327 | 0.645 | 0.000 | 0.380 | 1.000 | 1183 | 0.307 |
-| lexical | 0.768 | 0.735 | 0.544 | 0.822 | 0.000 | 0.265 | 1.000 | 3157 | 1.485 |
-| hybrid | 0.868 | 0.810 | 0.730 | 0.950 | 0.000 | 0.189 | 1.000 | 3187 | 3.690 |
+| baseline | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0 | 0.002 |
+| static-skill | 0.634 | 0.626 | 0.328 | 0.634 | 0.000 | 0.367 | 1.000 | 1183 | 0.305 |
+| lexical | 0.762 | 0.758 | 0.540 | 0.780 | 0.000 | 0.240 | 1.000 | 3249 | 1.519 |
+| hybrid | 0.874 | 0.826 | 0.737 | 0.952 | 0.000 | 0.175 | 1.000 | 3225 | 3.940 |
 
 ## Gates
 
@@ -41,22 +41,23 @@ Passed cases: 8 / 8
 
 ## Case status
 
-- `b2b-landing` — hybrid quality 0.660
-- `consumer-landing` — hybrid quality 0.596
-- `developer-tool` — hybrid quality 0.798
-- `enterprise-dashboard` — hybrid quality 0.912
+- `b2b-landing` — hybrid quality 0.712
+- `consumer-landing` — hybrid quality 0.595
+- `developer-tool` — hybrid quality 0.860
+- `enterprise-dashboard` — hybrid quality 0.934
 - `mobile-onboarding` — hybrid quality 0.753
 - `settings-interface` — hybrid quality 0.744
 - `searchable-table` — hybrid quality 0.722
 - `checkout-form` — hybrid quality 0.629
-- `existing-redesign` — hybrid quality 0.657
+- `existing-redesign` — hybrid quality 0.658
+- `anti-slop-remediation` — hybrid quality 0.963
 - `screenshot-reconstruction` — hybrid quality 0.789
 - `constrained-system` — hybrid quality 0.934
 - `public-service` — hybrid quality 0.765
 - `dark-mode-product` — hybrid quality 0.934
-- `rtl-interface` — hybrid quality 0.609
-- `animated-component` — hybrid quality 0.934
-- `performance-remediation` — hybrid quality 0.598
+- `rtl-interface` — hybrid quality 0.608
+- `animated-component` — hybrid quality 0.912
+- `performance-remediation` — hybrid quality 0.597
 - `minimal-alex-message` — hybrid quality 1.000; classification PASS (autonomous-zero-brief-build)
 - `minimal-robotics-team` — hybrid quality 1.000; classification PASS (autonomous-zero-brief-build)
 - `minimal-ai-study-group` — hybrid quality 1.000; classification PASS (autonomous-zero-brief-build)

@@ -2,7 +2,7 @@
 
 **Result:** INCOMPLETE/FAIL
 
-Scored cases: 1 / 30
+Scored cases: 1 / 31
 
 No score is accepted without a concrete artifact or executed-command observation. Missing evidence remains unscored, never inferred.
 
@@ -17,6 +17,7 @@ No score is accepted without a concrete artifact or executed-command observation
 - `searchable-table` — not-run
 - `checkout-form` — not-run
 - `existing-redesign` — not-run
+- `anti-slop-remediation` — not-run
 - `screenshot-reconstruction` — not-run
 - `constrained-system` — not-run
 - `public-service` — not-run

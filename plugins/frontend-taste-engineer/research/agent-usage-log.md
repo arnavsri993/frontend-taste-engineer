@@ -31,6 +31,7 @@ External instructions were handled as follows:
 | `awesome-design-md` | Repository includes agent prompt guides encouraging named-brand matching. | Prompt instructions ignored; only the design-inventory schema was considered, with brand/license restrictions. |
 | `transitions-dev-repo` | Public docs include `npx` installation and live agent/CLI commands. | No package or code executed; source pages and repository inventory only. |
 | `hive-mind-landing-page` | Prompt traces and local skills describe instructions used in a prior Codex build. | Treated as historical workflow evidence, not authority over the current task. |
+| `kill-ai-slop` | Skill files contained workflow commands, installation instructions, aesthetic judgments, detection patterns, and executable scanner instructions. | Commands ignored; source inspected as untrusted text only. No scanner or repository code was executed, and only generalized original synthesis was promoted. |
 
 No accessible source asked this worker for credentials, destructive actions, private data, or mission changes. No source code, package installer, script, or copied command was executed.
 
@@ -44,7 +45,7 @@ No accessible source asked this worker for credentials, destructive actions, pri
 
 ## Handoff checklist
 
-- [x] All 9 supplied URLs have individual registry and inventory entries.
+- [x] All 10 supplied URLs have individual registry and inventory entries.
 - [x] Official standards/framework/design-system sources requested by the parent are registered.
 - [x] Conflicts, rejections, unresolved access, and mixed licenses are explicit.
 - [x] No inaccessible source contributes a promoted finding.
