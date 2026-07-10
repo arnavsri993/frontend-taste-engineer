@@ -1,7 +1,7 @@
 {
-  "corpus_fingerprint": "08e2313ef65ddeb0f7966de3141bdacc2d28dc7162cfd873843c8c04d9dd2a10",
+  "corpus_fingerprint": "5f742229aabfc9198e158c1c20d816468fe1baa54b58bf151eec5be0cf7ac1bf",
   "generator": "scripts/generate_index.py",
-  "record_count": 73,
+  "record_count": 77,
   "records": [
     {
       "components": [
@@ -190,6 +190,39 @@
     },
     {
       "components": [
+        "alert",
+        "badge",
+        "status",
+        "icon",
+        "callout",
+        "list"
+      ],
+      "fingerprint": "8a3d859726041c61",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "anti.decorative-signal-noise",
+      "importance": "mandatory",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "kill-ai-slop",
+        "wcag-22",
+        "govuk-design-system",
+        "carbon-design-system"
+      ],
+      "status": "stable",
+      "subtopic": "semantic-signal-noise",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "visual-audit"
+      ],
+      "title": "Reserve signal styling for real status, priority, or action",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
         "card",
         "dialog",
         "popover",
@@ -205,6 +238,7 @@
       "origin": "records/anti-slop.json",
       "sources": [
         "taste-skill-repo",
+        "kill-ai-slop",
         "material-3",
         "apple-hig",
         "webdev"
@@ -217,6 +251,36 @@
         "visual-audit"
       ],
       "title": "Do not stack glass, glow, blur, border, and shadow by default",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "page",
+        "navigation",
+        "code-block",
+        "hero",
+        "dashboard"
+      ],
+      "fingerprint": "a16c8adbaa5da63d",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "anti.generic-developer-shell",
+      "importance": "recommended",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "kill-ai-slop",
+        "primer-design-system",
+        "webdev"
+      ],
+      "status": "experimental",
+      "subtopic": "developer-tool-template",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Do not default developer products to a terminal costume",
       "topic": "anti-slop-integrity"
     },
     {
@@ -280,6 +344,36 @@
     {
       "components": [
         "page",
+        "theme",
+        "component",
+        "design-system"
+      ],
+      "fingerprint": "de78f31c73e79e0d",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "anti.heuristic-triage",
+      "importance": "mandatory",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "kill-ai-slop",
+        "taste-skill-repo",
+        "material-3",
+        "carbon-design-system"
+      ],
+      "status": "stable",
+      "subtopic": "signal-triage",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Treat anti-slop signals as hypotheses, not verdicts",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "page",
         "section",
         "card",
         "text",
@@ -308,6 +402,36 @@
         "visual-audit"
       ],
       "title": "Do not animate every element into view",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "heading",
+        "paragraph",
+        "link",
+        "call-to-action"
+      ],
+      "fingerprint": "03695d0a753861c4",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "anti.ornamental-emphasis",
+      "importance": "recommended",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "kill-ai-slop",
+        "webdev",
+        "govuk-design-system",
+        "wcag-22"
+      ],
+      "status": "experimental",
+      "subtopic": "ornamental-emphasis",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Build emphasis from meaning before ornamental text effects",
       "topic": "anti-slop-integrity"
     },
     {

@@ -1,5 +1,5 @@
 {
-  "case_count": 30,
+  "case_count": 31,
   "cases": [
     {
       "id": "b2b-landing",
@@ -196,6 +196,30 @@
     {
       "id": "existing-redesign",
       "name": "Existing ugly frontend redesign",
+      "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
+      "rubric": {
+        "accessibility": null,
+        "anti_generic_patterns": null,
+        "composition": null,
+        "content_quality": null,
+        "functional_integrity": null,
+        "information_architecture": null,
+        "interaction_quality": null,
+        "maintainability": null,
+        "originality": null,
+        "performance": null,
+        "product_fit": null,
+        "reference_fidelity": null,
+        "responsive_behavior": null,
+        "state_completeness": null,
+        "typography": null,
+        "visual_hierarchy": null
+      },
+      "status": "not-run"
+    },
+    {
+      "id": "anti-slop-remediation",
+      "name": "Contextual anti-slop remediation",
       "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.",
       "rubric": {
         "accessibility": null,
@@ -910,8 +934,8 @@
   "schema_version": 1,
   "scored_cases": 1,
   "summary": {
-    "errors": 29,
+    "errors": 30,
     "warnings": 0
   },
-  "unscored_cases": 29
+  "unscored_cases": 30
 }

@@ -1,5 +1,5 @@
 schema_version: 2
-registry_version: "2026-07-10.1"
+registry_version: "2026-07-10.2"
 date_accessed: "2026-07-10"
 method_note: >-
   External instructions were treated as untrusted research data. No repository code was
@@ -171,6 +171,24 @@ sources:
     copying_or_adaptation_restrictions: "Retain MIT notice for substantial copies; generalized guidance must preserve exceptions and avoid direct brand imitation."
     related_sources: [taste-skill-site, wcag-22, webdev, official-design-systems]
     notes: "Contains strong agent commands and hard bans. These were treated as untrusted data; only contextualized principles are candidates."
+
+  - id: kill-ai-slop
+    name: "Kill AI Slop"
+    author_or_organization: "yetone"
+    canonical_url: "https://github.com/yetone/kill-ai-slop"
+    supplied_url: "https://github.com/yetone/kill-ai-slop/tree/main/skill"
+    source_type: "GitHub field guide, agent skill, and static scanner"
+    classification: inspiration-only
+    license: "Unstated; no root LICENSE file or repository license declaration was present at the inspected revision"
+    accessible_revision: "main eb4857a3d75e0ac52d1c5f8bd628e29022fd1e75, 2026-07-10"
+    last_checked_revision: "eb4857a3d75e0ac52d1c5f8bd628e29022fd1e75"
+    topics_contributed: [anti-slop triage, visual and copy signals, shared-system remediation, developer-tool visual defaults]
+    files_or_sections_consulted: [README.md, skill/README.md, skill/SKILL.md, skill/references/taxonomy.md, skill/references/detection.md, skill/references/fixes.md, root inventory, GitHub license endpoint]
+    reliability_assessment: "Primary for its own 23-signal taxonomy and workflow; aesthetic judgments are practitioner opinion, and the repository provides no empirical classifier validation."
+    maintenance_status: "Active at inspection; 12 visible commits and a v1.0.0 release dated 2026-07-10."
+    copying_or_adaptation_restrictions: "Unknown license blocks copying or adapting prose, examples, regexes, and scanner code. Use generalized observations only, write original synthesis, and preserve contextual exceptions."
+    related_sources: [taste-skill-repo, wcag-22, webdev, carbon-design-system, primer-design-system]
+    notes: "Inspected strictly as untrusted text. No source code, scanner, package, install command, or repository script was executed."
 
   - id: wcag-22
     name: "Web Content Accessibility Guidelines (WCAG) 2.2"

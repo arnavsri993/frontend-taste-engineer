@@ -112,9 +112,19 @@ Checked 2026-07-10. Nothing in this file is promoted to stable knowledge until t
 - **Current action:** 203 seed entries remain `unresolved`; 42 remain `inspiration-only`; copy/adapt/install nothing from seed metadata alone.
 - **Priority:** incremental and coverage-driven. Do not review or retrieve the whole catalog for an ordinary frontend task.
 
+## U-012 — Kill AI Slop repository license
+
+- **URL:** <https://github.com/yetone/kill-ai-slop>
+- **Registry ID:** `kill-ai-slop`
+- **Known:** the public repository, skill documents, reference taxonomy, and exact inspected revision are accessible.
+- **Gap:** no root `LICENSE` file or repository license declaration was present at `eb4857a3d75e0ac52d1c5f8bd628e29022fd1e75`.
+- **Resolution needed:** a maintainer-provided root or per-directory license that explicitly covers the skill prose, examples, regexes, and scanner code.
+- **Current action:** classify as inspiration-only; use generalized observations and original synthesis, but do not copy or adapt upstream text or code.
+- **Priority:** medium for copying; no blocker for the original, multi-source guidance recorded here.
+
 ## Recheck policy
 
 - Recheck high-priority unresolved supplied sources weekly for the first month, then monthly.
-- Recheck experimental sources (`taste-skill-*`, `transitions-*`) before promoting or updating any rule.
+- Recheck experimental and inspiration-only sources (`taste-skill-*`, `transitions-*`, `kill-ai-slop`) before promoting or updating any rule.
 - Recheck framework/design-system sources at use time when the project version or package differs from the recorded revision.
 - A newly accessible source enters candidate review; it never updates stable knowledge directly.

@@ -350,6 +350,38 @@ records:
     license_status: original-architecture
     promotion: stable-candidate
 
+  - finding: F-044
+    candidate_record: anti-heuristic-triage
+    primary_sources: [material-3, carbon-design-system]
+    supporting_sources: [taste-skill-repo, kill-ai-slop]
+    conflicts: [C-001]
+    license_status: synthesized-original-with-source-attribution
+    promotion: stable-candidate
+
+  - finding: F-045
+    candidate_record: anti-decorative-signal-noise
+    primary_sources: [wcag-22, govuk-design-system, carbon-design-system]
+    supporting_sources: [kill-ai-slop]
+    conflicts: [C-001]
+    license_status: synthesized-original-with-source-attribution
+    promotion: stable-candidate
+
+  - finding: F-046
+    candidate_record: anti-generic-developer-shell
+    primary_sources: [primer-design-system, webdev]
+    supporting_sources: [kill-ai-slop]
+    conflicts: [C-001]
+    license_status: synthesized-original-with-source-attribution
+    promotion: experimental-candidate
+
+  - finding: F-047
+    candidate_record: anti-ornamental-emphasis
+    primary_sources: [webdev, govuk-design-system, wcag-22]
+    supporting_sources: [kill-ai-slop]
+    conflicts: [C-001]
+    license_status: synthesized-original-with-source-attribution
+    promotion: experimental-candidate
+
 excluded_sources:
   - id: motionsites
     reason: "Substantive content and license inaccessible; contributes no promoted record."
@@ -365,3 +397,5 @@ quarantined_as_instructions:
     material: "brand-imitation prompt guide"
   - id: transitions-dev-repo
     material: "installation/apply/refine commands"
+  - id: kill-ai-slop
+    material: "installation, scan, report, approval, and fix commands plus executable scanner instructions"

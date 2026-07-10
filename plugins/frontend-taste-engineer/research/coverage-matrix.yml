@@ -284,8 +284,8 @@ areas:
   anti_slop_integrity:
     status: strong
     primary_sources: [uswds, govuk-design-system, google-search-docs, wcag-22]
-    supporting_sources: [taste-skill-repo, hive-mind-landing-page, awesome-design-md]
-    covers: [generic layout detection, fake content/functions, uncontrolled decoration, weak hierarchy, needless rewrites, missing states, unsupported claims]
+    supporting_sources: [taste-skill-repo, kill-ai-slop, hive-mind-landing-page, awesome-design-md]
+    covers: [generic layout detection, contextual signal triage, fake content/functions, uncontrolled decoration, weak hierarchy, semantic signal noise, ornamental emphasis, developer-tool template defaults, needless rewrites, missing states, unsupported claims]
     gaps: [quantitative classifier evaluation, diverse visual benchmark set]
 
   provenance_maintenance:

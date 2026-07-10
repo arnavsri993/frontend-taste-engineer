@@ -415,3 +415,39 @@ Status: candidate findings reviewed on 2026-07-10. A finding is not automaticall
 - **Exceptions:** A documented product requirement may choose a different aesthetic, never a lower legal/safety baseline without explicit accountable review.
 - **Verify:** Conflict records name competing claims, chosen resolution, exception, and revisit trigger.
 - **Sources:** all registered sources; decision formalized in `architecture-decisions.md`.
+
+### F-044 — Treat anti-slop signals as hypotheses, not authorship verdicts
+
+- **Level:** mandatory; stable.
+- **Do:** Establish the product thesis, brand/system contracts, and rendered behavior before labeling repeated visual or copy signals. Group confirmed symptoms by root cause and fix the smallest shared token or component boundary that preserves intent.
+- **Why:** A color, font, radius, phrase, or utility class is ambiguous alone. Static scanning is useful for discovery but cannot prove authorship, intent, accessibility, or visual quality.
+- **Exceptions:** Intent does not excuse an accessibility, integrity, or functional failure; describe and repair the observed failure without guessing who or what authored it.
+- **Verify:** Each removed or retained group has evidence, a product-specific rationale, and a matching-state before/after comparison; rerun heuristics only as a regression signal.
+- **Sources:** `material-3`, `carbon-design-system`, `taste-skill-repo`, `kill-ai-slop` (inspiration only).
+
+### F-045 — Reserve signal components for real semantic differences
+
+- **Level:** mandatory; stable.
+- **Do:** Use badges, callouts, status indicators, icon containers, semantic color, and motion only when they communicate a real state, priority, category, or action. Start with explicit text and structure, then add the minimum redundant visual cue.
+- **Why:** Repeated tinted tiles, rails, glows, pulses, and decorative badges make every item look important while weakening the signals that users actually need.
+- **Exceptions:** A documented design-system signal may repeat when each instance maps to a real semantic role and remains distinguishable without color or motion.
+- **Verify:** Remove color, icons, and animation; essential state and recovery remain clear. Inventory each remaining signal's role and forced-colors/reduced-motion behavior.
+- **Sources:** `wcag-22`, `govuk-design-system`, `carbon-design-system`, `kill-ai-slop` (inspiration only).
+
+### F-046 — Keep developer products from defaulting to a terminal costume
+
+- **Level:** recommended; experimental.
+- **Do:** Reserve monospace, command prompts, ASCII motifs, and terminal framing for real code, commands, logs, or shell workflows. Derive the surrounding interface identity from the product's actual technical task and information model.
+- **Why:** A generic terminal shell communicates “developer tool” quickly but can flatten product differentiation, reduce prose readability, and add decorative implementation cost.
+- **Exceptions:** Terminal emulators, REPLs, shell-native workflows, code editors, and log tools may legitimately carry the metaphor throughout.
+- **Verify:** Every terminal convention maps to a real concept; the product remains distinctive and usable when decorative terminal styling is removed.
+- **Sources:** `primer-design-system`, `webdev`, `kill-ai-slop` (inspiration only).
+
+### F-047 — Build emphasis from meaning before ornamental text effects
+
+- **Level:** recommended; experimental.
+- **Do:** Make the key noun, action, or consequence clear through sentence structure, semantic hierarchy, order, scale, weight, or placement before switching font voice mid-heading or adding gradient, strike, underline, or highlight decoration.
+- **Why:** Ornamental emphasis can hide vague copy, fragment the reading voice, weaken contrast, and turn a conventional semantic mark into decoration.
+- **Exceptions:** Links, edits, annotations, search matches, data states, and bounded editorial art direction retain these forms when their meaning and readability are explicit.
+- **Verify:** Disable the effect and confirm the intended emphasis survives; test wrapping, font fallback, text enlargement, contrast, and conventional semantics.
+- **Sources:** `webdev`, `govuk-design-system`, `wcag-22`, `kill-ai-slop` (inspiration only).

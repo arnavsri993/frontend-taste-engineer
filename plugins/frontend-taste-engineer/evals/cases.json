@@ -108,6 +108,19 @@
     "context_budget": 5000
   },
   {
+    "id": "anti-slop-remediation",
+    "name": "Contextual anti-slop remediation",
+    "brief": "Audit a generated frontend for decorative status badges, ornamental gradient words, monospace terminal chrome, tinted icon tiles, oversized shadows, and repeated pills. Treat static matches as hypotheses, preserve intentional design-system choices and accessibility cues, group findings by root cause, fix shared tokens or components first, then compare matching before and after states and rerun heuristics.",
+    "task_type": "visual-audit",
+    "stage": "verification",
+    "expected_topics": ["anti-slop-integrity"],
+    "expected_terms": ["hypotheses", "status", "monospace", "shared", "before"],
+    "mandatory_terms": ["hypotheses", "intentional", "accessibility"],
+    "forbidden_terms": ["automatic replacement"],
+    "budget_records": 10,
+    "context_budget": 5000
+  },
+  {
     "id": "screenshot-reconstruction",
     "name": "Screenshot reconstruction",
     "brief": "Reconstruct a reference screenshot responsively, separating observed facts from inference, matching geometry and assets, preserving semantics, and comparing captured output.",
