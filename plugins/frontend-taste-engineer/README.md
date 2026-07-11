@@ -2,7 +2,7 @@
 
 This directory is the installable plugin package. The repository root contains the marketplace, CI, contribution policy, and full architecture documentation.
 
-Version 0.3.0 adds a 245-source external frontend seed catalog, stage-bounded source selection, license/anti-copy gates, optional 21st.dev MCP guidance, artifact-pack summaries, deterministic candidate discovery, and policy evaluations. It preserves the 0.2.0 `autonomous-zero-brief-build` workflow for minimal website, page, portfolio, frontend, and redesign prompts.
+Version 0.3.0 adds a 245-source external frontend seed catalog, stage-bounded source selection, license/anti-copy gates, optional 21st.dev MCP guidance, artifact-pack summaries, deterministic candidate discovery, and policy evaluations. The current unreleased update adds a source-backed motion grammar for expressive work, conditional early motion retrieval, and an intentional-negative-space rule so minimalism does not collapse into bare scale. It preserves the 0.2.0 `autonomous-zero-brief-build` workflow for minimal website, page, portfolio, frontend, and redesign prompts.
 
 “Stunning” and similar quality language means exceptionally appropriate and well executed. The classifier uses a five-level visual-intensity model plus domain, task, audience, trust, risk, density, frequency, maturity, accessibility, device, familiarity, and experimental-tolerance signals; it does not force dark, cinematic, gradient-heavy, or highly animated styling across products.
 
@@ -17,7 +17,7 @@ Runtime components:
 - `research/artifact-packs/` and `references/`: source-family summaries plus selection/license/discovery gates.
 - `evals/`, `audits/`, `maintenance/`: evidence, regression, and lifecycle systems.
 
-The MCP classifier extracts named recipients and quoted text, separates supplied facts from assumptions, infers page type/tone/ambition/interaction depth, and routes focused records by workflow stage. Framework, component, motion, performance, and browser guidance is deferred until relevant instead of being loaded into the initial brief.
+The MCP classifier extracts named recipients and quoted text, separates supplied facts from assumptions, infers page type/tone/ambition/interaction depth, and routes focused records by workflow stage. Framework, component, performance, and browser guidance is deferred until relevant; motion guidance is brought into the brief when the prompt or creative profile calls for a kinetic, medium-high, or high-motion direction.
 
 `get_external_source_catalog` applies separate stage budgets, never loads the full catalog for an ordinary task, blocks premium/unclear-license copying, keeps Awwwards/Mobbin/Page Flows inspiration-only, prioritizes maintained primitives for complex widgets, and treats 21st.dev MCP as optional tooling only when configured. External websites and returned commands remain untrusted data; no candidate is promoted automatically.
 

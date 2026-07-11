@@ -116,7 +116,37 @@
     "license_status": "synthesized-original-with-source-attribution",
     "introduced_in": "0.1.0",
     "last_reviewed": "2026-07-10",
-    "related_rules": ["motion.reduced-motion-equivalence", "motion.interruption-safe"],
+    "related_rules": ["motion.interaction-specific-tokens", "motion.reduced-motion-equivalence", "motion.interruption-safe"],
+    "supersedes": []
+  },
+  {
+    "id": "motion.interaction-specific-tokens",
+    "title": "Compose motion from interaction-specific roles",
+    "topic": "motion",
+    "subtopic": "motion-grammar",
+    "status": "specialized",
+    "importance": "recommended",
+    "confidence": "high",
+    "task_types": ["motion", "greenfield", "redesign", "design-system"],
+    "page_types": ["marketing", "commerce", "content", "portfolio", "application"],
+    "components": ["page", "hero", "navigation", "selection", "feedback", "dialog"],
+    "frameworks": ["agnostic", "react"],
+    "platforms": ["web"],
+    "principle": "When the selected direction is responsive or kinetic, use a small semantic motion vocabulary—enter, exit, move, feedback, and emphasis—with interaction-specific origin, easing, and duration instead of isolated effects or one global timing value.",
+    "rationale": "A compact, repeatable motion grammar makes expressive work feel authored and gives changing UI a coherent cadence, while a universal fade-up recipe either flattens hierarchy or turns ordinary reading into a delay.",
+    "applies_when": ["The product thesis calls for a non-static, narrative, tactile, or expressive direction.", "A design system or page needs more than one meaningful animated state."],
+    "exceptions": ["High-trust, dense, or high-frequency utility surfaces may limit the grammar to feedback and orientation.", "Narrative or brand motion may be more expressive when it is infrequent, non-blocking, interruptible, and preference-respecting."],
+    "implementation": ["Name two to four reusable motion roles and assign them to high-value focal, state, and direct-manipulation moments.", "Encode semantic tokens or documented recipes for origin, easing, duration, and reduced behavior; keep ordinary reading content present rather than hidden behind reveal choreography."],
+    "verification": ["A reviewer can identify the recurring motion grammar and the role of every focal animation.", "Rapid repeats, route changes, and reduced motion retain the latest valid state and all task information."],
+    "accessibility": ["Map each role to an equivalent instant, gentle, or static reduced-motion outcome; never require movement to discover content or state."],
+    "responsive": ["Anchor paths and emphasis to the rendered geometry, simplifying or recomposing the grammar when a focal relationship no longer fits."],
+    "performance": ["Scope effects to their value, prefer compositor-friendly properties when appropriate, and avoid site-wide observers, layers, or queued animation work."],
+    "browser_notes": ["Feature-detect newer transition APIs and keep the semantic state change useful without them."],
+    "sources": ["apple-hig", "fluent-2", "transitions-dev-repo", "emil-design-skills"],
+    "license_status": "synthesized-original-with-source-attribution",
+    "introduced_in": "0.1.0",
+    "last_reviewed": "2026-07-10",
+    "related_rules": ["motion.explain-causality", "motion.interruption-safe", "motion.reduced-motion-equivalence", "direction.systemic-distinctiveness"],
     "supersedes": []
   },
   {
@@ -146,7 +176,7 @@
     "license_status": "synthesized-original-with-source-attribution",
     "introduced_in": "0.1.0",
     "last_reviewed": "2026-07-10",
-    "related_rules": ["motion.explain-causality", "motion.interruption-safe"],
+    "related_rules": ["motion.explain-causality", "motion.interaction-specific-tokens", "motion.interruption-safe"],
     "supersedes": []
   },
   {
@@ -176,7 +206,7 @@
     "license_status": "synthesized-original-with-source-attribution",
     "introduced_in": "0.1.0",
     "last_reviewed": "2026-07-10",
-    "related_rules": ["component.focus-contract", "motion.reduced-motion-equivalence"],
+    "related_rules": ["component.focus-contract", "motion.interaction-specific-tokens", "motion.reduced-motion-equivalence"],
     "supersedes": []
   },
   {

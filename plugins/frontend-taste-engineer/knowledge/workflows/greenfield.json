@@ -28,7 +28,7 @@
       "title": "Choose and compare directions",
       "actions": ["Define relevant visual axes.", "Create two or three materially different direction candidates using real content.", "Score candidates with the design-direction rubric and record the decision."],
       "evidence": ["direction comparison", "decision record"],
-      "rule_refs": ["direction.choose-intentional-axis", "direction.systemic-distinctiveness"],
+      "rule_refs": ["direction.choose-intentional-axis", "direction.systemic-distinctiveness", "layout.intentional-negative-space"],
       "exit_criteria": ["The selected direction serves audience and content and has repeatable signals."]
     },
     {
@@ -36,7 +36,7 @@
       "title": "Establish resilient foundations",
       "actions": ["Define semantic color, type, spacing, radius, and motion tokens.", "Implement semantic document structure and responsive containers.", "Set asset and performance budgets."],
       "evidence": ["token map", "foundation examples", "budget config"],
-      "rule_refs": ["system.semantic-tokens", "type.hierarchy-by-role", "color.role-based-palette", "responsive.content-driven-reflow"],
+      "rule_refs": ["system.semantic-tokens", "type.hierarchy-by-role", "color.role-based-palette", "motion.interaction-specific-tokens", "responsive.content-driven-reflow"],
       "exit_criteria": ["Foundations support all selected themes, widths, and accessibility states."]
     },
     {

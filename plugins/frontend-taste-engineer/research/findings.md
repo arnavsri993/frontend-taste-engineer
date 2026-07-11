@@ -460,3 +460,12 @@ Status: candidate findings reviewed on 2026-07-10. A finding is not automaticall
 - **Exceptions:** Links, edits, annotations, search matches, data states, and bounded editorial art direction retain these forms when their meaning and readability are explicit.
 - **Verify:** Disable the effect and confirm the intended emphasis survives; test wrapping, font fallback, text enlargement, contrast, and conventional semantics.
 - **Sources:** `webdev`, `govuk-design-system`, `wcag-22`, `kill-ai-slop` (inspiration only).
+
+### F-049 — Treat negative space as a deliberate relationship
+
+- **Level:** mandatory when a sparse or spacious composition is selected; contextual outside that scope.
+- **Do:** Give each major gap a stated job: clarify hierarchy or grouping, create readable measure, stage evidence or an action, establish a boundary, or pace an earned editorial/narrative beat. Keep useful context and the next action within reach at ordinary short viewports.
+- **Why:** Empty scale can make a static screenshot feel polished while hiding missing proof, weak content relationships, or absent affordances. Minimalism is selective emphasis, not a vacant canvas.
+- **Exceptions:** An art-directed campaign, launch, cultural work, or editorial statement may intentionally hold a spacious pause when its distinctive content and composition earn it. Dense or consequential tasks may appropriately minimize expressive space.
+- **Verify:** At common laptop and mobile heights, inspect whether useful context, proof, or the next action sits beyond a purposeless void. Ask reviewers to name the job of every major gap; preserve semantic grouping in headings and DOM order.
+- **Sources:** `apple-hig`, `govuk-design-system`, `material-3`, `taste-skill-repo`.

@@ -215,7 +215,7 @@ records:
     promotion: stable-candidate
 
   - finding: F-027
-    candidate_record: interaction-specific-motion-tokens
+    candidate_record: motion.interaction-specific-tokens
     primary_sources: [apple-hig, fluent-2]
     supporting_sources: [emil-design-skills, transitions-dev-repo]
     conflicts: [C-004]
@@ -389,6 +389,14 @@ records:
     conflicts: []
     license_status: synthesized-original-with-source-attribution
     promotion: stable-candidate
+
+  - finding: F-049
+    candidate_record: layout.intentional-negative-space
+    primary_sources: [apple-hig, govuk-design-system]
+    supporting_sources: [material-3, taste-skill-repo]
+    conflicts: [C-001]
+    license_status: synthesized-original-with-source-attribution
+    promotion: contextual-candidate
 
 excluded_sources:
   - id: motionsites

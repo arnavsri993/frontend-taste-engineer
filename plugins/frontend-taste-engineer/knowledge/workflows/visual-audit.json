@@ -18,9 +18,9 @@
     {
       "id": "hierarchy",
       "title": "Audit hierarchy and composition",
-      "actions": ["Review task dominance, reading sequence, proximity, measure, density, and responsive reflow.", "Inspect in grayscale, text outline, and continuous resize.", "Flag container or scale choices that substitute for hierarchy."],
+      "actions": ["Review task dominance, reading sequence, proximity, measure, density, and responsive reflow.", "Inspect in grayscale, text outline, and continuous resize.", "Flag container, empty-scale, or spacing choices that substitute for hierarchy or hide proof and next actions."],
       "evidence": ["hierarchy findings", "annotated captures"],
-      "rule_refs": ["ia.one-primary-task", "layout.rhythm-over-boxes", "layout.measure-and-density", "responsive.recompose-not-shrink"],
+      "rule_refs": ["ia.one-primary-task", "layout.rhythm-over-boxes", "layout.measure-and-density", "layout.intentional-negative-space", "responsive.recompose-not-shrink"],
       "exit_criteria": ["Every high-impact finding names the broken relationship and user consequence."]
     },
     {
@@ -28,7 +28,7 @@
       "title": "Audit visual language and consistency",
       "actions": ["Inventory type roles, color roles, spacing, radii, icons, media, surfaces, and motion.", "Distinguish intentional signature from accidental drift.", "Run the anti-pattern detectors and record false positives with rationale."],
       "evidence": ["token drift list", "component inventory", "anti-slop report"],
-      "rule_refs": ["system.semantic-tokens", "direction.systemic-distinctiveness", "icons.semantic-consistency", "anti.card-everything", "anti.effects-stack"],
+      "rule_refs": ["system.semantic-tokens", "direction.systemic-distinctiveness", "motion.interaction-specific-tokens", "icons.semantic-consistency", "anti.card-everything", "anti.effects-stack"],
       "exit_criteria": ["Findings distinguish system defects from isolated polish issues."]
     },
     {

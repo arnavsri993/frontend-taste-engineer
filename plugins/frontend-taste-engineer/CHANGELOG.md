@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+Added a compact source-backed motion grammar for non-static work, early motion retrieval for explicit and medium-high/high-motion autonomous briefs, and regression coverage that requires purpose, interruption safety, and reduced-motion equivalence together. Added intentional-negative-space guidance so minimalism preserves hierarchy, evidence, affordances, and purposeful rhythm instead of substituting bare scale. Updated the bundled Skill, offline fallback, design brief, workflows, classifier, completion gates, provenance, and evaluation baselines accordingly.
+
 Added evidence-first anti-slop triage, semantic-signal restraint, ornamental-emphasis review, contextual developer-tool shell guidance, stronger elevation/nested-corner checks, and a matching skill workflow. Registered `yetone/kill-ai-slop` as an unlicensed inspiration-only source; no upstream prose, examples, regexes, scanner code, or install commands were copied or executed.
 
 Redesigned the optional review interface into a dependency-free plugin showcase with verified GitHub actions, a context-switching conceptual specimen, progressive enhancement, responsive/accessibility states, and the existing read-only knowledge and evaluation explorer.

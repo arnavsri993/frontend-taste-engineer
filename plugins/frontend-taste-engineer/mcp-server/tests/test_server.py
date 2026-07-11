@@ -126,11 +126,11 @@ class EngineTests(unittest.TestCase):
             "brand_maturity", "product_maturity", "accessibility_needs", "expected_devices",
             "visual_ambition", "visual_intensity", "motion_intensity",
             "experimental_tolerance", "familiarity_requirement", "interaction_depth",
-            "suggested_composition", "hero_treatment", "typography_direction",
+            "suggested_composition", "hero_treatment", "negative_space_role", "typography_direction",
             "color_material_direction", "imagery_strategy", "motion_stance",
             "component_styling", "direction", "required_states", "retrieval_topics",
             "verification_priorities", "user_supplied_facts", "inferred_assumptions",
-            "quality_interpretation", "design_thesis",
+            "minimalism_guardrail", "quality_interpretation", "design_thesis",
         }
         for prompt, (page_type, tone) in cases.items():
             with self.subTest(prompt=prompt):
@@ -196,6 +196,22 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(expressive["visual_intensity"], 5)
         self.assertIn("appropriateness", calm["quality_interpretation"].lower())
 
+    def test_contextual_motion_is_forward_but_not_global(self) -> None:
+        expressive = server.classify_task("Turn this sentence into a website: machines should feel alive")
+        conservative = server.classify_task("Build a serious public-service application page")
+        self.assertEqual(expressive["creative_profile"]["motion_intensity"], "high")
+        self.assertIn("motion", expressive["recommended_retrieval"]["topics"])
+        self.assertNotIn("motion", expressive["recommended_retrieval"]["defer_until_needed"])
+        self.assertIn("grammar", expressive["creative_profile"]["motion_stance"].lower())
+        self.assertEqual(conservative["creative_profile"]["motion_intensity"], "minimal")
+        self.assertIn("reduced-motion", conservative["creative_profile"]["motion_stance"].lower())
+
+    def test_minimalism_profile_keeps_opening_contentful(self) -> None:
+        profile = server.classify_task("Create a premium ecommerce product page")["creative_profile"]
+        self.assertIn("product evidence", profile["hero_treatment"].lower())
+        self.assertIn("every major gap", profile["negative_space_role"].lower())
+        self.assertIn("not an empty canvas", profile["quality_interpretation"].lower())
+
     def test_recipient_extraction_is_dynamic_request_local_and_redactable(self) -> None:
         for name in ("Alex", "Jordan"):
             result = server.classify_task(f"Make a website directed to {name} containing “Hello there”")
@@ -212,7 +228,7 @@ class EngineTests(unittest.TestCase):
         self.assertNotIn("Jordan", canonical_text)
 
     def test_autonomous_brief_retrieval_is_focused_and_staged(self) -> None:
-        prompt = "Make a website directed to Alex containing “You made it — Arnav”"
+        prompt = "Build a site for my robotics team"
         packet = server.get_workflow(server.RetrievalEngine(server.default_knowledge_dir()), {"task": prompt, "stage": "brief"})
         ids = {item["id"] for item in packet["records"]}
         topics = {item["topic"] for item in packet["records"]}
@@ -221,6 +237,15 @@ class EngineTests(unittest.TestCase):
         self.assertIn("product.outcome-first-brief", ids)
         self.assertIn("integrity.truthful-proof", ids)
         self.assertTrue(topics.isdisjoint({"frameworks-code-architecture", "components-states-forms", "motion", "performance", "browsers"}))
+
+    def test_expressive_autonomous_brief_retrieves_motion_grammar_early(self) -> None:
+        prompt = "Turn this sentence into a website: machines should feel alive"
+        packet = server.get_workflow(server.RetrievalEngine(server.default_knowledge_dir()), {"task": prompt, "stage": "brief"})
+        ids = {item["id"] for item in packet["records"]}
+        self.assertIn("motion.interaction-specific-tokens", ids)
+        self.assertIn("motion.explain-causality", ids)
+        self.assertIn("motion.reduced-motion-equivalence", ids)
+        self.assertNotIn("motion", packet["workflow"]["deferred_topics"])
 
     def test_autonomous_completion_gate_requires_rendered_production_evidence(self) -> None:
         report = server.get_completion_gate(self.engine, {"task": "Build a site for my robotics team"})

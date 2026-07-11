@@ -10,10 +10,18 @@
     {
       "id": "purpose",
       "title": "State the information purpose",
-      "actions": ["Name the before and after states.", "Describe what continuity, causality, feedback, or hierarchy the motion must communicate.", "Reject motion whose only rationale is polish."],
+      "actions": ["Name the before and after states.", "Describe what continuity, causality, feedback, hierarchy, or narrative pacing the motion must communicate.", "Reject arbitrary motion; allow expressive or narrative motion when the thesis declares its role and it remains non-blocking."],
       "evidence": ["motion intent statement"],
-      "rule_refs": ["motion.explain-causality", "anti.motion-everywhere"],
+      "rule_refs": ["motion.explain-causality", "motion.interaction-specific-tokens", "anti.motion-everywhere"],
       "exit_criteria": ["The animation has a specific information job or is removed."]
+    },
+    {
+      "id": "grammar",
+      "title": "Compose a small motion grammar",
+      "actions": ["Name two to four reusable roles such as focal entry, move, feedback, emphasis, or exit.", "Map each role to a high-value moment and define origin, easing, duration, interruption, and reduced behavior.", "Keep ordinary reading content stable rather than wrapping every section in the same reveal effect."],
+      "evidence": ["motion map", "motion token or recipe inventory"],
+      "rule_refs": ["motion.interaction-specific-tokens", "direction.systemic-distinctiveness", "anti.motion-everywhere"],
+      "exit_criteria": ["The direction has a repeatable cadence without making every element compete for attention."]
     },
     {
       "id": "state",
@@ -36,7 +44,7 @@
       "title": "Implement from geometry and tokens",
       "actions": ["Use bounded duration, consistent easing, and spatial origins tied to the trigger.", "Prefer transform and opacity, but do not promote excessive layers.", "Adapt paths when layout geometry changes."],
       "evidence": ["implementation", "motion-token usage"],
-      "rule_refs": ["motion.explain-causality", "responsive.content-driven-reflow"],
+      "rule_refs": ["motion.explain-causality", "motion.interaction-specific-tokens", "responsive.content-driven-reflow"],
       "exit_criteria": ["Motion feels connected to the interaction at every supported geometry."]
     },
     {
@@ -50,7 +58,7 @@
     {
       "id": "review",
       "title": "Review motion in the full experience",
-      "actions": ["Evaluate simultaneous animations and page-level cadence.", "Remove repeated reveal patterns and competing focal moments.", "Run default and reduced paths through completion gates."],
+      "actions": ["Evaluate simultaneous animations and page-level cadence.", "Confirm the selected expressive direction has enough recurring motion roles to feel intentional, then remove repeated reveal patterns and competing focal moments.", "Run default and reduced paths through completion gates."],
       "evidence": ["motion audit", "gate report"],
       "rule_refs": ["anti.motion-everywhere", "delivery.definition-of-done"],
       "exit_criteria": ["Motion supports comprehension without delaying reading, interaction, or release readiness."]

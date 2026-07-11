@@ -45,8 +45,8 @@ Execute this workflow without waiting for routine creative approval:
 
 1. Inspect the project, routes, assets, dependencies, design system, and running product. Decide new build versus redesign.
 2. Call `classify_frontend_task` with the exact prompt. Preserve quoted text and request-local named entities. Record the returned domain, product/task/trust profile, contextual intensity, supplied facts, inferred assumptions, and design thesis in `DESIGN.md`.
-3. Call `get_workflow` for the `brief` stage. Retrieve only its focused product, audience, content, direction, composition, typography, responsive, accessibility, integrity, and completion records. Retrieve framework, components, motion, performance, and browser guidance only when their stages begin.
-4. Write complete original copy. Choose a context-specific composition, type, color/material, imagery, and motion system. Do not stop at a plan, wireframe, scaffold, or hero.
+3. Call `get_workflow` for the `brief` stage. Retrieve only its focused product, audience, content, direction, composition, typography, responsive, accessibility, integrity, and completion records. Defer framework, components, performance, and browser guidance; retrieve motion early when the prompt or creative profile is explicitly kinetic or medium-high/high motion.
+4. Write complete original copy. Choose a context-specific composition, type, color/material, imagery, and motion system. For a non-static direction, name a small motion grammar across focal/narrative beats, meaningful state changes, and direct feedback. Do not stop at a plan, wireframe, scaffold, or hero.
 5. Implement the complete frontend, functional controls, relevant states, responsive behavior, accessibility, metadata, and honest integration boundaries.
 6. Run the interface. Capture and inspect meaningful desktop and mobile screenshots. Compare them with the thesis, run the anti-slop review, name the three highest-impact weaknesses, fix them, then capture and inspect again.
 7. Run the production build and applicable tests. Verify routes/assets, keyboard/focus, reduced motion, console state, links, content extremes, and horizontal overflow. Leave the project deployable or report the concrete blocker.
@@ -76,7 +76,8 @@ Load these focused references directly when running this mode:
 - Design all relevant states: default, hover where applicable, focus-visible, active/pressed, selected/checked, disabled, read-only, loading, empty, error, warning, success, offline, permission denied, stale/saving/saved, and first/returning use.
 - Treat mobile and zoom/reflow as structural design conditions. Test between named breakpoints, short viewports, long content, text enlargement, and overflow.
 - Establish visual intent before styling. Use typography, composition, rhythm, color, imagery, and motion to express the product thesis rather than current AI defaults.
-- Use motion for continuity, causality, feedback, or orientation. Make it interruptible where interactive, test repetition, and provide a reduced-motion outcome.
+- Treat minimalism as disciplined reduction, not bare space. Make every major gap earn its role through hierarchy, grouping, reading pace, focus, evidence, or a real boundary; retain the content and affordances the task needs.
+- For a responsive, narrative, tactile, or expressive direction, define a compact motion grammar rather than treating animation as a final flourish. Use it for continuity, causality, feedback, orientation, emphasis, or an intentional narrative beat; make it interruptible where interactive, test repetition, and provide a reduced-motion outcome.
 - Set proportionate performance budgets. Avoid unnecessary JavaScript, dependencies, hydration, fonts, images, animation work, and third-party scripts.
 - Preserve content integrity and localization readiness. Stress-test expansion, RTL where relevant, dates/numbers, empty data, and realistic errors.
 - Keep copy proportional to the task. Remove lines and sections that repeat an existing message or add no decision, trust, instruction, or recovery value; never hide necessary safety, legal, price, eligibility, consent, validation, or accessibility information for brevity.
@@ -206,11 +207,11 @@ Prioritize blocked tasks, deceptive behavior, accessibility, broken layouts, sta
 
 ## Motion refinement
 
-Test motion in the running interface. Verify purpose, origin, easing, duration, interruption, reversal, repeated activation, input modality, and reduced motion. Prefer transform and opacity when appropriate, but choose correctness over blanket performance folklore. Remove motion that obscures state or delays work.
+Test motion in the running interface. Verify the motion grammar, purpose, origin, easing, duration, interruption, reversal, repeated activation, input modality, and reduced motion. Prefer transform and opacity when appropriate, but choose correctness over blanket performance folklore. Remove arbitrary or competing motion that obscures state or delays work—not an intentional, non-blocking focal or narrative beat.
 
 ## Anti-slop pass
 
-Challenge patterns, not aesthetics or presumed authorship. Look for reflexive centered heroes, three-card sections, purple gradients, glow or glass without purpose, rounded-card and pill proliferation, decorative bento grids, ornamental word emphasis, signal components with no real state, generic terminal costumes, fake dashboards, arbitrary icons, placeholder copy, random animation, generic framework defaults, desktop-only structure, and monolithic components.
+Challenge patterns, not aesthetics or presumed authorship. Look for reflexive centered heroes, three-card sections, purple gradients, glow or glass without purpose, rounded-card and pill proliferation, decorative bento grids, ornamental word emphasis, signal components with no real state, generic terminal costumes, fake dashboards, arbitrary icons, placeholder copy, blank scale standing in for minimalism, random animation, generic framework defaults, desktop-only structure, and monolithic components.
 
 Treat static matches as leads, not verdicts. Inspect the product thesis, existing tokens, component contracts, brand decisions, and rendered result before labeling a choice. Group confirmed findings by root cause—such as theme tokens, typography, surface/elevation, signal components, copy voice, layout template, or motion—and prefer the smallest shared-system correction that preserves behavior and accessibility. For audit-only work, report the grouped evidence. For authorized implementation, compare matching before/after states and viewports and record intentional exceptions; do not replace one template with another.
 

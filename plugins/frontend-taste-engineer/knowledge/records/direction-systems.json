@@ -16,8 +16,8 @@
     "rationale": "Named axes turn taste into a reviewable decision and prevent arbitrary blending of unrelated references.",
     "applies_when": ["Establishing or revising the visual language of a page or product."],
     "exceptions": ["A mature system may inherit its axes, but deviations still require a reason."],
-    "implementation": ["Select a target position and a deliberate range on each relevant axis.", "Tie each choice to audience, content, and interaction density."],
-    "verification": ["Two reviewers can describe the intended direction consistently.", "Major styling choices can be traced to an axis rather than personal preference."],
+    "implementation": ["Select a target position and a deliberate range on each relevant axis.", "Tie each choice to audience, content, and interaction density.", "When choosing a spacious axis, assign major gaps a hierarchy, reading, evidence, or pacing job rather than treating blank scale as the direction."],
+    "verification": ["Two reviewers can describe the intended direction consistently.", "Major styling choices can be traced to an axis rather than personal preference.", "A reviewer can explain why the composition is spacious without calling the absence of content the design."],
     "accessibility": ["Expressiveness never reduces contrast, focus visibility, or comprehension."],
     "responsive": ["Direction survives reflow instead of depending on one desktop composition."],
     "performance": ["Media and effects required by the direction fit the page budget."],
@@ -26,7 +26,7 @@
     "license_status": "synthesized-original-with-source-attribution",
     "introduced_in": "0.1.0",
     "last_reviewed": "2026-07-10",
-    "related_rules": ["direction.reference-decomposition", "direction.systemic-distinctiveness"],
+    "related_rules": ["direction.reference-decomposition", "direction.systemic-distinctiveness", "layout.intentional-negative-space"],
     "supersedes": []
   },
   {

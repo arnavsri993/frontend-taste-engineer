@@ -43,7 +43,7 @@
       "id": "direction-copy",
       "title": "Choose direction and write complete copy",
       "actions": [
-        "Write a one-sentence design thesis and select a context-specific intensity, composition, hero treatment, type, color/material, imagery, component, and motion stance.",
+        "Write a one-sentence design thesis and select a context-specific intensity, composition, hero treatment, type, color/material, imagery, component, and motion stance; when the stance is non-static, name a compact motion grammar rather than leaving motion as a final flourish.",
         "Treat quality adjectives as execution targets rather than automatic permission for flashy, dark, cinematic, or highly animated styling.",
         "Retrieve only brief-stage product, content, direction, composition, typography, responsive, accessibility, integrity, and completion records.",
         "Write original finished copy without placeholders or unsupported factual claims.",
@@ -59,10 +59,10 @@
       "actions": [
         "Implement semantic structure, responsive composition, finished copy, functional controls, and reachable states.",
         "Add keyboard behavior, visible focus, accessible names, error recovery, and reduced-motion behavior during implementation.",
-        "Add purposeful motion only when it supports continuity, feedback, causality, or narrative orientation."
+        "For a non-static direction, implement a compact motion grammar across focal or narrative beats, meaningful state changes, and direct interaction feedback; keep ordinary reading content stable and preserve equivalent reduced-motion outcomes."
       ],
       "evidence": ["working implementation", "state fixtures", "interaction checks"],
-      "rule_refs": ["component.native-first", "component.state-completeness", "a11y.keyboard-complete", "motion.reduced-motion-equivalence", "responsive.recompose-not-shrink"],
+      "rule_refs": ["component.native-first", "component.state-completeness", "a11y.keyboard-complete", "motion.interaction-specific-tokens", "motion.reduced-motion-equivalence", "responsive.recompose-not-shrink"],
       "exit_criteria": ["The primary experience is complete and honest rather than a scaffold, plan, or wireframe."]
     },
     {
@@ -81,12 +81,12 @@
       "id": "refine",
       "title": "Replace generic output and fix the largest gaps",
       "actions": [
-        "Run the contextual anti-slop review and require a product or narrative reason for familiar generated patterns.",
+        "Run the contextual anti-slop review and require a product or narrative reason for familiar generated patterns, including empty scale masquerading as minimalism.",
         "Fix the three highest-impact weaknesses.",
         "Capture and inspect the revised interface again."
       ],
       "evidence": ["anti-slop review", "implemented fixes", "revised captures", "before and after comparison"],
-      "rule_refs": ["anti.card-everything", "anti.hero-empty-scale", "anti.motion-everywhere", "direction.systemic-distinctiveness"],
+      "rule_refs": ["anti.card-everything", "anti.hero-empty-scale", "anti.motion-everywhere", "direction.systemic-distinctiveness", "layout.intentional-negative-space"],
       "exit_criteria": ["Remaining changes are low value or a real limitation is documented."]
     },
     {
