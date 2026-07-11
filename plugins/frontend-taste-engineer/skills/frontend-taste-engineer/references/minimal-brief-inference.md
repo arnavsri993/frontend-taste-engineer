@@ -18,12 +18,14 @@ Record:
 - Emotional objective, tone, and seriousness.
 - Trust and risk levels.
 - Information density and frequency of use.
+- Negative-space role.
 - Content maturity.
 - Brand and product maturity.
 - Accessibility needs and expected devices.
 - Visual ambition.
 - Visual intensity from 1–5.
 - Motion intensity.
+- Motion grammar or coverage when the direction is non-static.
 - Experimental tolerance and familiarity requirement.
 - Interaction depth.
 - Page type.
@@ -48,7 +50,9 @@ Also maintain two separate lists: `supplied_facts` and `inferred_assumptions`.
 - Raise trust and conservatism for public service, health, finance, identity, payment, or consequential forms.
 - Raise visual ambition for expressive language such as “stunning,” “impossible to ignore,” a personal challenge, or a conceptual sentence.
 - Keep interaction depth low when the content is primarily read; use moderate interaction only when it strengthens narrative, comparison, exploration, or task feedback.
-- Use the lowest visual and motion intensity that fully expresses the product. Calm must still show authored type, spacing, density, states, and brand detail; expressive work must still preserve task completion.
+- Choose the visual and motion intensity that fully expresses the product. Do not silently flatten an explicit kinetic, tactile, or narrative direction to low motion; calm work must still show authored type, spacing, density, states, and brand detail, while expressive work must still preserve task completion.
+- For a sparse direction, state the role of major negative space and keep enough hierarchy, evidence, content, and affordance to make the primary task clear. Bare area is not automatically minimalist.
+- When the direction is non-static, name two to four roles for focal/narrative, state-continuity, and direct-feedback motion plus their reduced-motion outcomes.
 - Infer required states from reachable behavior. A static expressive page still needs link/button focus, active, responsive, and reduced-motion outcomes; a form additionally needs validation, error, loading, success, disabled, and recovery.
 
 Do not infer customers, metrics, awards, integrations, testimonials, pricing, team history, event details, or product capabilities.

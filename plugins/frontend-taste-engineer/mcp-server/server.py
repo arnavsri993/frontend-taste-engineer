@@ -204,7 +204,7 @@ AUTONOMOUS_STAGE_RULE_IDS: dict[str, tuple[str, ...]] = {
     "brief": (
         "product.outcome-first-brief", "ia.one-primary-task", "content.front-load-meaning",
         "direction.choose-intentional-axis", "direction.content-before-chrome",
-        "layout.rhythm-over-boxes", "type.hierarchy-by-role",
+        "layout.rhythm-over-boxes", "layout.intentional-negative-space", "type.hierarchy-by-role",
         "responsive.recompose-not-shrink", "a11y.keyboard-complete",
         "integrity.truthful-proof", "delivery.definition-of-done",
     ),
@@ -220,7 +220,8 @@ AUTONOMOUS_STAGE_RULE_IDS: dict[str, tuple[str, ...]] = {
     ),
     "refinement": (
         "direction.systemic-distinctiveness", "direction.content-before-chrome",
-        "layout.rhythm-over-boxes", "type.hierarchy-by-role", "motion.explain-causality",
+        "layout.rhythm-over-boxes", "layout.intentional-negative-space", "type.hierarchy-by-role", "motion.explain-causality",
+        "motion.interaction-specific-tokens",
         "motion.reduced-motion-equivalence", "responsive.recompose-not-shrink",
         "anti.card-everything", "anti.hero-empty-scale", "anti.motion-everywhere",
     ),
@@ -345,10 +346,10 @@ FALLBACK_RECORDS: tuple[dict[str, Any], ...] = (
         "status": "stable",
         "importance": "mandatory",
         "confidence": "high",
-        "principle": "Treat a short frontend creation request as permission to infer reversible creative decisions, including a domain-appropriate visual and motion intensity, write a compact brief and design thesis, and continue without routine style questions.",
-        "rationale": "Minimal prompts usually express desired authorship and momentum; pausing for colors, fonts, sections, or motion prevents the outcome, while treating quality adjectives as a universal flashy aesthetic undermines product trust and fit.",
-        "implementation": ["Separate supplied facts from creative assumptions", "Infer domain, task, trust, risk, density, familiarity, and experimental tolerance", "Choose a context-specific direction and record it in DESIGN.md"],
-        "verification": ["The profile names domain, purpose, audience, tasks, trust, density, intensity, direction, copy, states, and checks", "Quality adjectives do not override domain-appropriate intensity", "No routine creative clarification blocks implementation"],
+        "principle": "Treat a short frontend creation request as permission to infer reversible creative decisions, including a domain-appropriate visual and motion intensity, an intentional spatial strategy, a compact brief and design thesis, and no routine style questions.",
+        "rationale": "Minimal prompts usually express desired authorship and momentum; pausing for colors, fonts, sections, or motion prevents the outcome, while treating quality adjectives as a universal flashy aesthetic—or minimalism as an empty canvas—undermines product trust and fit.",
+        "implementation": ["Separate supplied facts from creative assumptions", "Infer domain, task, trust, risk, density, familiarity, and experimental tolerance", "Choose a context-specific direction, motion grammar when non-static, and spatial strategy that gives major gaps a job", "Record the decisions in DESIGN.md"],
+        "verification": ["The profile names domain, purpose, audience, tasks, trust, density, intensity, direction, copy, states, and checks", "Quality adjectives do not override domain-appropriate intensity", "Major gaps preserve hierarchy, proof, or pacing rather than becoming vacant scale", "No routine creative clarification blocks implementation"],
         "sources": ["offline-safety-kernel"],
         "license_status": "original-summary",
         "task_types": [AUTONOMOUS_MODE],
@@ -618,6 +619,18 @@ def _is_minimal_frontend_request(text: str, matched_task: str) -> bool:
     return creation_intent and (frontend_target or transformation_shorthand) and detail_count <= 3
 
 
+def _needs_early_motion_guidance(text: str, profile: Mapping[str, Any]) -> bool:
+    """Return whether an autonomous brief needs motion guidance before refinement."""
+    haystack = SPACE_RE.sub(" ", text.lower()).strip()
+    explicit_motion = (
+        "motion", "animation", "animate", "animated", "kinetic", "choreograph",
+        "choreographed", "scroll-driven", "view transition",
+    )
+    if any(term in haystack for term in explicit_motion):
+        return True
+    return str(profile.get("motion_intensity") or "") in {"medium-high", "high"}
+
+
 def _entities(text: str) -> dict[str, list[str]]:
     quoted = list(dict.fromkeys(match.strip() for match in QUOTED_TEXT_RE.findall(text) if match.strip()))
     recipients: list[str] = []
@@ -719,7 +732,7 @@ def _creative_profile(text: str, task_type: str, risk: str, entities: Mapping[st
     accessibility_needs = ["keyboard", "visible-focus", "contrast", "reflow", "reduced-motion"]
     expected_devices = ["mobile", "desktop"]
     visual_intensity = 3
-    motion_intensity = "low-to-medium"
+    motion_intensity = "medium"
     experimental_tolerance = "medium"
     familiarity_requirement = "medium"
     interaction_depth = "moderate" if task_type == AUTONOMOUS_MODE else "proportionate"
@@ -727,10 +740,12 @@ def _creative_profile(text: str, task_type: str, risk: str, entities: Mapping[st
     typography = "Context-appropriate display voice with a resilient readable text system"
     material = "A small role-based palette and surface language derived from the subject"
     imagery = "Prefer supplied or honest generated abstraction; omit imagery that adds no meaning"
-    motion = "Use only purposeful continuity and feedback, with a complete reduced-motion outcome"
+    motion = "Use a compact purposeful motion grammar across a focal beat, meaningful state changes, and direct feedback, with a complete reduced-motion outcome"
     hero_treatment = "Compact content-led opening; avoid an oversized generic headline"
     component_styling = "Role-based geometry and restrained surfaces; add chrome only for real interaction boundaries"
     direction = "distinctive, content-led, controlled, and appropriate to the audience"
+    negative_space_role = "Use task-appropriate density; every major gap must clarify grouping, readability, pacing, focus, evidence, or a real boundary."
+    minimalism_guardrail = "Minimalism reduces decorative noise while retaining the hierarchy, evidence, content density, and affordances needed for the task; every major gap must improve grouping, readability, pacing, focus, or a boundary."
     required_states = ["default", "hover-where-applicable", "focus-visible", "active", "reduced-motion", "error-and-recovery-when-interactive"]
     supporting_narrative = "Build belief through a clear opening, specific supporting beats, and an honest conclusion or next action."
 
@@ -911,8 +926,8 @@ def _creative_profile(text: str, task_type: str, risk: str, entities: Mapping[st
         typography = "Brand-appropriate type chosen from product positioning, balanced by highly legible commerce details and numerals"
         material = "Palette and surfaces derived from the actual product and brand; never default to black, gold, or excessive whitespace"
         imagery = "Prioritize real product photography, scale, texture, and use context; never fabricate customers or materials"
-        motion = "Tactile restrained zoom, variant, and cart feedback that never slows comparison or purchase"
-        hero_treatment = "Product-first image and evidence composition with price and action in immediate reach"
+        motion = "Compact tactile motion grammar for zoom, variant, and cart feedback that never slows comparison or purchase"
+        hero_treatment = "Product-first image and product evidence composition with price and action in immediate reach"
         component_styling = "Refined but familiar variants, quantity, disclosure, delivery, error, and cart controls"
         direction = "refined, product-specific, tactile, credible, and conversion-clear"
         required_states += ["variant-unavailable", "low-stock", "cart-loading", "cart-error", "cart-success", "delivery-unavailable"]
@@ -931,7 +946,7 @@ def _creative_profile(text: str, task_type: str, risk: str, entities: Mapping[st
         typography = "Characterful display voice paired with disciplined, highly readable project detail"
         material = "Confident context-specific contrast, limited accent logic, and tactile editorial surfaces"
         imagery = "Prioritize real project artifacts; use abstract graphics only as authored connective tissue"
-        motion = "Choreographed transitions that reinforce sequencing without delaying reading, with full reduced-motion structure"
+        motion = "Choreographed motion grammar across editorial sequencing, project transitions, and response feedback without delaying reading, with full reduced-motion structure"
         hero_treatment = "Authored opening statement integrated with project evidence rather than an isolated generic hero"
         component_styling = "Editorial project entries with varied but systematic hierarchy, minimal card chrome, and clear contact actions"
         direction = "experimental, editorial, authored, memorable, and evidence-led" if experimental else "expressive, editorial, selective, and authored"
@@ -952,7 +967,7 @@ def _creative_profile(text: str, task_type: str, risk: str, entities: Mapping[st
         typography = "Expressive display typography with editorial scale contrast and a calm readable support face"
         material = "High-contrast concept-specific field with one deliberate accent and restrained texture"
         imagery = "Prefer typography and custom abstract marks over unrelated stock imagery"
-        motion = "Narrative reveal and response motion tied to message beats; preserve the full message with reduced motion"
+        motion = "Narrative motion grammar of reveal and response tied to message beats; preserve the full message with reduced motion"
         hero_treatment = "Treat the message as a staged opening beat that evolves into the page rather than a static marketing hero"
         component_styling = "Minimal expressive controls with clear labels, visible focus, and styling derived from the message"
         direction = "typographic, editorial, playful, and memorable"
@@ -969,7 +984,7 @@ def _creative_profile(text: str, task_type: str, risk: str, entities: Mapping[st
         typography = "Technical display details balanced by friendly, readable body typography"
         material = "Context-led team colors with structural lines, labels, or diagrams rather than generic tech glow"
         imagery = "Use real team work when available; otherwise build an honest graphic language from the group's domain"
-        motion = "Mechanical or study-rhythm motion with clear pause and reduced-motion outcomes"
+        motion = "Mechanical or study-rhythm motion grammar across a focal beat, state continuity, and feedback, with clear pause and reduced-motion outcomes"
         hero_treatment = "Identity-led team statement paired with real work or a domain-derived graphic system"
         component_styling = "Open community sections, technical labels where relevant, and clear join/support actions without card saturation"
         direction = "inventive, technical, energetic, welcoming, and structurally distinctive" if "robotics" in haystack else "welcoming, focused, energetic, and community-led"
@@ -1003,7 +1018,7 @@ def _creative_profile(text: str, task_type: str, risk: str, entities: Mapping[st
         typography = "Expressive editorial type that carries the concept with readable supporting annotation"
         material = "Purposeful light, texture, and mechanical contrast derived from the sentence"
         imagery = "Use original abstract systems or procedural-looking marks, not fake product imagery"
-        motion = "Ambient-to-responsive motion that suggests life while remaining interruptible and optional"
+        motion = "Ambient-to-responsive motion grammar that suggests life through a focal beat, state continuity, and response feedback while remaining interruptible and optional"
         hero_treatment = "Begin inside the concept, using the sentence as an evolving spatial object rather than a generic headline block"
         component_styling = "Sparse controls integrated into the narrative with strong focus and reduced-motion equivalents"
         direction = "experimental, immersive, kinetic, concept-led, and readable"
@@ -1088,10 +1103,12 @@ def _creative_profile(text: str, task_type: str, risk: str, entities: Mapping[st
         "interaction_depth": interaction_depth,
         "suggested_composition": composition,
         "hero_treatment": hero_treatment,
+        "negative_space_role": negative_space_role,
         "typography_direction": typography,
         "color_material_direction": material,
         "imagery_strategy": imagery,
         "motion_stance": motion,
+        "minimalism_guardrail": minimalism_guardrail,
         "component_styling": component_styling,
         "direction": direction,
         "required_states": list(dict.fromkeys(required_states)),
@@ -1099,7 +1116,7 @@ def _creative_profile(text: str, task_type: str, risk: str, entities: Mapping[st
         "verification_priorities": ["desktop-and-mobile-render", "keyboard-and-focus", "responsive-overflow", "copy-and-claim-integrity", "domain-state-integrity", "anti-slop-review", "production-build"],
         "user_supplied_facts": supplied_facts,
         "inferred_assumptions": inferred,
-        "quality_interpretation": "Exceptional appropriateness and execution; higher quality does not imply higher visual or motion intensity.",
+        "quality_interpretation": "Exceptional appropriateness and execution; higher quality does not imply higher visual or motion intensity. Minimalism is disciplined reduction, not an empty canvas.",
         "design_thesis": f"Create a {direction} {page_type.replace('-', ' ')} whose {composition.lower()} makes the primary task unmistakable while preserving accessibility, trust, and production integrity.",
     }
     return profile, {"supplied_facts": supplied_facts, "inferred_assumptions": inferred}
@@ -1155,8 +1172,13 @@ def classify_task(text: str, context: Mapping[str, Any] | None = None) -> dict[s
     profile, decision_ledger = _creative_profile(text, task_type, risk, entities)
     page_types = list(dict.fromkeys(detected_page_types + profile["canonical_page_types"]))
     confidence = min(0.99, 0.66 + (matches[0][0] * 0.06 if matches else 0.0) + (0.12 if autonomous else 0.0))
-    topics = AUTONOMOUS_STAGE_TOPICS[stage] if autonomous else WORKFLOW_TOPICS[stage]
-    rule_ids = AUTONOMOUS_STAGE_RULE_IDS[stage] if autonomous else ()
+    topics = list(AUTONOMOUS_STAGE_TOPICS[stage] if autonomous else WORKFLOW_TOPICS[stage])
+    rule_ids = list(AUTONOMOUS_STAGE_RULE_IDS[stage] if autonomous else ())
+    deferred_topics = ["framework", "component", "motion", "performance", "browser"] if autonomous and stage == "brief" else []
+    if autonomous and stage == "brief" and _needs_early_motion_guidance(text, profile):
+        topics.append("motion")
+        rule_ids.extend(["motion.interaction-specific-tokens", "motion.explain-causality", "motion.reduced-motion-equivalence"])
+        deferred_topics.remove("motion")
     result = {
         "task_type": task_type,
         "operating_mode": task_type,
@@ -1168,15 +1190,15 @@ def classify_task(text: str, context: Mapping[str, Any] | None = None) -> dict[s
         "components": list(dict.fromkeys(components)),
         "risk": risk,
         "confidence": round(confidence, 2),
-        "evidence": (["minimal-frontend-creation", *(matches[0][2] if matches else [])] if autonomous else (matches[0][2] if matches else ["default-classification"])),
+        "evidence": (["minimal-frontend-creation", *(matches[0][2] if matches else []), *( ["early-motion-guidance"] if autonomous and stage == "brief" and "motion" in topics else [])] if autonomous else (matches[0][2] if matches else ["default-classification"])),
         "entities": entities,
         "creative_profile": profile,
         "decision_ledger": decision_ledger,
         "recommended_retrieval": {
             "stage": stage,
-            "topics": list(topics),
-            "record_ids": list(rule_ids),
-            "defer_until_needed": ["framework", "component", "motion", "performance", "browser"] if autonomous and stage == "brief" else [],
+            "topics": list(dict.fromkeys(topics)),
+            "record_ids": list(dict.fromkeys(rule_ids)),
+            "defer_until_needed": deferred_topics,
         },
         "clarification_policy": {
             "continue_without_questions": autonomous,
@@ -1451,10 +1473,10 @@ def get_workflow(engine: RetrievalEngine, args: Mapping[str, Any]) -> dict[str, 
         stage = "planning"
     autonomous = classification["task_type"] == AUTONOMOUS_MODE
     augmented = dict(args)
-    augmented["topics"] = list(AUTONOMOUS_STAGE_TOPICS[stage] if autonomous else WORKFLOW_TOPICS[stage])
+    augmented["topics"] = list(classification["recommended_retrieval"]["topics"] if autonomous else WORKFLOW_TOPICS[stage])
     if autonomous:
-        augmented["ids"] = list(AUTONOMOUS_STAGE_RULE_IDS[stage])
-        augmented.setdefault("budget_records", len(AUTONOMOUS_STAGE_RULE_IDS[stage]))
+        augmented["ids"] = list(classification["recommended_retrieval"]["record_ids"])
+        augmented.setdefault("budget_records", len(classification["recommended_retrieval"]["record_ids"]))
         augmented.setdefault("context_budget", 4800)
     packet = _search_args(engine, augmented)
     stage_sequence = {
@@ -1553,6 +1575,7 @@ AUDIT_CHECKS: tuple[tuple[str, str, str, tuple[str, ...], str], ...] = (
     ("keyboard-focus", "high", "Specify keyboard order, visible focus, overlay focus containment, and restoration.", ("keyboard", "focus", "escape", "tab"), "keyboard and focus behavior"),
     ("responsive-reflow", "high", "Test reflow across content-driven widths, zoom, long content, and short viewports.", ("responsive", "mobile", "zoom", "overflow", "viewport"), "responsive evidence"),
     ("content-integrity", "high", "Replace fabricated or placeholder claims with sourced content or honest placeholders.", ("content", "copy", "claim", "metric", "testimonial"), "content provenance and truth"),
+    ("intentional-minimalism", "medium", "Explain the hierarchy, pacing, proof, action, or boundary job of major empty regions; remove vacant scale that substitutes for content.", ("minimal", "minimalism", "whitespace", "empty space", "bare", "sparse"), "spatial intent"),
     ("reduced-motion", "medium", "Define a reduced-motion behavior and test interrupted or repeated interactions.", ("reduced motion", "prefers-reduced-motion", "interrupt", "motion"), "motion preference"),
     ("performance-budget", "medium", "Name a relevant budget and record an executed measurement or the reason it was skipped.", ("performance", "bundle", "lcp", "inp", "cls", "budget"), "performance evidence"),
     ("verification-evidence", "high", "Record commands, viewports, observations, and failures; separate executed checks from recommendations.", ("tested", "verified", "screenshot", "axe", "lighthouse", "evidence"), "executed verification"),

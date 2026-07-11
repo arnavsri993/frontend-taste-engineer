@@ -6,6 +6,7 @@ Write finished page copy when the prompt is sparse. Copy is part of composition,
 
 - Preserve supplied quoted messages and names exactly unless the user asks for editing.
 - Lead with the specific noun, action, conflict, or promise. Remove throat-clearing language.
+- Use the smallest copy set that preserves the task, decision, trust, and recovery information. Do not restate the same promise in the hero, section intro, cards, and closing action.
 - Give each section one job in the narrative or task flow.
 - Match sentence length and rhythm to the direction: concise and calm for high-trust tasks; dramatic, playful, editorial, or humorous for expressive personal work.
 - Write buttons and links as clear actions. Do not create a control if no honest action exists.
@@ -26,11 +27,12 @@ When backend behavior does not exist, use an honest local interaction, a mail/li
 - Put the primary message at the dominant visual beat.
 - Use supporting lines to create contrast or progression, not to restate the headline.
 - Prefer one strong ending or next action over a generic feature parade.
-- Remove any section whose copy cannot explain why it exists.
+- Remove any line or section that does not change what the user understands, decides, or does.
 
 ## Verification
 
 - No placeholder, generic AI marketing phrase, unsupported superlative, or fake proof remains.
+- Every content block has a distinct task, decision, trust, or recovery job; repeated meaning is removed.
 - Visible labels remain meaningful out of context.
 - The page reads coherently without styling.
 - Long and narrow layouts preserve the distinguishing words.

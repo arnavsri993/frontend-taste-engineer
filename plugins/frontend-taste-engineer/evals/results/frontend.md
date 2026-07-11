@@ -2,7 +2,7 @@
 
 **Result:** INCOMPLETE/FAIL
 
-Scored cases: 1 / 31
+Scored cases: 2 / 32
 
 No score is accepted without a concrete artifact or executed-command observation. Missing evidence remains unscored, never inferred.
 
@@ -39,3 +39,4 @@ No score is accepted without a concrete artifact or executed-command observation
 - `adaptive-enterprise-product` — not-run
 - `adaptive-developer-tool` — not-run
 - `adaptive-premium-ecommerce` — not-run
+- `concise-marketing-copy` — scored

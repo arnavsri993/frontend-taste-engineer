@@ -52,6 +52,12 @@ Choose positions only on axes that matter:
 
 Tie each selected position to audience, message, trust, content maturity, and device context. A serious application can still be distinctive through proportion, language, and rhythm; it does not need decorative novelty. An expressive personal page can be theatrical without becoming illegible or motion-dependent.
 
+## Minimalism is not vacancy
+
+Minimalism removes decorative noise; it does not remove the hierarchy, proof, affordances, or relationships a user needs. Give every major gap a job: grouping, reading pace, focus, evidence framing, a task boundary, or a deliberate narrative beat. A spacious first view still needs specific context and a next step at ordinary laptop and mobile heights unless an earned editorial or cinematic pause says otherwise.
+
+For a non-static direction, name two to four recurring motion roles—such as focal entry, move, feedback, emphasis, or exit—and assign them to high-value moments. Do not animate every block into view or hide reading content until an observer fires. Reduced motion must preserve the same information and task path.
+
 ## System rules
 
 - Let the primary message determine composition before choosing cards or sections.
@@ -71,5 +77,7 @@ When the direction is uncertain, compare two materially different candidates usi
 - A reviewer can infer the intended audience and tone from the rendered page.
 - The direction survives narrow reflow and reduced motion.
 - Each signature signal appears consistently but not everywhere.
+- Each major gap has a stated hierarchy, pacing, evidence, or boundary role; useful context and the next action do not sit beyond a purposeless void.
+- A non-static direction has repeatable focal, state, or feedback roles rather than incidental effects or universal scroll reveals.
 - Removing gradients, shadows, and animation does not erase hierarchy.
 - The result does not depend on fabricated proof or imagery.

@@ -23,10 +23,12 @@ One sentence that defines product character and the intended hierarchy.
 ## Direction
 
 - Composition:
+- Spacing/density and negative-space role:
 - Typography:
 - Color and surfaces:
 - Imagery/iconography:
 - Motion:
+- Motion grammar and reduced-motion outcome:
 - Familiarity vs. originality:
 - Patterns intentionally avoided:
 

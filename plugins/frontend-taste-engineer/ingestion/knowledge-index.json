@@ -1,7 +1,7 @@
 {
-  "corpus_fingerprint": "5f742229aabfc9198e158c1c20d816468fe1baa54b58bf151eec5be0cf7ac1bf",
+  "corpus_fingerprint": "e338c9f74e5d471033b536fc3f67969333aefb5366e42c6d0f6b3c40ccc73cb1",
   "generator": "scripts/generate_index.py",
-  "record_count": 77,
+  "record_count": 80,
   "records": [
     {
       "components": [
@@ -871,6 +871,36 @@
     },
     {
       "components": [
+        "page",
+        "section",
+        "heading",
+        "navigation",
+        "call-to-action"
+      ],
+      "fingerprint": "4f575fd8f6cc7281",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "content.earn-every-line",
+      "importance": "mandatory",
+      "origin": "records/product-content.json",
+      "sources": [
+        "govuk-design-system",
+        "uswds",
+        "taste-skill-repo"
+      ],
+      "status": "stable",
+      "subtopic": "content-density",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Make every line earn its place",
+      "topic": "information-architecture-content"
+    },
+    {
+      "components": [
         "form",
         "alert",
         "toast",
@@ -1473,6 +1503,37 @@
     },
     {
       "components": [
+        "page",
+        "hero",
+        "section",
+        "article",
+        "navigation"
+      ],
+      "fingerprint": "a48664858315c5e6",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "layout.intentional-negative-space",
+      "importance": "mandatory",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "apple-hig",
+        "govuk-design-system",
+        "material-3",
+        "taste-skill-repo"
+      ],
+      "status": "specialized",
+      "subtopic": "intentional-minimalism",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Make negative space earn its role",
+      "topic": "layout"
+    },
+    {
+      "components": [
         "article",
         "table",
         "form",
@@ -1591,6 +1652,40 @@
         "redesign"
       ],
       "title": "Use motion to explain causality and continuity",
+      "topic": "motion"
+    },
+    {
+      "components": [
+        "page",
+        "hero",
+        "navigation",
+        "selection",
+        "feedback",
+        "dialog"
+      ],
+      "fingerprint": "0a3406ad7ace7077",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "motion.interaction-specific-tokens",
+      "importance": "recommended",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "apple-hig",
+        "fluent-2",
+        "transitions-dev-repo",
+        "emil-design-skills"
+      ],
+      "status": "specialized",
+      "subtopic": "motion-grammar",
+      "task_types": [
+        "motion",
+        "greenfield",
+        "redesign",
+        "design-system"
+      ],
+      "title": "Compose motion from interaction-specific roles",
       "topic": "motion"
     },
     {

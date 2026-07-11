@@ -18,10 +18,10 @@ Compare the result against the design thesis and inspect:
 - Composition and reading sequence.
 - Hierarchy and primary-message dominance.
 - Typography, measure, wrapping, and loading behavior.
-- Spacing rhythm, alignment, density, and edge treatment.
+- Spacing rhythm, alignment, density, edge treatment, and the hierarchy, pacing, evidence, or boundary role of each major empty region.
 - Color, contrast, materials, imagery, and icon consistency.
 - Copy specificity and section necessity.
-- Motion purpose, interruption, repetition, and reduced motion.
+- Motion grammar, purpose, interruption, repetition, and reduced motion.
 - Mobile recomposition, short viewports, overflow, and touch targets.
 - Focus visibility, keyboard path, console errors, and broken controls.
 - Generic generated patterns and visually disconnected sections.
@@ -32,7 +32,7 @@ Name the three weaknesses with the largest effect on product fit, comprehension,
 
 Implement all three fixes, rerun relevant checks, and capture the same viewports/states again. Inspect the revised output. Continue only when another change has meaningful value; stop when remaining issues are low impact or a real limitation blocks progress.
 
-Examples of high-impact fixes include changing a generic centered composition, repairing mobile hierarchy, replacing weak copy, correcting type scale/measure, removing unjustified chrome, making a dead control real, or simplifying distracting motion.
+Examples of high-impact fixes include changing a generic centered composition, replacing vacant scale with content-led rhythm, repairing mobile hierarchy, replacing weak copy, correcting type scale/measure, removing unjustified chrome, making a dead control real, adding a missing intentional focal/state motion role, or simplifying distracting motion.
 
 ## Evidence rules
 

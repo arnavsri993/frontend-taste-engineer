@@ -34,9 +34,9 @@
       "title": "Visual direction and system coherence",
       "severity": "blocking",
       "applies_when": ["The change adds or materially revises visual language."],
-      "pass_conditions": ["Direction is tied to audience, content, and explicit axes.", "Signature signals are repeatable and restrained.", "Tokens and component roles replace unexplained local values.", "Anti-pattern detectors have been reviewed rather than ignored.", "Substantial generated builds have desktop and mobile captures compared against the design thesis, followed by a documented high-impact refinement pass."],
+      "pass_conditions": ["Direction is tied to audience, content, and explicit axes.", "Signature signals are repeatable and restrained.", "Tokens and component roles replace unexplained local values.", "A spacious or minimal composition assigns major gaps a hierarchy, pacing, proof, focus, or boundary role.", "Anti-pattern detectors have been reviewed rather than ignored.", "Substantial generated builds have desktop and mobile captures compared against the design thesis, followed by a documented high-impact refinement pass."],
       "required_evidence": ["Direction decision", "token or role mapping", "anti-slop review", "desktop and mobile captures plus refinement notes for substantial generated builds"],
-      "rule_refs": ["direction.choose-intentional-axis", "direction.systemic-distinctiveness", "system.semantic-tokens"]
+      "rule_refs": ["direction.choose-intentional-axis", "direction.systemic-distinctiveness", "layout.intentional-negative-space", "system.semantic-tokens"]
     },
     {
       "id": "gate.states",
@@ -106,9 +106,9 @@
       "title": "Anti-slop and reconstruction integrity",
       "severity": "blocking",
       "applies_when": ["Any generated, reference-led, screenshot-led, or materially art-directed work."],
-      "pass_conditions": ["Observed, inferred, and assumed decisions are distinguished when fidelity is claimed.", "No proof, metrics, logos, content, or states are fabricated.", "Cards, pills, gradients, bento, oversized heroes, effects, and motion have contextual reasons rather than template defaults.", "Alternatives and false-positive rationale were reviewed.", "Request-local names and messages are absent from reusable knowledge, public fixtures, public evidence, and packages unless publication was explicitly approved."],
+      "pass_conditions": ["Observed, inferred, and assumed decisions are distinguished when fidelity is claimed.", "No proof, metrics, logos, content, or states are fabricated.", "Cards, pills, gradients, bento, oversized heroes, empty scale, effects, and motion have contextual reasons rather than template defaults.", "Alternatives and false-positive rationale were reviewed.", "Request-local names and messages are absent from reusable knowledge, public fixtures, public evidence, and packages unless publication was explicitly approved."],
       "required_evidence": ["Evidence or assumption ledger", "anti-pattern review", "claim provenance", "reference comparison when applicable", "configured private-term scan and manual screenshot review when request-local content exists"],
-      "rule_refs": ["integrity.reconstruction-evidence", "integrity.truthful-proof", "anti.card-everything", "anti.gradient-everywhere", "anti.pill-overload", "anti.bento-by-default", "anti.hero-empty-scale", "anti.effects-stack", "anti.motion-everywhere"]
+      "rule_refs": ["integrity.reconstruction-evidence", "integrity.truthful-proof", "anti.card-everything", "anti.gradient-everywhere", "anti.pill-overload", "anti.bento-by-default", "anti.hero-empty-scale", "layout.intentional-negative-space", "anti.effects-stack", "anti.motion-everywhere"]
     },
     {
       "id": "gate.documentation",

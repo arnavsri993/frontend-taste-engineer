@@ -64,6 +64,8 @@ The Skill defaults minimal page/site/frontend and substantial redesign prompts t
 
 Visual direction is domain-adaptive. Quality adjectives do not force a flashy house style: a personal-finance dashboard can target intensity 2 with calm numeric precision, while an expressive personal page can justify intensity 4. The classifier considers product/task type, audience, trust, risk, information density, frequency, seriousness, maturity, accessibility, devices, familiarity, and experimental tolerance before choosing composition, typography, palette/material, component styling, and motion.
 
+For non-static directions, the plugin now plans a compact motion grammar—focal/narrative beats, meaningful state continuity, and direct feedback—rather than leaving animation as last-pass polish. It retrieves that guidance early for explicitly kinetic or medium-high/high-motion briefs, while retaining reduced-motion equivalence and interruption safety. Minimalism is assessed as intentional reduction: major gaps must clarify hierarchy, grouping, pace, focus, evidence, or a real boundary; vacant scale is not treated as a design direction.
+
 User-provided names and messages remain request-local by default. Reusable examples and committed evidence use synthetic content. Configure `FTE_PRIVATE_TERMS_FILE=.private-terms` and run `python3 plugins/frontend-taste-engineer/scripts/scan_private_terms.py --require-terms` to scan files, added diff lines, reports, logs, evaluation evidence, filenames, and ZIP contents without printing the configured value. Raster screenshots still require manual visual review.
 
 Detailed greenfield work, existing-product redesign, screenshot reconstruction, component builds, design-system work, visual audits, motion refinement, accessibility remediation, and performance remediation retain their existing focused modes.
@@ -100,15 +102,15 @@ python3 plugins/frontend-taste-engineer/evals/run_frontend_evals.py
 
 Validation covers plugin and Skill structure, internal references, provenance, duplicate IDs/rules, coverage, generated indexes, secrets, licenses, MCP behavior, and packaging. Frontend output evals are evidence-oriented fixtures; they do not claim that a model-generated website was executed unless an artifact, browser run, and result are present.
 
-## Review interface
+## Showcase and review interface
 
-The optional local review UI makes knowledge packets, provenance, coverage gaps, and audit reports easier to inspect:
+The optional local site demonstrates the plugin's context-adaptive frontend direction while also making knowledge packets, provenance, coverage gaps, and audit reports easier to inspect:
 
 ```bash
 python3 plugins/frontend-taste-engineer/review-app/serve.py
 ```
 
-Open the printed local URL. `.app.json` intentionally contains no fabricated connector ID. To expose this UI through a developer-mode ChatGPT app, enable Developer mode, register the MCP-backed app manually, copy the resulting `plugin_asdk_app...` ID into `.app.json`, then validate and reinstall.
+Open the printed local URL. The showcase links to the repository, includes a local interactive specimen, and preserves the read-only knowledge explorer. `.app.json` intentionally contains no fabricated connector ID. To expose this UI through a developer-mode ChatGPT app, enable Developer mode, register the MCP-backed app manually, copy the resulting `plugin_asdk_app...` ID into `.app.json`, then validate and reinstall.
 
 ## Maintenance and promotion
 

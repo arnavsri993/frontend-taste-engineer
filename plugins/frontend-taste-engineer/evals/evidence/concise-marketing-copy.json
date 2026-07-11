@@ -1,0 +1,68 @@
+{
+  "rubric": {
+    "product_fit": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "The showcase now moves a developer through one compact command-to-demo-to-evidence narrative while preserving the GitHub and install paths.", "artifact": "review-app/DESIGN.md"}]
+    },
+    "visual_hierarchy": {
+      "score": 4.5,
+      "evidence": [{"status": "pass", "observation": "Manual desktop review found one dominant promise, one primary action, a subordinate build signal, and no competing principle or feature sections.", "artifact": "evals/evidence/artifacts/concise-marketing-copy/desktop.png"}]
+    },
+    "typography": {
+      "score": 4.5,
+      "evidence": [{"status": "pass", "observation": "System sans, serif, and monospace roles separate product promise, contextual specimen, and operational evidence without external font cost.", "artifact": "review-app/styles.css"}]
+    },
+    "composition": {
+      "score": 4.5,
+      "evidence": [{"status": "pass", "observation": "The asymmetric technical desktop opening recomposes into a clear mobile sequence; duplicate method and principle sections were removed.", "artifact": "evals/evidence/artifacts/concise-marketing-copy/mobile.png"}]
+    },
+    "information_architecture": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "Four main sections remain—hero, contextual demo, inspectable rules, and install—and each has a distinct job.", "artifact": "review-app/index.html"}]
+    },
+    "interaction_quality": {
+      "score": 4,
+      "evidence": [{"status": "partial", "observation": "Pointer mode switching, honest specimen expansion, token-order-independent rule search, filter states, and clipboard success were observed; real-device keyboard activation remains unverified.", "artifact": "review-app/app.js"}]
+    },
+    "state_completeness": {
+      "score": 4,
+      "evidence": [{"status": "pass", "observation": "The local demo covers selected and expanded states; the explorer covers loading, loaded, filtered, empty, and unavailable outcomes; clipboard success and blocked recovery copy are implemented.", "artifact": "review-app/app.js"}]
+    },
+    "accessibility": {
+      "score": 4,
+      "evidence": [{"status": "partial", "observation": "Semantic landmarks, native controls, accessible names and state, skip navigation, visible focus, reduced motion, forced colors, and zero mobile overflow are implemented; no full screen-reader session ran.", "artifact": "review-app/index.html", "command": "python3 scripts/check_accessibility.py review-app"}]
+    },
+    "responsive_behavior": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "Manual review covered 1440×1000 and 390×844; both retained zero horizontal overflow, and document height fell materially at both sizes.", "artifact": "evals/evidence/artifacts/concise-marketing-copy/mobile.png"}]
+    },
+    "performance": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "The standalone production build contains 18 files and 623,828 bytes including its read-only corpus snapshot, with 10,369 bytes of JavaScript and no third-party runtime, external font, analytics, or media request.", "artifact": "review-app/build.py", "command": "cd review-app && npm run build"}]
+    },
+    "content_quality": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "Source-visible copy fell from 474 to 186 words (61%) while preserving task, trust boundary, recovery, install, and evidence information.", "artifact": "review-app/DESIGN.md"}]
+    },
+    "originality": {
+      "score": 4.5,
+      "evidence": [{"status": "pass", "observation": "The precision-runtime system uses a dark grid, cyan structure, acid state signal, compact build sequence, and contextual art-direction shifts without generic glass or gradient stacks.", "artifact": "evals/evidence/artifacts/concise-marketing-copy/desktop.png"}]
+    },
+    "maintainability": {
+      "score": 4.5,
+      "evidence": [{"status": "pass", "observation": "The implementation remains dependency-free vanilla HTML, role-token CSS, and a small state-owned script with a deterministic Python build.", "artifact": "review-app/README.md"}]
+    },
+    "reference_fidelity": {
+      "score": 4,
+      "evidence": [{"status": "partial", "observation": "No external visual reference was supplied; fidelity was checked against the explicit concise, modern, technical user direction and recorded design thesis.", "artifact": "review-app/DESIGN.md"}]
+    },
+    "anti_generic_patterns": {
+      "score": 4.5,
+      "evidence": [{"status": "pass", "observation": "Manual review found no centered generic hero, three-card feature parade, fabricated proof, glass stack, purple aura, or decorative dashboard metrics; technical chrome maps to real plugin workflow and evidence.", "artifact": "evals/evidence/artifacts/concise-marketing-copy/desktop.png"}]
+    },
+    "functional_integrity": {
+      "score": 5,
+      "evidence": [{"status": "pass", "observation": "The production build, all local artifact routes, contextual specimen, flexible search, filters, clipboard action, and GitHub links work without implying a generation backend or external submission.", "artifact": "review-app/app.js", "command": "cd review-app && npm run build"}]
+    }
+  }
+}

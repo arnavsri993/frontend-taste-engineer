@@ -193,6 +193,36 @@
     "context_budget": 3200
   },
   {
+    "id": "intentional-motion-system",
+    "name": "Kinetic narrative motion system",
+    "brief": "Design a kinetic narrative product page with a compact motion vocabulary for focal entry, state continuity, and direct feedback. Define origin, easing, duration, cancellation, repeated activation, latest valid state, and equivalent reduced-motion behavior without generic reveal choreography.",
+    "task_type": "motion",
+    "stage": "refinement",
+    "expected_topics": ["motion"],
+    "expected_terms": ["motion vocabulary", "narrative", "latest valid state", "reduced motion", "reveal"],
+    "mandatory_terms": ["latest valid state", "reduced motion"],
+    "required_record_ids": ["motion.interaction-specific-tokens", "motion.explain-causality", "motion.interruption-safe", "motion.reduced-motion-equivalence"],
+    "forbidden_terms": ["animate every element"],
+    "retrieval_only": true,
+    "budget_records": 8,
+    "context_budget": 4200
+  },
+  {
+    "id": "minimalism-not-emptiness",
+    "name": "Minimal product page with intentional space",
+    "brief": "Design a minimalism-led product landing page without bare scale. Define intentional negative space only where it clarifies content relationships, hierarchy, pacing, evidence, focus, or a boundary; ensure immediate product context, proof, and a next action instead of a vacant oversized hero, including short-viewport and mobile review.",
+    "task_type": "greenfield-build",
+    "stage": "refinement",
+    "expected_topics": ["layout", "visual-direction", "anti-slop-integrity"],
+    "expected_terms": ["minimalism", "hierarchy", "product context", "next action", "short viewport"],
+    "mandatory_terms": ["hierarchy", "next action"],
+    "required_record_ids": ["layout.intentional-negative-space", "direction.content-before-chrome", "anti.hero-empty-scale"],
+    "forbidden_terms": ["ban whitespace"],
+    "retrieval_only": true,
+    "budget_records": 12,
+    "context_budget": 4200
+  },
+  {
     "id": "performance-remediation",
     "name": "Performance remediation task",
     "brief": "Remediate a slow media-heavy frontend using measured Core Web Vitals, explicit budgets, image and font delivery, JavaScript reduction, network constraints, and regression checks.",
@@ -514,5 +544,18 @@
     "expect_no_questions": true,
     "expect_production_completion": true,
     "direction_diversity_case": true
+  },
+  {
+    "id": "concise-marketing-copy",
+    "name": "Verbose marketing page content reduction",
+    "brief": "Cut a verbose product landing page down to the essential copy without hiding trust, pricing, eligibility, instructions, or recovery information.",
+    "task_type": "existing-redesign",
+    "stage": "brief",
+    "expected_topics": ["information-architecture-content"],
+    "expected_terms": ["smallest", "task", "decision", "repeat", "remove", "essential"],
+    "mandatory_terms": ["remove", "task", "decision"],
+    "forbidden_terms": ["add more copy"],
+    "budget_records": 6,
+    "context_budget": 3000
   }
 ]

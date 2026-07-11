@@ -20,7 +20,7 @@
       "title": "Define direction and system principles",
       "actions": ["Choose visual direction axes and signature signals.", "Set semantic naming principles, density strategy, and accessibility commitments.", "Record what the system intentionally will not standardize."],
       "evidence": ["system principles", "direction decision"],
-      "rule_refs": ["direction.choose-intentional-axis", "direction.systemic-distinctiveness", "layout.measure-and-density"],
+      "rule_refs": ["direction.choose-intentional-axis", "direction.systemic-distinctiveness", "layout.measure-and-density", "layout.intentional-negative-space"],
       "exit_criteria": ["Principles can resolve a new design decision without a screenshot reference."]
     },
     {
@@ -28,7 +28,7 @@
       "title": "Build semantic foundations",
       "actions": ["Create primitive scales, semantic roles, modes, and component aliases.", "Test foreground/background and interactive state pairs.", "Define typography, spacing, radius, motion, and asset conventions."],
       "evidence": ["token graph", "theme specimens", "contrast matrix"],
-      "rule_refs": ["system.semantic-tokens", "color.role-based-palette", "type.hierarchy-by-role", "motion.reduced-motion-equivalence"],
+      "rule_refs": ["system.semantic-tokens", "color.role-based-palette", "type.hierarchy-by-role", "motion.interaction-specific-tokens", "motion.reduced-motion-equivalence"],
       "exit_criteria": ["Foundations support required modes and high-risk component states."]
     },
     {

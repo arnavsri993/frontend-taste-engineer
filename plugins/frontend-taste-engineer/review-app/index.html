@@ -3,80 +3,172 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <title>Frontend Taste Engineer review</title>
-  <link rel="stylesheet" href="/review-app/styles.css">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#050907">
+  <meta name="description" content="Frontend Taste Engineer is a Codex plugin for complete, contextual, and verified frontend work.">
+  <title>Frontend Taste Engineer — taste, compiled</title>
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to review</a>
-  <header class="masthead">
-    <div class="mark" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
-    <div>
-      <p class="eyebrow">Frontend Taste Engineer</p>
-      <h1>Evidence review</h1>
-    </div>
-    <p id="load-status" class="status" role="status">Loading local artifacts…</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Frontend Taste Engineer, home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><b></b></span>
+      <span>Frontend Taste <strong>Engineer</strong></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#specimen">Demo</a>
+      <a href="#evidence">Rules</a>
+    </nav>
+    <a class="button button-small github-link" href="https://github.com/arnavsri993/frontend-taste-engineer">
+      GitHub
+      <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M5 3h8v8M13 3 4 12"/></svg>
+    </a>
   </header>
 
   <main id="main">
-    <section class="intro" aria-labelledby="intro-title">
-      <div>
-        <p class="eyebrow">Local · read-only</p>
-        <h2 id="intro-title">Inspect what supports a frontend decision.</h2>
-        <p>This view reads the plugin’s generated index, source registry, and evaluation summary. It does not approve or modify stable knowledge.</p>
-      </div>
-      <dl class="metrics" aria-label="Loaded artifact counts">
-        <div><dt>Knowledge records</dt><dd id="record-count">—</dd></div>
-        <div><dt>Registered sources</dt><dd id="source-count">—</dd></div>
-        <div><dt>Eval cases</dt><dd id="eval-count">—</dd></div>
-      </dl>
-    </section>
-
-    <section class="controls" aria-labelledby="browse-title">
-      <div>
-        <p class="eyebrow">Knowledge browser</p>
-        <h2 id="browse-title">Search the generated index</h2>
-      </div>
-      <label for="query">Rule ID, title, topic, or source</label>
-      <div class="search-row">
-        <input id="query" type="search" autocomplete="off" placeholder="Try focus, typography, motion…">
-        <select id="importance" aria-label="Filter by importance">
-          <option value="">All importance</option>
-          <option value="mandatory">Mandatory</option>
-          <option value="recommended">Recommended</option>
-          <option value="optional">Optional</option>
-        </select>
-      </div>
-    </section>
-
-    <div class="workspace">
-      <section class="results" aria-labelledby="results-title">
-        <div class="section-heading">
-          <h2 id="results-title">Matching records</h2>
-          <p id="result-summary" role="status" aria-live="polite" aria-atomic="true">Waiting for the index.</p>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="kicker"><span>Codex plugin</span> frontend runtime</p>
+        <h1 id="hero-title">Taste,<br><em>compiled.</em></h1>
+        <p class="hero-lede">Thin prompt in. Complete, tested interface out.</p>
+        <div class="hero-actions">
+          <a class="button github-link" href="https://github.com/arnavsri993/frontend-taste-engineer">
+            Get the plugin
+            <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M5 3h8v8M13 3 4 12"/></svg>
+          </a>
+          <a class="text-link" href="#specimen">Run the demo <span aria-hidden="true">↓</span></a>
         </div>
-        <ol id="results-list" class="record-list">
-          <li class="empty">No local knowledge index has been loaded.</li>
+        <ul class="proof-strip" aria-label="Plugin characteristics">
+          <li><span>01</span> Context-led</li>
+          <li><span>02</span> Browser-checked</li>
+          <li><span>03</span> Offline-ready</li>
+        </ul>
+      </div>
+
+      <div class="hero-workbench" aria-label="Example build sequence">
+        <div class="workbench-topline">
+          <span>build.sequence</span>
+          <span class="status-dot">ready</span>
+        </div>
+        <blockquote>“Build a site for my robotics team.”</blockquote>
+        <ol class="build-transcript">
+          <li><span>01</span><strong>classify</strong><small>context</small></li>
+          <li><span>02</span><strong>direct</strong><small>system</small></li>
+          <li><span>03</span><strong>ship</strong><small>frontend</small></li>
+          <li><span>04</span><strong>verify</strong><small>evidence</small></li>
         </ol>
-      </section>
+        <p class="workbench-note"><span>output</span> deployable interface <b>●</b></p>
+      </div>
+    </section>
 
-      <aside aria-labelledby="evidence-title">
-        <p class="eyebrow">Release evidence</p>
-        <h2 id="evidence-title">Evaluation summary</h2>
-        <div id="eval-summary" class="evidence-box">
-          <p>No evaluation summary loaded.</p>
+    <section class="specimen section-shell" id="specimen" aria-labelledby="specimen-title">
+      <div class="specimen-heading">
+        <div class="section-intro">
+          <p class="kicker">01 / context engine</p>
+          <h2 id="specimen-title">Same skill.<br>Different product.</h2>
         </div>
-        <details>
-          <summary>Manual app registration</summary>
-          <p>The Apps SDK mapping remains empty until a developer-mode app is registered and a real <code>plugin_asdk_app…</code> ID is supplied.</p>
-        </details>
-      </aside>
-    </div>
+        <div class="mode-picker" role="group" aria-label="Choose a product context">
+          <button type="button" class="mode-button" data-mode="editorial" aria-pressed="true"><span>01</span> Editorial</button>
+          <button type="button" class="mode-button" data-mode="civic" aria-pressed="false"><span>02</span> Public service</button>
+          <button type="button" class="mode-button" data-mode="developer" aria-pressed="false"><span>03</span> Developer tool</button>
+        </div>
+      </div>
+
+      <div class="demo-frame" data-demo-mode="editorial">
+        <div class="demo-meta">
+          <span id="demo-context">Editorial field journal</span>
+          <span>Local specimen</span>
+        </div>
+        <div class="demo-canvas" aria-live="polite" aria-atomic="true">
+          <header class="demo-nav">
+            <span class="demo-logo" id="demo-logo">Field / Note</span>
+            <span id="demo-nav-label">Issue 08 · High desert</span>
+          </header>
+          <div class="demo-body">
+            <p class="demo-eyebrow" id="demo-eyebrow">An observation in three parts</p>
+            <h3 id="demo-title">The wind<br>edits first.</h3>
+            <p id="demo-copy">Long-form hierarchy. Quiet rhythm. Paper tactility.</p>
+            <button type="button" class="demo-action" id="demo-action" aria-expanded="false" aria-controls="demo-feedback">Read the note <span aria-hidden="true">→</span></button>
+            <p class="demo-feedback" id="demo-feedback" role="status" hidden></p>
+          </div>
+          <aside class="demo-aside" aria-label="Specimen details">
+            <p id="demo-aside-label">Coordinates</p>
+            <strong id="demo-aside-value">34.611° N</strong>
+            <div class="demo-graphic" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </aside>
+        </div>
+      </div>
+      <p class="specimen-note">Hand-authored demo. No generation backend.</p>
+    </section>
+
+    <section class="evidence section-shell" id="evidence" aria-labelledby="evidence-title">
+      <div class="evidence-heading">
+        <div class="section-intro">
+          <p class="kicker">02 / source layer</p>
+          <h2 id="evidence-title">Rules,<br>exposed.</h2>
+          <p>Search the corpus. Inspect the evidence.</p>
+        </div>
+        <dl class="metrics" aria-label="Loaded repository artifact counts">
+          <div><dt>Rules</dt><dd id="record-count">—</dd></div>
+          <div><dt>Sources</dt><dd id="source-count">—</dd></div>
+          <div><dt>Evals</dt><dd id="eval-count">—</dd></div>
+        </dl>
+      </div>
+
+      <div class="explorer">
+        <div class="explorer-controls">
+          <label for="query">Search rules</label>
+          <div class="search-row">
+            <input id="query" type="search" autocomplete="off" placeholder="focus, type, motion…">
+            <select id="importance" aria-label="Filter records by importance">
+              <option value="">All levels</option>
+              <option value="mandatory">Mandatory</option>
+              <option value="recommended">Recommended</option>
+              <option value="contextual">Contextual</option>
+            </select>
+          </div>
+          <p id="load-status" class="load-status" role="status">Loading artifacts…</p>
+        </div>
+        <div class="results">
+          <div class="results-heading">
+            <h3>Matches</h3>
+            <p id="result-summary" role="status" aria-live="polite" aria-atomic="true">Waiting.</p>
+          </div>
+          <ol id="results-list" class="record-list">
+            <li class="empty">No index loaded.</li>
+          </ol>
+        </div>
+        <aside class="eval-panel" aria-labelledby="eval-title">
+          <p class="kicker">release</p>
+          <h3 id="eval-title">Eval signal</h3>
+          <div id="eval-summary" class="eval-summary"><p>No summary loaded.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="install section-shell" aria-labelledby="install-title">
+      <div>
+        <p class="kicker">03 / deploy</p>
+        <h2 id="install-title">Add the plugin.</h2>
+      </div>
+      <div class="install-terminal">
+        <pre id="install-command"><code>codex plugin marketplace add "$(pwd)"
+codex plugin add frontend-taste-engineer@personal</code></pre>
+        <button type="button" class="copy-button" id="copy-install" aria-describedby="copy-status">Copy</button>
+        <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <p>Stable knowledge changes require provenance, evaluation, and human-reviewed promotion.</p>
+  <footer class="site-footer">
+    <div class="footer-mark" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
+    <p><strong>Frontend Taste Engineer</strong> / judgment at build time.</p>
+    <a class="text-link github-link" href="https://github.com/arnavsri993/frontend-taste-engineer">GitHub ↗</a>
   </footer>
-  <script src="/review-app/app.js" defer></script>
+
+  <script src="./app.js" defer></script>
 </body>
 </html>

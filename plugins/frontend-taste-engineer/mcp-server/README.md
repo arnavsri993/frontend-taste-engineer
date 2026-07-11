@@ -1,6 +1,6 @@
 # Frontend Taste Engineer MCP server
 
-Version 0.3.0 adds bounded, stage-specific external-source selection with license, inspiration-only, optional 21st.dev MCP, anti-copy, and no-auto-promotion gates. It preserves deterministic `autonomous-zero-brief-build` classification and staged production-completion routing from 0.2.0.
+Version 0.3.0 adds bounded, stage-specific external-source selection with license, inspiration-only, optional 21st.dev MCP, anti-copy, and no-auto-promotion gates. The current unreleased update adds intentional-negative-space guidance plus early motion routing for explicitly kinetic and medium-high/high-motion autonomous briefs, while preserving deterministic `autonomous-zero-brief-build` classification and staged production-completion routing from 0.2.0.
 
 `server.py` is a Python 3.9+ stdio MCP server with no third-party runtime
 dependencies. It reads `../knowledge/**/*.json` at startup, builds an in-memory

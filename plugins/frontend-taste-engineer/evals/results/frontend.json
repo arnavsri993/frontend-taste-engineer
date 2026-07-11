@@ -1,5 +1,5 @@
 {
-  "case_count": 31,
+  "case_count": 32,
   "cases": [
     {
       "id": "b2b-landing",
@@ -907,6 +907,194 @@
         "visual_hierarchy": null
       },
       "status": "not-run"
+    },
+    {
+      "id": "concise-marketing-copy",
+      "manifest": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/evidence/concise-marketing-copy.json",
+      "name": "Verbose marketing page content reduction",
+      "overall": 4.562,
+      "rubric": {
+        "accessibility": {
+          "evidence": [
+            {
+              "artifact": "review-app/index.html",
+              "command": "python3 scripts/check_accessibility.py review-app",
+              "observation": "Semantic landmarks, native controls, accessible names and state, skip navigation, visible focus, reduced motion, forced colors, and zero mobile overflow are implemented; no full screen-reader session ran.",
+              "status": "partial"
+            }
+          ],
+          "score": 4.0,
+          "valid": true
+        },
+        "anti_generic_patterns": {
+          "evidence": [
+            {
+              "artifact": "evals/evidence/artifacts/concise-marketing-copy/desktop.png",
+              "observation": "Manual review found no centered generic hero, three-card feature parade, fabricated proof, glass stack, purple aura, or decorative dashboard metrics; technical chrome maps to real plugin workflow and evidence.",
+              "status": "pass"
+            }
+          ],
+          "score": 4.5,
+          "valid": true
+        },
+        "composition": {
+          "evidence": [
+            {
+              "artifact": "evals/evidence/artifacts/concise-marketing-copy/mobile.png",
+              "observation": "The asymmetric technical desktop opening recomposes into a clear mobile sequence; duplicate method and principle sections were removed.",
+              "status": "pass"
+            }
+          ],
+          "score": 4.5,
+          "valid": true
+        },
+        "content_quality": {
+          "evidence": [
+            {
+              "artifact": "review-app/DESIGN.md",
+              "observation": "Source-visible copy fell from 474 to 186 words (61%) while preserving task, trust boundary, recovery, install, and evidence information.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "functional_integrity": {
+          "evidence": [
+            {
+              "artifact": "review-app/app.js",
+              "command": "cd review-app && npm run build",
+              "observation": "The production build, all local artifact routes, contextual specimen, flexible search, filters, clipboard action, and GitHub links work without implying a generation backend or external submission.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "information_architecture": {
+          "evidence": [
+            {
+              "artifact": "review-app/index.html",
+              "observation": "Four main sections remain—hero, contextual demo, inspectable rules, and install—and each has a distinct job.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "interaction_quality": {
+          "evidence": [
+            {
+              "artifact": "review-app/app.js",
+              "observation": "Pointer mode switching, honest specimen expansion, token-order-independent rule search, filter states, and clipboard success were observed; real-device keyboard activation remains unverified.",
+              "status": "partial"
+            }
+          ],
+          "score": 4.0,
+          "valid": true
+        },
+        "maintainability": {
+          "evidence": [
+            {
+              "artifact": "review-app/README.md",
+              "observation": "The implementation remains dependency-free vanilla HTML, role-token CSS, and a small state-owned script with a deterministic Python build.",
+              "status": "pass"
+            }
+          ],
+          "score": 4.5,
+          "valid": true
+        },
+        "originality": {
+          "evidence": [
+            {
+              "artifact": "evals/evidence/artifacts/concise-marketing-copy/desktop.png",
+              "observation": "The precision-runtime system uses a dark grid, cyan structure, acid state signal, compact build sequence, and contextual art-direction shifts without generic glass or gradient stacks.",
+              "status": "pass"
+            }
+          ],
+          "score": 4.5,
+          "valid": true
+        },
+        "performance": {
+          "evidence": [
+            {
+              "artifact": "review-app/build.py",
+              "command": "cd review-app && npm run build",
+              "observation": "The standalone production build contains 18 files and 623,828 bytes including its read-only corpus snapshot, with 10,369 bytes of JavaScript and no third-party runtime, external font, analytics, or media request.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "product_fit": {
+          "evidence": [
+            {
+              "artifact": "review-app/DESIGN.md",
+              "observation": "The showcase now moves a developer through one compact command-to-demo-to-evidence narrative while preserving the GitHub and install paths.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "reference_fidelity": {
+          "evidence": [
+            {
+              "artifact": "review-app/DESIGN.md",
+              "observation": "No external visual reference was supplied; fidelity was checked against the explicit concise, modern, technical user direction and recorded design thesis.",
+              "status": "partial"
+            }
+          ],
+          "score": 4.0,
+          "valid": true
+        },
+        "responsive_behavior": {
+          "evidence": [
+            {
+              "artifact": "evals/evidence/artifacts/concise-marketing-copy/mobile.png",
+              "observation": "Manual review covered 1440×1000 and 390×844; both retained zero horizontal overflow, and document height fell materially at both sizes.",
+              "status": "pass"
+            }
+          ],
+          "score": 5.0,
+          "valid": true
+        },
+        "state_completeness": {
+          "evidence": [
+            {
+              "artifact": "review-app/app.js",
+              "observation": "The local demo covers selected and expanded states; the explorer covers loading, loaded, filtered, empty, and unavailable outcomes; clipboard success and blocked recovery copy are implemented.",
+              "status": "pass"
+            }
+          ],
+          "score": 4.0,
+          "valid": true
+        },
+        "typography": {
+          "evidence": [
+            {
+              "artifact": "review-app/styles.css",
+              "observation": "System sans, serif, and monospace roles separate product promise, contextual specimen, and operational evidence without external font cost.",
+              "status": "pass"
+            }
+          ],
+          "score": 4.5,
+          "valid": true
+        },
+        "visual_hierarchy": {
+          "evidence": [
+            {
+              "artifact": "evals/evidence/artifacts/concise-marketing-copy/desktop.png",
+              "observation": "Manual desktop review found one dominant promise, one primary action, a subordinate build signal, and no competing principle or feature sections.",
+              "status": "pass"
+            }
+          ],
+          "score": 4.5,
+          "valid": true
+        }
+      },
+      "status": "scored"
     }
   ],
   "evaluation": "frontend-output",
@@ -932,7 +1120,7 @@
     "functional_integrity"
   ],
   "schema_version": 1,
-  "scored_cases": 1,
+  "scored_cases": 2,
   "summary": {
     "errors": 30,
     "warnings": 0

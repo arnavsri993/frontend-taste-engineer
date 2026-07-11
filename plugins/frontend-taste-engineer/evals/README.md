@@ -1,11 +1,12 @@
 # Evaluations
 
-`cases.json` contains 30 heterogeneous frontend tasks, including eight minimal
+`cases.json` contains 34 heterogeneous frontend tasks, including two retrieval-only
+motion/minimalism regressions and eight minimal
 website/page prompts for autonomous classification and stage routing. Retrieval evaluation
 compares no-plugin baseline, compact static Skill kernel, lexical retrieval, and
 hybrid retrieval. It reports precision, recall, mandatory-rule recall, duplicate
 rate, irrelevant-token rate, provenance correctness, observed latency, context
-size, and stable/experimental ordering with retrieved IDs as evidence.
+size, stable/experimental ordering, and per-case required canonical-record IDs as evidence.
 
 `source-policy-cases.json` adds eight deterministic policy fixtures: premium/pro copy rejection, inspiration-only gallery handling, primitive routing for complex widgets, optional 21st.dev MCP behavior, Build Week exclusion, candidate reporting without promotion, unclear-license resolution, and stage-budget preservation. These cases run as a retrieval gate.
 

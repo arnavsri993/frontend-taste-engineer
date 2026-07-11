@@ -51,6 +51,11 @@ def load_cases(path: Path) -> list[dict[str, Any]]:
         for field in ("brief", "expected_topics", "expected_terms", "mandatory_terms"):
             if not case.get(field):
                 raise ValueError(f"{case['id']} lacks {field}")
+        required_ids = case.get("required_record_ids", [])
+        if required_ids and (not isinstance(required_ids, list) or not all(isinstance(value, str) and value for value in required_ids) or len(required_ids) != len(set(required_ids))):
+            raise ValueError(f"{case['id']} has invalid required_record_ids")
+        if "retrieval_only" in case and not isinstance(case["retrieval_only"], bool):
+            raise ValueError(f"{case['id']} has invalid retrieval_only")
         if case.get("expected_mode") == SERVER.AUTONOMOUS_MODE:
             for field in ("expected_page_type", "expected_tone_terms", "expect_no_questions", "expect_production_completion"):
                 if field not in case:
@@ -99,7 +104,7 @@ def retrieve_variant(engine: Any, case: Mapping[str, Any], variant: str) -> dict
     else:
         filters = {
             "task_types": list(SERVER.TASK_TYPE_ALIASES.get(str(case.get("task_type")), (str(case.get("task_type")),))),
-            "statuses": ["stable", "active", "experimental"],
+            "statuses": ["stable", "specialized", "experimental"],
         }
         if autonomous and variant == "hybrid":
             packet = SERVER.get_workflow(engine, {
@@ -130,10 +135,10 @@ PROFILE_FIELDS = {
     "product_maturity", "accessibility_needs", "expected_devices", "visual_ambition",
     "visual_intensity", "motion_intensity", "experimental_tolerance",
     "familiarity_requirement", "interaction_depth", "suggested_composition",
-    "hero_treatment", "typography_direction", "color_material_direction",
+    "hero_treatment", "negative_space_role", "typography_direction", "color_material_direction",
     "imagery_strategy", "motion_stance", "component_styling", "direction",
     "required_states", "retrieval_topics", "verification_priorities",
-    "user_supplied_facts", "inferred_assumptions", "quality_interpretation",
+    "user_supplied_facts", "inferred_assumptions", "minimalism_guardrail", "quality_interpretation",
     "design_thesis",
 }
 
@@ -148,6 +153,10 @@ def score_classification(case: Mapping[str, Any]) -> dict[str, Any] | None:
     entities = result.get("entities") or {}
     guardrails = set(result.get("copy_guardrails") or [])
     tone = set(profile.get("emotional_tone") or [])
+    retrieval = result.get("recommended_retrieval") or {}
+    expected_deferred = {"framework", "component", "motion", "performance", "browser"}
+    if "motion" in set(retrieval.get("topics") or []):
+        expected_deferred.remove("motion")
     checks = {
         "mode": result.get("task_type") == expected_mode,
         "minimal_prompt": bool(result.get("minimal_prompt")),
@@ -165,7 +174,7 @@ def score_classification(case: Mapping[str, Any]) -> dict[str, Any] | None:
         "quoted_text": not case.get("expected_quoted_text") or case.get("expected_quoted_text") in (entities.get("quoted_text") or []),
         "no_unnecessary_questions": not case.get("expect_no_questions") or bool((result.get("clarification_policy") or {}).get("continue_without_questions")),
         "no_invented_claims": {"no-fake-testimonials", "no-fake-metrics", "no-unsupported-claims"} <= guardrails,
-        "staged_retrieval": bool((result.get("recommended_retrieval") or {}).get("record_ids")) and set((result.get("recommended_retrieval") or {}).get("defer_until_needed") or []) == {"framework", "component", "motion", "performance", "browser"},
+        "staged_retrieval": bool(retrieval.get("record_ids")) and set(retrieval.get("defer_until_needed") or []) == expected_deferred,
         "production_completion": not case.get("expect_production_completion") or result.get("completion_workflow") == "production-completion-with-screenshot-refinement",
         "request_local_privacy": (result.get("privacy") or {}).get("user_supplied_names") == "request-local" and not (result.get("privacy") or {}).get("persist_to_plugin_knowledge", True),
     }
@@ -263,6 +272,7 @@ def score_retrieval(case: Mapping[str, Any], packet: Mapping[str, Any]) -> dict[
     expected_topics = set(case["expected_topics"])
     expected_terms = list(case["expected_terms"])
     mandatory_terms = list(case["mandatory_terms"])
+    required_record_ids = list(case.get("required_record_ids") or [])
     relevant = []
     irrelevant_tokens = 0
     total_tokens = 0
@@ -275,6 +285,8 @@ def score_retrieval(case: Mapping[str, Any], packet: Mapping[str, Any]) -> dict[
         if not is_relevant:
             irrelevant_tokens += cost
     topics_found = {record.get("topic") for record in records}
+    retrieved_ids = {str(record.get("id")) for record in records}
+    missing_required_record_ids = [record_id for record_id in required_record_ids if record_id not in retrieved_ids]
     packet_text = json.dumps(records, ensure_ascii=False)
     recall_units = [topic in topics_found for topic in expected_topics] + [phrase_present(term, packet_text) for term in expected_terms]
     mandatory_units = [phrase_present(term, packet_text) for term in mandatory_terms]
@@ -306,8 +318,11 @@ def score_retrieval(case: Mapping[str, Any], packet: Mapping[str, Any]) -> dict[
         "latency_ms": float(packet.get("observed_latency_ms", 0.0)),
         "stable_experimental_separation": 0.0 if stable_after_experimental else 1.0,
         "quality_score": round(quality, 3),
+        "missing_required_record_ids": missing_required_record_ids,
         "evidence": {
             "retrieved_ids": [record.get("id") for record in records],
+            "required_record_ids": required_record_ids,
+            "required_record_ids_found": [record_id for record_id in required_record_ids if record_id in retrieved_ids],
             "topics_found": sorted(topic for topic in topics_found if topic),
             "expected_terms_found": [term for term in expected_terms if phrase_present(term, packet_text)],
             "mandatory_terms_found": [term for term in mandatory_terms if phrase_present(term, packet_text)],
@@ -454,6 +469,7 @@ def retrieval_eval(args: argparse.Namespace) -> dict[str, Any]:
         "minimal_prompt_classification": bool(classification_rows) and classification_summary["pass_rate"] == 1.0,
         "context_adaptive_direction_diversity": direction_diversity["passed"],
         "external_source_policy": source_policy["passed"],
+        "required_record_ids": all(not row["missing_required_record_ids"] for row in grouped["hybrid"]),
     }
     return {
         "schema_version": 1,
@@ -499,7 +515,7 @@ def _valid_evidence(item: Any) -> bool:
 
 
 def frontend_eval(args: argparse.Namespace) -> dict[str, Any]:
-    cases = load_cases(Path(args.cases))
+    cases = [case for case in load_cases(Path(args.cases)) if not case.get("retrieval_only")]
     evidence_root = Path(args.evidence_dir)
     rows = []
     scored = 0

@@ -1,0 +1,11 @@
+{
+  "name": "frontend-taste-engineer-showcase",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone local and deployable showcase for the Frontend Taste Engineer Codex plugin.",
+  "scripts": {
+    "dev": "python3 serve.py",
+    "build": "python3 build.py",
+    "preview": "python3 serve.py --no-build"
+  }
+}

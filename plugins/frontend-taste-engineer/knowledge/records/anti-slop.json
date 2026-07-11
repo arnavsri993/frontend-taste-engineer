@@ -216,7 +216,7 @@
     "license_status": "synthesized-original-with-source-attribution",
     "introduced_in": "0.1.0",
     "last_reviewed": "2026-07-10",
-    "related_rules": ["ia.one-primary-task", "type.hierarchy-by-role"],
+    "related_rules": ["ia.one-primary-task", "type.hierarchy-by-role", "layout.intentional-negative-space"],
     "supersedes": [],
     "anti_pattern": {
       "why_ai_overuses": "A huge headline and generous whitespace cheaply create a polished screenshot while allowing the generator to avoid product-specific details and proof.",
