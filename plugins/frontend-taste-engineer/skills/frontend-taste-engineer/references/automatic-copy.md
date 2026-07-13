@@ -1,11 +1,14 @@
 # Automatic copy
 
-Write finished page copy when the prompt is sparse. Copy is part of composition, not filler added after layout.
+Write finished page copy when the prompt is sparse. Copy is part of composition, not filler added after layout. Paid/client work must clear the copy bar in `premium-quality-bar.md`.
 
 ## Writing rules
 
 - Preserve supplied quoted messages and names exactly unless the user asks for editing.
 - Lead with the specific noun, action, conflict, or promise. Remove throat-clearing language.
+- Headlines must name audience + outcome or conflict (not “Welcome to the future,” “Build faster,” or “The future of X”).
+- Support lines add new information; they do not restate the headline with synonyms.
+- CTAs use concrete verbs (“Book a pilot,” “See live telemetry”) instead of “Get started” / “Learn more” when a better verb exists.
 - Use the smallest copy set that preserves the task, decision, trust, and recovery information. Do not restate the same promise in the hero, section intro, cards, and closing action.
 - Give each section one job in the narrative or task flow.
 - Match sentence length and rhythm to the direction: concise and calm for high-trust tasks; dramatic, playful, editorial, or humorous for expressive personal work.
@@ -23,11 +26,20 @@ When backend behavior does not exist, use an honest local interaction, a mail/li
 
 ## Composition fit
 
-- Draft the page as a text-only outline first.
+- Draft the page as a text-only outline first—before visual catalogs.
 - Put the primary message at the dominant visual beat.
 - Use supporting lines to create contrast or progression, not to restate the headline.
 - Prefer one strong ending or next action over a generic feature parade.
 - Remove any line or section that does not change what the user understands, decides, or does.
+
+## Dedicated copy pass (required)
+
+After first layout, read the page as text only and:
+
+1. Cut duplicate promises.
+2. Sharpen the headline until it could only belong to this product.
+3. Replace vague CTAs.
+4. Delete sections that exist only to fill a template slot.
 
 ## Verification
 

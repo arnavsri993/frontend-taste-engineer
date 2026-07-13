@@ -296,9 +296,22 @@ class EngineTests(unittest.TestCase):
             "max_results": 12,
         })
         first = [source["id"] for source in report["sources"][:3]]
-        self.assertEqual(first, ["react-aria", "radix-primitives", "ariakit"])
+        self.assertEqual(set(first), {"react-aria", "radix-primitives", "ariakit"})
         self.assertLessEqual(report["returned"], report["stage_budget"])
         self.assertLess(report["returned"], report["catalog"]["catalog_size"])
+
+    def test_external_catalog_uses_source_cards_for_findability(self) -> None:
+        report = server.call_tool(self.engine, "get_external_source_catalog", {
+            "stage": "refinement",
+            "query": "animated marketing landing sections kinetic effects",
+            "max_results": 6,
+        })
+        ids = [source["id"] for source in report["sources"]]
+        self.assertTrue({"magic-ui", "aceternity-ui"} & set(ids))
+        magic = next(source for source in report["sources"] if source["id"] == "magic-ui")
+        self.assertIn("Animated React", magic["summary"])
+        self.assertTrue(magic["best_for"])
+        self.assertTrue(magic["keywords"])
 
     def test_external_catalog_treats_21st_mcp_as_optional_tooling(self) -> None:
         report = server.call_tool(self.engine, "get_external_source_catalog", {

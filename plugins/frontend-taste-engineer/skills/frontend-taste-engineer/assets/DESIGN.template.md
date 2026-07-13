@@ -18,21 +18,28 @@
 
 ## Design thesis
 
-One sentence that defines product character and the intended hierarchy.
+One sentence that defines product character and the intended hierarchy. Must reject plausible alternatives (not “modern and clean”).
+
+## Why this is not generic
+
+One sentence proving the page could not be confused with a default AI landing after removing the logo.
 
 ## Direction
 
-- Composition:
-- Spacing/density and negative-space role:
-- Typography:
-- Color and surfaces:
+- Density profile (`sparse-editorial` · `marketing-landing` · `product-marketing` · `dense-app` · `data-dashboard` · `portfolio-expressive`):
+- Composition (first viewport: brand, one headline, one support line, one CTA group, one visual plane):
+- Spacing scale / section rhythm:
+- Typography (display + body pair; explicit scale; no Inter/Roboto/Arial identity):
+- Color roles (bg / surface / text / mute / accent):
+- Material / surface language:
 - Imagery/iconography:
-- Motion:
-- Motion grammar and reduced-motion outcome:
+- Motion intensity + at most three roles (focal · state · feedback) and reduced-motion outcomes:
 - Familiarity vs. originality:
-- Patterns intentionally avoided:
+- Patterns intentionally avoided (reject list):
 
-## System
+## System lock (before catalogs)
+
+Confirm the fields above are filled **before** any Magic UI / Aceternity / template / shadcn-block pull.
 
 - Existing system to preserve or extend:
 - Tokens and component strategy:
@@ -44,9 +51,17 @@ One sentence that defines product character and the intended hierarchy.
 
 List required loading, empty, error, success, permission, offline, destructive, and recovery states plus measurable completion criteria.
 
-## Rendered refinement
+## Catalog pulls (after lock)
 
-- Desktop/mobile captures:
+- Thesis-derived queries used:
+- Sources consulted:
+- What was adapted vs ignored:
+
+## Rendered refinement (mandatory)
+
+- Desktop/mobile captures (paths):
 - Three highest-impact weaknesses:
 - Fixes implemented:
-- Revised captures and remaining limitations:
+- Revised captures:
+- Second pass needed? (if still generic / fails brand test):
+- Remaining limitations:

@@ -1,6 +1,6 @@
 # Visual refinement loop
 
-Run this loop for every substantial autonomous build. Do not substitute source inspection for rendered inspection.
+Run this loop for every substantial autonomous build. Do not substitute source inspection for rendered inspection. For paid/client work, this loop is a completion gate—see `premium-quality-bar.md`.
 
 ## First capture
 
@@ -15,24 +15,34 @@ Keep real user names/messages in local project evidence only. Commit screenshots
 
 Compare the result against the design thesis and inspect:
 
+- Brand test: without the logo wordmark, could this still be any startup’s page?
+- First viewport: one composition, not a module dump (no unjustified stats/cards/badges).
+- Reject list: Inter/Roboto identity, purple gradients, centered three-card heroes, glow/glass stacks, pill forests, fake proof, scroll-reveal-everything.
 - Composition and reading sequence.
 - Hierarchy and primary-message dominance.
 - Typography, measure, wrapping, and loading behavior.
-- Spacing rhythm, alignment, density, edge treatment, and the hierarchy, pacing, evidence, or boundary role of each major empty region.
+- Spacing rhythm, alignment, density, edge treatment, and the role of each major empty region.
 - Color, contrast, materials, imagery, and icon consistency.
-- Copy specificity and section necessity.
-- Motion grammar, purpose, interruption, repetition, and reduced motion.
+- Copy specificity (audience + outcome) and section necessity.
+- Motion: ≤3 roles, purpose, interruption, repetition, reduced motion—not every section animating in.
 - Mobile recomposition, short viewports, overflow, and touch targets.
 - Focus visibility, keyboard path, console errors, and broken controls.
-- Generic generated patterns and visually disconnected sections.
 
-Name the three weaknesses with the largest effect on product fit, comprehension, character, or task completion. Do not spend the pass on three tiny polish details while a structural issue remains.
+Name the three weaknesses with the largest effect on product fit, comprehension, character, or task completion. Prefer structural/identity issues over tiny polish.
 
 ## Refine and recapture
 
-Implement all three fixes, rerun relevant checks, and capture the same viewports/states again. Inspect the revised output. Continue only when another change has meaningful value; stop when remaining issues are low impact or a real limitation blocks progress.
+Implement all three fixes, rerun relevant checks, and capture the same viewports/states again. Inspect the revised output.
 
-Examples of high-impact fixes include changing a generic centered composition, replacing vacant scale with content-led rhythm, repairing mobile hierarchy, replacing weak copy, correcting type scale/measure, removing unjustified chrome, making a dead control real, adding a missing intentional focal/state motion role, or simplifying distracting motion.
+If the brand test still fails or the page still matches the default AI cluster, run a **second** refine pass focused only on:
+
+1. Type/material identity
+2. First viewport composition
+3. Removal of generic chrome
+
+Continue only when another change has meaningful value; stop when remaining issues are low impact or a real limitation blocks progress.
+
+Examples of high-impact fixes: changing a generic centered composition, strengthening brand-level type, replacing vacant scale with content-led rhythm, repairing mobile hierarchy, rewriting weak headlines/CTAs, correcting type scale/measure, removing unjustified chrome, making a dead control real, adding one missing intentional focal/state motion role, or deleting scroll-reveal-everywhere.
 
 ## Evidence rules
 
@@ -40,3 +50,4 @@ Examples of high-impact fixes include changing a generic centered composition, r
 - Preserve before/after artifacts or record why only the final capture is retained.
 - Record failed captures and runtime limitations.
 - A build log does not prove visual quality; a screenshot does not prove keyboard or application behavior.
+- Do not mark complete without the refine gate (and second pass when still generic).

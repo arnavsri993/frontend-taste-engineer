@@ -31,7 +31,7 @@ Packets include principle, rationale, implementation, verification, exceptions,
 sources, license state, and inspectable retrieval reasons. Experimental records
 remain labelled and rank below equally relevant stable/active records.
 
-`get_external_source_catalog` reads the reviewable seed metadata without network access. Brief/planning/implementation/refinement/verification caps are 4/6/8/6/6 sources. The tool returns matching source metadata, artifact-pack paths, intended-use decisions, and the source-selection checklist; it never returns copied source contents or loads all 245 entries into an ordinary packet.
+`get_external_source_catalog` reads the reviewable seed metadata without network access. Brief/planning/implementation/refinement/verification caps are 4/6/8/6/6 sources. Matching uses source cards (`summary`, `best_for`, `keywords`, topics, category) rather than bare names/URLs. The tool returns those descriptions plus artifact-pack paths, intended-use decisions, and the source-selection checklist; it never returns copied source contents or loads all 395 entries into an ordinary packet.
 
 ## Protocol and safety
 

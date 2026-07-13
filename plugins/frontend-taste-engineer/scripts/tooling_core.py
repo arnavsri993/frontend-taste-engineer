@@ -461,8 +461,10 @@ def validate_source_catalogs(_: argparse.Namespace) -> Report:
             report.error("seed-classification", "Seed source has an invalid classification.", id=source_id, classification=classification)
         if "openai build week" in f"{entry.get('name', '')} {canonical_url}".lower():
             report.error("prohibited-catalog-source", "OpenAI Build Week cannot be a pullable catalog source.", id=source_id)
-    if len(seed_entries) != 245:
-        report.error("seed-count", "The initial catalog must retain 245 unique request-supplied URLs.", expected=245, actual=len(seed_entries))
+    if len(seed_entries) < 245:
+        report.error("seed-count", "The seed catalog must retain at least the original 245 request-supplied URLs.", expected_at_least=245, actual=len(seed_entries))
+    if len(seed_entries) != 395:
+        report.error("seed-count-current", "The current expanded seed catalog must contain 395 unique URLs.", expected=395, actual=len(seed_entries))
     for required_id in ("awwwards", "mobbin", "page-flows"):
         entry = next((item for item in seed_entries if item.get("id") == required_id), None)
         if not entry or entry.get("classification") != "inspiration-only":

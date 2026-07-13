@@ -130,7 +130,7 @@ areas:
   motion_interaction:
     status: strong
     primary_sources: [apple-hig, fluent-2, wcag-22, webdev]
-    supporting_sources: [emil-design-skills, transitions-dev-repo, transitions-refine-page, astro-docs]
+    supporting_sources: [emil-design-skills, transitions-dev-repo, transitions-refine-page, astro-docs, amicro-micro-transitions]
     covers: [purpose, continuity, feedback, easing, duration, origin, interruptibility, reduced motion, view transitions, runtime cost]
     gaps: [independent motion usability studies, gesture physics across devices]
 

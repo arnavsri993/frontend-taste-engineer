@@ -41,6 +41,7 @@ Load this file when the MCP server is unavailable or the work carries accessibil
 - Use hierarchy, rhythm, composition, type, color, imagery, and motion to express product character.
 - Treat minimalism as selective reduction, not blank scale: every major gap needs a hierarchy, grouping, pacing, focus, evidence, or boundary job.
 - For a non-static direction, use a small motion grammar across focal, state, and feedback moments; preserve reduced-motion outcomes and never hide ordinary reading content behind generic reveals.
+- When MCP is available, follow Skill `references/pull-motion-and-elements.md` before adding kinetic libraries or section catalogs; offline, prefer CSS transitions and document reduced coverage.
 - Challenge generator defaults: centered hero, three cards, purple gradient, glow/glass, bento, pill, and rounded-card patterns require a product reason.
 - Distinguish aesthetic preference from a usability or correctness defect.
 

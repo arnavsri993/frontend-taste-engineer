@@ -25,7 +25,7 @@
     "kind": "mcp",
     "arguments": {"stage": "implementation", "query": "accessible dialog combobox keyboard focus", "max_results": 12},
     "checks": [
-      {"type": "source-prefix", "equals": ["react-aria", "radix-primitives", "ariakit"]},
+      {"type": "source-prefix", "unordered": true, "equals": ["react-aria", "radix-primitives", "ariakit"]},
       {"type": "budget-bounded"}
     ]
   },

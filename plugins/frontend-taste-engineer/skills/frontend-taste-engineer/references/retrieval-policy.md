@@ -22,11 +22,18 @@ External source selection has separate stage caps: brief 4, planning 6, implemen
 
 ## External source routing
 
-- Brief: inspiration catalogs, section-pattern catalogs, and page-type summaries; no code.
-- Planning: shadcn/ui, Tailwind blocks, official design-system docs, and source-fit matrices.
-- Implementation: native HTML first, then maintained primitives such as Radix, React Aria, Ariakit, Headless UI, Ark UI, or Floating UI; use configured 21st.dev MCP only as optional discovery/install tooling.
-- Refinement: expressive component/motion catalogs and inspiration galleries for direction, not copied expression.
+- Brief: inspiration catalogs, section-pattern catalogs, and page-type summaries; no code. Add early motion corpus + catalog pulls only when the creative profile is kinetic or medium-high/high motion (see Skill `references/pull-motion-and-elements.md`).
+- Planning: shadcn/ui, Tailwind blocks, official design-system docs, template/starter catalogs when scaffolding, and source-fit matrices.
+- Implementation: native HTML first, then maintained primitives such as Radix, React Aria, Ariakit, Headless UI, Ark UI, Base UI, or Floating UI; use configured 21st.dev MCP only as optional discovery/install tooling.
+- Refinement: expressive component/motion catalogs and inspiration galleries for direction, not copied expression. Prefer two narrow catalog queries—one for motion libraries, one for animated sections/micro-interactions—over a single vague “components” query.
 - Verification: authoritative accessibility/platform guidance plus license, anti-copy, anti-slop, performance, and reduced-motion review.
+
+### Motion element pull recipe
+
+1. `get_motion_guidance` with a purpose/reduced-motion query.
+2. `get_external_source_catalog` stage `refinement`, query like `react motion transitions gestures spring`, `intended_use` adapted-implementation only for clear-license libraries.
+3. Second catalog call for elements: `animated marketing landing sections kinetic effects micro-interactions`, usually `intended_use: inspiration-only`.
+4. Keep stage budgets; map results into focal, state-continuity, and feedback roles; never paste demos wholesale.
 
 Before external use, verify product fit, exact license/intended use, attribution and entitlement, dependency/security risk, accessibility and states, responsive/localization behavior, motion/canvas/WebGL cost, originality/brand-copy risk, safer primitives, stability, public-artifact permission, and the post-integration test plan. Unknown license blocks copying/adaptation. `inspiration-only` permits generalized observations only. OpenAI Build Week and other corporate/product/event marketing pages are not pullable catalogs.
 

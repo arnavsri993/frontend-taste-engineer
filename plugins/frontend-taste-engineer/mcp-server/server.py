@@ -171,7 +171,7 @@ EXTERNAL_SOURCE_STAGE_CATEGORIES = {
 EXTERNAL_SOURCE_STAGE_PRIORITY_IDS = {
     "brief": ("awwwards", "mobbin", "page-flows"),
     "planning": ("shadcn-ui", "radix-primitives", "react-aria"),
-    "implementation": ("react-aria", "radix-primitives", "ariakit", "headless-ui", "ark-ui", "floating-ui", "shadcn-ui", "21st-dev-mcp"),
+    "implementation": ("react-aria", "radix-primitives", "ariakit", "base-ui", "headless-ui", "ark-ui", "floating-ui", "shadcn-ui", "21st-dev-mcp"),
     "refinement": ("magic-ui", "aceternity-ui", "react-bits", "animate-ui", "motion-primitives"),
     "verification": ("react-aria", "radix-primitives", "ariakit", "floating-ui"),
 }
@@ -1774,13 +1774,44 @@ def external_source_catalog(args: Mapping[str, Any]) -> dict[str, Any]:
         if category and _slug(item.get("category") or "") != category:
             continue
         searchable = _text({
-            "name": item.get("name"), "source_type": item.get("source_type"),
-            "topics": item.get("topics_contributed"), "category": item.get("category"),
+            "id": source_id,
+            "name": item.get("name"),
+            "summary": item.get("summary"),
+            "best_for": item.get("best_for"),
+            "not_for": item.get("not_for"),
+            "keywords": item.get("keywords"),
+            "source_type": item.get("source_type"),
+            "topics": item.get("topics_contributed"),
+            "category": item.get("category"),
+            "category_summary": item.get("category_summary"),
+            "category_use_when": item.get("category_use_when"),
         })
-        overlap = len(query_terms & set(tokenize(searchable)))
+        searchable_terms = set(tokenize(searchable))
+        overlap = len(query_terms & searchable_terms)
+        phrase_bonus = 0
+        query_lower = query.lower().strip()
+        if query_lower and query_lower in searchable.lower():
+            phrase_bonus = 8
+        # Prefer sources whose summary/keywords explain the job, not just category membership.
+        descriptive_hit = 0
+        descriptive_terms = set(tokenize(_text({
+            "summary": item.get("summary"),
+            "best_for": item.get("best_for"),
+            "keywords": item.get("keywords"),
+        })))
+        if query_terms and query_terms & descriptive_terms:
+            descriptive_hit = min(6, len(query_terms & descriptive_terms) * 2)
         stage_fit = 5 if item.get("category") in stage_categories else 0
         exact = 20 if source_id in requested_ids or str(item.get("registry_id") or "") in requested_ids else 0
-        score = exact + overlap * 3 + stage_fit + priority.get(source_id, 0) + (2 if item.get("registered") else 0)
+        score = (
+            exact
+            + overlap * 3
+            + phrase_bonus
+            + descriptive_hit
+            + stage_fit
+            + priority.get(source_id, 0)
+            + (2 if item.get("registered") else 0)
+        )
         if requested_ids or score > 0 or not query:
             scored.append((score, source_id, item))
     scored.sort(key=lambda row: (-row[0], row[1]))
@@ -1797,6 +1828,10 @@ def external_source_catalog(args: Mapping[str, Any]) -> dict[str, Any]:
             "registered": bool(item.get("registered")),
             "registry_id": item.get("registry_id") or None,
             "source_type": item.get("source_type"),
+            "summary": item.get("summary") or "",
+            "best_for": item.get("best_for") or [],
+            "not_for": item.get("not_for") or [],
+            "keywords": item.get("keywords") or [],
             "topics_contributed": item.get("topics_contributed") or [],
             "selection_score": score,
             "usage": usage,

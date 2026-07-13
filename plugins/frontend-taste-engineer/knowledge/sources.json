@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1.0",
-  "last_reviewed": "2026-07-10",
+  "last_reviewed": "2026-07-11",
   "authoritative_registry": "../research/source-registry.yml",
   "usage_policy": "Rules are original synthesis. Source IDs identify upstream evidence and established practice; do not reproduce upstream passages, code, icons, or assets without checking their current terms.",
   "sources": [
@@ -10,7 +10,22 @@
       "publisher": "W3C",
       "canonical_url": "https://www.w3.org/TR/WCAG22/",
       "source_type": "standard",
-      "license_note": "Use under current W3C document terms; this corpus contains original synthesis, not copied normative text."
+      "license_note": "Use under current W3C document terms; this corpus contains original synthesis, not copied normative text.",
+      "summary": "Normative accessibility success criteria and conformance model.",
+      "best_for": [
+        "accessibility requirements",
+        "completion gates",
+        "audit baselines"
+      ],
+      "when_to_use": [
+        "Any interface that must be perceivable, operable, understandable, or robust."
+      ],
+      "keywords": [
+        "wcag",
+        "accessibility",
+        "conformance",
+        "a11y"
+      ]
     },
     {
       "id": "wai-aria-apg",
@@ -18,7 +33,25 @@
       "publisher": "W3C Web Accessibility Initiative",
       "canonical_url": "https://www.w3.org/WAI/ARIA/apg/",
       "source_type": "official-pattern-guidance",
-      "license_note": "Use under current W3C terms; verify the live pattern and support notes before implementation."
+      "license_note": "Use under current W3C terms; verify the live pattern and support notes before implementation.",
+      "summary": "Authoring practices for ARIA patterns, keyboard interaction, and widget structure.",
+      "best_for": [
+        "dialogs",
+        "tabs",
+        "menus",
+        "comboboxes",
+        "landmarks"
+      ],
+      "when_to_use": [
+        "Building or auditing complex widgets and keyboard UX."
+      ],
+      "keywords": [
+        "aria",
+        "apg",
+        "keyboard",
+        "patterns",
+        "widgets"
+      ]
     },
     {
       "id": "mdn-web-docs",
@@ -26,7 +59,23 @@
       "publisher": "Mozilla and contributors",
       "canonical_url": "https://developer.mozilla.org/",
       "source_type": "platform-documentation",
-      "license_note": "Consult MDN's current attribution and licensing terms; this corpus paraphrases platform behavior."
+      "license_note": "Consult MDN's current attribution and licensing terms; this corpus paraphrases platform behavior.",
+      "summary": "Platform reference for HTML/CSS/JS behavior, accessibility, and compatibility.",
+      "best_for": [
+        "browser APIs",
+        "element semantics",
+        "compat checks"
+      ],
+      "when_to_use": [
+        "Need authoritative platform behavior rather than framework opinion."
+      ],
+      "keywords": [
+        "mdn",
+        "html",
+        "css",
+        "javascript",
+        "compat"
+      ]
     },
     {
       "id": "webdev",
@@ -34,7 +83,22 @@
       "publisher": "Google Chrome team and contributors",
       "canonical_url": "https://web.dev/",
       "source_type": "official-web-guidance",
-      "license_note": "Consult the current site terms; this corpus synthesizes concepts without reproducing articles."
+      "license_note": "Consult the current site terms; this corpus synthesizes concepts without reproducing articles.",
+      "summary": "Chrome-team guidance on performance, responsive design, forms, and web quality.",
+      "best_for": [
+        "Core Web Vitals",
+        "performance",
+        "responsive techniques"
+      ],
+      "when_to_use": [
+        "Optimizing delivery, rendering, and modern web quality."
+      ],
+      "keywords": [
+        "web.dev",
+        "performance",
+        "vitals",
+        "responsive"
+      ]
     },
     {
       "id": "react-docs",
@@ -42,7 +106,22 @@
       "publisher": "React team and contributors",
       "canonical_url": "https://react.dev/",
       "source_type": "framework-documentation",
-      "license_note": "Consult the documentation repository's current license and attribution terms."
+      "license_note": "Consult the documentation repository's current license and attribution terms.",
+      "summary": "Official React documentation for component architecture and state behavior.",
+      "best_for": [
+        "React state",
+        "effects",
+        "composition"
+      ],
+      "when_to_use": [
+        "React-specific implementation decisions."
+      ],
+      "keywords": [
+        "react",
+        "hooks",
+        "state",
+        "docs"
+      ]
     },
     {
       "id": "nextjs-docs",
@@ -50,7 +129,23 @@
       "publisher": "Vercel and contributors",
       "canonical_url": "https://nextjs.org/docs",
       "source_type": "framework-documentation",
-      "license_note": "Consult the documentation repository's current license and attribution terms."
+      "license_note": "Consult the documentation repository's current license and attribution terms.",
+      "summary": "Official Next.js docs for App Router, rendering, metadata, and deployment patterns.",
+      "best_for": [
+        "routing",
+        "SSR/SSG",
+        "metadata",
+        "Next-specific architecture"
+      ],
+      "when_to_use": [
+        "Working in a Next.js codebase."
+      ],
+      "keywords": [
+        "nextjs",
+        "app-router",
+        "vercel",
+        "docs"
+      ]
     },
     {
       "id": "material-3",
@@ -58,7 +153,20 @@
       "publisher": "Google",
       "canonical_url": "https://m3.material.io/",
       "source_type": "Official design system and implementation repository",
-      "license_note": "Material Web Apache-2.0; Material site/brand assets subject to Google terms"
+      "license_note": "Material Web Apache-2.0; Material site/brand assets subject to Google terms",
+      "summary": "Material Design 3 system guidance and related implementation references.",
+      "best_for": [
+        "Material theming",
+        "component anatomy"
+      ],
+      "when_to_use": [
+        "Product already committed to Material language."
+      ],
+      "keywords": [
+        "material",
+        "m3",
+        "design-system"
+      ]
     },
     {
       "id": "apple-hig",
@@ -66,7 +174,22 @@
       "publisher": "Apple",
       "canonical_url": "https://developer.apple.com/design/human-interface-guidelines/",
       "source_type": "platform-design-guidance",
-      "license_note": "Use as platform guidance under Apple's current terms; this corpus contains no copied Apple assets."
+      "license_note": "Use as platform guidance under Apple's current terms; this corpus contains no copied Apple assets.",
+      "summary": "Apple HIG for clarity, accessibility, motion restraint, and platform craft.",
+      "best_for": [
+        "quality of craft",
+        "motion etiquette",
+        "accessibility mindset"
+      ],
+      "when_to_use": [
+        "Need platform-grade interaction principles, not Apple asset copying."
+      ],
+      "keywords": [
+        "apple",
+        "hig",
+        "craft",
+        "accessibility"
+      ]
     },
     {
       "id": "fluent-2",
@@ -74,7 +197,21 @@
       "publisher": "Microsoft",
       "canonical_url": "https://fluent2.microsoft.design/",
       "source_type": "Official design system",
-      "license_note": "Fluent UI repository MIT; referenced fonts/icons can have separate asset terms"
+      "license_note": "Fluent UI repository MIT; referenced fonts/icons can have separate asset terms",
+      "summary": "Microsoft Fluent 2 design system for enterprise product UI and tokens.",
+      "best_for": [
+        "enterprise theming",
+        "semantic tokens",
+        "high contrast"
+      ],
+      "when_to_use": [
+        "Building Fluent-aligned or enterprise Windows-adjacent experiences."
+      ],
+      "keywords": [
+        "fluent",
+        "microsoft",
+        "tokens"
+      ]
     },
     {
       "id": "carbon-design-system",
@@ -82,7 +219,22 @@
       "publisher": "IBM",
       "canonical_url": "https://carbondesignsystem.com/",
       "source_type": "Official design system and component repository",
-      "license_note": "Apache-2.0"
+      "license_note": "Apache-2.0",
+      "summary": "IBM Carbon design system for dense enterprise and data products.",
+      "best_for": [
+        "data-heavy UI",
+        "enterprise components",
+        "content guidelines"
+      ],
+      "when_to_use": [
+        "Complex operational interfaces needing structured systems."
+      ],
+      "keywords": [
+        "carbon",
+        "ibm",
+        "enterprise",
+        "data"
+      ]
     },
     {
       "id": "polaris",
@@ -90,7 +242,21 @@
       "publisher": "Shopify",
       "canonical_url": "https://polaris.shopify.com/",
       "source_type": "design-system",
-      "license_note": "Guidance is synthesized; product marks and assets may have separate restrictions."
+      "license_note": "Guidance is synthesized; product marks and assets may have separate restrictions.",
+      "summary": "Shopify Polaris guidance for commerce admin and merchant workflows.",
+      "best_for": [
+        "commerce admin",
+        "forms",
+        "merchant UX"
+      ],
+      "when_to_use": [
+        "Shopify admin/commerce product surfaces."
+      ],
+      "keywords": [
+        "polaris",
+        "shopify",
+        "commerce"
+      ]
     },
     {
       "id": "primer-design-system",
@@ -98,7 +264,20 @@
       "publisher": "GitHub",
       "canonical_url": "https://primer.style/",
       "source_type": "Official product and brand design system",
-      "license_note": "Primer React MIT; brand assets and GitHub marks have separate terms"
+      "license_note": "Primer React MIT; brand assets and GitHub marks have separate terms",
+      "summary": "GitHub Primer system for developer-tool interfaces and practical a11y patterns.",
+      "best_for": [
+        "developer tools",
+        " pragmatic accessibility"
+      ],
+      "when_to_use": [
+        "Building tools for technical audiences."
+      ],
+      "keywords": [
+        "primer",
+        "github",
+        "developer-tools"
+      ]
     },
     {
       "id": "govuk-design-system",
@@ -106,7 +285,21 @@
       "publisher": "Government Digital Service",
       "canonical_url": "https://design-system.service.gov.uk/",
       "source_type": "public-service-design-system",
-      "license_note": "Guidance is synthesized; consult the site's current licensing and attribution notice for reuse."
+      "license_note": "Guidance is synthesized; consult the site's current licensing and attribution notice for reuse.",
+      "summary": "GOV.UK system focused on clear public-service forms and evidenced accessibility.",
+      "best_for": [
+        "forms",
+        "errors",
+        "public-service content"
+      ],
+      "when_to_use": [
+        "High-stakes informational or government-like services."
+      ],
+      "keywords": [
+        "govuk",
+        "forms",
+        "public-service"
+      ]
     },
     {
       "id": "uswds",
@@ -114,7 +307,21 @@
       "publisher": "U.S. General Services Administration and contributors",
       "canonical_url": "https://designsystem.digital.gov/",
       "source_type": "public-service-design-system",
-      "license_note": "Guidance is synthesized; verify current federal, third-party, trademark, and repository notices."
+      "license_note": "Guidance is synthesized; verify current federal, third-party, trademark, and repository notices.",
+      "summary": "U.S. Web Design System for accessible federal/public services.",
+      "best_for": [
+        "public services",
+        "trust",
+        "accessible components"
+      ],
+      "when_to_use": [
+        "Civic/public-facing experiences needing clarity and trust."
+      ],
+      "keywords": [
+        "uswds",
+        "federal",
+        "accessibility"
+      ]
     },
     {
       "id": "spectrum-design-system",
@@ -122,7 +329,21 @@
       "publisher": "Adobe",
       "canonical_url": "https://spectrum.adobe.com/",
       "source_type": "Official design system",
-      "license_note": "Spectrum site/brand assets subject to Adobe terms; React Spectrum repository Apache-2.0"
+      "license_note": "Spectrum site/brand assets subject to Adobe terms; React Spectrum repository Apache-2.0",
+      "summary": "Adobe Spectrum system with strong color and adaptive design guidance.",
+      "best_for": [
+        "color systems",
+        "adaptive UI",
+        "product design-system structure"
+      ],
+      "when_to_use": [
+        "Designing resilient cross-product component systems."
+      ],
+      "keywords": [
+        "spectrum",
+        "adobe",
+        "color"
+      ]
     },
     {
       "id": "react-aria",
@@ -130,7 +351,22 @@
       "publisher": "Adobe and contributors",
       "canonical_url": "https://react-spectrum.adobe.com/react-aria/",
       "source_type": "accessible-component-documentation",
-      "license_note": "Guidance is synthesized; check the current repository license before reusing code."
+      "license_note": "Guidance is synthesized; check the current repository license before reusing code.",
+      "summary": "Accessible React behavior hooks/components across modalities and locales.",
+      "best_for": [
+        "complex widgets",
+        "keyboard/touch parity",
+        "i18n interactions"
+      ],
+      "when_to_use": [
+        "Need behavior correctness more than styling."
+      ],
+      "keywords": [
+        "react-aria",
+        "accessibility",
+        "hooks",
+        "i18n"
+      ]
     },
     {
       "id": "radix-primitives",
@@ -138,7 +374,23 @@
       "publisher": "WorkOS and contributors",
       "canonical_url": "https://www.radix-ui.com/primitives",
       "source_type": "component-primitive-documentation",
-      "license_note": "Guidance is synthesized; check the current repository license before reusing code."
+      "license_note": "Guidance is synthesized; check the current repository license before reusing code.",
+      "summary": "Unstyled accessible React primitives used widely under design systems like shadcn.",
+      "best_for": [
+        "dialogs",
+        "menus",
+        "tabs",
+        "focus management"
+      ],
+      "when_to_use": [
+        "Need composable accessible behavior with custom visuals."
+      ],
+      "keywords": [
+        "radix",
+        "primitives",
+        "accessible",
+        "focus"
+      ]
     },
     {
       "id": "transitions-dev-repo",
@@ -146,7 +398,20 @@
       "publisher": "Jakub Antalik",
       "canonical_url": "https://github.com/Jakubantalik/transitions.dev",
       "source_type": "GitHub repository, examples, skill, and build generator",
-      "license_note": "MIT for Refine per terms.html; no root LICENSE was visible, so repository-wide scope is not assumed"
+      "license_note": "MIT for Refine per terms.html; no root LICENSE was visible, so repository-wide scope is not assumed",
+      "summary": "Motion transition showcase and generator-oriented repository.",
+      "best_for": [
+        "transition vocabulary",
+        "motion pattern study"
+      ],
+      "when_to_use": [
+        "Refining motion language; verify license before copying code."
+      ],
+      "keywords": [
+        "transitions",
+        "motion",
+        "css"
+      ]
     },
     {
       "id": "emil-design-skills",
@@ -154,15 +419,42 @@
       "publisher": "Emil Kowalski",
       "canonical_url": "https://github.com/emilkowalski/skills",
       "source_type": "GitHub agent-skill collection",
-      "license_note": "MIT"
+      "license_note": "MIT",
+      "summary": "Practitioner skills for animation review, motion vocabulary, and design craft.",
+      "best_for": [
+        "animation review",
+        "interaction polish"
+      ],
+      "when_to_use": [
+        "Need opinionated motion craft heuristics with accessibility exceptions."
+      ],
+      "keywords": [
+        "emil",
+        "motion",
+        "animation-review",
+        "skills"
+      ]
     },
     {
       "id": "taste-skill-repo",
-      "title": "Taste Skill — Anti-Slop Frontend Framework",
+      "title": "Taste Skill \u2014 Anti-Slop Frontend Framework",
       "publisher": "Leonxlnx contributors",
       "canonical_url": "https://github.com/Leonxlnx/taste-skill",
       "source_type": "GitHub agent-skill collection",
-      "license_note": "MIT"
+      "license_note": "MIT",
+      "summary": "Anti-slop frontend skill collection emphasizing brief inference and completion checks.",
+      "best_for": [
+        "anti-slop review",
+        "direction selection workflows"
+      ],
+      "when_to_use": [
+        "Need experimental workflow ideas; do not treat aesthetic bans as universal law."
+      ],
+      "keywords": [
+        "taste-skill",
+        "anti-slop",
+        "skills"
+      ]
     },
     {
       "id": "kill-ai-slop",
@@ -170,7 +462,45 @@
       "publisher": "yetone",
       "canonical_url": "https://github.com/yetone/kill-ai-slop",
       "source_type": "GitHub field guide, agent skill, and static scanner",
-      "license_note": "No repository license was stated at revision eb4857a; inspiration-only, with no copied or adapted prose, examples, regexes, or code."
+      "license_note": "No repository license was stated at revision eb4857a; inspiration-only, with no copied or adapted prose, examples, regexes, or code.",
+      "summary": "Field guide/scanner taxonomy for detecting AI-slop visual and copy signals.",
+      "best_for": [
+        "slop triage categories",
+        "audit method inspiration"
+      ],
+      "when_to_use": [
+        "Inspiration only while license remains unresolved; synthesize, do not copy."
+      ],
+      "keywords": [
+        "anti-slop",
+        "taxonomy",
+        "audit"
+      ]
+    },
+    {
+      "id": "amicro-micro-transitions",
+      "title": "Amicro \u2014 Micro-transitions",
+      "publisher": "Syed Subhan (Subhan-code)",
+      "canonical_url": "https://github.com/Subhan-code/Amicro--Micro-transitions-",
+      "source_type": "GitHub React micro-interaction showcase and demo site",
+      "license_note": "README claims MIT, but no LICENSE file or GitHub license metadata existed at revision 5914ede; inspiration-only, with no copied or adapted code, assets, or brand marks.",
+      "summary": "React micro-interaction showcase for control-state feedback ideas.",
+      "best_for": [
+        "button/hover micro-interaction catalogs"
+      ],
+      "when_to_use": [
+        "Inspiration only; license claim lacked LICENSE file at inspection."
+      ],
+      "keywords": [
+        "micro-interactions",
+        "motion",
+        "react"
+      ]
     }
-  ]
+  ],
+  "findability": {
+    "schema": "registered-source-card/0.1",
+    "note": "Findability fields help retrieval choose registered evidence sources; provenance remains in the registry.",
+    "last_enriched": "2026-07-12"
+  }
 }
