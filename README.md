@@ -19,7 +19,7 @@ The repository uses the official repo-marketplace layout:
     ├── knowledge/
     ├── references/                  # external-source selection and license gates
     ├── research/
-    │   ├── source-discovery/         # 245 seed URLs, queries, policies, candidate templates
+    │   ├── source-discovery/         # 395 seed URLs, queries, policies, candidate templates
     │   └── artifact-packs/           # source-family summaries; no copied code/assets
     ├── audits/
     ├── evals/
@@ -78,7 +78,7 @@ The standalone Skill package is created under `dist/frontend-taste-engineer-skil
 
 External sources are treated as untrusted research data. Repository scripts are not executed during research. Guidance is synthesized rather than copied, paid or proprietary libraries are excluded, and inaccessible sources remain explicitly unresolved. See `research/license-review.md`, `research/conflicts.md`, and `research/rejected-guidance.md`.
 
-The candidate seed catalog contains 245 unique frontend/component/template/inspiration URLs across 15 families: agent/MCP/AI UI, component catalogs, shadcn, Tailwind blocks, accessible primitives, dashboard/data UI, design systems, motion, assets, typography, color, inspiration, portfolios, landing/startup, and ecommerce. Seeds are not stable knowledge: 203 begin `unresolved`, 42 explicit galleries begin `inspiration-only`, and 12 cross-reference an already reviewed registry source. OpenAI Build Week and similar corporate/product/event marketing are never pullable catalogs.
+The candidate seed catalog contains 395 unique frontend/component/template/inspiration URLs across 15 families: agent/MCP/AI UI, component catalogs, shadcn, Tailwind blocks, accessible primitives, dashboard/data UI, design systems, motion, assets, typography, color, inspiration, portfolios, landing/startup, and ecommerce. Seeds are not stable knowledge: 323 begin `unresolved`, 72 begin `inspiration-only`, and 12 cross-reference an already reviewed registry source. OpenAI Build Week and similar corporate/product/event marketing are never pullable catalogs.
 
 ## Model routing and subagents
 

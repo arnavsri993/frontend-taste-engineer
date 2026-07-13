@@ -161,7 +161,7 @@ Recency does not override authority by itself, but it does decide between versio
 
 - **Claims:** A large recurring search can find useful new sources quickly; stable guidance requires provenance, licensing, contextual exceptions, verification, and review.
 - **Risk:** Fresh candidates silently become trusted rules or inflate ordinary retrieval with unreviewed metadata.
-- **Resolution:** Discovery writes deterministic candidate reports only. Stable promotion requires a candidate branch/PR, full registry/license/provenance updates, evaluations, and review. Stage budgets keep the 245-source catalog out of default packets.
+- **Resolution:** Discovery writes deterministic candidate reports only. Stable promotion requires a candidate branch/PR, full registry/license/provenance updates, evaluations, and review. Stage budgets keep the 395-source catalog out of default packets.
 - **Priority:** Stable-knowledge integrity over discovery speed.
 
 ## C-022 — Agentic installers versus repository control

@@ -105,11 +105,11 @@ Checked 2026-07-10. Nothing in this file is promoted to stable knowledge until t
 
 ## U-011 — Expanded seed catalog item-level review
 
-- **Inventory:** `source-discovery/seed-catalog.yml` contains 245 unique URLs; 12 cross-reference a reviewed registry source and 233 are not registered.
-- **Known:** the URLs and requested category memberships; 42 explicit galleries are constrained to `inspiration-only`.
-- **Gap:** the seed import did not verify ownership, public accessibility, immutable revisions, exact license/entitlement, asset scope, dependency/security posture, accessibility usefulness, or maintenance for each unregistered source.
+- **Inventory:** `source-discovery/seed-catalog.yml` contains 395 unique URLs (245 original + 62 library expansion + 88 template absorption on 2026-07-12); 12 cross-reference a reviewed registry source and 383 are not registered.
+- **Known:** the URLs, requested category memberships, and discovery findability cards; 72 entries are constrained to `inspiration-only` (galleries and several paid marketplaces).
+- **Gap:** seed import/expansion/template absorption did not verify ownership, public accessibility, immutable revisions, exact license/entitlement, asset scope, dependency/security posture, accessibility usefulness, or maintenance for each unregistered source. Template listings were not downloaded or vendored.
 - **Resolution needed:** run bounded discovery, inspect public docs/repository/package/license metadata, score observed evidence, and apply the promotion policy per source.
-- **Current action:** 203 seed entries remain `unresolved`; 42 remain `inspiration-only`; copy/adapt/install nothing from seed metadata alone.
+- **Current action:** 323 seed entries remain `unresolved`; 72 remain `inspiration-only`; copy/adapt/install nothing from seed metadata alone.
 - **Priority:** incremental and coverage-driven. Do not review or retrieve the whole catalog for an ordinary frontend task.
 
 ## U-012 — Kill AI Slop repository license
@@ -122,9 +122,19 @@ Checked 2026-07-10. Nothing in this file is promoted to stable knowledge until t
 - **Current action:** classify as inspiration-only; use generalized observations and original synthesis, but do not copy or adapt upstream text or code.
 - **Priority:** medium for copying; no blocker for the original, multi-source guidance recorded here.
 
+## U-013 — Amicro micro-transitions repository license and asset scope
+
+- **URL:** <https://github.com/Subhan-code/Amicro--Micro-transitions->
+- **Registry ID:** `amicro-micro-transitions`
+- **Known:** public repository inventory, README, package metadata, Motion/React showcase sources, commit `5914ede5ce5ca0cade0573f39b6ee69050f9806b`, and demo URL listing were accessible on 2026-07-11.
+- **Gap:** README claims MIT and links `LICENSE`, but no LICENSE file existed and the GitHub license endpoint returned none. Apple/GitHub-themed demo labels, an Apple logo SVG, background imagery, and third-party dependency licenses also need item-level review before any copy/adapt use.
+- **Resolution needed:** a real root LICENSE covering the showcase code and generated snippets, plus clear asset/mark exceptions or replacements.
+- **Current action:** classify as inspiration-only; register for discovery and motion-catalog context; do not copy or adapt code, assets, or brand expression; do not promote new stable rules from this source alone.
+- **Priority:** medium for copying; low for registry completeness because stronger motion sources already cover purpose, interruption, and reduced motion.
+
 ## Recheck policy
 
 - Recheck high-priority unresolved supplied sources weekly for the first month, then monthly.
-- Recheck experimental and inspiration-only sources (`taste-skill-*`, `transitions-*`, `kill-ai-slop`) before promoting or updating any rule.
+- Recheck experimental and inspiration-only sources (`taste-skill-*`, `transitions-*`, `kill-ai-slop`, `amicro-micro-transitions`) before promoting or updating any rule.
 - Recheck framework/design-system sources at use time when the project version or package differs from the recorded revision.
 - A newly accessible source enters candidate review; it never updates stable knowledge directly.

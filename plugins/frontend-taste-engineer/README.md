@@ -2,7 +2,7 @@
 
 This directory is the installable plugin package. The repository root contains the marketplace, CI, contribution policy, and full architecture documentation.
 
-Version 0.3.0 adds a 245-source external frontend seed catalog, stage-bounded source selection, license/anti-copy gates, optional 21st.dev MCP guidance, artifact-pack summaries, deterministic candidate discovery, and policy evaluations. The current unreleased update adds a source-backed motion grammar for expressive work, conditional early motion retrieval, and an intentional-negative-space rule so minimalism does not collapse into bare scale. It preserves the 0.2.0 `autonomous-zero-brief-build` workflow for minimal website, page, portfolio, frontend, and redesign prompts.
+Version 0.3.0 adds a 245-source external frontend seed catalog, stage-bounded source selection, license/anti-copy gates, optional 21st.dev MCP guidance, artifact-pack summaries, deterministic candidate discovery, and policy evaluations. The current unreleased update expands that catalog to 395 findability-described seeds, adds a source-backed motion grammar for expressive work, conditional early motion retrieval, and an intentional-negative-space rule so minimalism does not collapse into bare scale. It preserves the 0.2.0 `autonomous-zero-brief-build` workflow for minimal website, page, portfolio, frontend, and redesign prompts.
 
 “Stunning” and similar quality language means exceptionally appropriate and well executed. The classifier uses a five-level visual-intensity model plus domain, task, audience, trust, risk, density, frequency, maturity, accessibility, device, familiarity, and experimental-tolerance signals; it does not force dark, cinematic, gradient-heavy, or highly animated styling across products.
 
@@ -13,7 +13,7 @@ Runtime components:
 - `mcp-server/`: stdio classification, retrieval, provenance, audit, and bounded external-source selection tools.
 - `hooks/`: trusted-on-review session context hook.
 - `review-app/`: optional local provenance and audit viewer.
-- `research/source-discovery/`: 245 candidate seed URLs, monthly queries, scoring, promotion policy, and candidate templates.
+- `research/source-discovery/`: 395 candidate seed URLs, monthly queries, scoring, promotion policy, and candidate templates.
 - `research/artifact-packs/` and `references/`: source-family summaries plus selection/license/discovery gates.
 - `evals/`, `audits/`, `maintenance/`: evidence, regression, and lifecycle systems.
 

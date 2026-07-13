@@ -1,5 +1,5 @@
 schema_version: 1
-reviewed: "2026-07-10"
+reviewed: "2026-07-11"
 default_license_status: summarized
 promotion_note: >-
   This maps research findings to candidate knowledge records. It does not mean the
@@ -209,7 +209,7 @@ records:
   - finding: F-026
     candidate_record: motion-needs-communicative-purpose
     primary_sources: [apple-hig, fluent-2]
-    supporting_sources: [emil-design-skills, transitions-dev-repo]
+    supporting_sources: [emil-design-skills, transitions-dev-repo, amicro-micro-transitions]
     conflicts: [C-003]
     license_status: summarized
     promotion: stable-candidate
@@ -217,7 +217,7 @@ records:
   - finding: F-027
     candidate_record: motion.interaction-specific-tokens
     primary_sources: [apple-hig, fluent-2]
-    supporting_sources: [emil-design-skills, transitions-dev-repo]
+    supporting_sources: [emil-design-skills, transitions-dev-repo, amicro-micro-transitions]
     conflicts: [C-004]
     license_status: summarized
     promotion: contextual-candidate
@@ -415,3 +415,5 @@ quarantined_as_instructions:
     material: "installation/apply/refine commands"
   - id: kill-ai-slop
     material: "installation, scan, report, approval, and fix commands plus executable scanner instructions"
+  - id: amicro-micro-transitions
+    material: "README install/run commands and copy-to-clipboard component generators"

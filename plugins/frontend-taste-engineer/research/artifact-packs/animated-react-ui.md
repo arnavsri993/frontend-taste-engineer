@@ -1,6 +1,6 @@
 # Animated React UI
 
-Use motion sources for continuity, causality, feedback, and orientation—not as a default layer of spectacle. Source families include Motion/Framer Motion, GSAP, React Spring, Auto Animate, Anime.js, Lottie, Rive, Three.js/react-three-fiber/drei, and component catalogs such as Magic UI, Aceternity UI, React Bits, Animate UI, and Motion Primitives.
+Use motion sources for continuity, causality, feedback, and orientation—not as a default layer of spectacle. Source families include Motion/Framer Motion, GSAP, React Spring, Auto Animate, Anime.js, Lottie, Rive, Three.js/react-three-fiber/drei, and component catalogs such as Magic UI, Aceternity UI, React Bits, Animate UI, and Motion Primitives. `amicro-micro-transitions` is a registered inspiration-only React/Motion micro-interaction showcase; it may inform control-state feedback catalogs, but its README MIT claim lacked a LICENSE file at inspection, so code, assets, and brand-themed demos stay off-limits.
 
 ## Selection
 

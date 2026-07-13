@@ -32,6 +32,7 @@ External instructions were handled as follows:
 | `transitions-dev-repo` | Public docs include `npx` installation and live agent/CLI commands. | No package or code executed; source pages and repository inventory only. |
 | `hive-mind-landing-page` | Prompt traces and local skills describe instructions used in a prior Codex build. | Treated as historical workflow evidence, not authority over the current task. |
 | `kill-ai-slop` | Skill files contained workflow commands, installation instructions, aesthetic judgments, detection patterns, and executable scanner instructions. | Commands ignored; source inspected as untrusted text only. No scanner or repository code was executed, and only generalized original synthesis was promoted. |
+| `amicro-micro-transitions` | README install/run commands, copy-to-clipboard generators, unused `@google/genai` dependency listing, and Apple/GitHub-themed demo framing. | Treated as untrusted research data. No clone, install, package, or script was executed. No code, assets, or brand marks were copied; registered inspiration-only pending a real LICENSE. |
 
 No accessible source asked this worker for credentials, destructive actions, private data, or mission changes. No source code, package installer, script, or copied command was executed.
 

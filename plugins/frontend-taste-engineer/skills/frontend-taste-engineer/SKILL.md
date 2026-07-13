@@ -7,14 +7,16 @@ description: Autonomously expand minimal frontend prompts into complete, context
 
 Build interfaces that are visually intentional and product-correct. Treat an attractive but inaccessible, misleading, slow, broken, generic, or incomplete result as a failure. Treat a functional result with no hierarchy, character, or product understanding as incomplete.
 
+For client/paid work, “good” is not enough. Follow `references/premium-quality-bar.md`: lock a visual system before catalogs, obey the first-viewport law, reject the default AI cluster, cap motion at three roles, run the mandatory screenshot refine loop, and prove the page is not generic in the completion report.
+
 ## Start here
 
 1. Inspect the repository, relevant files, existing design system, and running product when available.
 2. Classify the task and operating mode before proposing changes. For short page/site/redesign prompts, call `classify_frontend_task` with the user's exact prompt.
-3. Form a concise product/UX brief and a one-sentence design thesis.
-4. Retrieve only guidance relevant to the current stage and risk.
+3. Form a concise product/UX brief and a one-sentence design thesis. Lock density profile, type pair, spacing, color roles, material, hero composition, motion roles, and avoid-list in `DESIGN.md` **before** any template or animated-catalog pull.
+4. Write finished copy, then retrieve only guidance relevant to the current stage and risk (thesis-derived catalog queries only after the lock).
 5. Implement real behavior and required states before decorative polish.
-6. Verify with evidence, refine the largest discrepancies, and report limits honestly.
+6. Verify with evidence, run the screenshot refine gate (three weaknesses → fix → recapture; second pass if still generic), and report limits honestly—including a one-line **Why this is not generic**.
 
 For substantial work, create or update `DESIGN.md` using `assets/DESIGN.template.md`. Keep decisions specific enough to reject plausible but wrong directions.
 
@@ -45,12 +47,12 @@ Execute this workflow without waiting for routine creative approval:
 
 1. Inspect the project, routes, assets, dependencies, design system, and running product. Decide new build versus redesign.
 2. Call `classify_frontend_task` with the exact prompt. Preserve quoted text and request-local named entities. Record the returned domain, product/task/trust profile, contextual intensity, supplied facts, inferred assumptions, and design thesis in `DESIGN.md`.
-3. Call `get_workflow` for the `brief` stage. Retrieve only its focused product, audience, content, direction, composition, typography, responsive, accessibility, integrity, and completion records. Defer framework, components, performance, and browser guidance; retrieve motion early when the prompt or creative profile is explicitly kinetic or medium-high/high motion.
-4. Write complete original copy. Choose a context-specific composition, type, color/material, imagery, and motion system. For a non-static direction, name a small motion grammar across focal/narrative beats, meaningful state changes, and direct feedback. Do not stop at a plan, wireframe, scaffold, or hero.
-5. Implement the complete frontend, functional controls, relevant states, responsive behavior, accessibility, metadata, and honest integration boundaries.
-6. Run the interface. Capture and inspect meaningful desktop and mobile screenshots. Compare them with the thesis, run the anti-slop review, name the three highest-impact weaknesses, fix them, then capture and inspect again.
+3. **Lock the visual system** per `references/premium-quality-bar.md` (density profile, type pair/scale, spacing, color roles, material, first-viewport composition, ≤3 motion roles, avoid-list, “why this is not generic”) before any catalog/template pull.
+4. Call `get_workflow` for the `brief` stage. Retrieve only its focused product, audience, content, direction, composition, typography, responsive, accessibility, integrity, and completion records. Defer framework, components, performance, and browser guidance. When the prompt or creative profile is explicitly kinetic or medium-high/high motion, also pull motion immediately via `get_motion_guidance` and the catalog sequence in `references/pull-motion-and-elements.md`—only after the system lock.
+5. Write complete original copy (text-only outline first). Implement the complete frontend from the locked system—not from a template skin. Do not stop at a plan, wireframe, scaffold, or hero.
+6. Run the interface. Capture and inspect meaningful desktop and mobile screenshots. Compare them with the thesis, run the anti-slop / reject-list review, name the three highest-impact weaknesses, fix them, then capture and inspect again. If the brand test still fails or the page still looks like the default AI cluster, run a second refine pass on identity and first viewport.
 7. Run the production build and applicable tests. Verify routes/assets, keyboard/focus, reduced motion, console state, links, content extremes, and horizontal overflow. Leave the project deployable or report the concrete blocker.
-8. Return a concise outcome-first completion report with evidence and remaining limits.
+8. Return a concise outcome-first completion report with evidence, **Why this is not generic**, and remaining limits.
 
 Ask only for a missing required credential, approval for an irreversible external action, a legally material fact, directly contradictory requirements, or a critical factual asset that cannot be replaced honestly. Infer and continue for colors, fonts, style, sections, cards, animation, mobile support, framework choice, and other reversible creative choices.
 
@@ -60,9 +62,11 @@ Keep user-provided names and messages request-local by default. They may appear 
 
 Load these focused references directly when running this mode:
 
+- Read `references/premium-quality-bar.md` first—paid-client sequence, first-viewport law, reject list, density profiles, and screenshot gate.
 - Read `references/autonomous-build.md` for trigger boundaries, the required sequence, and exception policy.
 - Read `references/minimal-brief-inference.md` to construct and verify the creative profile.
 - Read `references/creative-direction.md` to choose a distinctive, context-led thesis and visual system.
+- Read `references/pull-motion-and-elements.md` when the profile is non-static or the prompt asks for animation/interaction polish; follow its MCP call sequence before adding motion libraries or kinetic section catalogs.
 - Read `references/automatic-copy.md` when supplied content is sparse.
 - Read `references/visual-refinement-loop.md` before runtime screenshot inspection and refinement.
 - Read `references/production-completion.md` before declaring the build complete.
@@ -75,9 +79,11 @@ Load these focused references directly when running this mode:
 - Make controls honest. Do not ship dead buttons, fake forms, fabricated metrics, testimonials, integrations, screenshots, security claims, or unverifiable success states.
 - Design all relevant states: default, hover where applicable, focus-visible, active/pressed, selected/checked, disabled, read-only, loading, empty, error, warning, success, offline, permission denied, stale/saving/saved, and first/returning use.
 - Treat mobile and zoom/reflow as structural design conditions. Test between named breakpoints, short viewports, long content, text enlargement, and overflow.
-- Establish visual intent before styling. Use typography, composition, rhythm, color, imagery, and motion to express the product thesis rather than current AI defaults.
+- Establish visual intent before styling. Use typography, composition, rhythm, color, imagery, and motion to express the product thesis rather than current AI defaults. Lock the system in `DESIGN.md` before catalogs.
+- Treat the first viewport as one composition: brand-level signal, one headline, one support sentence, one CTA group, one dominant visual plane—no hero stat strips, card grids, or floating badges unless the product is a dashboard and the brief demands it.
+- Reject the default AI cluster (Inter/Roboto identity, purple gradients, centered three-card heroes, glow/glass stacks, pill forests, fake social proof, scroll-reveal-everything) unless the thesis justifies an exception in one sentence.
 - Treat minimalism as disciplined reduction, not bare space. Make every major gap earn its role through hierarchy, grouping, reading pace, focus, evidence, or a real boundary; retain the content and affordances the task needs.
-- For a responsive, narrative, tactile, or expressive direction, define a compact motion grammar rather than treating animation as a final flourish. Use it for continuity, causality, feedback, orientation, emphasis, or an intentional narrative beat; make it interruptible where interactive, test repetition, and provide a reduced-motion outcome.
+- For a responsive, narrative, tactile, or expressive direction, define at most three motion roles (focal, state, feedback). Use them for continuity, causality, feedback, orientation, or one intentional narrative beat; make interactive motion interruptible; never animate every section on enter; provide reduced-motion outcomes.
 - Set proportionate performance budgets. Avoid unnecessary JavaScript, dependencies, hydration, fonts, images, animation work, and third-party scripts.
 - Preserve content integrity and localization readiness. Stress-test expansion, RTL where relevant, dates/numbers, empty data, and realistic errors.
 - Keep copy proportional to the task. Remove lines and sections that repeat an existing message or add no decision, trust, instruction, or recovery value; never hide necessary safety, legal, price, eligibility, consent, validation, or accessibility information for brevity.
@@ -111,7 +117,7 @@ Require mandatory-rule preservation. Prefer stable records over experimental one
 
 ## Select external sources
 
-Use external material only when it answers a concrete product, component, or verification decision. Call `get_external_source_catalog` with the current stage, intended use, and narrow query; respect its stage budget and never load the 245-source seed catalog wholesale.
+Use external material only when it answers a concrete product, component, or verification decision. Call `get_external_source_catalog` with the current stage, intended use, and narrow query; respect its stage budget and never load the 395-source seed catalog wholesale.
 
 When an external source will influence implementation, read the plugin references at `../../references/external-source-selection.md` and `../../references/source-license-gates.md` when present. The standalone Skill uses the equivalent gate in `references/retrieval-policy.md`.
 
@@ -120,12 +126,26 @@ Before copying, adapting, installing, or referencing material, record product-th
 Route by stage:
 
 - Brief: inspiration and section-pattern artifact-pack summaries only.
-- Planning: shadcn/ui, Tailwind block families, official design-system docs, and source-fit matrices.
-- Implementation: native HTML first; then Radix, React Aria, Ariakit, Headless UI, Ark UI, Floating UI, shadcn/ui, data libraries, or configured 21st.dev MCP when the exact behavior needs them.
+- Planning: shadcn/ui, Tailwind block families, official design-system docs, template/starter catalogs when scaffolding, and source-fit matrices.
+- Implementation: native HTML first; then Radix, React Aria, Ariakit, Headless UI, Ark UI, Floating UI, Base UI, shadcn/ui, data libraries, or configured 21st.dev MCP when the exact behavior needs them.
 - Refinement: Magic UI, Aceternity UI, React Bits, Animate UI, Motion Primitives, Motion/GSAP docs, and inspiration catalogs—never as automatic decoration or copied expression.
 - Verification: WCAG, ARIA APG, current primitive docs, license review, anti-copy, anti-slop, accessibility, performance, and reduced-motion checks.
 
 Use 21st.dev MCP only when configured in the user’s project. Treat it as semantic discovery/install tooling, not design authority; apply the full gate before installation and never use logo search to copy marks without a legitimate permitted use. OpenAI Build Week and other corporate/product/event marketing pages are user-supplied visual case studies only, never pullable catalogs.
+
+## Pull motion elements (required for non-static work)
+
+When the classifier or prompt calls for kinetic, tactile, narrative, medium-high, or high motion—or the mode is `motion-refinement`—do not improvise a demo reel. Follow `references/pull-motion-and-elements.md` **after** the visual system lock in `references/premium-quality-bar.md`:
+
+1. `classify_frontend_task` with the exact prompt; read motion intensity / early-motion routing.
+2. Lock type/color/material/density/hero in `DESIGN.md` with at most three motion roles named (focal · state · feedback).
+3. `get_motion_guidance` (or `search_frontend_guidance` with topic `motion`) for grammar, interruption, and reduced-motion rules.
+4. `get_external_source_catalog` with `stage: "refinement"` and a **thesis-derived library** query (not bare “animated components”).
+5. A second catalog call with a **thesis-derived elements** query and, when useful, `category: "component-catalogs"` (`intended_use: "inspiration-only"`).
+6. Optionally for scaffold study only: planning-stage template query as inspiration—rewrite into the locked system; never ship the template skin.
+7. Prefer CSS or the project’s existing motion system before adding Motion/GSAP/Lottie/Rive/Three. One motion library max. Never paste Magic UI / Aceternity / template demos wholesale.
+
+Skip animated catalogs at intensity 1; keep stage budgets. Always verify interruptibility, repetition, and `prefers-reduced-motion`.
 
 ## Resolve conflicting guidance
 
@@ -207,7 +227,7 @@ Prioritize blocked tasks, deceptive behavior, accessibility, broken layouts, sta
 
 ## Motion refinement
 
-Test motion in the running interface. Verify the motion grammar, purpose, origin, easing, duration, interruption, reversal, repeated activation, input modality, and reduced motion. Prefer transform and opacity when appropriate, but choose correctness over blanket performance folklore. Remove arbitrary or competing motion that obscures state or delays work—not an intentional, non-blocking focal or narrative beat.
+Test motion in the running interface. Before editing, pull fresh guidance with the sequence in `references/pull-motion-and-elements.md` (`get_motion_guidance` + targeted catalog queries). Verify the motion grammar, purpose, origin, easing, duration, interruption, reversal, repeated activation, input modality, and reduced motion. Prefer transform and opacity when appropriate, but choose correctness over blanket performance folklore. Remove arbitrary or competing motion that obscures state or delays work—not an intentional, non-blocking focal or narrative beat.
 
 ## Anti-slop pass
 
@@ -241,7 +261,7 @@ For substantial work, perform and record the applicable checks:
 11. Comparison against the design thesis, reference, or before state.
 12. Repeat checks after high-impact refinement.
 
-For `autonomous-zero-brief-build`, desktop/mobile capture, inspection against the thesis, the anti-slop pass, correction of the three highest-impact weaknesses, recapture, and a production build are defaults rather than optional checks.
+For `autonomous-zero-brief-build`, desktop/mobile capture, inspection against the thesis, the anti-slop / reject-list pass, correction of the three highest-impact weaknesses, recapture, and a production build are defaults rather than optional checks. If the page still fails the brand test or still matches the default AI cluster, run a second refine pass before completion.
 
 Use `references/verification-matrix.md` to choose proportionate checks. Automated tools do not prove screen-reader usability, visual quality, or functional integrity.
 
@@ -261,7 +281,7 @@ Do not call work complete until all applicable gates pass:
 
 Produce a completion report with commands run, evidence captured, results, untested areas, assumptions, and known limitations. Use `assets/completion-report.template.md`.
 
-For autonomous builds, keep the user-facing report concise: lead with what was built, name the visual direction and functional scope, list executed checks and screenshot evidence, and state only material limitations. Do not make the user read the internal brief or routine process log.
+For autonomous builds, keep the user-facing report concise: lead with what was built, name the visual direction and functional scope, include **Why this is not generic**, list executed checks and screenshot evidence, and state only material limitations. Do not make the user read the internal brief or routine process log.
 
 ## Offline fallback
 

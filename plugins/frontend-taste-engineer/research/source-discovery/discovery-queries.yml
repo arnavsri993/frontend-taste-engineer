@@ -35,7 +35,17 @@
     "Tailwind gradients background generator",
     "SVG background generator",
     "font pairing web typography",
-    "color palette accessibility contrast"
+    "color palette accessibility contrast",
+    "free HTML website templates responsive",
+    "Bootstrap admin dashboard template",
+    "Next.js SaaS starter template shadcn",
+    "Astro theme catalog marketing site",
+    "Shopify Dawn theme reference",
+    "Vercel templates Next.js starter",
+    "Jamstack themes directory",
+    "Webflow Framer landing page templates",
+    "ecommerce storefront starter Next.js",
+    "open source admin dashboard Tailwind"
   ],
   "negative_filters": [
     "Exclude corporate marketing pages unless they expose reusable components, templates, or inspectable technical documentation.",

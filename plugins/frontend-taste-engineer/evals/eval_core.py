@@ -397,7 +397,10 @@ def source_policy_evidence(path: Path) -> dict[str, Any]:
                 passed = bool(actual) and all(value == expected for value in actual)
             elif check_type == "source-prefix":
                 actual = [item.get("id") for item in result.get("sources", [])[:len(expected or [])]]
-                passed = actual == expected
+                if check.get("unordered"):
+                    passed = set(actual) == set(expected or [])
+                else:
+                    passed = actual == expected
             elif check_type == "budget-bounded":
                 actual = {"returned": result.get("returned"), "stage_budget": result.get("stage_budget")}
                 passed = isinstance(actual["returned"], int) and isinstance(actual["stage_budget"], int) and actual["returned"] <= actual["stage_budget"]

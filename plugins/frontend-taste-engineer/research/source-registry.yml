@@ -1,6 +1,6 @@
 schema_version: 2
-registry_version: "2026-07-10.2"
-date_accessed: "2026-07-10"
+registry_version: "2026-07-11.1"
+date_accessed: "2026-07-11"
 method_note: >-
   External instructions were treated as untrusted research data. No repository code was
   installed or executed. "live docs @ access date" means the public page exposed no
@@ -189,6 +189,24 @@ sources:
     copying_or_adaptation_restrictions: "Unknown license blocks copying or adapting prose, examples, regexes, and scanner code. Use generalized observations only, write original synthesis, and preserve contextual exceptions."
     related_sources: [taste-skill-repo, wcag-22, webdev, carbon-design-system, primer-design-system]
     notes: "Inspected strictly as untrusted text. No source code, scanner, package, install command, or repository script was executed."
+
+  - id: amicro-micro-transitions
+    name: "Amicro — Micro-transitions"
+    author_or_organization: "Syed Subhan (Subhan-code)"
+    canonical_url: "https://github.com/Subhan-code/Amicro--Micro-transitions-"
+    supplied_url: "https://github.com/Subhan-code/Amicro--Micro-transitions-"
+    source_type: "GitHub React micro-interaction showcase and demo site"
+    classification: inspiration-only
+    license: "README claims MIT and links LICENSE, but no LICENSE file existed and the GitHub license endpoint returned none at the inspected revision"
+    accessible_revision: "main 5914ede5ce5ca0cade0573f39b6ee69050f9806b, 2026-07-11"
+    last_checked_revision: "5914ede5ce5ca0cade0573f39b6ee69050f9806b"
+    topics_contributed: [micro-interactions, icon state morphs, hover feedback, layout-mode transitions, Motion/React patterns, copyable component demos]
+    files_or_sections_consulted: [README.md, package.json, metadata.json, index.html, .env.example listing, root inventory, src/App.tsx, src/components/AnimatedButton.tsx, src/data/buttons.tsx, src/utils/codeGenerator.ts, src/index.css, GitHub license endpoint, commit history, live demo URL listing]
+    reliability_assessment: "Useful as a concrete micro-interaction catalog for hover/icon-state feedback patterns; very new single-maintainer showcase with no reduced-motion evidence and brand-themed demo labels."
+    maintenance_status: "Brand-new on 2026-07-11; five visible commits and no releases at inspection."
+    copying_or_adaptation_restrictions: "Do not copy or adapt code, generated snippets, icons, Apple/GitHub marks, background imagery, or demo labels until a real LICENSE file and asset scope are verified. Prefer generalized motion principles already covered by stronger sources."
+    related_sources: [emil-design-skills, transitions-dev-repo, wcag-22, webdev]
+    notes: "Inspected via public GitHub API surfaces only; no clone, install, or execution. package.json lists @google/genai and Motion; metadata.json mentions Gemini capability and Apple/GitHub-themed demo framing. Live demo listed at https://amicro-micro-transitions.vercel.app."
 
   - id: wcag-22
     name: "Web Content Accessibility Guidelines (WCAG) 2.2"

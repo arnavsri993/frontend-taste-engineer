@@ -16,10 +16,14 @@ FTE_PRIVATE_TERMS_FILE=.private-terms python3 scripts/scan_private_terms.py --re
 python3 scripts/generate_index.py --dry-run
 python3 scripts/evaluate_retrieval.py
 python3 scripts/discover_frontend_sources.py --dry-run --max-results 50
+python3 scripts/expand_source_library.py
+python3 scripts/absorb_templates.py
+python3 scripts/enrich_source_cards.py --check
 python3 scripts/package_skill.py --dry-run
 python3 scripts/package_plugin.py --dry-run
 ```
 
+`expand_source_library.py` and `absorb_templates.py` add curated discovery seeds with findability cards (libraries, kits, template catalogs, starters). `enrich_source_cards.py` rewrites seed/knowledge findability cards (`summary`, `best_for`, keywords) and regenerates `research/source-discovery/source-findability.md`. These scripts do not download templates, inspect upstream privately, or change licenses beyond explicit inspiration-only gallery/marketplace tags.
 Focused checks cover plugin/Skill structure, local Markdown links, record
 references, review dates, provenance, duplicate and contradiction candidates,
 topic coverage, record depth, static frontend integrity, static accessibility,

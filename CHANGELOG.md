@@ -2,6 +2,11 @@
 
 All notable changes follow semantic versioning and are recorded here.
 
+## Unreleased
+
+- Raised the Skill to a paid-client quality bar: system lock before catalogs, first-viewport law, AI-cluster reject list, density profiles, ≤3 motion roles, mandatory screenshot refine, and required “Why this is not generic” proof.
+- Expanded the external seed catalog from 245 to 395 sources with findability cards, including a large template/starter absorption pass; no seed or template was promoted to stable knowledge or vendored into the repo.
+
 ## 0.3.0 — 2026-07-10
 
 - Added a 245-URL external frontend seed catalog across 15 source families and 34 monthly query templates.

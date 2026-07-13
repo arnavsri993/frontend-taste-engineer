@@ -1,6 +1,6 @@
 # License and Attribution Review
 
-Checked 2026-07-10. This is an engineering provenance review, not legal advice. The corpus should summarize and link by default. Copying source prose, code, tokens, examples, fonts, icons, screenshots, or brand assets requires item-level confirmation even when a repository has a permissive root license.
+Checked 2026-07-11. This is an engineering provenance review, not legal advice. The corpus should summarize and link by default. Copying source prose, code, tokens, examples, fonts, icons, screenshots, or brand assets requires item-level confirmation even when a repository has a permissive root license.
 
 ## Status vocabulary
 
@@ -23,6 +23,7 @@ Checked 2026-07-10. This is an engineering provenance review, not legal advice. 
 | `taste-skill-site` | Site license not stated; linked repository MIT | `summarized` for public claims; site assets `link-only` | Do not apply the repository MIT license to website copy, screenshots, supporter identities, or logos without evidence. |
 | `taste-skill-repo` | MIT | `summarized`; repository files `adaptable-with-notice` | Retain MIT notice for substantial copies. Prefer generalized, exception-aware records over copying model-control text. |
 | `kill-ai-slop` | Unstated; no root license or repository license declaration at inspected revision | `link-only` / `inspiration-only`; copying and adaptation `unresolved` | Use generalized observations only. Do not copy or adapt its prose, examples, detection regexes, scanner, or skill text unless the license is clarified. |
+| `amicro-micro-transitions` | README claims MIT and links `LICENSE`, but no LICENSE file existed and GitHub license metadata was absent at `5914ede` | `link-only` / `inspiration-only`; copying and adaptation `unresolved` | Use generalized micro-interaction observations only. Do not copy or adapt React/Motion snippets, generated templates, icons, Apple/GitHub marks, background imagery, or demo labels until a real LICENSE and asset scope are verified. |
 
 ## Standards, web references, and testing/security sources
 
@@ -68,7 +69,7 @@ Checked 2026-07-10. This is an engineering provenance review, not legal advice. 
 
 ## Candidate seed catalog
 
-The 245 entries in `source-discovery/seed-catalog.yml` are discovery metadata, not accepted license evidence. Their inherited default is “unverified; do not copy or adapt.” Explicit gallery families are `inspiration-only`; other unreviewed seeds are `unresolved`. A visible component, copy button, npm command, public HTML response, “free” label, paid subscription, or account entitlement does not establish redistribution rights.
+The 395 entries in `source-discovery/seed-catalog.yml` are discovery metadata, not accepted license evidence. Their inherited default is “unverified; do not copy or adapt.” Explicit gallery families are `inspiration-only`; other unreviewed seeds are `unresolved`. A visible component, copy button, npm command, public HTML response, “free” label, paid subscription, or account entitlement does not establish redistribution rights.
 
 Before moving any seed into `source-registry.yml`, review the exact code/docs/template/asset license; ownership; attribution/notice/share-alike duties; paid or account boundaries; fonts/icons/images/marks; dependency licenses; and intended use. OpenAI Build Week and similar corporate/product/event marketing pages are never pullable catalogs and do not enter this review unless the user supplied one as a case study for a specific task.
 
