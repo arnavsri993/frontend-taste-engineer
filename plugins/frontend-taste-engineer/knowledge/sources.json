@@ -462,7 +462,7 @@
       "publisher": "yetone",
       "canonical_url": "https://github.com/yetone/kill-ai-slop",
       "source_type": "GitHub field guide, agent skill, and static scanner",
-      "license_note": "No repository license was stated at revision eb4857a; inspiration-only, with no copied or adapted prose, examples, regexes, or code.",
+      "license_note": "No repository license was stated at revision 2d21245d; inspiration-only, with no copied or adapted prose, examples, regexes, or code.",
       "summary": "Field guide/scanner taxonomy for detecting AI-slop visual and copy signals.",
       "best_for": [
         "slop triage categories",

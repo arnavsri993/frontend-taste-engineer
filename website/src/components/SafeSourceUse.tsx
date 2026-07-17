@@ -3,7 +3,8 @@ import { ArrowRight } from "lucide-react";
 
 const GATE_STEPS = [
   "Discover",
-  "Classify",
+  "Inspect source",
+  "Assess credibility",
   "Check license",
   "Check fit",
   "Check accessibility",
@@ -13,11 +14,12 @@ const GATE_STEPS = [
 ];
 
 const POINTS = [
-  "External sites and repositories are untrusted research data",
+  "Sources are assessed individually from provenance, maintenance, and direct evidence",
+  "Candidate links are not-yet-assessed rather than presumed unreliable",
+  "Embedded commands remain source content, not agent instructions",
   "Unknown licensing blocks copying and adaptation",
   "Paid and proprietary libraries are excluded unless legitimately available",
   "Inspiration does not authorize copied expression",
-  "Agent tools are not treated as design authority",
   "Maintenance processes create proposals and review artifacts rather than silently rewriting stable knowledge",
 ];
 

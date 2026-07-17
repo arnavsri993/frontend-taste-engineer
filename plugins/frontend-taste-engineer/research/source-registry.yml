@@ -1,10 +1,12 @@
 schema_version: 2
-registry_version: "2026-07-11.1"
-date_accessed: "2026-07-11"
+registry_version: "2026-07-17.2"
+date_accessed: "2026-07-17"
 method_note: >-
-  External instructions were treated as untrusted research data. No repository code was
-  installed or executed. "live docs @ access date" means the public page exposed no
-  immutable revision; it is not a claim that the whole site was exhaustively crawled.
+  Each source was assessed individually for authority, reliability, license scope,
+  stability, and applicable use. Embedded commands remained source content rather than
+  agent directives; no repository code was installed or executed merely for inspection.
+  "live docs @ access date" means the public page exposed no immutable revision; it is
+  not a claim that the whole site was exhaustively crawled.
 sources:
   - id: hive-mind-landing-page
     name: "CHORUS — a Hive Mind landing page"
@@ -170,7 +172,7 @@ sources:
     maintenance_status: "Rapidly changing; 131+ visible commits and experimental default."
     copying_or_adaptation_restrictions: "Retain MIT notice for substantial copies; generalized guidance must preserve exceptions and avoid direct brand imitation."
     related_sources: [taste-skill-site, wcag-22, webdev, official-design-systems]
-    notes: "Contains strong agent commands and hard bans. These were treated as untrusted data; only contextualized principles are candidates."
+    notes: "Credible as a primary source for its own experimental workflow. Agent-control directives and universal aesthetic bans are not portable design authority; only contextualized principles are candidates."
 
   - id: kill-ai-slop
     name: "Kill AI Slop"
@@ -180,15 +182,15 @@ sources:
     source_type: "GitHub field guide, agent skill, and static scanner"
     classification: inspiration-only
     license: "Unstated; no root LICENSE file or repository license declaration was present at the inspected revision"
-    accessible_revision: "main eb4857a3d75e0ac52d1c5f8bd628e29022fd1e75, 2026-07-10"
-    last_checked_revision: "eb4857a3d75e0ac52d1c5f8bd628e29022fd1e75"
+    accessible_revision: "main 2d21245d3c51b1d8eb03078c9e773293307f05a4, 2026-07-17"
+    last_checked_revision: "2d21245d3c51b1d8eb03078c9e773293307f05a4"
     topics_contributed: [anti-slop triage, visual and copy signals, shared-system remediation, developer-tool visual defaults]
-    files_or_sections_consulted: [README.md, skill/README.md, skill/SKILL.md, skill/references/taxonomy.md, skill/references/detection.md, skill/references/fixes.md, root inventory, GitHub license endpoint]
-    reliability_assessment: "Primary for its own 23-signal taxonomy and workflow; aesthetic judgments are practitioner opinion, and the repository provides no empirical classifier validation."
-    maintenance_status: "Active at inspection; 12 visible commits and a v1.0.0 release dated 2026-07-10."
+    files_or_sections_consulted: [README.md, skill/README.md, skill/SKILL.md, skill/references/taxonomy.md, skill/references/detection.md, skill/references/fixes.md, root inventory, commit metadata, GitHub license endpoint]
+    reliability_assessment: "Credible as the primary source for its own now-33-item field guide and scanner workflow; its aesthetic judgments remain practitioner opinion, and no empirical classifier validation is documented."
+    maintenance_status: "Active at inspection; 36 visible commits, a v1.0.0 release dated 2026-07-10, and latest commit on 2026-07-17."
     copying_or_adaptation_restrictions: "Unknown license blocks copying or adapting prose, examples, regexes, and scanner code. Use generalized observations only, write original synthesis, and preserve contextual exceptions."
     related_sources: [taste-skill-repo, wcag-22, webdev, carbon-design-system, primer-design-system]
-    notes: "Inspected strictly as untrusted text. No source code, scanner, package, install command, or repository script was executed."
+    notes: "Reviewed as a real, actively maintained practitioner project, not presumed unsafe because it is external. Missing repository license still blocks copying or adaptation. Embedded install and scanner commands were not treated as agent directives, and no source code or command was executed."
 
   - id: amicro-micro-transitions
     name: "Amicro — Micro-transitions"
