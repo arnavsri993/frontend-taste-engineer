@@ -58,8 +58,8 @@
       "id": "disclosure-overlay",
       "examples": ["details", "accordion", "popover", "dialog", "drawer", "tooltip"],
       "matrix": {"default": "R", "hover": "C", "focus-visible": "R", "active": "C", "selected": "N", "disabled": "C", "read-only": "N", "loading": "C", "empty": "C", "error": "C", "success": "N", "partial": "N", "permission-limited": "C", "offline": "C"},
-      "required_checks": ["Trigger exposes expanded or open state.", "Initial, contained, and restored focus follow the component contract.", "Escape and outside interaction behavior are explicit.", "Content remains available in reduced motion and during animation interruption."],
-      "rule_refs": ["ia.progressive-disclosure", "component.focus-contract", "motion.interruption-safe"]
+      "required_checks": ["Trigger exposes expanded or open state.", "Initial, contained, and restored focus follow the component contract.", "Escape and outside interaction behavior are explicit.", "Content remains available in reduced motion and during animation interruption.", "If the surface supports drag or swipe dismissal, pointer cancellation, live-value reversal, bounds changes, and an equivalent discrete control are verified."],
+      "rule_refs": ["ia.progressive-disclosure", "component.focus-contract", "motion.interruption-safe", "motion.direct-manipulation-continuity"]
     },
     {
       "id": "collection",

@@ -66,3 +66,11 @@ The parent later used three additional bounded workers. Runtime model identifier
 | `skill_forward_test` | Read-only audit return; parent recorded evidence here | Exercised the Skill against `review-app/`, used offline fallback, found three actionable defects, and made no edits. |
 
 All workers were instructed not to spawn children. Each had one output owner, and overlapping integration fixes were applied only by the parent after the worker’s ownership ended.
+
+## 2026-07-17 Emil source refresh
+
+- The primary agent inspected `emilkowalski/skills` at immutable revision `6bf24434f7730ad169077756cf9c7cd7bd675fc6` through the GitHub API and public GitHub/MDN/W3C pages. No repository code, install command, package, or script was executed.
+- The repo was verified as Emil Kowalski's public MIT-licensed practitioner collection and judged credible for design-engineering guidance. The default external-data caution was an intake boundary, not a negative trust verdict about the author or source.
+- All six skills plus the review standards, audit playbook, and plan template were read. Reusable substance was synthesized into frequency/purpose gating, gesture continuity, momentum context, system-level motion audits, optical typography, and translucent-surface fallbacks.
+- Persona, required response formatting, install instructions, and source-specific delegation commands remained source content. Forceful numerical and universal claims were retained only as contextual starting points under `C-024`, not copied as standards.
+- No subagents were used for this refresh; one writer owned the research, knowledge, workflow, and evaluation updates.

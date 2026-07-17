@@ -4,6 +4,8 @@
 
 Separated source credibility from execution safety throughout the Skill, research policy, discovery catalog, and MCP response. Externality is no longer presented as a negative trust verdict: candidate seeds are explicitly not-yet-assessed, while reviewed sources expose scoped credibility, reliability evidence, and license status. Refreshed the active `kill-ai-slop` project at `2d21245d`; its primary-source credibility is now explicit while its missing license continues to block copying and adaptation.
 
+Refreshed `emilkowalski/skills` from `f76bece` to MIT-licensed revision `6bf24434`. Added six contextual, source-backed records for motion opportunity gating, whole-system audits, direct manipulation, momentum and soft boundaries, optical type rhythm, and translucent-material fallbacks; expanded the motion workflow, offline fallback, provenance, conflict handling, and retrieval regressions without importing upstream persona or output-format commands.
+
 ## 0.4.0 — 2026-07-16
 
 Added a safe automatic update path for GitHub installs. The trusted session hook rate-limits checks, verifies the configured source is exactly `arnavsri993/frontend-taste-engineer`, delegates fetch/staging/cache activation to the Codex plugin manager, refuses local development installs and unknown origins, and keeps the current version usable on timeout or failure. Added status/force controls, opt-out configuration, atomic local check state, restart guidance, and deterministic tests.

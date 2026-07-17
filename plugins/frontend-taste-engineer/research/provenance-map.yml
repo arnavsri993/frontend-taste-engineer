@@ -1,5 +1,5 @@
 schema_version: 1
-reviewed: "2026-07-11"
+reviewed: "2026-07-17"
 default_license_status: summarized
 promotion_note: >-
   This maps research findings to candidate knowledge records. It does not mean the
@@ -397,6 +397,54 @@ records:
     conflicts: [C-001]
     license_status: synthesized-original-with-source-attribution
     promotion: contextual-candidate
+
+  - finding: F-050
+    candidate_record: motion.frequency-purpose-gate
+    primary_sources: [emil-design-skills]
+    supporting_sources: [apple-hig, fluent-2]
+    conflicts: [C-003, C-024]
+    license_status: synthesized-original-with-source-attribution
+    promotion: specialized-candidate
+
+  - finding: F-051
+    candidate_record: motion.direct-manipulation-continuity
+    primary_sources: [emil-design-skills, mdn-web-docs]
+    supporting_sources: [apple-hig, wcag-22]
+    conflicts: [C-003, C-024]
+    license_status: synthesized-original-with-source-attribution
+    promotion: specialized-candidate
+
+  - finding: F-052
+    candidate_record: motion.momentum-boundary-physics
+    primary_sources: [emil-design-skills]
+    supporting_sources: [apple-hig, mdn-web-docs]
+    conflicts: [C-024]
+    license_status: synthesized-original-with-source-attribution
+    promotion: contextual-candidate
+
+  - finding: F-053
+    candidate_record: motion.audit-by-system-leverage
+    primary_sources: [emil-design-skills]
+    supporting_sources: [transitions-dev-repo, apple-hig, wcag-22]
+    conflicts: [C-003, C-024]
+    license_status: synthesized-original-with-source-attribution
+    promotion: specialized-candidate
+
+  - finding: F-054
+    candidate_record: type.size-aware-optical-rhythm
+    primary_sources: [emil-design-skills]
+    supporting_sources: [apple-hig, mdn-web-docs, webdev]
+    conflicts: [C-024]
+    license_status: synthesized-original-with-source-attribution
+    promotion: specialized-candidate
+
+  - finding: F-055
+    candidate_record: color.translucent-surface-fallbacks
+    primary_sources: [emil-design-skills, mdn-web-docs]
+    supporting_sources: [apple-hig, wcag-22]
+    conflicts: [C-024]
+    license_status: synthesized-original-with-source-attribution
+    promotion: experimental-candidate
 
 excluded_sources:
   - id: motionsites

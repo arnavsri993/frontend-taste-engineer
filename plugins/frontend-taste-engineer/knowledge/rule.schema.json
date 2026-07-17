@@ -91,7 +91,7 @@
         },
         "license_status": {"type": "string", "const": "synthesized-original-with-source-attribution"},
         "introduced_in": {"type": "string", "const": "0.1.0"},
-        "last_reviewed": {"type": "string", "const": "2026-07-10"},
+        "last_reviewed": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
         "related_rules": {"$ref": "#/$defs/idArray"},
         "supersedes": {"$ref": "#/$defs/idArray"},
         "anti_pattern": {"$ref": "#/$defs/antiPattern"}

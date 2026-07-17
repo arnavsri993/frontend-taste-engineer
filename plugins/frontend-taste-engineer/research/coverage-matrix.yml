@@ -1,5 +1,5 @@
 schema_version: 1
-reviewed: "2026-07-10"
+reviewed: "2026-07-17"
 source_count: 36
 supplied_source_count: 9
 status_legend:
@@ -54,15 +54,15 @@ areas:
     status: strong
     primary_sources: [apple-hig, mdn-web-docs, webdev, spectrum-design-system]
     supporting_sources: [fluent-2, carbon-design-system, w3c-i18n]
-    covers: [selection, hierarchy, loading, fallbacks, variable fonts, line length, scaling, international scripts, CLS]
+    covers: [selection, hierarchy, loading, fallbacks, variable fonts, optical sizing, size-aware tracking and leading, line length, scaling, international scripts, CLS]
     gaps: [advanced non-Latin typographic systems, font licensing discovery automation]
 
   color_surfaces:
     status: strong
     primary_sources: [wcag-22, spectrum-design-system, carbon-design-system, fluent-2]
     supporting_sources: [material-3, apple-hig]
-    covers: [semantic color, contrast, themes, forced colors, high contrast, color independence, surface hierarchy, perceptual color]
-    gaps: [data-visualization palette testing with real tasks, HDR/wide-gamut deployment evidence]
+    covers: [semantic color, contrast, themes, forced colors, high contrast, color independence, surface hierarchy, perceptual color, translucent-material fallbacks, reduced-transparency enhancement]
+    gaps: [data-visualization palette testing with real tasks, HDR/wide-gamut deployment evidence, cross-browser reduced-transparency support]
 
   component_native_primitives:
     status: strong
@@ -131,8 +131,8 @@ areas:
     status: strong
     primary_sources: [apple-hig, fluent-2, wcag-22, webdev]
     supporting_sources: [emil-design-skills, transitions-dev-repo, transitions-refine-page, astro-docs, amicro-micro-transitions]
-    covers: [purpose, continuity, feedback, easing, duration, origin, interruptibility, reduced motion, view transitions, runtime cost]
-    gaps: [independent motion usability studies, gesture physics across devices]
+    covers: [purpose, frequency and opportunity gating, continuity, feedback, easing, duration, origin, interruptibility, direct manipulation, live presentation values, velocity handoff, momentum targets, soft boundaries, system-level audits, implementation plans, reduced motion, view transitions, runtime cost]
+    gaps: [independent motion usability studies, broader gesture-physics evidence across devices and assistive input]
 
   images_icons:
     status: strong

@@ -247,6 +247,39 @@ class EngineTests(unittest.TestCase):
         self.assertIn("motion.reduced-motion-equivalence", ids)
         self.assertNotIn("motion", packet["workflow"]["deferred_topics"])
 
+    def test_motion_opportunity_audit_retrieves_frequency_and_system_rules(self) -> None:
+        packet = server.call_tool(server.RetrievalEngine(server.default_knowledge_dir()), "get_motion_guidance", {
+            "query": "Audit a keyboard-heavy analytics app for purposeful motion opportunities, rejected candidates, interaction frequency, shared tokens, and runtime verification.",
+            "budget_records": 10,
+            "context_budget": 4800,
+        })
+        ids = {item["id"] for item in packet["records"]}
+        self.assertIn("motion.frequency-purpose-gate", ids)
+        self.assertIn("motion.audit-by-system-leverage", ids)
+
+    def test_gesture_guidance_retrieves_continuity_and_momentum_context(self) -> None:
+        packet = server.call_tool(server.RetrievalEngine(server.default_knowledge_dir()), "get_motion_guidance", {
+            "query": "Build an interruptible gesture-driven sheet with pointer capture, live presentation values, release velocity, soft boundaries, keyboard controls, and reduced motion.",
+            "budget_records": 10,
+            "context_budget": 5200,
+        })
+        ids = {item["id"] for item in packet["records"]}
+        self.assertIn("motion.direct-manipulation-continuity", ids)
+        self.assertIn("motion.momentum-boundary-physics", ids)
+        self.assertIn("motion.interruption-safe", ids)
+
+    def test_offline_motion_fallback_preserves_gesture_and_restraint_rules(self) -> None:
+        empty = self.root / "empty-motion"
+        empty.mkdir()
+        packet = server.RetrievalEngine(empty).search(
+            "gesture pointer capture live value keyboard motion frequency rejected candidates",
+            budget_records=8,
+            context_budget=2400,
+        )
+        ids = {item["id"] for item in packet["records"]}
+        self.assertIn("offline-motion-opportunity-gate", ids)
+        self.assertIn("offline-direct-manipulation", ids)
+
     def test_autonomous_completion_gate_requires_rendered_production_evidence(self) -> None:
         report = server.get_completion_gate(self.engine, {"task": "Build a site for my robotics team"})
         gate_ids = {gate["id"] for gate in report["gates"]}

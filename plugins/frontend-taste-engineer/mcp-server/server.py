@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import os
 import re
 import sys
@@ -31,6 +32,20 @@ WORD_RE = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 SPACE_RE = re.compile(r"\s+")
 QUOTED_TEXT_RE = re.compile(r'[“"]([^”"]+)[”"]')
 AUTONOMOUS_MODE = "autonomous-zero-brief-build"
+
+# Retrieval scoring must ignore high-frequency connective words. Keeping this
+# separate from ``tokenize`` preserves slug, phrase, and protocol behavior while
+# preventing generic mandatory records from outranking precise guidance merely
+# because both contain words such as "and", "the", or "with".
+RETRIEVAL_STOPWORDS = frozenset({
+    "a", "an", "and", "are", "as", "at", "be", "been", "being", "but", "by",
+    "can", "could", "do", "does", "for", "from", "had", "has", "have", "how",
+    "if", "in", "into", "is", "it", "its", "may", "must", "not", "of", "on",
+    "only", "or", "our", "should", "so", "such", "than", "that", "the", "their",
+    "then", "there", "these", "this", "to", "use", "used", "user", "users", "using",
+    "was", "we", "when", "where", "which", "while", "with", "without", "would", "you",
+    "your",
+})
 
 
 SYNONYMS: dict[str, tuple[str, ...]] = {
@@ -70,7 +85,7 @@ CLASSIFICATION_RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("screenshot-reconstruction", ("screenshot", "reconstruct", "pixel match", "reference image")),
     ("accessibility-audit", ("accessibility audit", "a11y", "wcag", "screen reader")),
     ("performance-remediation", ("performance", "lcp", "inp", "cls", "bundle", "slow")),
-    ("motion-refinement", ("motion", "animation", "transition", "easing", "spring")),
+    ("motion-refinement", ("motion", "animation", "transition", "easing", "spring", "gesture", "drag", "swipe", "direct manipulation")),
     ("design-system", ("design system", "tokens", "component library", "theming")),
     ("component-build", ("component", "dialog", "button", "combobox", "table", "form")),
     ("existing-redesign", ("redesign", "modernize", "existing", "legacy", "ugly")),
@@ -103,7 +118,7 @@ COMPONENTS = (
     "accordion", "alert", "banner", "breadcrumb", "button", "calendar", "card",
     "carousel", "chart", "checkbox", "combobox", "dialog", "drawer", "editor",
     "file-upload", "form", "input", "link", "menu", "navigation", "pagination",
-    "popover", "radio", "search", "select", "sidebar", "slider", "switch", "table",
+    "popover", "radio", "search", "select", "sheet", "sidebar", "slider", "switch", "table",
     "tabs", "textarea", "toast", "tooltip",
 )
 PAGE_TYPES = {
@@ -253,7 +268,7 @@ TASK_TYPE_ALIASES: dict[str, tuple[str, ...]] = {
     "visual-audit": ("visual-audit", "audit"),
     "accessibility-audit": ("accessibility-audit", "audit"),
     "performance-remediation": ("performance-remediation", "audit"),
-    "motion-refinement": ("motion-refinement", "component"),
+    "motion-refinement": ("motion-refinement", "motion", "component"),
     "screenshot-reconstruction": ("screenshot-reconstruction", "reconstruction"),
 }
 
@@ -321,6 +336,38 @@ FALLBACK_RECORDS: tuple[dict[str, Any], ...] = (
         "sources": ["offline-safety-kernel"],
         "license_status": "original-summary",
         "task_types": ["greenfield-build", AUTONOMOUS_MODE, "existing-redesign", "screenshot-reconstruction"],
+    },
+    {
+        "id": "offline-motion-opportunity-gate",
+        "title": "Gate motion by purpose and frequency",
+        "topic": "motion",
+        "subtopic": "opportunity-selection",
+        "status": "stable",
+        "importance": "mandatory",
+        "confidence": "high",
+        "principle": "Before adding or retaining animation, name its feedback, continuity, state, or explanation purpose, estimate interaction frequency, and reject motion that delays frequent work or decorates functional data.",
+        "rationale": "A bounded set of purposeful moments feels responsive; an animation wishlist spends attention and latency everywhere.",
+        "implementation": ["Create a frequency map", "Keep only candidates with a named task purpose", "Record representative rejected candidates"],
+        "verification": ["Compare frequent flows without motion", "Verify every retained animation has reduced behavior and an observable success criterion"],
+        "sources": ["offline-safety-kernel"],
+        "license_status": "original-summary",
+        "task_types": ["motion-refinement", "motion", "visual-audit", "existing-redesign"],
+    },
+    {
+        "id": "offline-direct-manipulation",
+        "title": "Keep gesture controls continuous and accessible",
+        "topic": "motion",
+        "subtopic": "direct-manipulation",
+        "status": "stable",
+        "importance": "mandatory",
+        "confidence": "high",
+        "principle": "Gesture-driven controls track from the grab point, handle pointer capture and cancellation, continue interruptions from the live rendered value, and expose equivalent keyboard or discrete controls.",
+        "rationale": "Stale targets, lost pointers, and animation-owned state break direct control and can desynchronize visual and semantic state.",
+        "implementation": ["Specify capture, cancellation, bounds, snap targets, and state ownership", "Treat velocity and spring constants as real-device tuning hypotheses"],
+        "verification": ["Reverse and interrupt the gesture on physical touch hardware", "Confirm final rendered, focus, value, and announced states agree", "Test reduced motion and the keyboard alternative"],
+        "sources": ["offline-safety-kernel"],
+        "license_status": "original-summary",
+        "task_types": ["motion-refinement", "motion", "component-build"],
     },
     {
         "id": "offline-preserve-functionality",
@@ -1251,13 +1298,13 @@ class RetrievalEngine:
         self.document_frequency: dict[str, int] = {}
         self.record_tokens: dict[str, set[str]] = {}
         for record in self.records:
-            tokens = set(tokenize(record.searchable))
+            tokens = set(tokenize(record.searchable)) - RETRIEVAL_STOPWORDS
             self.record_tokens[record.id] = tokens
             for token in tokens:
                 self.document_frequency[token] = self.document_frequency.get(token, 0) + 1
 
     def _query_terms(self, query: str, semantic: bool) -> tuple[set[str], set[str]]:
-        exact = set(tokenize(query))
+        exact = set(tokenize(query)) - RETRIEVAL_STOPWORDS
         expanded: set[str] = set()
         if semantic:
             for term in sorted(exact):
@@ -1286,9 +1333,17 @@ class RetrievalEngine:
             if not wanted:
                 continue
             values = set(record_values)
-            if values & wanted or "universal" in values:
-                score += 5.0 if key in {"topics", "components"} else 3.0
+            if values & wanted:
+                # Status and importance are eligibility filters, not evidence
+                # that the record answers the query.
+                if key not in {"statuses", "importance"}:
+                    score += 5.0 if key in {"topics", "components"} else 3.0
                 reasons.append(f"metadata:{key}")
+            elif "universal" in values:
+                # Universal guidance remains eligible without tying a record
+                # that explicitly matches the requested task or component.
+                score += 0.5
+                reasons.append(f"metadata:{key}:universal")
             elif key in {"statuses", "importance"}:
                 hard_mismatch = True
             else:
@@ -1318,7 +1373,10 @@ class RetrievalEngine:
                 score += 100.0
                 reasons.append("exact-id")
             if exact_overlap:
-                weighted = sum(1.0 + (total / (1 + self.document_frequency.get(term, total))) for term in exact_overlap)
+                weighted = sum(
+                    1.0 + math.log1p(total / (1 + self.document_frequency.get(term, total)))
+                    for term in exact_overlap
+                )
                 score += min(18.0, weighted)
                 reasons.append("lexical:" + ",".join(sorted(exact_overlap)[:8]))
             query_lower = query.lower().strip()
@@ -1329,7 +1387,7 @@ class RetrievalEngine:
                 score += min(6.0, len(expansion_overlap) * 1.1)
                 reasons.append("semantic-expansion:" + ",".join(sorted(expansion_overlap)[:6]))
             if record.importance == "mandatory":
-                score += 2.5
+                score += 1.25
                 reasons.append("mandatory-preservation")
             if record.status == "stable":
                 score += 0.75

@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1.0",
-  "last_reviewed": "2026-07-11",
+  "last_reviewed": "2026-07-17",
   "authoritative_registry": "../research/source-registry.yml",
   "usage_policy": "Rules are original synthesis. Source IDs identify upstream evidence and established practice; do not reproduce upstream passages, code, icons, or assets without checking their current terms.",
   "sources": [
@@ -420,18 +420,25 @@
       "canonical_url": "https://github.com/emilkowalski/skills",
       "source_type": "GitHub agent-skill collection",
       "license_note": "MIT",
-      "summary": "Practitioner skills for animation review, motion vocabulary, and design craft.",
+      "summary": "Credible practitioner skills for motion opportunity selection, animation review and planning, direct manipulation, gesture physics, animation vocabulary, typography, materials, and design craft.",
       "best_for": [
         "animation review",
+        "motion opportunity filtering",
+        "gesture and direct-manipulation design",
+        "system-level motion audits",
         "interaction polish"
       ],
       "when_to_use": [
-        "Need opinionated motion craft heuristics with accessibility exceptions."
+        "Need implementation-oriented motion craft heuristics with explicit frequency, accessibility, interruption, and runtime verification context."
       ],
       "keywords": [
         "emil",
         "motion",
         "animation-review",
+        "gesture",
+        "direct-manipulation",
+        "velocity",
+        "motion-audit",
         "skills"
       ]
     },
