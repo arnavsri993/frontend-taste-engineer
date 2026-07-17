@@ -21,7 +21,10 @@ python3 scripts/absorb_templates.py
 python3 scripts/enrich_source_cards.py --check
 python3 scripts/package_skill.py --dry-run
 python3 scripts/package_plugin.py --dry-run
+python3 scripts/plugin_auto_update.py --status
 ```
+
+`plugin_auto_update.py` is the only runtime maintenance script that may refresh an installed plugin. It accepts only the configured Git marketplace for `arnavsri993/frontend-taste-engineer`, delegates fetching and atomic cache activation to `codex plugin marketplace upgrade`, rate-limits checks, and never edits the plugin cache itself. Local marketplace installs and unknown Git origins are refused. Use `--force` for an immediate refresh or `FTE_AUTO_UPDATE=0` to disable the session hook.
 
 `expand_source_library.py` and `absorb_templates.py` add curated discovery seeds with findability cards (libraries, kits, template catalogs, starters). `enrich_source_cards.py` rewrites seed/knowledge findability cards (`summary`, `best_for`, keywords) and regenerates `research/source-discovery/source-findability.md`. These scripts do not download templates, inspect upstream privately, or change licenses beyond explicit inspiration-only gallery/marketplace tags.
 Focused checks cover plugin/Skill structure, local Markdown links, record

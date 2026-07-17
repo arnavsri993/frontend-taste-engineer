@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.4.0 — 2026-07-16
+
+Added a safe automatic update path for GitHub installs. The trusted session hook rate-limits checks, verifies the configured source is exactly `arnavsri993/frontend-taste-engineer`, delegates fetch/staging/cache activation to the Codex plugin manager, refuses local development installs and unknown origins, and keeps the current version usable on timeout or failure. Added status/force controls, opt-out configuration, atomic local check state, restart guidance, and deterministic tests.
+
 Added a paid-client **premium quality bar**: system lock before catalogs, first-viewport law, hard AI-cluster reject list, density profiles, ≤3 motion roles, mandatory screenshot refine (second pass if still generic), thesis-derived catalog queries, dedicated copy pass, and required “Why this is not generic” completion proof. Wired through Skill, DESIGN/completion templates, autonomous-build, creative-direction, automatic-copy, visual-refinement, production-completion, and motion-pull references.
 
 Absorbed 88 additional template catalogs, admin kits, SaaS/Next starters, theme directories, and storefront starters into the seed library (245 → 395 total). Paid marketplaces stay inspiration-only or entitlement-gated; no template code or assets were copied or promoted.

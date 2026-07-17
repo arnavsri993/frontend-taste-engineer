@@ -2,7 +2,7 @@
 
 This directory is the installable plugin package. The repository root contains the marketplace, CI, contribution policy, and full architecture documentation.
 
-Version 0.3.0 adds a 245-source external frontend seed catalog, stage-bounded source selection, license/anti-copy gates, optional 21st.dev MCP guidance, artifact-pack summaries, deterministic candidate discovery, and policy evaluations. The current unreleased update expands that catalog to 395 findability-described seeds, adds a source-backed motion grammar for expressive work, conditional early motion retrieval, and an intentional-negative-space rule so minimalism does not collapse into bare scale. It preserves the 0.2.0 `autonomous-zero-brief-build` workflow for minimal website, page, portfolio, frontend, and redesign prompts.
+Version 0.4.0 expands the catalog to 395 findability-described seeds, adds a source-backed motion grammar for expressive work, raises the paid-client quality bar, and adds safe automatic refresh for trusted GitHub installations. It preserves the 0.2.0 `autonomous-zero-brief-build` workflow for minimal website, page, portfolio, frontend, and redesign prompts.
 
 “Stunning” and similar quality language means exceptionally appropriate and well executed. The classifier uses a five-level visual-intensity model plus domain, task, audience, trust, risk, density, frequency, maturity, accessibility, device, familiarity, and experimental-tolerance signals; it does not force dark, cinematic, gradient-heavy, or highly animated styling across products.
 
@@ -11,7 +11,7 @@ Runtime components:
 - `skills/frontend-taste-engineer/`: compact operating Skill, offline references, templates, and static audit.
 - `knowledge/`: canonical, diffable frontend knowledge records.
 - `mcp-server/`: stdio classification, retrieval, provenance, audit, and bounded external-source selection tools.
-- `hooks/`: trusted-on-review session context hook.
+- `hooks/`: trusted-on-review session context and Git-marketplace update hook.
 - `review-app/`: optional local provenance and audit viewer.
 - `research/source-discovery/`: 395 candidate seed URLs, monthly queries, scoring, promotion policy, and candidate templates.
 - `research/artifact-packs/` and `references/`: source-family summaries plus selection/license/discovery gates.
@@ -25,14 +25,16 @@ Named recipients and messages are request-local by default. Public fixtures use 
 
 The `.app.json` mapping is intentionally empty until a developer-mode ChatGPT app is registered manually. No app ID is fabricated. The MCP server and Skill work without that optional registration.
 
-Install from the repository root:
+Install from GitHub:
 
 ```bash
-codex plugin marketplace add "$(pwd)"
+codex plugin marketplace add arnavsri993/frontend-taste-engineer --ref main
 codex plugin add frontend-taste-engineer@personal
 ```
 
-Then start a new Codex task and review the plugin hook in `/hooks`.
+Then start a new Codex task and review the plugin hook in `/hooks`. Once trusted, it asks Codex to refresh this exact GitHub marketplace at most once every six hours. It never edits plugin cache files directly, refuses unknown repositories, leaves local development installs untouched, and keeps the existing version usable if a check fails. Set `FTE_AUTO_UPDATE=0` to disable it, or run `python3 scripts/plugin_auto_update.py --force` for an immediate refresh. A successfully installed update takes effect in a new task. Every published change must bump the manifest version/cachebuster so Codex can activate a distinct cache entry.
+
+For development from a clone, register the repository root with `codex plugin marketplace add "$(pwd)"`. Local marketplace installs never auto-update from GitHub.
 
 Preview monthly discovery with no network and no writes:
 

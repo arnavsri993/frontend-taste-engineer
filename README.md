@@ -33,7 +33,32 @@ The compact Skill is the operating system: it classifies work, enforces mandator
 
 This separation keeps ordinary tasks focused while preserving inspectable provenance and offline operation. Generated indexes accelerate retrieval but are never canonical.
 
-## Install locally
+## Install from GitHub
+
+Register the GitHub repository as a marketplace, then install the plugin:
+
+```bash
+codex plugin marketplace add arnavsri993/frontend-taste-engineer --ref main
+codex plugin add frontend-taste-engineer@personal
+```
+
+After installation, start a new Codex task so bundled Skills, MCP tools, and trusted hooks are discovered. Review and trust the plugin hook through `/hooks`; installed plugins do not automatically trust command hooks.
+
+The trusted session-start hook checks the configured Git marketplace at most once every six hours. Codex performs the fetch, staging, and cache activation; the plugin never edits its own cache or downloads an archive directly. When the manifest version changes, the hook reports that an update was installed and asks you to start a new task so the new Skill, MCP server, and hooks are loaded.
+
+```bash
+# Check whether this install is eligible without using the network.
+python3 plugins/frontend-taste-engineer/scripts/plugin_auto_update.py --status
+
+# Refresh the trusted Git marketplace immediately.
+python3 plugins/frontend-taste-engineer/scripts/plugin_auto_update.py --force
+```
+
+Set `FTE_AUTO_UPDATE=0` to opt out. Automatic updates are fail-open: a timeout or refresh error leaves the existing installed version available. They are also disabled for local marketplace sources so the updater can never replace a development checkout.
+
+Every published plugin change must carry a new `.codex-plugin/plugin.json` version/cachebuster. Codex activates updates by manifest version, so changing GitHub files without bumping that value is intentionally not treated as a release.
+
+## Install locally for development
 
 From a clone of this repository:
 
@@ -42,9 +67,7 @@ codex plugin marketplace add "$(pwd)"
 codex plugin add frontend-taste-engineer@personal
 ```
 
-The repo marketplace is explicit and therefore must be added once. After installation, start a new Codex task so bundled Skills, MCP tools, and trusted hooks are discovered. Review and trust the plugin hook through `/hooks`; installed plugins do not automatically trust command hooks.
-
-To reinstall while iterating, update the cachebuster with the built-in plugin-creator helper, then reinstall from the marketplace. Do not hand-edit an installed cache.
+Local installs intentionally do not pull from GitHub. While iterating, update the cachebuster with the built-in plugin-creator helper, then reinstall from the local marketplace. Do not hand-edit an installed cache.
 
 ## MCP retrieval
 
