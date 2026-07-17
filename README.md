@@ -137,11 +137,11 @@ Open the printed local URL. The showcase links to the repository, includes a loc
 
 ## Maintenance and promotion
 
-- Weekly: upstream revision, broken-link, license, and deprecation report.
-- Monthly: candidate-source discovery and coverage-gap report.
+- Weekly: live registered-source revision, license, deprecation, redirect, and bounded public-text fingerprint monitoring.
+- Monthly: candidate-source discovery, including motion opportunity, reduced-motion, accessibility, and direct-manipulation queries, plus a coverage-gap report.
 - Quarterly: full retrieval/frontend regression and architecture review.
 
-Scheduled workflows write reviewable artifacts or candidate branches. They never push directly to stable, merge automatically, or promote experimental guidance without evaluation. Stable releases live on `main`; proposed knowledge changes use `candidate` and pull requests.
+The weekly workflow restores a cached metadata baseline, uploads JSON and Markdown evidence, and opens or refreshes one review issue when a registered source changes. It retains public metadata and hashes rather than source page dumps. Scheduled workflows write reviewable artifacts or candidate branches. They never push directly to stable, merge automatically, or promote experimental guidance without evaluation. Stable releases live on `main`; proposed knowledge changes use `candidate` and pull requests.
 
 Preview the discovery workflow offline and without writes:
 

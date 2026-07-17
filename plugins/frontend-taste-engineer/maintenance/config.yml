@@ -16,6 +16,7 @@ outputs:
   machine_readable: audits/generated
   human_readable: maintenance/source-audit.md
   source_candidates: research/source-discovery/candidates/YYYY-MM
+  live_monitor_cache: .source-monitor-cache/latest.json
 freshness_days:
   core: 45
   specialized: 90

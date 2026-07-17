@@ -1,6 +1,6 @@
 # Monthly external-source discovery
 
-This workflow discovers and triages public frontend sources without executing third-party code or changing stable knowledge.
+This workflow discovers and triages public frontend sources without executing third-party code or changing stable knowledge. The query set includes focused motion-opportunity, reduced-motion, accessibility, and direct-manipulation searches so the registered motion sources are complemented by new candidate evidence rather than treated as a closed list.
 
 ## Run
 

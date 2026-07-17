@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+Added a live, report-only registered-source monitor that resolves GitHub heads and license metadata, fingerprints bounded visible text for public documentation, compares prior weekly observations, minimizes retained data, and opens or refreshes a review issue when evidence changes. Added four motion/accessibility/direct-manipulation queries to monthly candidate discovery; neither workflow promotes stable knowledge.
+
 Separated source credibility from execution safety throughout the Skill, research policy, discovery catalog, and MCP response. Externality is no longer presented as a negative trust verdict: candidate seeds are explicitly not-yet-assessed, while reviewed sources expose scoped credibility, reliability evidence, and license status. Refreshed the active `kill-ai-slop` project at `2d21245d`; its primary-source credibility is now explicit while its missing license continues to block copying and adaptation.
 
 Refreshed `emilkowalski/skills` from `f76bece` to MIT-licensed revision `6bf24434`. Added six contextual, source-backed records for motion opportunity gating, whole-system audits, direct manipulation, momentum and soft boundaries, optical type rhythm, and translucent-material fallbacks; expanded the motion workflow, offline fallback, provenance, conflict handling, and retrieval regressions without importing upstream persona or output-format commands.
