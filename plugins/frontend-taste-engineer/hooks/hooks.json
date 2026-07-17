@@ -7,7 +7,7 @@
           {
             "type": "command",
             "command": "python3 ${PLUGIN_ROOT}/hooks/session_start.py",
-            "statusMessage": "Loading frontend quality gates"
+            "statusMessage": "Loading quality gates and checking plugin updates"
           }
         ]
       }

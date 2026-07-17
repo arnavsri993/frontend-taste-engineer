@@ -4,6 +4,9 @@ All notable changes follow semantic versioning and are recorded here.
 
 ## Unreleased
 
+## 0.4.0 — 2026-07-16
+
+- Added opt-out automatic updates for trusted GitHub marketplace installs. The rate-limited hook delegates refresh and atomic cache activation to Codex, rejects local and unknown sources, preserves the current version on failure, and reports when a new task is required.
 - Raised the Skill to a paid-client quality bar: system lock before catalogs, first-viewport law, AI-cluster reject list, density profiles, ≤3 motion roles, mandatory screenshot refine, and required “Why this is not generic” proof.
 - Expanded the external seed catalog from 245 to 395 sources with findability cards, including a large template/starter absorption pass; no seed or template was promoted to stable knowledge or vendored into the repo.
 
