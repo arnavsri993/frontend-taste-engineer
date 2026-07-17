@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   audit:
@@ -17,7 +18,32 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Check registered-source freshness
+      - name: Restore prior public-source fingerprints
+        uses: actions/cache@v4
+        with:
+          path: .source-monitor-cache/latest.json
+          key: source-monitor-${{ github.run_id }}
+          restore-keys: |
+            source-monitor-
+      - name: Preserve prior monitor baseline
+        run: |
+          mkdir -p .source-monitor-cache
+          if test -f .source-monitor-cache/latest.json; then
+            cp .source-monitor-cache/latest.json .source-monitor-cache/previous.json
+          fi
+      - name: Monitor registered public sources
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: >-
+          python3 plugins/frontend-taste-engineer/scripts/monitor_registered_sources.py
+          --baseline-json .source-monitor-cache/previous.json
+          --json-out plugins/frontend-taste-engineer/audits/generated/weekly-source-monitor.json
+          --md-out plugins/frontend-taste-engineer/audits/generated/weekly-source-monitor.md
+      - name: Save current public-source fingerprints
+        run: >-
+          cp plugins/frontend-taste-engineer/audits/generated/weekly-source-monitor.json
+          .source-monitor-cache/latest.json
+      - name: Check canonical record review dates
         run: >-
           python3 plugins/frontend-taste-engineer/scripts/check_source_freshness.py
           --json-out plugins/frontend-taste-engineer/audits/generated/weekly-source-audit.json
@@ -29,3 +55,19 @@ jobs:
           name: weekly-source-audit
           path: plugins/frontend-taste-engineer/audits/generated/
           if-no-files-found: error
+      - name: Open or refresh source-review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          review_required="$(python3 -c 'import json; print(str(json.load(open("plugins/frontend-taste-engineer/audits/generated/weekly-source-monitor.json"))["review_required"]).lower())')"
+          if test "${review_required}" != "true"; then
+            exit 0
+          fi
+          issue_number="$(gh issue list --state open --json number,title --jq '[.[] | select(.title == "Source monitor changes need review")][0].number // ""')"
+          if test -n "${issue_number}"; then
+            gh issue edit "${issue_number}" --body-file plugins/frontend-taste-engineer/audits/generated/weekly-source-monitor.md
+          else
+            gh issue create \
+              --title "Source monitor changes need review" \
+              --body-file plugins/frontend-taste-engineer/audits/generated/weekly-source-monitor.md
+          fi

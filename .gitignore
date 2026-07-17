@@ -19,6 +19,7 @@ coverage/
 *.swp
 artifacts/tmp/
 plugins/frontend-taste-engineer/audits/generated/
+.source-monitor-cache/
 plugins/frontend-taste-engineer/evals/results/local-*
 plugins/frontend-taste-engineer/evals/results/e2e/local-*
 plugins/frontend-taste-engineer/knowledge/index.generated.json

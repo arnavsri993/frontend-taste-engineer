@@ -41,3 +41,11 @@ Preview monthly discovery with no network and no writes:
 ```bash
 python3 scripts/discover_frontend_sources.py --dry-run --max-results 50
 ```
+
+Run a targeted live check of one registered source:
+
+```bash
+python3 scripts/monitor_registered_sources.py --source-id emil-design-skills --json-out audits/source-monitor.json --md-out audits/source-monitor.md
+```
+
+The scheduled weekly monitor compares a cached metadata baseline, uploads JSON and Markdown evidence, and opens or refreshes one review issue when revision, license, deprecation, reachability, redirect, or bounded public-text fingerprint evidence changes. It stores metadata and hashes rather than page dumps and cannot promote stable knowledge.
