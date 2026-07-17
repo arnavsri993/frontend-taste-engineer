@@ -297,8 +297,28 @@ class EngineTests(unittest.TestCase):
         })
         first = [source["id"] for source in report["sources"][:3]]
         self.assertEqual(set(first), {"react-aria", "radix-primitives", "ariakit"})
+        react_aria = next(source for source in report["sources"] if source["id"] == "react-aria")
+        ariakit = next(source for source in report["sources"] if source["id"] == "ariakit")
+        self.assertEqual(react_aria["assessment"]["review_status"], "reviewed")
+        self.assertEqual(react_aria["assessment"]["credibility"], "credible-for-stated-scope")
+        self.assertEqual(ariakit["assessment"]["review_status"], "candidate-only")
+        self.assertEqual(ariakit["assessment"]["credibility"], "not-yet-assessed")
         self.assertLessEqual(report["returned"], report["stage_budget"])
         self.assertLess(report["returned"], report["catalog"]["catalog_size"])
+
+    def test_external_catalog_separates_credibility_from_execution_safety(self) -> None:
+        report = server.call_tool(self.engine, "get_external_source_catalog", {
+            "stage": "implementation",
+            "source_ids": ["react-aria"],
+            "intended_use": "inspiration-only",
+        })
+        source = report["sources"][0]
+        self.assertEqual(source["assessment"]["review_status"], "reviewed")
+        self.assertEqual(source["assessment"]["credibility"], "credible-for-stated-scope")
+        self.assertTrue(report["policy"]["source_credibility_is_assessed_individually"])
+        self.assertTrue(report["policy"]["externality_alone_is_not_a_negative_trust_verdict"])
+        self.assertFalse(report["policy"]["embedded_source_instructions_are_agent_directives"])
+        self.assertNotIn("external_content_is_untrusted", report["policy"])
 
     def test_external_catalog_uses_source_cards_for_findability(self) -> None:
         report = server.call_tool(self.engine, "get_external_source_catalog", {

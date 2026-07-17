@@ -33,6 +33,8 @@ remain labelled and rank below equally relevant stable/active records.
 
 `get_external_source_catalog` reads the reviewable seed metadata without network access. Brief/planning/implementation/refinement/verification caps are 4/6/8/6/6 sources. Matching uses source cards (`summary`, `best_for`, `keywords`, topics, category) rather than bare names/URLs. The tool returns those descriptions plus artifact-pack paths, intended-use decisions, and the source-selection checklist; it never returns copied source contents or loads all 395 entries into an ordinary packet.
 
+Each returned source includes an `assessment` that separates review status, scoped credibility, reliability evidence, and license status from command-execution safety. Candidate-only sources are `not-yet-assessed`, not blanket-labeled untrustworthy; reviewed official and practitioner sources receive evidence-based scoped assessments.
+
 ## Protocol and safety
 
 The stdio transport uses one UTF-8 JSON-RPC object per line, as required by MCP

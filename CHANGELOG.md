@@ -4,6 +4,8 @@ All notable changes follow semantic versioning and are recorded here.
 
 ## Unreleased
 
+- Replaced the blanket external-source “untrusted” label with evidence-based per-source assessments. Candidate seeds now report not-yet-assessed; reviewed sources report scoped credibility, reliability evidence, and license status separately from the inspect-before-execution boundary. Refreshed `kill-ai-slop` at `2d21245d` while retaining its missing-license copy restriction.
+
 ## 0.4.0 — 2026-07-16
 
 - Added opt-out automatic updates for trusted GitHub marketplace installs. The rate-limited hook delegates refresh and atomic cache activation to Codex, rejects local and unknown sources, preserves the current version on failure, and reports when a new task is required.

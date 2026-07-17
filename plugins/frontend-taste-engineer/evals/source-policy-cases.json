@@ -26,6 +26,9 @@
     "arguments": {"stage": "implementation", "query": "accessible dialog combobox keyboard focus", "max_results": 12},
     "checks": [
       {"type": "source-prefix", "unordered": true, "equals": ["react-aria", "radix-primitives", "ariakit"]},
+      {"type": "source-field", "source_id": "react-aria", "path": "assessment.review_status", "equals": "reviewed"},
+      {"type": "source-field", "source_id": "react-aria", "path": "assessment.credibility", "equals": "credible-for-stated-scope"},
+      {"type": "source-field", "source_id": "ariakit", "path": "assessment.credibility", "equals": "not-yet-assessed"},
       {"type": "budget-bounded"}
     ]
   },
@@ -79,7 +82,9 @@
     "checks": [
       {"type": "budget-bounded"},
       {"type": "catalog-not-fully-loaded"},
-      {"type": "top-field", "path": "policy.automatic_promotion", "equals": false}
+      {"type": "top-field", "path": "policy.automatic_promotion", "equals": false},
+      {"type": "top-field", "path": "policy.source_credibility_is_assessed_individually", "equals": true},
+      {"type": "top-field", "path": "policy.externality_alone_is_not_a_negative_trust_verdict", "equals": true}
     ]
   }
 ]
