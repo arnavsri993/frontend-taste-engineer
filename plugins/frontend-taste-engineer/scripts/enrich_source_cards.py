@@ -1979,10 +1979,10 @@ REGISTERED_SOURCE_CARDS: dict[str, dict[str, Any]] = {
         "keywords": ["transitions", "motion", "css"],
     },
     "emil-design-skills": {
-        "summary": "Practitioner skills for animation review, motion vocabulary, and design craft.",
-        "best_for": ["animation review", "interaction polish"],
-        "when_to_use": ["Need opinionated motion craft heuristics with accessibility exceptions."],
-        "keywords": ["emil", "motion", "animation-review", "skills"],
+        "summary": "Credible practitioner skills for motion opportunity selection, animation review and planning, direct manipulation, gesture physics, animation vocabulary, typography, materials, and design craft.",
+        "best_for": ["animation review", "motion opportunity filtering", "gesture and direct-manipulation design", "system-level motion audits", "interaction polish"],
+        "when_to_use": ["Need implementation-oriented motion craft heuristics with explicit frequency, accessibility, interruption, and runtime verification context."],
+        "keywords": ["emil", "motion", "animation-review", "gesture", "direct-manipulation", "velocity", "motion-audit", "skills"],
     },
     "taste-skill-repo": {
         "summary": "Anti-slop frontend skill collection emphasizing brief inference and completion checks.",

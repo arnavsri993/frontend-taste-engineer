@@ -469,3 +469,57 @@ Status: candidate findings reviewed on 2026-07-10. A finding is not automaticall
 - **Exceptions:** An art-directed campaign, launch, cultural work, or editorial statement may intentionally hold a spacious pause when its distinctive content and composition earn it. Dense or consequential tasks may appropriately minimize expressive space.
 - **Verify:** At common laptop and mobile heights, inspect whether useful context, proof, or the next action sits beyond a purposeless void. Ask reviewers to name the job of every major gap; preserve semantic grouping in headings and DOM order.
 - **Sources:** `apple-hig`, `govuk-design-system`, `material-3`, `taste-skill-repo`.
+
+### F-050 — Gate motion opportunities by purpose and frequency
+
+- **Level:** recommended; specialized.
+- **Do:** Map how often each interaction occurs, name the feedback, continuity, state, jarring-change, or explanatory job, and keep only the highest-leverage candidates. Record representative rejections so an opportunity audit demonstrates restraint rather than producing a wishlist.
+- **Why:** Frequent motion and decorative data movement spend attention and time repeatedly; a small number of purposeful moments makes the interface feel faster and more authored.
+- **Exceptions:** Near-immediate state or press feedback may remain on frequent actions when it adds no task delay; rare narrative or celebratory moments can spend more motion budget.
+- **Verify:** Compare high-frequency flows with motion disabled; every retained animation has a purpose, frequency tier, reduced behavior, and observable success criterion.
+- **Sources:** `emil-design-skills`, `apple-hig`, `fluent-2`.
+
+### F-051 — Direct manipulation must track the user continuously
+
+- **Level:** mandatory when gesture-driven interaction exists; specialized.
+- **Do:** Preserve the grab offset, capture and track the active pointer, start interruptions from the live presentation value, preserve authoritative application state, and handle cancellation, additional pointers, bounds changes, and keyboard alternatives.
+- **Why:** Losing the pointer, jumping to a logical target, or restarting a settle from stale coordinates breaks direct control and can desynchronize visual, focus, and semantic state.
+- **Exceptions:** Keep native control behavior when it already satisfies the interaction; decoration alone does not justify custom gesture ownership.
+- **Verify:** On physical touch hardware, drag beyond bounds, reverse mid-flight, interrupt settling, rotate/resize, trigger cancellation, and confirm rendered position, committed value, focus, and announcements agree.
+- **Sources:** `emil-design-skills`, `apple-hig`, `mdn-web-docs`, `wcag-22`.
+
+### F-052 — Momentum and soft boundaries are contextual physics
+
+- **Level:** contextual; specialized.
+- **Do:** For flickable multi-target gestures, combine distance, direction, and release velocity; preserve velocity into the settle; use progressive resistance outside valid bounds; tune hysteresis and axes against real hardware.
+- **Why:** Distance-only thresholds miss intentional flicks, while hard stops and zero-velocity retargets create visible seams.
+- **Exceptions:** Destructive, financial, safety-critical, precision, or simple binary controls should favor explicit predictable targets over momentum.
+- **Verify:** Compare slow drags, short flicks, diagonal intent, reversals, and over-drag across mouse, pen, and touch; slow-motion playback shows no position or velocity jump.
+- **Sources:** `emil-design-skills`, `apple-hig`, `mdn-web-docs`.
+
+### F-053 — Audit the motion system before isolated polish
+
+- **Level:** recommended; specialized.
+- **Do:** Inventory libraries, tokens, primitives, personality, and frequency; audit purpose, timing, physicality, interruption, performance, accessibility, cohesion, and missed opportunities; verify every cited location and group findings by shared cause.
+- **Why:** One bad easing token, animation primitive, or preference path can affect many components, while isolated tweaks add drift and miss the highest-leverage correction.
+- **Exceptions:** A narrow regression with a proven cause can use a targeted review after checking the shared boundary.
+- **Verify:** Findings distinguish code evidence from feel judgments and selected plans include exact scope, values, boundaries, revision, runtime feel checks, and reduced-motion checks.
+- **Sources:** `emil-design-skills`, `transitions-dev-repo`, `apple-hig`, `wcag-22`.
+
+### F-054 — Optical type rhythm changes with size, font, and script
+
+- **Level:** recommended; specialized.
+- **Do:** Coordinate tracking, leading, optical sizing, weight, and size per semantic role; use relative units; test the actual font and script instead of applying one Latin display adjustment globally.
+- **Why:** A global letter-spacing or line-height value becomes too tight, loose, or fragile somewhere across display, body, controls, data, localization, zoom, and fallback fonts.
+- **Exceptions:** Authoritative font optical presets may supply part of the system; tabular or code contexts may prioritize alignment.
+- **Verify:** Review every role with real text, 200% zoom, fallbacks, text-spacing overrides, diacritics, and localized scripts.
+- **Sources:** `emil-design-skills`, `apple-hig`, `mdn-web-docs`, `webdev`.
+
+### F-055 — Translucent materials need solid fallbacks
+
+- **Level:** recommended; experimental because reduced-transparency support is limited.
+- **Do:** Start from a legible opaque semantic surface, progressively enhance blur/transparency, avoid stacked glass layers, and respond to contrast, forced-color, and reduced-transparency preferences where available.
+- **Why:** Changing backgrounds, unsupported filters, preference modes, and low-power hardware can erase hierarchy, focus, or contrast when translucency is the only boundary.
+- **Exceptions:** Decorative layers may disappear when they carry no content, control, grouping, or state meaning.
+- **Verify:** Disable blur and imagery; test busy/light backgrounds, forced colors, increased contrast, reduced transparency where supported, scroll performance, and focus visibility.
+- **Sources:** `emil-design-skills`, `apple-hig`, `mdn-web-docs`, `wcag-22`.

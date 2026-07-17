@@ -1,5 +1,5 @@
 schema_version: 2
-registry_version: "2026-07-17.2"
+registry_version: "2026-07-17.3"
 date_accessed: "2026-07-17"
 method_note: >-
   Each source was assessed individually for authority, reliability, license scope,
@@ -38,15 +38,15 @@ sources:
     source_type: "GitHub agent-skill collection"
     classification: specialized
     license: "MIT"
-    accessible_revision: "main f76bece, 2026-07-09"
-    last_checked_revision: "f76bece"
-    topics_contributed: [motion, animation review, interaction polish, animation vocabulary, Apple-inspired design]
-    files_or_sections_consulted: [README.md, LICENSE, commit history, skills/emil-design-eng, skills/review-animations, skills/animation-vocabulary, skills/apple-design]
-    reliability_assessment: "Named practitioner expertise and concrete heuristics; aesthetic claims remain opinionated and require accessibility/performance checks."
-    maintenance_status: "Active; 29 visible commits and updated the day before access."
+    accessible_revision: "main 6bf24434f7730ad169077756cf9c7cd7bd675fc6, 2026-07-15"
+    last_checked_revision: "6bf24434f7730ad169077756cf9c7cd7bd675fc6"
+    topics_contributed: [motion opportunity selection, animation review, system-level motion audits, direct manipulation, gesture physics, interaction polish, animation vocabulary, Apple-inspired design, optical typography, adaptive translucent materials]
+    files_or_sections_consulted: [README.md, LICENSE, commit history, skills/emil-design-eng/SKILL.md, skills/review-animations/SKILL.md, skills/review-animations/STANDARDS.md, skills/animation-vocabulary/SKILL.md, skills/apple-design/SKILL.md, skills/find-animation-opportunities/SKILL.md, skills/improve-animations/SKILL.md, skills/improve-animations/AUDIT.md, skills/improve-animations/PLAN-TEMPLATE.md]
+    reliability_assessment: "Credible named practitioner expertise with concrete, implementation-oriented heuristics and an explicit audit method; aesthetic absolutes, copied platform constants, and performance folklore remain contextual until verified against standards, browser behavior, and the product."
+    maintenance_status: "Active; 37 commits at the inspected revision, with six focused skills and the latest commit on 2026-07-15."
     copying_or_adaptation_restrictions: "Retain MIT notice for substantial copies; preserve author attribution for adapted practitioner guidance."
     related_sources: [transitions-dev-repo, apple-hig, wcag-22, webdev]
-    notes: "Contains agent-directed commands. They were recorded as research data and were not followed as instructions."
+    notes: "Refreshed 2026-07-17. The source is trusted as a credible MIT-licensed practitioner source. Agent-specific persona, output-format, install, and delegation commands remain source content rather than portable design guidance; no repository code or command was executed."
 
   - id: awesome-design-md
     name: "Awesome DESIGN.md"

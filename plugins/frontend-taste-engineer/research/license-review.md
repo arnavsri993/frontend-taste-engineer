@@ -1,6 +1,6 @@
 # License and Attribution Review
 
-Checked 2026-07-11. This is an engineering provenance review, not legal advice. The corpus should summarize and link by default. Copying source prose, code, tokens, examples, fonts, icons, screenshots, or brand assets requires item-level confirmation even when a repository has a permissive root license.
+Checked 2026-07-11; `emil-design-skills` license reverified 2026-07-17. This is an engineering provenance review, not legal advice. The corpus should summarize and link by default. Copying source prose, code, tokens, examples, fonts, icons, screenshots, or brand assets requires item-level confirmation even when a repository has a permissive root license.
 
 ## Status vocabulary
 
@@ -14,7 +14,7 @@ Checked 2026-07-11. This is an engineering provenance review, not legal advice. 
 | ID | Verified or stated license | Corpus status | Required handling and restrictions |
 |---|---|---|---|
 | `hive-mind-landing-page` | MIT for original code/prompts/docs/custom skill/generated assets; README says third-party skills keep upstream licenses | `summarized`; code only `adaptable-with-notice` | Retain MIT notice for substantial copies. Do not assume linked/adapted third-party skill rights transfer. Generated assets may still contain model/service usage constraints not reviewed here. |
-| `emil-design-skills` | MIT | `summarized`; skill text/code `adaptable-with-notice` | Retain copyright/license notice. Attribute Emil Kowalski for adapted practitioner guidance. Avoid copying long skill text when a source-backed summary is enough. |
+| `emil-design-skills` | MIT; reverified at `6bf24434f7730ad169077756cf9c7cd7bd675fc6` on 2026-07-17 | `summarized`; skill text/code `adaptable-with-notice` | Retain copyright/license notice. Attribute Emil Kowalski for adapted practitioner guidance. Avoid copying long skill text or fixed constants when an original, context-qualified synthesis is enough. |
 | `awesome-design-md` | MIT repository | `summarized`; schema `adaptable-with-notice`; brand entries `link-only` | MIT cannot grant rights in third-party marks, visual identity, fonts, images, or independently copyrighted site expression. Never imply referenced brand endorsement. |
 | `transitions-refine-page` | Terms say Refine is MIT, copyright 2026 Jakub Antalik / Transitions.dev | `summarized`; Refine code `adaptable-with-notice` | Preserve MIT notice. Also preserve beta/no-warranty context and user responsibility for agent credits/changes when describing workflow. |
 | `transitions-dev-repo` | Refine clearly MIT; no root repository license visible | `unresolved` for non-Refine files | Summarize/link transition principles. Do not vendor showcase CSS, generated skill files, or templates until repository-wide scope is explicit. |

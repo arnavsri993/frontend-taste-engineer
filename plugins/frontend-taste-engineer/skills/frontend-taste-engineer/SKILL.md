@@ -227,7 +227,9 @@ Prioritize blocked tasks, deceptive behavior, accessibility, broken layouts, sta
 
 ## Motion refinement
 
-Test motion in the running interface. Before editing, pull fresh guidance with the sequence in `references/pull-motion-and-elements.md` (`get_motion_guidance` + targeted catalog queries). Verify the motion grammar, purpose, origin, easing, duration, interruption, reversal, repeated activation, input modality, and reduced motion. Prefer transform and opacity when appropriate, but choose correctness over blanket performance folklore. Remove arbitrary or competing motion that obscures state or delays work—not an intentional, non-blocking focal or narrative beat.
+Test motion in the running interface. Before editing, pull fresh guidance with the sequence in `references/pull-motion-and-elements.md` (`get_motion_guidance` + targeted catalog queries). Inventory the existing libraries, tokens, primitives, documented tradeoffs, product personality, and interaction-frequency map before judging individual effects.
+
+Gate every retained or proposed animation by purpose, frequency, task cost, and reduced behavior; record representative rejected candidates so an opportunity audit demonstrates restraint. For direct manipulation, specify grab offset, pointer capture/cancellation, live-value interruption, bounds, snap targets, velocity handoff when justified, and a complete keyboard/discrete alternative. Verify origin, easing, duration, interruption, reversal, repeated activation, input modality, reduced motion, and final DOM/focus/ARIA agreement. Use slow-motion or frame-by-frame inspection and physical touch hardware for gesture feel. Prefer compositor-friendly properties when appropriate, but choose correctness and measurement over blanket performance folklore. Remove arbitrary or competing motion that obscures state or delays work—not an intentional, non-blocking focal or narrative beat.
 
 ## Anti-slop pass
 

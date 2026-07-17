@@ -1,11 +1,11 @@
 {
   "id": "workflow.motion",
   "title": "Purposeful motion workflow",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "active",
-  "last_reviewed": "2026-07-10",
+  "last_reviewed": "2026-07-17",
   "applies_to": ["component motion", "page transitions", "interaction choreography", "motion audit"],
-  "inputs": ["state model", "interaction trigger", "geometry", "motion tokens", "user preferences", "performance baseline"],
+  "inputs": ["state model", "interaction trigger", "interaction frequency map", "geometry", "gesture and input model", "motion inventory and tokens", "user preferences", "performance baseline"],
   "steps": [
     {
       "id": "purpose",
@@ -14,6 +14,14 @@
       "evidence": ["motion intent statement"],
       "rule_refs": ["motion.explain-causality", "motion.interaction-specific-tokens", "anti.motion-everywhere"],
       "exit_criteria": ["The animation has a specific information job or is removed."]
+    },
+    {
+      "id": "opportunity-gate",
+      "title": "Gate opportunities by frequency and task cost",
+      "actions": ["Map how often each candidate interaction occurs and how much attention, latency, and movement it adds.", "Keep only candidates with a named feedback, continuity, state, jarring-change, or explanatory purpose.", "Record representative rejected candidates, especially frequent keyboard workflows and functional data that users are reading or acting on."],
+      "evidence": ["frequency map", "accepted and rejected motion candidates"],
+      "rule_refs": ["motion.frequency-purpose-gate", "motion.explain-causality", "anti.motion-everywhere"],
+      "exit_criteria": ["The motion budget is concentrated on a bounded set of high-leverage moments, and restraint is evidenced by explicit rejections."]
     },
     {
       "id": "grammar",
@@ -26,10 +34,18 @@
     {
       "id": "state",
       "title": "Define state, focus, and interruption behavior",
-      "actions": ["Specify trigger, duration bounds, reversal, cancellation, rapid repeated input, route change, and cleanup.", "Define focus ownership before, during, and after.", "Ensure business state does not depend on animation completion."],
+      "actions": ["Specify trigger, duration bounds, reversal, cancellation, rapid repeated input, route change, and cleanup.", "Define focus ownership before, during, and after.", "Ensure business state does not depend on animation completion and that interruption begins from the live presentation value rather than a stale target."],
       "evidence": ["transition state table", "focus contract"],
       "rule_refs": ["motion.interruption-safe", "component.focus-contract", "architecture.state-ownership"],
       "exit_criteria": ["Every interruption lands in the latest valid application state."]
+    },
+    {
+      "id": "direct-manipulation",
+      "title": "Specify direct manipulation and gesture physics",
+      "actions": ["For drag, swipe, scrub, or reorder behavior, define the grab offset, pointer capture, cancellation, direction lock, bounds, snap targets, multi-pointer policy, and keyboard alternative.", "Track the pointer continuously and decide whether release needs live velocity handoff, momentum projection, or progressive boundary resistance.", "Treat published curves, thresholds, and spring values as starting hypotheses; tune them on real hardware and exclude momentum from consequential or precision interactions when it reduces predictability."],
+      "evidence": ["gesture state machine", "input-alternative contract", "real-device tuning notes"],
+      "rule_refs": ["motion.direct-manipulation-continuity", "motion.momentum-boundary-physics", "responsive.input-agnostic", "a11y.keyboard-complete"],
+      "exit_criteria": ["The interaction remains continuous, reversible, predictable, and task-complete across supported input modes."]
     },
     {
       "id": "reduced",
@@ -42,7 +58,7 @@
     {
       "id": "implement",
       "title": "Implement from geometry and tokens",
-      "actions": ["Use bounded duration, consistent easing, and spatial origins tied to the trigger.", "Prefer transform and opacity, but do not promote excessive layers.", "Adapt paths when layout geometry changes."],
+      "actions": ["Use bounded duration, consistent easing, and spatial origins tied to the trigger.", "Prefer compositor-friendly properties when they preserve correct geometry and semantics, but do not promote excessive layers or repeat performance folklore without measurement.", "Adapt paths when layout geometry changes and keep gesture-driven motion synchronized to the live rendered value."],
       "evidence": ["implementation", "motion-token usage"],
       "rule_refs": ["motion.explain-causality", "motion.interaction-specific-tokens", "responsive.content-driven-reflow"],
       "exit_criteria": ["Motion feels connected to the interaction at every supported geometry."]
@@ -50,20 +66,20 @@
     {
       "id": "stress",
       "title": "Stress-test input and performance",
-      "actions": ["Spam triggers, reverse intent, resize, navigate, and toggle preferences mid-animation.", "Profile long frames, layout, paint, and layer memory on representative low-power hardware.", "Test script and API fallback."],
+      "actions": ["Spam triggers, reverse intent, resize, navigate, cancel pointers, add a second pointer, and toggle preferences mid-animation.", "Profile long frames, layout, paint, and layer memory on representative low-power hardware.", "Use slow-motion or frame-by-frame playback for coordinated properties and test gestures on physical touch hardware.", "Test script and API fallback."],
       "evidence": ["stress-test recording", "performance trace", "fallback report"],
-      "rule_refs": ["motion.interruption-safe", "performance.core-web-vitals-budget", "browser.test-real-platform-behavior"],
+      "rule_refs": ["motion.interruption-safe", "motion.direct-manipulation-continuity", "motion.audit-by-system-leverage", "performance.core-web-vitals-budget", "browser.test-real-platform-behavior"],
       "exit_criteria": ["Final visual, DOM, focus, and ARIA states agree under stress and remain within budget."]
     },
     {
       "id": "review",
       "title": "Review motion in the full experience",
-      "actions": ["Evaluate simultaneous animations and page-level cadence.", "Confirm the selected expressive direction has enough recurring motion roles to feel intentional, then remove repeated reveal patterns and competing focal moments.", "Run default and reduced paths through completion gates."],
-      "evidence": ["motion audit", "gate report"],
-      "rule_refs": ["anti.motion-everywhere", "delivery.definition-of-done"],
+      "actions": ["Evaluate simultaneous animations and page-level cadence.", "Inventory shared tokens and primitives, group findings by root cause and leverage, and distinguish code-observable defects from runtime feel judgments.", "Confirm the selected expressive direction has enough recurring motion roles to feel intentional, then remove repeated reveal patterns and competing focal moments.", "For audit-only work, produce self-contained plans with exact scope, values, boundaries, revision, and feel checks; for authorized fixes, rerun the same audit after implementation.", "Run default and reduced paths through completion gates."],
+      "evidence": ["motion audit", "prioritized finding table", "self-contained fix plans or verified implementation", "gate report"],
+      "rule_refs": ["motion.audit-by-system-leverage", "motion.frequency-purpose-gate", "anti.motion-everywhere", "delivery.definition-of-done"],
       "exit_criteria": ["Motion supports comprehension without delaying reading, interaction, or release readiness."]
     }
   ],
-  "outputs": ["motion specification", "reduced-motion specification", "implementation", "stress-test evidence"],
+  "outputs": ["frequency and opportunity gate", "motion specification", "gesture specification", "reduced-motion specification", "prioritized audit or implementation", "stress-test evidence"],
   "completion_gate_refs": ["gate.states", "gate.accessibility", "gate.responsive", "gate.performance", "gate.browsers", "gate.integrity"]
 }

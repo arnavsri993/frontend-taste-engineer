@@ -40,7 +40,9 @@ Load this file when the MCP server is unavailable or the work carries accessibil
 - Write a design thesis before substantial styling.
 - Use hierarchy, rhythm, composition, type, color, imagery, and motion to express product character.
 - Treat minimalism as selective reduction, not blank scale: every major gap needs a hierarchy, grouping, pacing, focus, evidence, or boundary job.
-- For a non-static direction, use a small motion grammar across focal, state, and feedback moments; preserve reduced-motion outcomes and never hide ordinary reading content behind generic reveals.
+- For a non-static direction, use a small motion grammar across focal, state, and feedback moments. Gate candidates by purpose, frequency, and task cost; keep a short rejection list; preserve reduced-motion outcomes; and never hide ordinary reading content behind generic reveals.
+- Gesture-driven controls track the active pointer from the grab point, handle capture/cancellation, continue from the live rendered value, and expose equivalent keyboard or discrete controls. Tune velocity and soft-boundary behavior on real hardware rather than transferring constants blindly.
+- Translucent surfaces start from a readable opaque fallback; treat blur, reduced-transparency media queries, and other material effects as progressive enhancement, and keep forced-color/high-contrast behavior intact.
 - When MCP is available, follow Skill `references/pull-motion-and-elements.md` before adding kinetic libraries or section catalogs; offline, prefer CSS transitions and document reduced coverage.
 - Challenge generator defaults: centered hero, three cards, purple gradient, glow/glass, bento, pill, and rounded-card patterns require a product reason.
 - Distinguish aesthetic preference from a usability or correctness defect.

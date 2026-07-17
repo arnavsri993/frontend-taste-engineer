@@ -1,6 +1,6 @@
 # Conflicts and Resolutions
 
-Reviewed 2026-07-10. A resolution is an ordering rule for the knowledge corpus, not a claim that one source is “wrong” in every context.
+Reviewed 2026-07-17. A resolution is an ordering rule for the knowledge corpus, not a claim that one source is “wrong” in every context.
 
 ## Conflict precedence
 
@@ -177,3 +177,10 @@ Recency does not override authority by itself, but it does decide between versio
 - **Risk:** A case study is misclassified as a pullable component/template source or becomes brand imitation.
 - **Resolution:** Corporate marketing must expose reusable components/templates/docs under inspectable terms to enter discovery. OpenAI Build Week remains user-supplied case-study evidence only and is explicitly excluded from the reusable catalog.
 - **Priority:** Originality, license, and user-supplied task context.
+
+## C-024 — Practitioner motion absolutes versus measured product context
+
+- **Claims:** `emil-design-skills` offers intentionally forceful defaults such as removing motion from very frequent or keyboard-triggered actions, keeping UI durations short, preferring transform/opacity, using specific curves and thresholds, and choosing springs for gesture-driven behavior. Platform, accessibility, framework, and performance guidance depends on actual semantics, APIs, content, hardware, browser support, and user needs.
+- **Risk:** Literal transfer can remove useful orientation, misstate browser performance, overfit one input device, or turn starting constants into false universal laws.
+- **Resolution:** Preserve the method—purpose/frequency gating, live-value interruption, velocity continuity, exact plans, and real-device feel checks—while treating numerical values and blanket bans as context-qualified hypotheses. Accessibility, platform semantics, existing system contracts, measured runtime behavior, and the product's frequency/risk profile decide the implementation.
+- **Priority:** User task and accessibility > current platform behavior and measured evidence > system consistency > practitioner default.

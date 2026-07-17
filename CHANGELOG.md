@@ -5,6 +5,7 @@ All notable changes follow semantic versioning and are recorded here.
 ## Unreleased
 
 - Replaced the blanket external-source “untrusted” label with evidence-based per-source assessments. Candidate seeds now report not-yet-assessed; reviewed sources report scoped credibility, reliability evidence, and license status separately from the inspect-before-execution boundary. Refreshed `kill-ai-slop` at `2d21245d` while retaining its missing-license copy restriction.
+- Refreshed the MIT-licensed `emilkowalski/skills` practitioner source and added contextual rules for motion opportunity gating, system-level audits, gesture continuity and physics, optical typography, and accessible translucent-material fallbacks, with retrieval and provenance coverage.
 
 ## 0.4.0 — 2026-07-16
 

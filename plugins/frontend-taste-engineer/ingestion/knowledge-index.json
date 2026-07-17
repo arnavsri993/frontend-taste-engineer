@@ -1,7 +1,7 @@
 {
-  "corpus_fingerprint": "e338c9f74e5d471033b536fc3f67969333aefb5366e42c6d0f6b3c40ccc73cb1",
+  "corpus_fingerprint": "0d37d70d7f9a024a64b9cede45c44a93cdef471ef1ace919f3107fa82d84fe7e",
   "generator": "scripts/generate_index.py",
-  "record_count": 80,
+  "record_count": 86,
   "records": [
     {
       "components": [
@@ -705,6 +705,39 @@
         "design-system"
       ],
       "title": "Use color roles, not isolated swatches",
+      "topic": "color"
+    },
+    {
+      "components": [
+        "navigation",
+        "toolbar",
+        "sheet",
+        "dialog",
+        "popover",
+        "overlay"
+      ],
+      "fingerprint": "209955c3d705bb89",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "color.translucent-surface-fallbacks",
+      "importance": "recommended",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "emil-design-skills",
+        "apple-hig",
+        "mdn-web-docs",
+        "wcag-22"
+      ],
+      "status": "experimental",
+      "subtopic": "translucent-materials",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "design-system",
+        "visual-audit"
+      ],
+      "title": "Give translucent surfaces solid accessible fallbacks",
       "topic": "color"
     },
     {
@@ -1623,6 +1656,73 @@
     },
     {
       "components": [
+        "page",
+        "navigation",
+        "overlay",
+        "feedback",
+        "gesture",
+        "selection"
+      ],
+      "fingerprint": "c6342aa3e1c227a8",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "motion.audit-by-system-leverage",
+      "importance": "recommended",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "emil-design-skills",
+        "transitions-dev-repo",
+        "apple-hig",
+        "wcag-22"
+      ],
+      "status": "specialized",
+      "subtopic": "motion-audit",
+      "task_types": [
+        "motion",
+        "visual-audit",
+        "redesign"
+      ],
+      "title": "Audit motion as a system before polishing symptoms",
+      "topic": "motion"
+    },
+    {
+      "components": [
+        "drawer",
+        "sheet",
+        "slider",
+        "carousel",
+        "reorder",
+        "draggable"
+      ],
+      "fingerprint": "80602930cbb6c251",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "motion.direct-manipulation-continuity",
+      "importance": "mandatory",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "emil-design-skills",
+        "apple-hig",
+        "mdn-web-docs",
+        "wcag-22"
+      ],
+      "status": "specialized",
+      "subtopic": "direct-manipulation",
+      "task_types": [
+        "motion",
+        "component",
+        "redesign"
+      ],
+      "title": "Keep direct manipulation continuous and interruptible",
+      "topic": "motion"
+    },
+    {
+      "components": [
         "dialog",
         "popover",
         "list",
@@ -1652,6 +1752,39 @@
         "redesign"
       ],
       "title": "Use motion to explain causality and continuity",
+      "topic": "motion"
+    },
+    {
+      "components": [
+        "page",
+        "navigation",
+        "toolbar",
+        "list",
+        "feedback",
+        "selection"
+      ],
+      "fingerprint": "bd063c4ecf06e655",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "motion.frequency-purpose-gate",
+      "importance": "recommended",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "emil-design-skills",
+        "apple-hig",
+        "fluent-2"
+      ],
+      "status": "specialized",
+      "subtopic": "opportunity-selection",
+      "task_types": [
+        "motion",
+        "visual-audit",
+        "redesign",
+        "greenfield"
+      ],
+      "title": "Gate motion by purpose, frequency, and task cost",
       "topic": "motion"
     },
     {
@@ -1719,6 +1852,37 @@
         "component"
       ],
       "title": "Make animations interruptible and state-safe",
+      "topic": "motion"
+    },
+    {
+      "components": [
+        "drawer",
+        "sheet",
+        "carousel",
+        "reorder",
+        "draggable"
+      ],
+      "fingerprint": "31ed01031a9fc451",
+      "frameworks": [
+        "agnostic",
+        "react"
+      ],
+      "id": "motion.momentum-boundary-physics",
+      "importance": "contextual",
+      "origin": "records/responsive-motion-media.json",
+      "sources": [
+        "emil-design-skills",
+        "apple-hig",
+        "mdn-web-docs"
+      ],
+      "status": "specialized",
+      "subtopic": "gesture-physics",
+      "task_types": [
+        "motion",
+        "component",
+        "redesign"
+      ],
+      "title": "Tune momentum and soft boundaries from real gestures",
       "topic": "motion"
     },
     {
@@ -2425,6 +2589,38 @@
         "visual-audit"
       ],
       "title": "Control measure, leading, and paragraph rhythm",
+      "topic": "typography"
+    },
+    {
+      "components": [
+        "display",
+        "heading",
+        "body",
+        "label",
+        "data"
+      ],
+      "fingerprint": "9a2cb5d550244c40",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "type.size-aware-optical-rhythm",
+      "importance": "recommended",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "emil-design-skills",
+        "apple-hig",
+        "mdn-web-docs",
+        "webdev"
+      ],
+      "status": "specialized",
+      "subtopic": "optical-rhythm",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "design-system",
+        "visual-audit"
+      ],
+      "title": "Tune tracking and leading for size, font, and script",
       "topic": "typography"
     }
   ],
