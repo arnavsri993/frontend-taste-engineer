@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+Added a composer-first **polish and run** path for rough, fragmented, misspelled, or dictated frontend prompts. The plugin now preserves literal copy and constraints, forms a request-local `goal` / `context` / `constraints` / `done when` contract, runs without an extra confirmation turn, and supports explicit rewrite-only output. Refreshed the prompt-assist icon and install-surface copy, documented one-line installation, left model/reasoning unpinned for Codex routing, and made Fast/Plan/Goal boundaries explicit so the Skill never claims an unsupported or higher-cost settings change.
+
 Added a live, report-only registered-source monitor that resolves GitHub heads and license metadata, fingerprints bounded visible text for public documentation, compares prior weekly observations, minimizes retained data, and opens or refreshes a review issue when evidence changes. Added four motion/accessibility/direct-manipulation queries to monthly candidate discovery; neither workflow promotes stable knowledge.
 
 Separated source credibility from execution safety throughout the Skill, research policy, discovery catalog, and MCP response. Externality is no longer presented as a negative trust verdict: candidate seeds are explicitly not-yet-assessed, while reviewed sources expose scoped credibility, reliability evidence, and license status. Refreshed the active `kill-ai-slop` project at `2d21245d`; its primary-source credibility is now explicit while its missing license continues to block copying and adaptation.

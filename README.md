@@ -35,14 +35,15 @@ This separation keeps ordinary tasks focused while preserving inspectable proven
 
 ## Install from GitHub
 
-Register the GitHub repository as a marketplace, then install the plugin:
+Register the GitHub repository and install the plugin with one copy-paste command:
 
 ```bash
-codex plugin marketplace add arnavsri993/frontend-taste-engineer --ref main
-codex plugin add frontend-taste-engineer@personal
+codex plugin marketplace add arnavsri993/frontend-taste-engineer --ref main && codex plugin add frontend-taste-engineer@personal
 ```
 
 After installation, start a new Codex task so bundled Skills, MCP tools, and trusted hooks are discovered. Review and trust the plugin hook through `/hooks`; installed plugins do not automatically trust command hooks.
+
+Then select the small Frontend Taste Engineer icon in the composer (or type `@Frontend Taste Engineer`), paste a rough frontend request, and send once. The plugin preserves intent and literal copy, silently converts fragments into a clear execution brief, chooses a proportionate workflow, and runs it. Say “rewrite only” when you want a polished copy-ready prompt without implementation.
 
 The trusted session-start hook checks the configured Git marketplace at most once every six hours. Codex performs the fetch, staging, and cache activation; the plugin never edits its own cache or downloads an archive directly. When the manifest version changes, the hook reports that an update was installed and asks you to start a new task so the new Skill, MCP server, and hooks are loaded.
 
@@ -82,6 +83,10 @@ The server exposes task classification, cross-cutting search, category-specific 
 If MCP startup fails, the Skill routes to bundled offline references and `offline_frontend_audit.py`. Reduced retrieval coverage is reported rather than hidden.
 
 ## Skill behavior
+
+The default composer interaction is **polish and run**. Rough notes, shorthand, spelling errors, and speech-to-text artifacts are accepted without a cleanup turn. The Skill forms a request-local execution contract (`goal`, `context`, `constraints`, and `done when`) and proceeds unless a materially blocking interpretation remains. It never stores raw or normalized prompts in reusable plugin knowledge or public evidence.
+
+Model and reasoning controls remain unpinned unless the user chose them, allowing Codex to route automatically. The Skill scales its own planning and verification depth, honors Plan mode when already active, and uses persisted goals only for explicit terminal requests. It does not silently enable Fast mode or persist a paid speed tier.
 
 The Skill defaults minimal page/site/frontend and substantial redesign prompts to `autonomous-zero-brief-build`. It inspects the project, infers a fact-separated creative brief and design thesis, writes finished copy, selects a context-specific direction, retrieves stage-specific guidance, implements the complete frontend, captures and inspects desktop/mobile output, fixes the three highest-impact weaknesses, runs a production build, and reports evidence without routine creative questions.
 
@@ -176,6 +181,8 @@ The MCP server reads local plugin data and does not require credentials or netwo
 
 ## Starter prompts
 
+- “Polish this rough frontend prompt and run it end to end: make my app look way better but keep everything working.”
+- “Rewrite this frontend prompt so it is clear and complete, but do not run it: fix landing and mobile.”
 - “Make a website directed to Alex containing a playful message from Arnav.”
 - “Build a site for my robotics team.”
 - “Turn this sentence into a website: machines should feel alive.”

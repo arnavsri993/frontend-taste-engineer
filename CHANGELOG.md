@@ -4,6 +4,7 @@ All notable changes follow semantic versioning and are recorded here.
 
 ## Unreleased
 
+- Added a low-friction composer workflow: a clearer prompt-assist icon, polish-and-run defaults for rough or dictated frontend requests, rewrite-only behavior, request-local prompt normalization, platform-honest model/reasoning/fast/plan/goal routing, and a one-line GitHub install command.
 - Added a real weekly registered-source monitor: immutable GitHub revision and license checks, bounded public-text fingerprints, prior-run comparison, review-only issue routing, and four motion-focused monthly discovery queries. Monitoring stores metadata and hashes only and cannot modify stable knowledge.
 - Replaced the blanket external-source “untrusted” label with evidence-based per-source assessments. Candidate seeds now report not-yet-assessed; reviewed sources report scoped credibility, reliability evidence, and license status separately from the inspect-before-execution boundary. Refreshed `kill-ai-slop` at `2d21245d` while retaining its missing-license copy restriction.
 - Refreshed the MIT-licensed `emilkowalski/skills` practitioner source and added contextual rules for motion opportunity gating, system-level audits, gesture continuity and physics, optical typography, and accessible translucent-material fallbacks, with retrieval and provenance coverage.

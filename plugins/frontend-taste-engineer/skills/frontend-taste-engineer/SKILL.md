@@ -11,14 +11,30 @@ For client/paid work, “good” is not enough. Follow `references/premium-quali
 
 ## Start here
 
-1. Inspect the repository, relevant files, existing design system, and running product when available.
-2. Classify the task and operating mode before proposing changes. For short page/site/redesign prompts, call `classify_frontend_task` with the user's exact prompt.
-3. Form a concise product/UX brief and a one-sentence design thesis. Lock density profile, type pair, spacing, color roles, material, hero composition, motion roles, and avoid-list in `DESIGN.md` **before** any template or animated-catalog pull.
-4. Write finished copy, then retrieve only guidance relevant to the current stage and risk (thesis-derived catalog queries only after the lock).
-5. Implement real behavior and required states before decorative polish.
-6. Verify with evidence, run the screenshot refine gate (three weaknesses → fix → recapture; second pass if still generic), and report limits honestly—including a one-line **Why this is not generic**.
+1. Accept the user's text as-is. If it is rough, fragmented, dictated, or misspelled, follow **Prompt assist and execution routing** below before asking the user to restate it.
+2. Inspect the repository, relevant files, existing design system, and running product when available.
+3. Classify the task and operating mode before proposing changes. For short page/site/redesign prompts, call `classify_frontend_task` with the user's exact prompt.
+4. Form a concise product/UX brief and a one-sentence design thesis. Lock density profile, type pair, spacing, color roles, material, hero composition, motion roles, and avoid-list in `DESIGN.md` **before** any template or animated-catalog pull.
+5. Write finished copy, then retrieve only guidance relevant to the current stage and risk (thesis-derived catalog queries only after the lock).
+6. Implement real behavior and required states before decorative polish.
+7. Verify with evidence, run the screenshot refine gate (three weaknesses → fix → recapture; second pass if still generic), and report limits honestly—including a one-line **Why this is not generic**.
 
 For substantial work, create or update `DESIGN.md` using `assets/DESIGN.template.md`. Keep decisions specific enough to reject plausible but wrong directions.
+
+## Prompt assist and execution routing
+
+When the plugin is selected in the composer, default to **polish and run**. Accept fragments, shorthand, spelling errors, and speech-to-text artifacts. Preserve the user's goal, named entities, quoted or requested copy, factual claims, constraints, exclusions, scope, and definition of done. Silently form an internal execution contract with `goal`, `context`, `constraints`, and `done when`, then continue without echoing a rewritten prompt or adding a confirmation turn.
+
+If the user explicitly asks to **rewrite only**, return a polished prompt and do not inspect files, run tools, change settings, or implement it. Never persist a raw or normalized prompt into reusable knowledge, examples, evaluations, or public artifacts.
+
+Use `references/prompt-intake-and-routing.md` for the full routing contract. In particular:
+
+- Respect a model, reasoning level, speed setting, or collaboration mode the user already selected. Do not overwrite it.
+- When model and reasoning are unpinned, leave them unpinned so Codex can choose automatically; scale the workflow and verification depth to the task instead of claiming the plugin changed the active model.
+- Never silently enable Fast mode or persist `service_tier = "fast"`; it can consume credits at a higher rate. Use it when already active, or mention the opt-in once when the user explicitly prioritizes latency.
+- Treat Plan mode as a caller-owned UI mode. When it is not active, use an internal or visible task plan for substantial work rather than claiming a mode switch occurred.
+- Create or continue a persisted goal only when the user explicitly requests persistent completion, such as “finish,” “babysit,” or “do not stop,” and the goal capability is available. Ordinary frontend work does not become a goal automatically.
+- Ask a question only for a materially blocking choice. Otherwise infer reversible details and proceed.
 
 ## Classify the task
 

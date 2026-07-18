@@ -2,7 +2,7 @@
 
 This directory is the installable plugin package. The repository root contains the marketplace, CI, contribution policy, and full architecture documentation.
 
-Version 0.4.0 expands the catalog to 395 findability-described seeds, adds a source-backed motion grammar for expressive work, raises the paid-client quality bar, and adds safe automatic refresh for trusted GitHub installations. It preserves the 0.2.0 `autonomous-zero-brief-build` workflow for minimal website, page, portfolio, frontend, and redesign prompts.
+Version 0.5.0 adds a composer-first prompt-assist workflow: select the plugin, paste a rough frontend request, and send once. The Skill preserves intent and literal copy, silently forms a request-local execution brief, chooses a proportionate workflow, and runs it end to end. It also keeps the 0.4.0 source-backed motion, paid-client quality, gated discovery, and trusted GitHub refresh systems.
 
 “Stunning” and similar quality language means exceptionally appropriate and well executed. The classifier uses a five-level visual-intensity model plus domain, task, audience, trust, risk, density, frequency, maturity, accessibility, device, familiarity, and experimental-tolerance signals; it does not force dark, cinematic, gradient-heavy, or highly animated styling across products.
 
@@ -28,11 +28,12 @@ The `.app.json` mapping is intentionally empty until a developer-mode ChatGPT ap
 Install from GitHub:
 
 ```bash
-codex plugin marketplace add arnavsri993/frontend-taste-engineer --ref main
-codex plugin add frontend-taste-engineer@personal
+codex plugin marketplace add arnavsri993/frontend-taste-engineer --ref main && codex plugin add frontend-taste-engineer@personal
 ```
 
 Then start a new Codex task and review the plugin hook in `/hooks`. Once trusted, it asks Codex to refresh this exact GitHub marketplace at most once every six hours. It never edits plugin cache files directly, refuses unknown repositories, leaves local development installs untouched, and keeps the existing version usable if a check fails. Set `FTE_AUTO_UPDATE=0` to disable it, or run `python3 scripts/plugin_auto_update.py --force` for an immediate refresh. A successfully installed update takes effect in a new task. Every published change must bump the manifest version/cachebuster so Codex can activate a distinct cache entry.
+
+In the new task, select the small Frontend Taste Engineer icon in the composer (or type `@Frontend Taste Engineer`), paste a rough request, and send. The default is **polish and run**. Say “rewrite only” when you want the improved prompt without project inspection or implementation.
 
 For development from a clone, register the repository root with `codex plugin marketplace add "$(pwd)"`. Local marketplace installs never auto-update from GitHub.
 

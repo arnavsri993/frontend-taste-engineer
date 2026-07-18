@@ -1,7 +1,7 @@
 {
   "name": "frontend-taste-engineer",
-  "version": "0.4.0+codex.20260717074337",
-  "description": "Context-adaptive frontend generation plus safely gated external source discovery, planning, building, auditing, refinement, privacy review, and production verification.",
+  "version": "0.5.0+codex.20260717234527",
+  "description": "Rough-prompt-to-production frontend generation with context-adaptive planning, building, auditing, refinement, privacy review, and verification.",
   "author": {
     "name": "arnavsri993",
     "email": "arnavsri993@gmail.com",
@@ -25,8 +25,8 @@
   "apps": "./.app.json",
   "interface": {
     "displayName": "Frontend Taste Engineer",
-    "shortDescription": "Turn tiny prompts into complete production frontends",
-    "longDescription": "A source-backed frontend operating system that expands short website and redesign prompts into complete, context-appropriate, distinctive, responsive, accessible, screenshot-refined implementations. A safely gated 395-source catalog supports bounded component/template/inspiration discovery without copying unclear-license material or treating agent tools as design authority.",
+    "shortDescription": "Paste a rough frontend idea, then polish and run it",
+    "longDescription": "Select Frontend Taste Engineer in the composer, paste a rough frontend request, and send once. It preserves intent and literal copy, silently forms a clear execution brief, chooses a proportionate workflow, and builds or improves a distinctive, responsive, accessible, screenshot-refined frontend. Use rewrite-only when you want the polished prompt without execution.",
     "developerName": "arnavsri993",
     "category": "Developer Tools",
     "capabilities": [
@@ -36,6 +36,8 @@
     ],
     "websiteURL": "https://github.com/arnavsri993/frontend-taste-engineer",
     "defaultPrompt": [
+      "Polish this rough frontend prompt and run it end to end: ",
+      "Rewrite this frontend prompt so it is clear and complete, but do not run it: ",
       "Make a website for this idea.",
       "Design and build a distinctive, production-ready landing page for this product.",
       "Audit this frontend and fix its highest-impact usability and design problems.",

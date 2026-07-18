@@ -1,10 +1,10 @@
 interface:
   display_name: "Frontend Taste Engineer"
-  short_description: "Turn short prompts into production frontends"
+  short_description: "Paste a rough frontend idea, then polish and run it"
   icon_small: "./assets/icon.svg"
   icon_large: "./assets/logo.svg"
   brand_color: "#0B6E69"
-  default_prompt: "Use $frontend-taste-engineer to turn this short idea into a complete, distinctive, tested, production-ready frontend."
+  default_prompt: "Use $frontend-taste-engineer. Treat my next text as a rough frontend request: preserve my intent and literal copy, silently turn it into a clear execution brief, choose the lightest suitable workflow, and run it end to end."
 
 dependencies:
   tools:
