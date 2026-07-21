@@ -14,9 +14,9 @@ const GATE_STEPS = [
 ];
 
 const POINTS = [
-  "Sources are assessed individually from provenance, maintenance, and direct evidence",
-  "Candidate links are not-yet-assessed rather than presumed unreliable",
-  "Embedded commands remain source content, not agent instructions",
+  "Sources are assessed individually for authority, reliability, maintenance, and fit",
+  "Candidate links are not-yet-assessed, not automatically untrustworthy",
+  "Embedded commands remain source content rather than automatic agent instructions",
   "Unknown licensing blocks copying and adaptation",
   "Paid and proprietary libraries are excluded unless legitimately available",
   "Inspiration does not authorize copied expression",

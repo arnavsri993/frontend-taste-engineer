@@ -1,7 +1,7 @@
 schema_version: 1
 reviewed: "2026-07-17"
-source_count: 36
-supplied_source_count: 9
+source_count: 37
+supplied_source_count: 10
 status_legend:
   strong: "Multiple primary/authoritative sources support promotion of stable baseline guidance."
   moderate: "Useful primary coverage exists, but specialist depth, implementation examples, or independent evidence should grow."
@@ -25,15 +25,15 @@ areas:
   content_design:
     status: strong
     primary_sources: [govuk-design-system, atlassian-design-system, uswds, polaris]
-    supporting_sources: [google-search-docs, wcag-22]
-    covers: [labels, calls to action, help, errors, empty states, success, destructive confirmation, plain language, localization readiness]
+    supporting_sources: [google-search-docs, wcag-22, anthropic-agent-skills]
+    covers: [labels, calls to action, action-vocabulary continuity, help, errors, empty states, success, destructive confirmation, plain language, localization readiness]
     gaps: [long-form editorial governance, legal/compliance copy review]
 
   visual_direction:
     status: moderate
     primary_sources: [apple-hig, material-3, fluent-2, spectrum-design-system]
-    supporting_sources: [hive-mind-landing-page, taste-skill-repo, awesome-design-md]
-    covers: [design thesis, product fit, familiarity versus originality, reference analysis, art direction, trend restraint]
+    supporting_sources: [anthropic-agent-skills, hive-mind-landing-page, taste-skill-repo, awesome-design-md]
+    covers: [design thesis, subject-derived identity, product fit, familiarity versus originality, reference analysis, art direction, trend restraint]
     gaps: [independent design-research studies, non-Western visual traditions, broader art-direction case studies]
 
   design_system_strategy:
@@ -46,8 +46,8 @@ areas:
   layout_composition:
     status: strong
     primary_sources: [mdn-web-docs, webdev, uswds, material-3]
-    supporting_sources: [apple-hig, polaris]
-    covers: [grid, flexbox, intrinsic layout, container queries, fluid sizing, max width, source order, sticky/fixed, zoom/reflow]
+    supporting_sources: [apple-hig, polaris, anthropic-agent-skills]
+    covers: [grid, flexbox, intrinsic layout, container queries, fluid sizing, max width, source order, informative structural signals, sticky/fixed, zoom/reflow]
     gaps: [foldable-specific production evidence, print-heavy application layouts]
 
   typography:
@@ -270,8 +270,8 @@ areas:
   testing_verification:
     status: strong
     primary_sources: [playwright-docs, wcag-22]
-    supporting_sources: [uswds, govuk-design-system, hive-mind-landing-page]
-    covers: [types, lint, unit, component, integration, E2E, visual, a11y, keyboard, responsive, performance, error states, console]
+    supporting_sources: [anthropic-agent-skills, uswds, govuk-design-system, hive-mind-landing-page]
+    covers: [types, lint, unit, component, integration, rendered-state reconnaissance, resilient locators, E2E, visual, a11y, keyboard, responsive, performance, error states, console]
     gaps: [screen-reader automation limits, real-device lab orchestration]
 
   deployment_handoff:

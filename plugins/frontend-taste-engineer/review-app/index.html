@@ -1,174 +1,175 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-dispatch="daylight">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#050907">
-  <meta name="description" content="Frontend Taste Engineer is a Codex plugin for complete, contextual, and verified frontend work.">
-  <title>Frontend Taste Engineer — taste, compiled</title>
-  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css">
+  <meta name="theme-color" content="#ffc145">
+  <meta name="description" content="An unofficial, original GTA VI release briefing concept with verified links to Rockstar Games.">
+  <meta name="color-scheme" content="light">
+  <title>Leonida Heat Ledger — An unofficial GTA VI concept</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to the dispatch</a>
 
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Frontend Taste Engineer, home">
-      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><b></b></span>
-      <span>Frontend Taste <strong>Engineer</strong></span>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <div class="offline-notice" id="offline-notice" role="status" aria-live="polite" hidden>
+    You’re offline. The dispatch still works; Rockstar links need a connection.
+  </div>
+
+  <header class="site-header" data-header>
+    <a class="wordmark" href="#top" aria-label="Leonida Heat Ledger, back to top">
+      <span class="wordmark-index">L / 06</span>
+      <span class="wordmark-name">Heat Ledger</span>
     </a>
-    <nav aria-label="Main navigation">
-      <a href="#specimen">Demo</a>
-      <a href="#evidence">Rules</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+      <span class="menu-toggle-label">Menu</span>
+      <span class="menu-toggle-lines" aria-hidden="true"><i></i><i></i></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Dispatch navigation" data-menu>
+      <a href="#situation" data-nav-link>Situation</a>
+      <a href="#dispatch" data-nav-link>After dark</a>
+      <a href="#release" data-nav-link>Release wire</a>
+      <a class="nav-source" href="https://www.rockstargames.com/VI/" rel="external">Rockstar source <span aria-hidden="true">↗</span></a>
     </nav>
-    <a class="button button-small github-link" href="https://github.com/arnavsri993/frontend-taste-engineer">
-      GitHub
-      <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M5 3h8v8M13 3 4 12"/></svg>
-    </a>
   </header>
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="kicker"><span>Codex plugin</span> frontend runtime</p>
-        <h1 id="hero-title">Taste,<br><em>compiled.</em></h1>
-        <p class="hero-lede">Thin prompt in. Complete, tested interface out.</p>
-        <div class="hero-actions">
-          <a class="button github-link" href="https://github.com/arnavsri993/frontend-taste-engineer">
-            Get the plugin
-            <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M5 3h8v8M13 3 4 12"/></svg>
-          </a>
-          <a class="text-link" href="#specimen">Run the demo <span aria-hidden="true">↓</span></a>
+        <p class="dispatch-kicker"><span>Unofficial concept</span> / Leonida dispatch 006</p>
+        <h1 id="hero-title">
+          <span>Vice City</span>
+          <span>runs hot.</span>
+        </h1>
+        <p class="hero-lede">A sun-struck briefing on Jason, Lucia, Vice City, and the road across Leonida—coming November 19, 2026.</p>
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="button button-ink" href="#situation">Open the dispatch <span aria-hidden="true">↓</span></a>
+          <a class="button button-paper" href="https://www.rockstargames.com/VI/" rel="external">Visit Rockstar <span aria-hidden="true">↗</span></a>
         </div>
-        <ul class="proof-strip" aria-label="Plugin characteristics">
-          <li><span>01</span> Context-led</li>
-          <li><span>02</span> Browser-checked</li>
-          <li><span>03</span> Offline-ready</li>
-        </ul>
       </div>
 
-      <div class="hero-workbench" aria-label="Example build sequence">
-        <div class="workbench-topline">
-          <span>build.sequence</span>
-          <span class="status-dot">ready</span>
+      <div class="hero-visual" aria-hidden="true">
+        <img src="/assets/hero-coast.jpg" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
+        <p class="visual-stamp">Original coast study<br>Not game artwork</p>
+      </div>
+
+      <dl class="release-rail" aria-label="Verified release information">
+        <div><dt>On the wire</dt><dd><time datetime="2026-11-19">Nov. 19, 2026</time></dd></div>
+        <div><dt>Platforms</dt><dd>PS5 / Xbox Series X|S</dd></div>
+        <div><dt>Source</dt><dd>Rockstar Games</dd></div>
+      </dl>
+
+      <p class="hero-folio" aria-hidden="true">001 / COASTLINE</p>
+    </section>
+
+    <section class="situation section-shell" id="situation" aria-labelledby="situation-title">
+      <div class="section-rail">
+        <p>Situation report</p>
+        <span>01 / The setup</span>
+      </div>
+      <div class="situation-heading">
+        <p class="section-kicker">When a clean break goes bad</p>
+        <h2 id="situation-title">Two names.<br>One state.</h2>
+      </div>
+      <div class="situation-copy">
+        <p class="lead">Rockstar’s official setup puts Jason and Lucia at the center of a conspiracy stretching across Leonida after an easy score turns against them.</p>
+        <p>This concept stops at the confirmed premise. No invented missions, gameplay systems, or promises—just an original visual field guide to the people, place, and release information Rockstar has made public.</p>
+      </div>
+
+      <div class="name-ledger" aria-label="Confirmed central characters">
+        <article class="name-entry name-entry-jason">
+          <p class="entry-number">01</p>
+          <h3>Jason</h3>
+          <p>One half of the pair at the center of Rockstar’s story setup.</p>
+        </article>
+        <div class="ledger-route" aria-hidden="true">
+          <i></i><b></b>
+          <span>Vice City / Leonida</span>
         </div>
-        <blockquote>“Build a site for my robotics team.”</blockquote>
-        <ol class="build-transcript">
-          <li><span>01</span><strong>classify</strong><small>context</small></li>
-          <li><span>02</span><strong>direct</strong><small>system</small></li>
-          <li><span>03</span><strong>ship</strong><small>frontend</small></li>
-          <li><span>04</span><strong>verify</strong><small>evidence</small></li>
-        </ol>
-        <p class="workbench-note"><span>output</span> deployable interface <b>●</b></p>
+        <article class="name-entry name-entry-lucia">
+          <p class="entry-number">02</p>
+          <h3>Lucia</h3>
+          <p>The other half of a partnership forced to rely on trust when the pressure closes in.</p>
+        </article>
       </div>
     </section>
 
-    <section class="specimen section-shell" id="specimen" aria-labelledby="specimen-title">
-      <div class="specimen-heading">
-        <div class="section-intro">
-          <p class="kicker">01 / context engine</p>
-          <h2 id="specimen-title">Same skill.<br>Different product.</h2>
+    <section class="dispatch-section" id="dispatch" aria-labelledby="dispatch-title">
+      <div class="dispatch-intro section-shell">
+        <div class="section-rail section-rail-light">
+          <p>Field conditions</p>
+          <span>02 / Change the light</span>
         </div>
-        <div class="mode-picker" role="group" aria-label="Choose a product context">
-          <button type="button" class="mode-button" data-mode="editorial" aria-pressed="true"><span>01</span> Editorial</button>
-          <button type="button" class="mode-button" data-mode="civic" aria-pressed="false"><span>02</span> Public service</button>
-          <button type="button" class="mode-button" data-mode="developer" aria-pressed="false"><span>03</span> Developer tool</button>
+        <div>
+          <p class="section-kicker">Same coast, different evidence</p>
+          <h2 id="dispatch-title">Daylight lies.<br>Midnight keeps receipts.</h2>
+        </div>
+        <div class="dispatch-control-wrap js-only-block">
+          <p id="dispatch-control-label">Choose the dispatch view</p>
+          <div class="dispatch-control" role="group" aria-labelledby="dispatch-control-label">
+            <button type="button" data-dispatch-button="daylight" aria-pressed="true">Daylight</button>
+            <button type="button" data-dispatch-button="midnight" aria-pressed="false">Midnight</button>
+          </div>
         </div>
       </div>
 
-      <div class="demo-frame" data-demo-mode="editorial">
-        <div class="demo-meta">
-          <span id="demo-context">Editorial field journal</span>
-          <span>Local specimen</span>
+      <figure class="dispatch-board" aria-labelledby="dispatch-caption">
+        <div class="dispatch-photo-frame" aria-hidden="true">
+          <img class="dispatch-photo dispatch-photo-day" src="/assets/hero-coast.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+          <img class="dispatch-photo dispatch-photo-night" src="/assets/midnight-coast.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+          <span class="photo-route"></span>
+          <span class="photo-index">L-06</span>
         </div>
-        <div class="demo-canvas" aria-live="polite" aria-atomic="true">
-          <header class="demo-nav">
-            <span class="demo-logo" id="demo-logo">Field / Note</span>
-            <span id="demo-nav-label">Issue 08 · High desert</span>
-          </header>
-          <div class="demo-body">
-            <p class="demo-eyebrow" id="demo-eyebrow">An observation in three parts</p>
-            <h3 id="demo-title">The wind<br>edits first.</h3>
-            <p id="demo-copy">Long-form hierarchy. Quiet rhythm. Paper tactility.</p>
-            <button type="button" class="demo-action" id="demo-action" aria-expanded="false" aria-controls="demo-feedback">Read the note <span aria-hidden="true">→</span></button>
-            <p class="demo-feedback" id="demo-feedback" role="status" hidden></p>
-          </div>
-          <aside class="demo-aside" aria-label="Specimen details">
-            <p id="demo-aside-label">Coordinates</p>
-            <strong id="demo-aside-value">34.611° N</strong>
-            <div class="demo-graphic" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          </aside>
-        </div>
-      </div>
-      <p class="specimen-note">Hand-authored demo. No generation backend.</p>
+        <figcaption id="dispatch-caption">Daylight dispatch: hot concrete, mangrove water, and a causeway running straight toward Vice City.</figcaption>
+        <p class="board-folio" aria-hidden="true">L-06 / VIEW A</p>
+      </figure>
+      <p class="sr-only" id="dispatch-status" role="status" aria-live="polite" aria-atomic="true"></p>
     </section>
 
-    <section class="evidence section-shell" id="evidence" aria-labelledby="evidence-title">
-      <div class="evidence-heading">
-        <div class="section-intro">
-          <p class="kicker">02 / source layer</p>
-          <h2 id="evidence-title">Rules,<br>exposed.</h2>
-          <p>Search the corpus. Inspect the evidence.</p>
-        </div>
-        <dl class="metrics" aria-label="Loaded repository artifact counts">
-          <div><dt>Rules</dt><dd id="record-count">—</dd></div>
-          <div><dt>Sources</dt><dd id="source-count">—</dd></div>
-          <div><dt>Evals</dt><dd id="eval-count">—</dd></div>
-        </dl>
+    <section class="release-section section-shell" id="release" aria-labelledby="release-title">
+      <div class="section-rail">
+        <p>Release wire</p>
+        <span>03 / Verified 12 Jul 2026</span>
       </div>
-
-      <div class="explorer">
-        <div class="explorer-controls">
-          <label for="query">Search rules</label>
-          <div class="search-row">
-            <input id="query" type="search" autocomplete="off" placeholder="focus, type, motion…">
-            <select id="importance" aria-label="Filter records by importance">
-              <option value="">All levels</option>
-              <option value="mandatory">Mandatory</option>
-              <option value="recommended">Recommended</option>
-              <option value="contextual">Contextual</option>
-            </select>
-          </div>
-          <p id="load-status" class="load-status" role="status">Loading artifacts…</p>
-        </div>
-        <div class="results">
-          <div class="results-heading">
-            <h3>Matches</h3>
-            <p id="result-summary" role="status" aria-live="polite" aria-atomic="true">Waiting.</p>
-          </div>
-          <ol id="results-list" class="record-list">
-            <li class="empty">No index loaded.</li>
-          </ol>
-        </div>
-        <aside class="eval-panel" aria-labelledby="eval-title">
-          <p class="kicker">release</p>
-          <h3 id="eval-title">Eval signal</h3>
-          <div id="eval-summary" class="eval-summary"><p>No summary loaded.</p></div>
-        </aside>
+      <div class="release-date" aria-hidden="true">
+        <span>11</span><i>/</i><span>19</span><i>/</i><span>26</span>
       </div>
-    </section>
-
-    <section class="install section-shell" aria-labelledby="install-title">
-      <div>
-        <p class="kicker">03 / deploy</p>
-        <h2 id="install-title">Add the plugin.</h2>
-      </div>
-      <div class="install-terminal">
-        <pre id="install-command"><code>codex plugin marketplace add "$(pwd)"
-codex plugin add frontend-taste-engineer@personal</code></pre>
-        <button type="button" class="copy-button" id="copy-install" aria-describedby="copy-status">Copy</button>
-        <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+      <div class="release-message">
+        <p class="section-kicker">The date is on the wire</p>
+        <h2 id="release-title">Leonida opens<br>November 19.</h2>
+        <p>Rockstar currently lists Grand Theft Auto VI for PlayStation 5 and Xbox Series X|S on November 19, 2026. For trailers, pre-order information, and any future changes, use the official page.</p>
+        <div class="release-actions">
+          <a class="button button-ink" href="https://www.rockstargames.com/VI/" rel="external">Open official page <span aria-hidden="true">↗</span></a>
+          <button class="button button-outline js-only-button" type="button" data-copy-source>Copy source link</button>
+        </div>
+        <div class="source-address" aria-label="Official source address">
+          <span>Official address</span>
+          <code id="source-url" tabindex="0">https://www.rockstargames.com/VI/</code>
+        </div>
+        <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-mark" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
-    <p><strong>Frontend Taste Engineer</strong> / judgment at build time.</p>
-    <a class="text-link github-link" href="https://github.com/arnavsri993/frontend-taste-engineer">GitHub ↗</a>
+    <div class="footer-mark" aria-hidden="true">L / 06</div>
+    <div>
+      <p><strong>Leonida Heat Ledger</strong> is an unofficial fan-made interface concept. It is not affiliated with, endorsed by, or produced by Rockstar Games or Take-Two Interactive.</p>
+      <p>The AI-generated editorial imagery was created for this concept and is not game artwork; the interface is original. Grand Theft Auto, GTA, and Rockstar Games are trademarks of their respective owners.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.rockstargames.com/VI/" rel="external">Official GTA VI page <span aria-hidden="true">↗</span></a>
+      <a href="#top">Back to heat <span aria-hidden="true">↑</span></a>
+    </div>
   </footer>
 
-  <script src="./app.js" defer></script>
+  <noscript>
+    <div class="noscript-note">JavaScript is off. The full briefing and official source remain available; the daylight/midnight switch and copy helper are disabled.</div>
+  </noscript>
 </body>
 </html>

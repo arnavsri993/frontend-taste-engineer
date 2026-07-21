@@ -105,7 +105,7 @@ Checked 2026-07-10. Nothing in this file is promoted to stable knowledge until t
 
 ## U-011 — Expanded seed catalog item-level review
 
-- **Inventory:** `source-discovery/seed-catalog.yml` contains 395 unique URLs (245 original + 62 library expansion + 88 template absorption on 2026-07-12); 12 cross-reference a reviewed registry source and 383 are not registered.
+- **Inventory:** `source-discovery/seed-catalog.json` contains 395 unique URLs (245 original + 62 library expansion + 88 template absorption on 2026-07-12); 12 cross-reference a reviewed registry source and 383 are not registered.
 - **Known:** the URLs, requested category memberships, and discovery findability cards; 72 entries are constrained to `inspiration-only` (galleries and several paid marketplaces).
 - **Gap:** seed import/expansion/template absorption did not verify ownership, public accessibility, immutable revisions, exact license/entitlement, asset scope, dependency/security posture, accessibility usefulness, or maintenance for each unregistered source. Template listings were not downloaded or vendored.
 - **Resolution needed:** run bounded discovery, inspect public docs/repository/package/license metadata, score observed evidence, and apply the promotion policy per source.

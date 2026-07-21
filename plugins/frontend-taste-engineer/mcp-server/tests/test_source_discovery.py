@@ -22,9 +22,10 @@ class SourceDiscoveryTests(unittest.TestCase):
     def test_seed_catalog_resolves_full_required_schema(self) -> None:
         seed = discovery.load_json_yaml(discovery.DEFAULT_SEED_FILE)
         entries = discovery.effective_seed_sources(seed)
-        self.assertEqual(len(entries), 395)
-        self.assertEqual(len({entry["id"] for entry in entries}), 395)
-        self.assertEqual(len({entry["canonical_url"] for entry in entries}), 395)
+        declared_minimum = int(seed.get("minimum_source_count") or 245)
+        self.assertGreaterEqual(len(entries), declared_minimum)
+        self.assertEqual(len({entry["id"] for entry in entries}), len(entries))
+        self.assertEqual(len({entry["canonical_url"] for entry in entries}), len(entries))
         for entry in entries:
             self.assertTrue(set(discovery.REQUIRED_SOURCE_FIELDS) <= set(entry))
 

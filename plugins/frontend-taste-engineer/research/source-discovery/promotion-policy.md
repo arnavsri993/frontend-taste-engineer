@@ -23,7 +23,7 @@ Externality alone is neither a positive nor negative trust verdict. A seed is `n
 5. Apply the source-selection checklist in `../../references/external-source-selection.md`.
 6. Summarize principles in original language. Do not import third-party code, prose, screenshots, brand assets, or marketing claims into stable knowledge.
 7. Add provenance, context, exceptions, implementation guidance, verification, and stability to every proposed rule.
-8. Update `source-registry.yml`, `license-review.md`, `provenance-map.yml`, applicable artifact packs, the changelog, and eval baselines.
+8. Update `source-registry.json`, `license-review.md`, `provenance-map.yml`, applicable artifact packs, the changelog, and eval baselines.
 9. Run the complete validation and evaluation gate.
 10. Merge only after review confirms that the candidate branch changes no stable knowledge by automation alone.
 

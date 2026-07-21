@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:frontend-taste-engineer:ingestion-report:1",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "registry_fingerprint", "selected_sources", "results", "promotion_behavior"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "registry_fingerprint": {"type": "string"},
+    "selected_sources": {"type": "array", "items": {"type": "string"}},
+    "results": {"type": "array"},
+    "promotion_behavior": {"const": "candidate-only; human-reviewed promotion required"}
+  }
+}

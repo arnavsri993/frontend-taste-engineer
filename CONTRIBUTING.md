@@ -22,7 +22,7 @@ Do not edit stable records from an automated maintenance job. Create a candidate
 
 Use Python 3.9 or newer for the zero-dependency core. Keep optional browser/accessibility integrations isolated and documented. Avoid network access in tests unless the test is explicitly marked as a source freshness check.
 
-Run the validation commands in `AGENTS.md`. Package both the plugin and standalone Skill and inspect their file lists before release.
+Run the validation commands in `AGENTS.md`. Package the full Codex plugin and inspect its file list before release; do not publish an Apps SDK or standalone Skill artifact.
 
 ## Review criteria
 

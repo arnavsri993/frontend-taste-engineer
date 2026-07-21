@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "catalog_revision": "2026-07-12",
+  "catalog_revision": "2026-07-21",
   "status": "candidate-seeds-only",
   "promotion_behavior": "Never promote automatically; create candidate reports for reviewed branch/PR promotion.",
   "entry_defaults": {
@@ -417,6 +417,62 @@
             "streaming"
           ],
           "findability_status": "discovery-card"
+        },
+        {
+          "id": "mengto-skills",
+          "name": "MengTo Skills",
+          "canonical_url": "https://github.com/MengTo/Skills",
+          "supplied_url": "https://github.com/MengTo/Skills",
+          "registry_id": "mengto-skills",
+          "source_type": "Frontend and design workflow skill repository",
+          "classification": "specialized",
+          "topics_contributed": [
+            "design workflow",
+            "reference capture",
+            "prompt assets",
+            "iteration",
+            "frontend motion"
+          ],
+          "summary": "Useful maintainer-authored workflow source. Exact prompts and demos are not design authority; claims require project-specific runtime evidence.",
+          "best_for": [
+            "design workflow",
+            "reference capture",
+            "prompt assets"
+          ],
+          "not_for": [
+            "automatic design authority",
+            "unchecked copying or installation"
+          ],
+          "keywords": [
+            "assets",
+            "capture",
+            "design",
+            "frontend",
+            "iteration",
+            "motion",
+            "prompt",
+            "reference",
+            "workflow"
+          ],
+          "review_status": "reviewed",
+          "credibility_assessment": "maintainer",
+          "author_or_organization": "Meng To",
+          "license": "MIT",
+          "accessible_revision": "README, repository structure, and LICENSE at HEAD bdf0e83c5d12c84229b4f9c6524900aca65e44b8 observed 2026-07-21",
+          "last_checked_revision": "bdf0e83c5d12c84229b4f9c6524900aca65e44b8",
+          "files_or_sections_consulted": [
+            "README.md",
+            "repository inventory",
+            "LICENSE"
+          ],
+          "reliability_assessment": "Useful maintainer-authored workflow source. Exact prompts and demos are not design authority; claims require project-specific runtime evidence.",
+          "maintenance_status": "Active public repository.",
+          "copying_or_adaptation_restrictions": "MIT notice required for substantial copied material. Synthesize methods; do not import prompt packs, demos, presets, brand assets, or commands wholesale.",
+          "related_sources": [
+            "motionsites",
+            "originkit"
+          ],
+          "notes": "No source scripts, demos, or install commands were executed during inspection."
         }
       ]
     },
@@ -1484,6 +1540,58 @@
             "ui-kit"
           ],
           "findability_status": "discovery-card"
+        },
+        {
+          "id": "originkit",
+          "name": "OriginKit",
+          "canonical_url": "https://www.originkit.dev/",
+          "supplied_url": "https://originkit.dev",
+          "registry_id": "originkit",
+          "source_type": "Animated component library and MCP discovery surface",
+          "classification": "specialized",
+          "topics_contributed": [
+            "component discovery",
+            "motion",
+            "responsive composition",
+            "MCP"
+          ],
+          "summary": "Useful for discovery and library-organization observations; individual component accessibility, dependencies, and licenses require item-level review.",
+          "best_for": [
+            "component discovery",
+            "motion",
+            "responsive composition"
+          ],
+          "not_for": [
+            "automatic design authority",
+            "unchecked copying or installation"
+          ],
+          "keywords": [
+            "component",
+            "composition",
+            "discovery",
+            "mcp",
+            "motion",
+            "responsive"
+          ],
+          "review_status": "reviewed",
+          "credibility_assessment": "maintainer",
+          "author_or_organization": "OriginKit",
+          "license": "Site describes the library as free/open source, but an item-level license was not verified",
+          "accessible_revision": "Public metadata, structured data, responsive skeleton layout, and component-library claims observed 2026-07-21; component implementations were not copied",
+          "last_checked_revision": "vercel-etag-12gh4x8iost3xy8@2026-07-21",
+          "files_or_sections_consulted": [
+            "homepage metadata",
+            "structured data",
+            "server-rendered responsive skeleton"
+          ],
+          "reliability_assessment": "Useful for discovery and library-organization observations; individual component accessibility, dependencies, and licenses require item-level review.",
+          "maintenance_status": "Active Next.js site; immutable source revision unavailable.",
+          "copying_or_adaptation_restrictions": "Do not copy components until item license, dependencies, semantics, states, responsive behavior, and reduced-motion support are verified.",
+          "related_sources": [
+            "motionsites",
+            "kinetics-colorion"
+          ],
+          "notes": "Manual approval; partially ingested because rendered component detail was not exhaustively inspected."
         }
       ]
     },
@@ -4673,6 +4781,59 @@
             "ui-kit"
           ],
           "findability_status": "discovery-card"
+        },
+        {
+          "id": "opentui",
+          "name": "OpenTUI",
+          "canonical_url": "https://opentui.com/",
+          "supplied_url": "https://opentui.com",
+          "registry_id": "opentui",
+          "source_type": "Official terminal UI framework documentation",
+          "classification": "specialized",
+          "topics_contributed": [
+            "terminal UI",
+            "TypeScript",
+            "focus",
+            "keyboard",
+            "layout",
+            "animation"
+          ],
+          "summary": "Official source for OpenTUI capability and API direction; terminal UI behavior still needs runtime and platform verification.",
+          "best_for": [
+            "terminal UI",
+            "TypeScript",
+            "focus"
+          ],
+          "not_for": [
+            "automatic design authority",
+            "unchecked copying or installation"
+          ],
+          "keywords": [
+            "animation",
+            "focus",
+            "keyboard",
+            "layout",
+            "terminal",
+            "typescript"
+          ],
+          "review_status": "reviewed",
+          "credibility_assessment": "official-documentation",
+          "author_or_organization": "Anomaly / OpenTUI maintainers",
+          "license": "MIT",
+          "accessible_revision": "Homepage and repository HEAD 34e78b2fbf18fd969efdf5f3e2589d17d1f536f1 observed 2026-07-21",
+          "last_checked_revision": "34e78b2fbf18fd969efdf5f3e2589d17d1f536f1",
+          "files_or_sections_consulted": [
+            "homepage",
+            "README surface",
+            "LICENSE"
+          ],
+          "reliability_assessment": "Official source for OpenTUI capability and API direction; terminal UI behavior still needs runtime and platform verification.",
+          "maintenance_status": "Active repository and documentation.",
+          "copying_or_adaptation_restrictions": "MIT notice required for substantial copied code. Inspect install commands and dependency/runtime implications before use.",
+          "related_sources": [
+            "name-that-ui"
+          ],
+          "notes": "No repository code was executed during research."
         }
       ]
     },
@@ -5257,6 +5418,60 @@
             "components"
           ],
           "findability_status": "discovery-card"
+        },
+        {
+          "id": "name-that-ui",
+          "name": "NameThatUI",
+          "canonical_url": "https://namethatui.com/",
+          "supplied_url": "https://namethatui.com",
+          "registry_id": "name-that-ui",
+          "source_type": "UI terminology and interaction-pattern dictionary",
+          "classification": "specialized",
+          "topics_contributed": [
+            "component terminology",
+            "native semantics",
+            "interaction naming",
+            "prompt specificity"
+          ],
+          "summary": "Useful for terminology discovery and mapping plain-language descriptions to conventional component names; individual entries are leads, not normative accessibility specifications.",
+          "best_for": [
+            "component terminology",
+            "native semantics",
+            "interaction naming"
+          ],
+          "not_for": [
+            "automatic design authority",
+            "unchecked copying or installation"
+          ],
+          "keywords": [
+            "component",
+            "interaction",
+            "naming",
+            "native",
+            "prompt",
+            "semantics",
+            "specificity",
+            "terminology"
+          ],
+          "review_status": "reviewed",
+          "credibility_assessment": "practitioner",
+          "author_or_organization": "NameThatUI",
+          "license": "No public reuse license verified",
+          "accessible_revision": "Public 71-entry dictionary surface observed 2026-07-21",
+          "last_checked_revision": "71-entries@2026-07-21",
+          "files_or_sections_consulted": [
+            "homepage",
+            "elements index",
+            "visible field notes"
+          ],
+          "reliability_assessment": "Useful for terminology discovery and mapping plain-language descriptions to conventional component names; individual entries are leads, not normative accessibility specifications.",
+          "maintenance_status": "Active public site; immutable revision unavailable.",
+          "copying_or_adaptation_restrictions": "Generalized terminology only. Do not copy prompt text or treat the dictionary as a substitute for platform or accessibility specifications.",
+          "related_sources": [
+            "opentui",
+            "w3c-aria-apg"
+          ],
+          "notes": "Terminology is cross-checked against native HTML and authoritative component guidance before implementation."
         }
       ]
     },
@@ -5784,6 +5999,107 @@
             "pjax"
           ],
           "findability_status": "discovery-card"
+        },
+        {
+          "id": "text-effects-colorion",
+          "name": "Colorion CSS Text Effects",
+          "canonical_url": "https://text-effects.colorion.co/",
+          "supplied_url": "https://text-effects.colorion.co",
+          "registry_id": "text-effects-colorion",
+          "source_type": "Pure CSS animated text pattern library",
+          "classification": "specialized",
+          "topics_contributed": [
+            "typography",
+            "motion",
+            "CSS",
+            "reduced motion"
+          ],
+          "summary": "Useful implementation reference for bounded text effects; each effect still requires readability, semantic, performance, and reduced-motion verification.",
+          "best_for": [
+            "typography",
+            "motion",
+            "CSS"
+          ],
+          "not_for": [
+            "automatic design authority",
+            "unchecked copying or installation"
+          ],
+          "keywords": [
+            "css",
+            "motion",
+            "reduced",
+            "typography"
+          ],
+          "review_status": "reviewed",
+          "credibility_assessment": "practitioner",
+          "author_or_organization": "Colorion",
+          "license": "MIT stated on the public library",
+          "accessible_revision": "Public 66-effect catalog and reduced-motion statement observed 2026-07-21",
+          "last_checked_revision": "66-effects@2026-07-21",
+          "files_or_sections_consulted": [
+            "homepage library index",
+            "about/footer license and reduced-motion statements"
+          ],
+          "reliability_assessment": "Useful implementation reference for bounded text effects; each effect still requires readability, semantic, performance, and reduced-motion verification.",
+          "maintenance_status": "Active public catalog; immutable repository revision not recorded.",
+          "copying_or_adaptation_restrictions": "MIT notice required for substantial copied code. Prefer generalized patterns and project-native CSS; do not use effects where they impair reading.",
+          "related_sources": [
+            "kinetics-colorion",
+            "motionsites"
+          ],
+          "notes": "No effect code was copied into canonical knowledge."
+        },
+        {
+          "id": "kinetics-colorion",
+          "name": "Colorion Kinetics",
+          "canonical_url": "https://kinetics.colorion.co/",
+          "supplied_url": "https://kinetics.colorion.co",
+          "registry_id": "kinetics-colorion",
+          "source_type": "Spring-physics interface motion pattern library",
+          "classification": "specialized",
+          "topics_contributed": [
+            "motion",
+            "interaction",
+            "spring physics",
+            "interruption"
+          ],
+          "summary": "Useful as a pattern inventory and motion-tuning hypothesis source. Some examples omit native semantics, robust interruption, or content-sized animation, so snippets are not production proof.",
+          "best_for": [
+            "motion",
+            "interaction",
+            "spring physics"
+          ],
+          "not_for": [
+            "automatic design authority",
+            "unchecked copying or installation"
+          ],
+          "keywords": [
+            "interaction",
+            "interruption",
+            "motion",
+            "physics",
+            "spring"
+          ],
+          "review_status": "reviewed",
+          "credibility_assessment": "practitioner",
+          "author_or_organization": "Colorion",
+          "license": "MIT stated on the public library",
+          "accessible_revision": "Public 117-pattern catalog, physics explanation, CSS/React examples, and license statement observed 2026-07-21",
+          "last_checked_revision": "117-patterns@2026-07-21",
+          "files_or_sections_consulted": [
+            "library index",
+            "interaction examples",
+            "physics explanation",
+            "license statement"
+          ],
+          "reliability_assessment": "Useful as a pattern inventory and motion-tuning hypothesis source. Some examples omit native semantics, robust interruption, or content-sized animation, so snippets are not production proof.",
+          "maintenance_status": "Active public catalog; immutable repository revision not recorded.",
+          "copying_or_adaptation_restrictions": "MIT notice required for substantial copied code. Validate semantics, keyboard equivalence, pointer cancellation, live interruption, reduced motion, layout cost, and real-device feel.",
+          "related_sources": [
+            "text-effects-colorion",
+            "originkit"
+          ],
+          "notes": "Canonical records preserve critical exceptions rather than treating snippets as turnkey components."
         }
       ]
     },
@@ -7067,6 +7383,58 @@
             "lch"
           ],
           "findability_status": "discovery-card"
+        },
+        {
+          "id": "shapefactory",
+          "name": "ShapeFactory",
+          "canonical_url": "https://shapefactory.co/",
+          "supplied_url": "https://shapefactory.co",
+          "registry_id": "shapefactory",
+          "source_type": "Commercial visual asset and color tooling collection",
+          "classification": "inspiration-only",
+          "topics_contributed": [
+            "color",
+            "gradients",
+            "duotone",
+            "logo tooling",
+            "visual assets"
+          ],
+          "summary": "Useful for identifying visual-asset workflow categories; generated-asset rights and individual tool terms remain task-specific.",
+          "best_for": [
+            "color",
+            "gradients",
+            "duotone"
+          ],
+          "not_for": [
+            "automatic design authority",
+            "unchecked copying or installation"
+          ],
+          "keywords": [
+            "assets",
+            "color",
+            "duotone",
+            "gradients",
+            "logo",
+            "tooling",
+            "visual"
+          ],
+          "review_status": "reviewed",
+          "credibility_assessment": "commercial-gallery",
+          "author_or_organization": "Goodnuf LLC",
+          "license": "Terms of Service observed; no blanket asset/code reuse license",
+          "accessible_revision": "Homepage tool index and terms surface observed 2026-07-21",
+          "last_checked_revision": "live-surface@2026-07-21",
+          "files_or_sections_consulted": [
+            "homepage",
+            "terms and privacy"
+          ],
+          "reliability_assessment": "Useful for identifying visual-asset workflow categories; generated-asset rights and individual tool terms remain task-specific.",
+          "maintenance_status": "Active commercial tool collection; immutable revision unavailable.",
+          "copying_or_adaptation_restrictions": "Do not copy logos, palettes, gradients, duotones, or generated assets without checking the relevant tool terms and third-party rights.",
+          "related_sources": [
+            "valessa-riotters"
+          ],
+          "notes": "Manual approval does not grant trademark or asset rights."
         }
       ]
     },
@@ -7945,6 +8313,59 @@
             "ui-kit"
           ],
           "findability_status": "discovery-card"
+        },
+        {
+          "id": "motionsites",
+          "name": "MotionSites - Premium Website Prompts",
+          "canonical_url": "https://motionsites.ai/",
+          "supplied_url": "https://motionsites.ai",
+          "registry_id": "motionsites",
+          "source_type": "Commercial prompt and visual-reference catalog",
+          "classification": "inaccessible",
+          "topics_contributed": [
+            "composition",
+            "motion",
+            "section taxonomy",
+            "visual inspiration"
+          ],
+          "summary": "Useful as a current commercial-gallery signal for section taxonomy and visual variety; not design authority and not evidence for its marketing claims.",
+          "best_for": [
+            "composition",
+            "motion",
+            "section taxonomy"
+          ],
+          "not_for": [
+            "automatic design authority",
+            "unchecked copying or installation"
+          ],
+          "keywords": [
+            "composition",
+            "inspiration",
+            "motion",
+            "section",
+            "taxonomy",
+            "visual"
+          ],
+          "review_status": "reviewed",
+          "credibility_assessment": "commercial-gallery",
+          "author_or_organization": "MotionSites",
+          "license": "Commercial access terms observed; no public reuse license verified",
+          "accessible_revision": "Public homepage, sections catalog, templates catalog, and pricing/access page observed 2026-07-21; paid prompt bodies were not copied",
+          "last_checked_revision": "live-surface@2026-07-21",
+          "files_or_sections_consulted": [
+            "homepage",
+            "/sections",
+            "/templates",
+            "/unlimited"
+          ],
+          "reliability_assessment": "Useful as a current commercial-gallery signal for section taxonomy and visual variety; not design authority and not evidence for its marketing claims.",
+          "maintenance_status": "Active commercial site; immutable revision unavailable.",
+          "copying_or_adaptation_restrictions": "Inspiration only. Do not copy paid prompts, branded copy, screenshots, visual identities, testimonials, metrics, or proprietary examples.",
+          "related_sources": [
+            "text-effects-colorion",
+            "kinetics-colorion"
+          ],
+          "notes": "Existing canonical ID preserved and reprocessed. Manual approval enables research, not copying."
         }
       ]
     },
@@ -8034,7 +8455,7 @@
         },
         {
           "id": "minimal-gallery-categories-portfolio",
-          "name": "Minimal Gallery \u2014 Portfolio",
+          "name": "Minimal Gallery — Portfolio",
           "canonical_url": "https://minimal.gallery/categories/portfolio",
           "supplied_url": "https://minimal.gallery/categories/portfolio",
           "summary": "Minimal Gallery category for portfolios.",
@@ -8070,7 +8491,7 @@
         },
         {
           "id": "onepagelove-gallery-personal",
-          "name": "One Page Love \u2014 Personal",
+          "name": "One Page Love — Personal",
           "canonical_url": "https://onepagelove.com/gallery/personal",
           "supplied_url": "https://onepagelove.com/gallery/personal",
           "summary": "Personal/one-page site inspiration subset.",
@@ -9037,6 +9458,58 @@
             "ui-kit"
           ],
           "findability_status": "discovery-card"
+        },
+        {
+          "id": "valessa-riotters",
+          "name": "Valessa by Riotters",
+          "canonical_url": "https://valessa.riotters.com/",
+          "supplied_url": "https://valessa.riotters.com",
+          "registry_id": "valessa-riotters",
+          "source_type": "Browser-based 3D product visualizer",
+          "classification": "inspiration-only",
+          "topics_contributed": [
+            "3D product visualization",
+            "loading",
+            "material controls",
+            "export workflow"
+          ],
+          "summary": "Useful as a product-workflow and visual-presentation reference; not proof of WebGL performance, accessibility, or export correctness.",
+          "best_for": [
+            "3D product visualization",
+            "loading",
+            "material controls"
+          ],
+          "not_for": [
+            "automatic design authority",
+            "unchecked copying or installation"
+          ],
+          "keywords": [
+            "controls",
+            "export",
+            "loading",
+            "material",
+            "product",
+            "visualization",
+            "workflow"
+          ],
+          "review_status": "reviewed",
+          "credibility_assessment": "commercial-gallery",
+          "author_or_organization": "Riotters",
+          "license": "No public implementation or asset reuse license verified",
+          "accessible_revision": "Public metadata, application shell, loading treatment, and product description observed 2026-07-21",
+          "last_checked_revision": "vercel-live-surface@2026-07-21",
+          "files_or_sections_consulted": [
+            "homepage metadata",
+            "server-rendered application shell",
+            "Open Graph description"
+          ],
+          "reliability_assessment": "Useful as a product-workflow and visual-presentation reference; not proof of WebGL performance, accessibility, or export correctness.",
+          "maintenance_status": "Active Next.js application; immutable source revision unavailable.",
+          "copying_or_adaptation_restrictions": "Inspiration only. Do not copy 3D assets, branded UI, shaders, materials, imagery, or product copy. Verify device fallback and accessibility before adopting 3D interaction.",
+          "related_sources": [
+            "shapefactory"
+          ],
+          "notes": "Partially ingested because interactive 3D behavior was not executed or exhaustively inspected."
         }
       ]
     }

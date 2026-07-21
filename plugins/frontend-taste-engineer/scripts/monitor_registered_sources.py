@@ -28,7 +28,7 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_REGISTRY = PLUGIN_ROOT / "research" / "source-registry.yml"
+DEFAULT_REGISTRY = PLUGIN_ROOT / "research" / "source-registry.json"
 USER_AGENT = "FrontendTasteEngineer-SourceMonitor/0.1 (+bounded-public-metadata)"
 TEXT_CONTENT_TYPES = {
     "text/html",
@@ -65,24 +65,16 @@ def _unquote(value: str) -> str:
     return value
 
 
-def parse_registry(path: Path) -> list[dict[str, str]]:
+def parse_registry(path: Path) -> list[dict[str, Any]]:
     try:
-        text = path.read_text(encoding="utf-8")
-    except (OSError, UnicodeError) as exc:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
         raise MonitorError(f"Cannot read source registry {path}: {exc}") from exc
-    entries: list[dict[str, str]] = []
-    for raw in re.split(r"(?m)^  - id: ", text)[1:]:
-        entry = {"id": _unquote(raw.splitlines()[0])}
-        for field in (
-            "canonical_url",
-            "classification",
-            "license",
-            "last_checked_revision",
-            "maintenance_status",
-        ):
-            match = re.search(rf"(?m)^    {re.escape(field)}:\s*(.*)$", raw)
-            if match:
-                entry[field] = _unquote(match.group(1))
+    entries: list[dict[str, Any]] = []
+    for raw in value.get("sources") or []:
+        if not isinstance(raw, Mapping):
+            continue
+        entry = dict(raw)
         missing = [field for field in ("id", "canonical_url", "classification", "last_checked_revision") if not entry.get(field)]
         if missing:
             raise MonitorError(f"Registry source {entry.get('id') or '<unknown>'} lacks: {', '.join(missing)}")

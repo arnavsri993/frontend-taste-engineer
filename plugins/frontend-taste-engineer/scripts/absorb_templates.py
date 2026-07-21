@@ -20,7 +20,7 @@ from enrich_source_cards import (
 
 
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
-SEED_PATH = PLUGIN_ROOT / "research" / "source-discovery" / "seed-catalog.yml"
+SEED_PATH = PLUGIN_ROOT / "research" / "source-discovery" / "seed-catalog.json"
 SOURCES_PATH = PLUGIN_ROOT / "knowledge" / "sources.json"
 INDEX_PATH = PLUGIN_ROOT / "research" / "source-discovery" / "source-findability.md"
 EXPANSION_ID = "2026-07-12-template-absorption"

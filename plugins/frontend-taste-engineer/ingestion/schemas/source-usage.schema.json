@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:frontend-taste-engineer:source-usage:1",
+  "type": "object",
+  "required": ["schema_version", "sources"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "sources": {"type": "array", "items": {"type": "object", "required": ["source_id", "records_generated", "retrieval_count", "applied_count", "rejected_count", "categories"]}}
+  }
+}

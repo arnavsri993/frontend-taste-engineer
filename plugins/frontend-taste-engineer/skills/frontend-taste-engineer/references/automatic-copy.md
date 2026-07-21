@@ -13,6 +13,7 @@ Write finished page copy when the prompt is sparse. Copy is part of composition,
 - Give each section one job in the narrative or task flow.
 - Match sentence length and rhythm to the direction: concise and calm for high-trust tasks; dramatic, playful, editorial, or humorous for expressive personal work.
 - Write buttons and links as clear actions. Do not create a control if no honest action exists.
+- Keep one recognizable verb and object for an action across its trigger, confirmation, progress, success, error, and recovery states; expand destructive labels with the consequence without renaming the underlying action.
 - Write empty, error, loading, success, and recovery copy for reachable states.
 - Keep metadata truthful and specific to the visible page.
 
@@ -46,6 +47,7 @@ After first layout, read the page as text only and:
 - No placeholder, generic AI marketing phrase, unsupported superlative, or fake proof remains.
 - Every content block has a distinct task, decision, trust, or recovery job; repeated meaning is removed.
 - Visible labels remain meaningful out of context.
+- Core action vocabulary remains consistent and user-facing across every reachable state.
 - The page reads coherently without styling.
 - Long and narrow layouts preserve the distinguishing words.
 - Every factual claim traces to the prompt, project, or supplied source.

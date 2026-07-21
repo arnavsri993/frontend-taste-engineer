@@ -4,15 +4,22 @@ All notable changes follow semantic versioning and are recorded here.
 
 ## Unreleased
 
+- Migrated to dynamic source-derived design and copy retrieval with separated source dimensions, candidate-only ingestion, compiled records, coverage/usage ledgers, and release schemas.
+- Replaced preselected visual recipes with product constraints, one bounded clarification batch, diversified pre-lock retrieval, two-or-three candidate directions, and DESIGN/CONTENT locks.
+- Added a factual-drift copy audit and 21-pair contrastive benchmark; removed Apps SDK and standalone Skill packaging so distribution is Codex-plugin-only.
+
+- Added Anthropic's official Agent Skills repository at `fa0fa64b` as a high-trust, Apache-2.0 specialized source for three frontend-relevant skills, promoting original subject-led direction, meaningful structure, action-vocabulary continuity, and rendered-state browser QA while keeping production completion and current Playwright readiness rules intact.
+
 - Added a real weekly registered-source monitor: immutable GitHub revision and license checks, bounded public-text fingerprints, prior-run comparison, review-only issue routing, and four motion-focused monthly discovery queries. Monitoring stores metadata and hashes only and cannot modify stable knowledge.
-- Replaced the blanket external-source “untrusted” label with evidence-based per-source assessments. Candidate seeds now report not-yet-assessed; reviewed sources report scoped credibility, reliability evidence, and license status separately from the inspect-before-execution boundary. Refreshed `kill-ai-slop` at `2d21245d` while retaining its missing-license copy restriction.
-- Refreshed the MIT-licensed `emilkowalski/skills` practitioner source and added contextual rules for motion opportunity gating, system-level audits, gesture continuity and physics, optical typography, and accessible translucent-material fallbacks, with retrieval and provenance coverage.
+- Raised the Skill to a paid-client quality bar: system lock before catalogs, first-viewport law, AI-cluster reject list, density profiles, ≤3 motion roles, mandatory screenshot refine, and required “Why this is not generic” proof.
+- Expanded the external seed catalog from 245 to 395 sources with findability cards, including a large template/starter absorption pass; no seed or template was promoted to stable knowledge or vendored into the repo.
+- Replaced the optional review-app showcase with a complete dependency-free entertainment release briefing featuring original raster photography, verified-source boundaries, a functional day/night state, responsive composition, production fallbacks, and screenshot-refined verification.
+- Refreshed Emil Kowalski's MIT-licensed design-engineering skills at `6bf24434` and expanded the plugin with purpose/frequency motion gating, system-level motion audits, direct-manipulation continuity, contextual momentum physics, optical type rhythm, and solid fallbacks for translucent materials.
+- Replaced the blanket external-source “untrusted” label with evidence-based per-source assessments. Candidate seeds now report `not-yet-assessed`; reviewed sources report scoped credibility, reliability evidence, and license status separately from the inspect-before-execution boundary. Refreshed `kill-ai-slop` at `2d21245d` while retaining its missing-license copy restriction.
 
 ## 0.4.0 — 2026-07-16
 
 - Added opt-out automatic updates for trusted GitHub marketplace installs. The rate-limited hook delegates refresh and atomic cache activation to Codex, rejects local and unknown sources, preserves the current version on failure, and reports when a new task is required.
-- Raised the Skill to a paid-client quality bar: system lock before catalogs, first-viewport law, AI-cluster reject list, density profiles, ≤3 motion roles, mandatory screenshot refine, and required “Why this is not generic” proof.
-- Expanded the external seed catalog from 245 to 395 sources with findability cards, including a large template/starter absorption pass; no seed or template was promoted to stable knowledge or vendored into the repo.
 
 ## 0.3.0 — 2026-07-10
 

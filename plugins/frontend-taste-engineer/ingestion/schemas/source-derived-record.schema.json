@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:frontend-taste-engineer:source-derived-record:1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "id", "record_type", "source_id", "source_url", "topic", "principle",
+    "observations", "implementation", "exceptions", "verification",
+    "confidence", "allowed_use", "license_status", "last_reviewed"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"},
+    "record_type": {"enum": ["visual-observation", "interaction-observation", "implementation-observation", "copy-observation"]},
+    "source_id": {"type": "string"},
+    "source_url": {"type": "string", "format": "uri"},
+    "observations": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "implementation": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "exceptions": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "verification": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "allowed_use": {"enum": ["rules-and-guidance", "implementation-reference", "adaptation-with-license-review", "inspiration-only"]}
+  }
+}

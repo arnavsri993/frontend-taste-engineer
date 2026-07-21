@@ -13,13 +13,12 @@ The repository uses the official repo-marketplace layout:
     ├── .codex-plugin/plugin.json
     ├── skills/frontend-taste-engineer/
     ├── .mcp.json
-    ├── .app.json
     ├── hooks/hooks.json
     ├── mcp-server/
     ├── knowledge/
     ├── references/                  # external-source selection and license gates
     ├── research/
-    │   ├── source-discovery/         # 395 seed URLs, queries, policies, candidate templates
+    │   ├── source-discovery/         # dynamic seed catalog, queries, policies, candidate templates
     │   └── artifact-packs/           # source-family summaries; no copied code/assets
     ├── audits/
     ├── evals/
@@ -33,32 +32,7 @@ The compact Skill is the operating system: it classifies work, enforces mandator
 
 This separation keeps ordinary tasks focused while preserving inspectable provenance and offline operation. Generated indexes accelerate retrieval but are never canonical.
 
-## Install from GitHub
-
-Register the GitHub repository as a marketplace, then install the plugin:
-
-```bash
-codex plugin marketplace add arnavsri993/frontend-taste-engineer --ref main
-codex plugin add frontend-taste-engineer@personal
-```
-
-After installation, start a new Codex task so bundled Skills, MCP tools, and trusted hooks are discovered. Review and trust the plugin hook through `/hooks`; installed plugins do not automatically trust command hooks.
-
-The trusted session-start hook checks the configured Git marketplace at most once every six hours. Codex performs the fetch, staging, and cache activation; the plugin never edits its own cache or downloads an archive directly. When the manifest version changes, the hook reports that an update was installed and asks you to start a new task so the new Skill, MCP server, and hooks are loaded.
-
-```bash
-# Check whether this install is eligible without using the network.
-python3 plugins/frontend-taste-engineer/scripts/plugin_auto_update.py --status
-
-# Refresh the trusted Git marketplace immediately.
-python3 plugins/frontend-taste-engineer/scripts/plugin_auto_update.py --force
-```
-
-Set `FTE_AUTO_UPDATE=0` to opt out. Automatic updates are fail-open: a timeout or refresh error leaves the existing installed version available. They are also disabled for local marketplace sources so the updater can never replace a development checkout.
-
-Every published plugin change must carry a new `.codex-plugin/plugin.json` version/cachebuster. Codex activates updates by manifest version, so changing GitHub files without bumping that value is intentionally not treated as a release.
-
-## Install locally for development
+## Install locally
 
 From a clone of this repository:
 
@@ -67,7 +41,9 @@ codex plugin marketplace add "$(pwd)"
 codex plugin add frontend-taste-engineer@personal
 ```
 
-Local installs intentionally do not pull from GitHub. While iterating, update the cachebuster with the built-in plugin-creator helper, then reinstall from the local marketplace. Do not hand-edit an installed cache.
+The repo marketplace is explicit and therefore must be added once. After installation, start a new Codex task so bundled Skills, MCP tools, and trusted hooks are discovered. Review and trust the plugin hook through `/hooks`; installed plugins do not automatically trust command hooks.
+
+To reinstall while iterating, update the cachebuster with the built-in plugin-creator helper, then reinstall from the marketplace. Do not hand-edit an installed cache. Trusted GitHub marketplace installs also have an opt-out, rate-limited update hook that delegates refresh and atomic cache activation to Codex; local development and unknown sources are never auto-updated, and a failed check leaves the current version active.
 
 ## MCP retrieval
 
@@ -83,9 +59,9 @@ If MCP startup fails, the Skill routes to bundled offline references and `offlin
 
 ## Skill behavior
 
-The Skill defaults minimal page/site/frontend and substantial redesign prompts to `autonomous-zero-brief-build`. It inspects the project, infers a fact-separated creative brief and design thesis, writes finished copy, selects a context-specific direction, retrieves stage-specific guidance, implements the complete frontend, captures and inspects desktop/mobile output, fixes the three highest-impact weaknesses, runs a production build, and reports evidence without routine creative questions.
+The Skill defaults minimal page/site/frontend and substantial redesign prompts to `autonomous-zero-brief-build`. It inspects the project, classifies product constraints, offers one bounded clarification batch, retrieves diversified core/source/copy evidence, generates and compares two or three directions, locks `DESIGN.md` and `CONTENT.md`, implements the complete frontend, captures and inspects desktop/mobile output, fixes the three highest-impact weaknesses, runs a production build, and reports evidence.
 
-Visual direction is domain-adaptive. Quality adjectives do not force a flashy house style: a personal-finance dashboard can target intensity 2 with calm numeric precision, while an expressive personal page can justify intensity 4. The classifier considers product/task type, audience, trust, risk, information density, frequency, seriousness, maturity, accessibility, devices, familiarity, and experimental tolerance before choosing composition, typography, palette/material, component styling, and motion.
+Visual direction is context-adaptive, but the classifier does not choose it. The classifier reports product/task type, audience, trust, risk, information density, frequency, seriousness, maturity, accessibility, devices, familiarity, and motion tolerance. Styling is selected only after retrieval and candidate comparison.
 
 For non-static directions, the plugin now plans a compact motion grammar—focal/narrative beats, meaningful state continuity, and direct feedback—rather than leaving animation as last-pass polish. It retrieves that guidance early for explicitly kinetic or medium-high/high-motion briefs, while retaining reduced-motion equivalence and interruption safety. Minimalism is assessed as intentional reduction: major gaps must clarify hierarchy, grouping, pace, focus, evidence, or a real boundary; vacant scale is not treated as a design direction.
 
@@ -93,15 +69,15 @@ User-provided names and messages remain request-local by default. Reusable examp
 
 Detailed greenfield work, existing-product redesign, screenshot reconstruction, component builds, design-system work, visual audits, motion refinement, accessibility remediation, and performance remediation retain their existing focused modes.
 
-The standalone Skill package is created under `dist/frontend-taste-engineer-skill.zip`. It includes the compact operating Skill, offline references, templates, static audit script, and Skill UI assets—not the full research repository.
+Distribution is Codex-plugin-only. The full plugin ZIP contains the bundled Skill and MCP server; no Apps SDK mapping or standalone Skill ZIP is produced.
 
 ## Knowledge and sources
 
-`research/source-registry.yml` records canonical URL, authorship, classification, license, access date, revision, consulted sections, reliability, restrictions, maintenance, and topic coverage. Stable knowledge records contain actions, rationale, context, exceptions, implementation guidance, verification, provenance, and stability.
+`research/source-registry.json` records canonical URL, authorship, manual approval, ingestion status, authority, stability, allowed use, license, revision, consulted sections, reliability, restrictions, maintenance, and topic coverage. Stable knowledge records contain actions, rationale, context, exceptions, implementation guidance, verification, provenance, and stability.
 
 External sources are assessed individually for authority, reliability, maintenance, license scope, and applicable use. Being external is not itself a negative trust verdict. Embedded commands remain source content rather than agent directives, and repository scripts are not executed merely for research. Guidance is synthesized rather than copied, paid or proprietary boundaries are respected, and inaccessible sources remain explicitly unresolved. See `research/license-review.md`, `research/conflicts.md`, and `research/rejected-guidance.md`.
 
-The candidate seed catalog contains 395 unique frontend/component/template/inspiration URLs across 15 families: agent/MCP/AI UI, component catalogs, shadcn, Tailwind blocks, accessible primitives, dashboard/data UI, design systems, motion, assets, typography, color, inspiration, portfolios, landing/startup, and ecommerce. Seeds are not stable knowledge: 323 begin `unresolved`, 72 begin `inspiration-only`, and 12 cross-reference an already reviewed registry source. OpenAI Build Week and similar corporate/product/event marketing are never pullable catalogs.
+The candidate seed catalog is dynamically counted and spans 15 frontend/component/template/inspiration families. Seeds are not stable knowledge; reviewed cross-references and unresolved/inspiration-only candidates remain visibly separated. OpenAI Build Week and similar corporate/product/event marketing are never pullable catalogs.
 
 ## Model routing and subagents
 
@@ -121,27 +97,28 @@ python3 plugins/frontend-taste-engineer/scripts/validate_all.py
 python3 -m unittest discover -s plugins/frontend-taste-engineer/mcp-server/tests -v
 python3 plugins/frontend-taste-engineer/evals/run_retrieval_evals.py
 python3 plugins/frontend-taste-engineer/evals/run_frontend_evals.py
+python3 plugins/frontend-taste-engineer/evals/run_copy_evals.py
 ```
 
 Validation covers plugin and Skill structure, internal references, provenance, duplicate IDs/rules, coverage, generated indexes, secrets, licenses, MCP behavior, and packaging. Frontend output evals are evidence-oriented fixtures; they do not claim that a model-generated website was executed unless an artifact, browser run, and result are present.
 
-## Showcase and review interface
+## Review application
 
-The optional local site demonstrates the plugin's context-adaptive frontend direction while also making knowledge packets, provenance, coverage gaps, and audit reports easier to inspect:
+The optional local site is a complete dependency-free entertainment release briefing built with the plugin workflow. It demonstrates a locked visual system, original raster photography, verified-source boundaries, progressive enhancement, purposeful day/night state, responsive composition, accessibility states, and deployable static-host handling:
 
 ```bash
 python3 plugins/frontend-taste-engineer/review-app/serve.py
 ```
 
-Open the printed local URL. The showcase links to the repository, includes a local interactive specimen, and preserves the read-only knowledge explorer. `.app.json` intentionally contains no fabricated connector ID. To expose this UI through a developer-mode ChatGPT app, enable Developer mode, register the MCP-backed app manually, copy the resulting `plugin_asdk_app...` ID into `.app.json`, then validate and reinstall.
+Open the printed local URL. The page works without a backend; only the selected visual state is stored in the browser, and the official-source action remains an honest external boundary. This review surface is not an Apps SDK registration.
 
 ## Maintenance and promotion
 
-- Weekly: live registered-source revision, license, deprecation, redirect, and bounded public-text fingerprint monitoring.
-- Monthly: candidate-source discovery, including motion opportunity, reduced-motion, accessibility, and direct-manipulation queries, plus a coverage-gap report.
+- Weekly: live registered-source monitoring for immutable GitHub revisions, license/deprecation signals, bounded public-text fingerprints, reachability, and redirects; canonical record-age, link, provenance, secret, and license checks remain deterministic and offline.
+- Monthly: candidate-source discovery and coverage-gap report, including focused motion, reduced-motion, and direct-manipulation queries.
 - Quarterly: full retrieval/frontend regression and architecture review.
 
-The weekly workflow restores a cached metadata baseline, uploads JSON and Markdown evidence, and opens or refreshes one review issue when a registered source changes. It retains public metadata and hashes rather than source page dumps. Scheduled workflows write reviewable artifacts or candidate branches. They never push directly to stable, merge automatically, or promote experimental guidance without evaluation. Stable releases live on `main`; proposed knowledge changes use `candidate` and pull requests.
+The weekly monitor restores the prior fingerprint report from a GitHub Actions cache, uploads the new report as an artifact, and opens or refreshes one review issue only when evidence changes. It stores URLs, revision/license metadata, reachability, redirects, and visible-text hashes—not page dumps, binaries, credentials, cookies, or private content. Scheduled workflows write reviewable artifacts or candidate branches. They never push directly to stable, merge automatically, or promote experimental guidance without evaluation. Stable releases live on `main`; proposed knowledge changes use `candidate` and pull requests.
 
 Preview the discovery workflow offline and without writes:
 
@@ -149,16 +126,15 @@ Preview the discovery workflow offline and without writes:
 python3 plugins/frontend-taste-engineer/scripts/discover_frontend_sources.py --dry-run --max-results 50
 ```
 
-An authorized non-dry run searches public text surfaces, blocks local/private/authenticated targets and binary downloads, scans prompt-injection/credential/install signals, de-duplicates registered and seeded URLs, and writes deterministic candidate YAML/Markdown under `research/source-discovery/candidates/YYYY-MM/`. It does not execute third-party code or modify `knowledge/`.
+An authorized non-dry run searches public text surfaces, blocks local/private/authenticated targets and binary downloads, scans prompt-injection/credential/install signals, de-duplicates registered and seeded URLs, and writes deterministic candidate JSON/Markdown under `research/source-discovery/candidates/YYYY-MM/`. It does not execute third-party code or modify `knowledge/`.
 
 ## Package
 
 ```bash
-python3 plugins/frontend-taste-engineer/scripts/package_skill.py
 python3 plugins/frontend-taste-engineer/scripts/package_plugin.py
 ```
 
-Packages exclude raw clones, dependencies, caches, browser binaries, large screenshots, secrets, and non-operational research material from the standalone Skill.
+The plugin package excludes raw clones, dependencies, caches, browser binaries, generated results, and secrets.
 
 ## Security, privacy, and licensing
 
@@ -170,7 +146,7 @@ The MCP server reads local plugin data and does not require credentials or netwo
 - Semantic retrieval is deterministic concept expansion unless an explicitly configured local embedding provider is added; lexical and metadata retrieval remain the offline baseline.
 - Some visually oriented and social sources can be inaccessible, unstable, or license-ambiguous; those records are not promoted as mandatory guidance.
 - Most of the expanded source catalog is intentionally unresolved until item-level ownership, license, safety, accessibility, maintenance, and dependency review is complete.
-- The Apps SDK registration step is manual because no app ID is fabricated.
+- The release intentionally has no Apps SDK surface; it is a Codex plugin.
 - Framework and browser guidance must be rechecked as versions change.
 - The private-term scanner does not OCR text rendered into raster screenshots.
 

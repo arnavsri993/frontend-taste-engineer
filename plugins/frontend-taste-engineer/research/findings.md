@@ -523,3 +523,39 @@ Status: candidate findings reviewed on 2026-07-10. A finding is not automaticall
 - **Exceptions:** Decorative layers may disappear when they carry no content, control, grouping, or state meaning.
 - **Verify:** Disable blur and imagery; test busy/light backgrounds, forced colors, increased contrast, reduced transparency where supported, scroll performance, and focus visibility.
 - **Sources:** `emil-design-skills`, `apple-hig`, `mdn-web-docs`, `wcag-22`.
+
+### F-056 — Derive identity from the subject before choosing a style
+
+- **Level:** recommended; specialized.
+- **Do:** Inventory the subject's real materials, tools, language, artifacts, environment, behavior, and proof, then translate only the useful signals into composition, typography, imagery, structure, and one memorable focal gesture.
+- **Why:** A subject-derived vocabulary makes distinctiveness coherent and repeatable without borrowing a fashionable template or another brand's expression.
+- **Exceptions:** Mature brand and regulated systems may already supply the vocabulary; sparse factual surfaces may need only one restrained cue.
+- **Verify:** Reviewers can trace signature choices to the actual subject and audience, and swapping in an unrelated product name creates obvious visual/content mismatches.
+- **Sources:** `anthropic-agent-skills`, `govuk-design-system`, `taste-skill-repo`.
+
+### F-057 — Structural devices must encode a real relationship
+
+- **Level:** recommended; stable.
+- **Do:** Use numbering, eyebrows, dividers, labels, group boundaries, and similar devices only for a real sequence, category, hierarchy, state, or navigation relationship.
+- **Why:** Decorative structure looks organized while adding signals users must ignore, weakening the distinctions that actually matter.
+- **Exceptions:** Clearly decorative brand motifs may repeat when they are non-semantic, quiet, and hidden from assistive technology.
+- **Verify:** Remove each device and restore it only when scanning, comprehension, orientation, or recovery degrades; the text outline and accessibility tree preserve the same relationships.
+- **Sources:** `anthropic-agent-skills`, `govuk-design-system`, `wcag-22`.
+
+### F-058 — Keep the same action vocabulary from trigger through recovery
+
+- **Level:** mandatory; stable.
+- **Do:** Use one recognizable verb and object for an action across its trigger, confirmation, progress, success, failure, navigation, and recovery states; prefer user concepts over implementation terms.
+- **Why:** Vocabulary drift makes users re-evaluate whether components and states belong to the same operation, especially during consequential or asynchronous work.
+- **Exceptions:** Destructive confirmation may expand the consequence, but should retain the original action and target.
+- **Verify:** Read each state out of context; visible and accessible names remain specific, consistent, and predictive without generic Submit/Continue/Done labels.
+- **Sources:** `anthropic-agent-skills`, `govuk-design-system`, `wcag-22`.
+
+### F-059 — Browser automation should inspect explicit rendered readiness before action
+
+- **Level:** mandatory for dynamic browser QA; specialized.
+- **Do:** Wait for a user-visible, state-specific condition; inspect rendered roles, labels, DOM, screenshot, and relevant console/network evidence; then use resilient user-facing locators and assert each outcome.
+- **Why:** Source markup, guessed selectors, fixed sleeps, and global load events can disagree with hydrated or asynchronously updated UI and create brittle or misleading checks.
+- **Exceptions:** Static HTML can seed selectors from source, but runtime behavior, visual, or accessibility claims still require an appropriate browser check.
+- **Verify:** Tests fail clearly when the intended state never appears, survive harmless DOM refactors, and assert the resulting URL, accessible state, visible result, or recovery message.
+- **Sources:** `anthropic-agent-skills`, `playwright-docs`.

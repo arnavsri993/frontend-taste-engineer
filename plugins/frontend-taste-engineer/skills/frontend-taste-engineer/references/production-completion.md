@@ -5,7 +5,7 @@ An autonomous build is complete only when it is a finished, deployable frontend 
 ## Required outcome
 
 - Complete semantic page structure and finished copy.
-- Coherent tokens, typography, color/material, composition, imagery, and motion locked before catalogs.
+- Coherent tokens, typography, color/material, composition, imagery, and motion locked after diversified evidence retrieval and candidate comparison.
 - First viewport as one composition with a hero-level brand signal.
 - Functional visible controls and honest integration boundaries.
 - Relevant default, hover, focus, active, disabled, loading, empty, error, success, offline, permission, saving, and recovery states.

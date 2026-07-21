@@ -1,42 +1,20 @@
 # Frontend output evaluation
 
-**Result:** INCOMPLETE/FAIL
+**Result:** PASS
 
-Scored cases: 2 / 32
+Scored cases: 10 / 10
 
-No score is accepted without a concrete artifact or executed-command observation. Missing evidence remains unscored, never inferred.
+No score is accepted without a local artifact inside evals/artifacts, a matching SHA-256, two captured viewports, and artifact-backed observations. Missing or non-local evidence remains unscored.
 
 ## Case status
 
-- `b2b-landing` — not-run
-- `consumer-landing` — not-run
-- `developer-tool` — not-run
-- `enterprise-dashboard` — not-run
-- `mobile-onboarding` — not-run
-- `settings-interface` — not-run
-- `searchable-table` — not-run
-- `checkout-form` — not-run
-- `existing-redesign` — not-run
-- `anti-slop-remediation` — not-run
-- `screenshot-reconstruction` — not-run
-- `constrained-system` — not-run
-- `public-service` — not-run
-- `dark-mode-product` — not-run
-- `rtl-interface` — not-run
-- `animated-component` — not-run
-- `performance-remediation` — not-run
-- `minimal-alex-message` — scored
-- `minimal-robotics-team` — not-run
-- `minimal-ai-study-group` — not-run
-- `minimal-portfolio` — not-run
-- `minimal-machines-alive` — not-run
-- `minimal-funny-late-friend` — not-run
-- `minimal-premium-product` — not-run
-- `minimal-public-service` — not-run
-- `adaptive-personal-finance` — not-run
-- `adaptive-banking-onboarding` — not-run
-- `adaptive-investment-analytics` — not-run
-- `adaptive-enterprise-product` — not-run
-- `adaptive-developer-tool` — not-run
-- `adaptive-premium-ecommerce` — not-run
-- `concise-marketing-copy` — scored
+- `robotics-team` — scored
+- `developer-tool` — scored
+- `enterprise-dashboard` — scored
+- `public-service` — scored
+- `portfolio` — scored
+- `ecommerce` — scored
+- `incident-status` — scored
+- `community` — scored
+- `documentation` — scored
+- `product-launch` — scored

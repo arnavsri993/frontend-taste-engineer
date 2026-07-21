@@ -15,7 +15,7 @@ from enrich_source_cards import SOURCE_CARDS, enrich_seed, enrich_knowledge_sour
 
 
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
-SEED_PATH = PLUGIN_ROOT / "research" / "source-discovery" / "seed-catalog.yml"
+SEED_PATH = PLUGIN_ROOT / "research" / "source-discovery" / "seed-catalog.json"
 SOURCES_PATH = PLUGIN_ROOT / "knowledge" / "sources.json"
 INDEX_PATH = PLUGIN_ROOT / "research" / "source-discovery" / "source-findability.md"
 

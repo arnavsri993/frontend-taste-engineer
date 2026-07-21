@@ -22,7 +22,7 @@ from typing import Any, Iterable, Iterator, Mapping, Sequence
 
 
 PROTOCOL_VERSION = "2024-11-05"
-SERVER_VERSION = "0.3.0"
+SERVER_VERSION = "0.4.0"
 DEFAULT_RECORD_BUDGET = 8
 DEFAULT_CONTEXT_BUDGET = 3200
 MAX_RECORD_BUDGET = 32
@@ -147,6 +147,8 @@ TOPIC_ALIASES: dict[str, tuple[str, ...]] = {
     "responsive": ("responsive", "layout", "browser"),
     "accessibility": ("accessibility", "forms", "components"),
     "content": ("information-architecture-content", "product-writing", "localization"),
+    "copy": ("information-architecture-content", "product-writing", "copy"),
+    "source-derived": ("visual-direction", "motion", "product-writing", "components-states-forms"),
     "framework": ("frameworks-code-architecture", "code-architecture"),
     "frameworks": ("frameworks-code-architecture",),
     "performance": ("performance",),
@@ -162,7 +164,7 @@ TOPIC_ALIASES: dict[str, tuple[str, ...]] = {
 }
 
 WORKFLOW_TOPICS: dict[str, tuple[str, ...]] = {
-    "brief": ("product", "information-architecture", "content", "visual-direction"),
+    "brief": ("product", "information-architecture", "content", "copy", "visual-direction", "source-derived"),
     "planning": ("design-systems", "layout", "typography", "components", "responsive"),
     "implementation": ("frameworks", "components", "states", "accessibility", "browser"),
     "refinement": ("visual-direction", "motion", "content", "images", "responsive"),
@@ -250,9 +252,9 @@ AUTONOMOUS_STAGE_RULE_IDS: dict[str, tuple[str, ...]] = {
 
 AUTONOMOUS_REQUIRED_SEQUENCE = (
     "inspect-repository-and-running-product", "choose-new-build-or-redesign",
-    "infer-creative-profile", "separate-facts-from-assumptions", "write-internal-brief",
-    "write-design-thesis", "select-contextual-direction", "retrieve-brief-guidance",
-    "write-complete-copy", "create-or-update-design-md", "implement-complete-frontend",
+    "classify-product-constraints", "separate-facts-from-assumptions", "bounded-clarification-or-use-judgment",
+    "retrieve-core-source-and-copy-guidance", "generate-two-or-three-candidate-directions",
+    "compare-and-select-direction", "lock-design-md", "lock-content-md", "implement-complete-frontend",
     "make-controls-functional", "implement-relevant-states", "integrate-responsive-accessibility",
     "add-purposeful-motion", "run-application", "capture-desktop-and-mobile",
     "inspect-against-thesis", "run-anti-slop-review", "fix-top-three-weaknesses",
@@ -585,6 +587,9 @@ class Record:
             "license_status": self.license_status,
             "retrieval": {"score": round(score, 3), "reasons": list(reasons)},
         }
+        for key in ("record_type", "source_id", "source_url", "allowed_use", "copying_restriction"):
+            if self.extra.get(key) not in (None, "", []):
+                packet[key] = self.extra[key]
         return {key: value for key, value in packet.items() if value not in ("", [], None)}
 
 
@@ -615,9 +620,19 @@ def load_records(knowledge_dir: Path | str | None = None) -> tuple[list[Record],
                     raw.extend(extracted)
             except (OSError, UnicodeError, json.JSONDecodeError) as exc:
                 errors.append({"file": str(path), "error": str(exc)})
+    source_policy: dict[str, Mapping[str, Any]] = {}
+    try:
+        registry = json.loads((default_plugin_root() / "research" / "source-registry.json").read_text(encoding="utf-8"))
+        source_policy = {str(item["id"]): item for item in registry.get("sources") or [] if isinstance(item, Mapping) and item.get("id")}
+    except (OSError, UnicodeError, json.JSONDecodeError, AttributeError):
+        source_policy = {}
     records: list[Record] = []
     seen: set[str] = set()
     for ordinal, data in enumerate(raw, 1):
+        source_id = str(data.get("source_id") or "")
+        if source_id in source_policy:
+            policy = source_policy[source_id]
+            data = {**data, "source_authority": policy.get("authority"), "source_stability": policy.get("stability"), "source_allowed_use": policy.get("allowed_use")}
         record = Record.from_dict(data, ordinal)
         if record.id in seen or not record.principle:
             continue
@@ -667,7 +682,7 @@ def _is_minimal_frontend_request(text: str, matched_task: str) -> bool:
 
 
 def _needs_early_motion_guidance(text: str, profile: Mapping[str, Any]) -> bool:
-    """Return whether an autonomous brief needs motion guidance before refinement."""
+    """Return whether constraints justify including motion in pre-direction retrieval."""
     haystack = SPACE_RE.sub(" ", text.lower()).strip()
     explicit_motion = (
         "motion", "animation", "animate", "animated", "kinetic", "choreograph",
@@ -675,7 +690,7 @@ def _needs_early_motion_guidance(text: str, profile: Mapping[str, Any]) -> bool:
     )
     if any(term in haystack for term in explicit_motion):
         return True
-    return str(profile.get("motion_intensity") or "") in {"medium-high", "high"}
+    return str(profile.get("motion_tolerance") or "") in {"medium", "medium-high", "high"}
 
 
 def _entities(text: str) -> dict[str, list[str]]:
@@ -749,371 +764,119 @@ def _risk_for_prompt(haystack: str) -> str:
 
 
 def _creative_profile(text: str, task_type: str, risk: str, entities: Mapping[str, list[str]]) -> tuple[dict[str, Any], dict[str, list[str]]]:
+    """Return product and UX constraints without selecting a completed aesthetic."""
     haystack = text.lower()
-    recipients = entities["named_recipients"]
-    quoted = entities["quoted_text"]
-    teams = entities["teams_or_groups"]
-    concepts = entities["concepts"]
-    redesign = task_type == "existing-redesign" or any(
-        phrase in haystack for phrase in ("redesign", "make this page", "make this frontend", "make this product look")
-    )
-    build_mode = "redesign" if redesign else "new-build"
-
     domain = "general-product"
-    product_type = "website"
-    interface_archetype = "editorial-marketing"
-    page_type = "focused-landing-page"
+    product_type = "website or product surface"
+    interface_archetype = "marketing-or-product"
+    page_type = "general-page"
     canonical_page_types = ["marketing"]
-    audience = "The most likely visitor implied by the subject, plus first-time evaluators"
-    purpose = "Explain the idea quickly, establish a distinctive identity, and provide one honest next step"
-    primary_task = "Understand the offer or idea and choose the primary next action"
+    audience = ["the primary visitor implied by the supplied product and task"]
+    purpose = "Help the visitor understand the product and complete the primary action"
+    primary_task = "Understand the offer or current state and choose the next action"
     secondary_tasks = ["verify fit", "find supporting detail"]
-    emotional_objective = ["clarity", "interest", "confidence"]
-    tone = ["distinctive", "clear", "confident", "contextual"]
     trust_level = "normal"
-    information_density = "low-to-medium"
+    information_density = "medium"
     frequency_of_use = "occasional"
     content_seriousness = "moderate"
-    brand_maturity = "unknown"
-    product_maturity = "established" if redesign else "early-or-unknown"
-    accessibility_needs = ["keyboard", "visible-focus", "contrast", "reflow", "reduced-motion"]
-    expected_devices = ["mobile", "desktop"]
-    visual_intensity = 3
-    motion_intensity = "medium"
+    motion_tolerance = "medium"
     experimental_tolerance = "medium"
     familiarity_requirement = "medium"
-    interaction_depth = "moderate" if task_type == AUTONOMOUS_MODE else "proportionate"
-    composition = "Content-led opening with one primary message, a concise supporting narrative, and one dominant action"
-    typography = "Context-appropriate display voice with a resilient readable text system"
-    material = "A small role-based palette and surface language derived from the subject"
-    imagery = "Prefer supplied or honest generated abstraction; omit imagery that adds no meaning"
-    motion = "Use a compact purposeful motion grammar across a focal beat, meaningful state changes, and direct feedback, with a complete reduced-motion outcome"
-    hero_treatment = "Compact content-led opening; avoid an oversized generic headline"
-    component_styling = "Role-based geometry and restrained surfaces; add chrome only for real interaction boundaries"
-    direction = "distinctive, content-led, controlled, and appropriate to the audience"
-    negative_space_role = "Use task-appropriate density; every major gap must clarify grouping, readability, pacing, focus, evidence, or a real boundary."
-    minimalism_guardrail = "Minimalism reduces decorative noise while retaining the hierarchy, evidence, content density, and affordances needed for the task; every major gap must improve grouping, readability, pacing, focus, or a boundary."
-    required_states = ["default", "hover-where-applicable", "focus-visible", "active", "reduced-motion", "error-and-recovery-when-interactive"]
-    supporting_narrative = "Build belief through a clear opening, specific supporting beats, and an honest conclusion or next action."
+    required_content = ["product or task context", "primary action", "supporting evidence or limitation"]
+    required_states = ["default", "focus-visible", "loading-when-reachable", "empty-when-reachable", "error-and-recovery-when-interactive", "reduced-motion"]
+    prohibited_claims = ["invented metrics", "invented customers or testimonials", "invented integrations", "unsupported performance or security claims"]
 
-    public_service = any(term in haystack for term in ("public service", "public-service", "government", "benefits application"))
-    banking = any(term in haystack for term in ("bank", "banking"))
-    personal_finance = any(term in haystack for term in ("personal finance", "personal-finance", "family investments", "family portfolio"))
-    investment_analytics = any(term in haystack for term in ("investment analytics", "portfolio analytics", "market analytics", "trading analytics"))
-    finance = any(term in haystack for term in ("finance", "financial", "investment", "investing", "insurance", "accounting"))
-    regulated = any(term in haystack for term in ("healthcare", "medical", "legal", "education", "regulated"))
-    enterprise = any(term in haystack for term in ("enterprise", "b2b", "infrastructure product"))
-    developer_tool = any(term in haystack for term in ("developer tool", "developer-tool", "technical product", "api platform"))
-    ecommerce = any(term in haystack for term in ("ecommerce", "e-commerce", "commerce", "product page", "shop"))
+    profiles = (
+        (("public service", "public-service", "government", "benefits application"), {
+            "domain": "public-service", "product_type": "public-service application", "interface_archetype": "institutional-transactional", "page_type": "public-service-application", "canonical_page_types": ["public-service"],
+            "audience": ["people completing a consequential public-service task", "assistive-technology users", "stressed or time-constrained applicants"],
+            "purpose": "Enable accurate task completion with plain requirements and recovery", "primary_task": "Complete the application and understand what happens next", "secondary_tasks": ["check eligibility", "review status", "recover from errors"],
+            "trust_level": "high", "information_density": "medium", "frequency_of_use": "episodic", "content_seriousness": "high", "motion_tolerance": "minimal", "experimental_tolerance": "very-low", "familiarity_requirement": "very-high",
+            "required_content": ["service identity", "eligibility or requirements", "task steps", "deadline or consequence when verified", "recovery and contact path"],
+            "required_states": ["validation-error", "loading", "success", "unavailable", "saved-progress", "session-recovery", "reduced-motion"],
+        }),
+        (("bank", "banking", "finance", "financial", "investment", "insurance", "checkout"), {
+            "domain": "financial-or-transactional", "product_type": "financial or transactional interface", "interface_archetype": "analytical-transactional", "page_type": "product-interface", "canonical_page_types": ["product-interface"],
+            "audience": ["people reviewing or completing a consequential transaction"], "purpose": "Present state, units, freshness, risk, and actions accurately", "primary_task": "Understand the current financial state and complete the next action safely", "secondary_tasks": ["review details", "confirm consequences", "recover from unavailable data"],
+            "trust_level": "high", "information_density": "high", "frequency_of_use": "regular", "content_seriousness": "high", "motion_tolerance": "low", "experimental_tolerance": "low", "familiarity_requirement": "high",
+            "required_content": ["scope and units", "data freshness", "risk or consequence", "confirmation and recovery"],
+            "required_states": ["positive", "negative", "neutral", "pending", "unavailable", "stale-data", "confirmation", "reduced-motion"],
+        }),
+        (("enterprise", "dashboard", "operations"), {
+            "domain": "enterprise-software", "product_type": "professional operational product", "interface_archetype": "utilitarian-analytical", "page_type": "enterprise-product-interface", "canonical_page_types": ["product-interface"],
+            "audience": ["frequent professional users", "reviewers with permission and oversight needs"], "purpose": "Support accurate, efficient operational work", "primary_task": "Complete the primary workflow with current status and permissions", "secondary_tasks": ["monitor status", "filter records", "review exceptions"],
+            "trust_level": "high", "information_density": "high", "frequency_of_use": "frequent", "content_seriousness": "high", "motion_tolerance": "low", "experimental_tolerance": "low-to-medium", "familiarity_requirement": "high",
+            "required_content": ["current state", "primary controls", "exceptions", "permissions", "recovery"],
+            "required_states": ["loading", "empty", "error", "partial-data", "permission-denied", "saving", "saved", "offline", "reduced-motion"],
+        }),
+        (("developer tool", "developer-tool", "api", "cli", "sdk"), {
+            "domain": "developer-tools", "product_type": "developer tool", "interface_archetype": "technical-product", "page_type": "developer-tool-page", "canonical_page_types": ["marketing", "documentation"],
+            "audience": ["developers evaluating technical fit", "developers implementing or operating the tool"], "purpose": "Explain capability, limits, integration path, and technical evidence", "primary_task": "Determine fit and reach the correct documentation or install path", "secondary_tasks": ["inspect examples", "review requirements", "understand limitations"],
+            "trust_level": "medium-high", "information_density": "medium-high", "frequency_of_use": "occasional-to-frequent", "content_seriousness": "high", "motion_tolerance": "medium", "experimental_tolerance": "medium", "familiarity_requirement": "medium-high",
+            "required_content": ["concrete capability", "requirements", "example grounded in real behavior", "limitations", "documentation destination"],
+            "required_states": ["copy-feedback", "code-overflow", "error", "unsupported-environment", "reduced-motion"],
+        }),
+        (("portfolio", "creative", "artist", "designer"), {
+            "domain": "creative-portfolio", "product_type": "portfolio or editorial showcase", "interface_archetype": "editorial-showcase", "page_type": "portfolio", "canonical_page_types": ["portfolio"],
+            "audience": ["people evaluating the creator's work and contribution"], "purpose": "Show a point of view, strongest work, role, and evidence", "primary_task": "Understand the work and the creator's contribution", "secondary_tasks": ["inspect process", "contact the creator"],
+            "trust_level": "normal", "information_density": "medium", "frequency_of_use": "occasional", "content_seriousness": "moderate", "motion_tolerance": "medium-high", "experimental_tolerance": "high", "familiarity_requirement": "low-to-medium",
+            "required_content": ["point of view", "selected work", "role and contribution", "evidence", "contact path"],
+            "required_states": ["media-loading", "media-failure", "keyboard-gallery", "reduced-motion"],
+        }),
+        (("ecommerce", "e-commerce", "product page", "shop"), {
+            "domain": "ecommerce", "product_type": "commerce product page", "interface_archetype": "commerce-decision", "page_type": "ecommerce-product-page", "canonical_page_types": ["commerce"],
+            "audience": ["shoppers comparing the product, price, fit, and delivery"], "purpose": "Support an informed purchase decision without unsupported urgency", "primary_task": "Evaluate the product and choose a valid purchase configuration", "secondary_tasks": ["inspect details", "check delivery", "understand returns"],
+            "trust_level": "high", "information_density": "medium", "frequency_of_use": "occasional", "content_seriousness": "moderate", "motion_tolerance": "medium", "experimental_tolerance": "medium", "familiarity_requirement": "high",
+            "required_content": ["product identity", "verified price", "configuration", "delivery", "returns or limitations"],
+            "required_states": ["variant-selected", "out-of-stock", "price-change", "loading", "error", "cart-feedback", "reduced-motion"],
+        }),
+        (("robotics", "team", "club", "community"), {
+            "domain": "community-or-team", "product_type": "team or community website", "interface_archetype": "community-information", "page_type": "community-site", "canonical_page_types": ["marketing", "content"],
+            "audience": ["prospective participants", "families or supporters", "current members"], "purpose": "Explain current work and how to participate or support it", "primary_task": "Understand the group and choose a participation path", "secondary_tasks": ["see current work", "meet the team", "find event or contact details"],
+            "trust_level": "medium", "information_density": "medium", "frequency_of_use": "occasional", "content_seriousness": "moderate", "motion_tolerance": "medium", "experimental_tolerance": "medium", "familiarity_requirement": "medium",
+            "required_content": ["current work", "team or organization", "participation", "contact or event details when verified"],
+            "required_states": ["event-empty", "media-loading", "form-error", "success", "reduced-motion"],
+        }),
+    )
+    for needles, values in profiles:
+        if any(needle in haystack for needle in needles):
+            locals_update = values
+            domain = locals_update.get("domain", domain)
+            product_type = locals_update.get("product_type", product_type)
+            interface_archetype = locals_update.get("interface_archetype", interface_archetype)
+            page_type = locals_update.get("page_type", page_type)
+            canonical_page_types = list(locals_update.get("canonical_page_types", canonical_page_types))
+            audience = list(locals_update.get("audience", audience))
+            purpose = locals_update.get("purpose", purpose)
+            primary_task = locals_update.get("primary_task", primary_task)
+            secondary_tasks = list(locals_update.get("secondary_tasks", secondary_tasks))
+            trust_level = locals_update.get("trust_level", trust_level)
+            information_density = locals_update.get("information_density", information_density)
+            frequency_of_use = locals_update.get("frequency_of_use", frequency_of_use)
+            content_seriousness = locals_update.get("content_seriousness", content_seriousness)
+            motion_tolerance = locals_update.get("motion_tolerance", motion_tolerance)
+            experimental_tolerance = locals_update.get("experimental_tolerance", experimental_tolerance)
+            familiarity_requirement = locals_update.get("familiarity_requirement", familiarity_requirement)
+            required_content = list(locals_update.get("required_content", required_content))
+            required_states = list(locals_update.get("required_states", required_states))
+            break
 
-    if public_service:
-        domain, product_type, interface_archetype = "public-service", "benefits or public-service application", "institutional-transactional"
-        page_type, canonical_page_types = "public-service-application-page", ["public-service"]
-        audience = "People completing a consequential public-service task, including stressed, time-constrained, and assistive-technology users"
-        purpose, primary_task = "Enable accurate, understandable task completion with conservative trust cues and clear recovery", "Complete the application correctly and understand what happens next"
-        secondary_tasks = ["check eligibility", "review status", "recover from errors"]
-        emotional_objective, tone = ["clarity", "reassurance", "confidence"], ["serious", "plainspoken", "calm", "trustworthy"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "high", "medium", "episodic", "high"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 1, "minimal", "very-low", "very-high"
-        interaction_depth = "task-focused"
-        composition = "Task-first linear flow with plain-language hierarchy, visible progress, and nearby recovery guidance"
-        typography = "Highly legible humanist sans with restrained hierarchy, clear numerals, and generous reading rhythm"
-        material = "High-contrast civic palette with quiet surfaces and explicit status colors plus non-color cues"
-        imagery = "Use no decorative imagery unless it directly explains eligibility or process"
-        motion = "Minimal feedback-only motion with immediate reduced-motion equivalence"
-        hero_treatment = "No marketing hero; begin with service identity, task title, eligibility context, and next action"
-        component_styling = "Familiar native-first controls, strong labels, visible focus, clear summaries, and conservative geometry"
-        direction = "institutional, calm, highly legible, familiar, and recovery-oriented"
-        required_states += ["validation-error", "loading", "success", "unavailable", "saved-progress", "session-recovery"]
-    elif banking:
-        domain, product_type, interface_archetype = "banking", "banking onboarding flow", "regulated-transactional"
-        page_type, canonical_page_types = "banking-onboarding-flow", ["product-interface"]
-        audience = "Prospective customers completing identity and account setup with high privacy and financial trust expectations"
-        purpose, primary_task = "Complete onboarding accurately while keeping requirements, security boundaries, and progress understandable", "Open or configure the account without uncertainty or data loss"
-        secondary_tasks = ["review requirements", "verify identity", "recover saved progress"]
-        emotional_objective, tone = ["safety", "clarity", "confidence"], ["calm", "precise", "reassuring", "professional"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "very-high", "medium", "one-time-or-rare", "high"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 1, "low", "low", "very-high"
-        interaction_depth = "high but predictable"
-        composition = "Stepwise onboarding with explicit requirements, progress, review, confirmation, and recoverable errors"
-        typography = "Highly readable sans with tabular numerals, explicit field hierarchy, and compact supporting disclosure text"
-        material = "Restrained brand palette, neutral form surfaces, strong focus, and redundant risk/status cues"
-        imagery = "Avoid decorative finance imagery; use diagrams only when they clarify a requirement"
-        motion = "Conservative state transitions and progress feedback that never delay completion"
-        hero_treatment = "No campaign hero; open with task purpose, requirements, time expectation, and security context"
-        component_styling = "Predictable forms, explicit selection states, review summaries, and consequence-matched confirmations"
-        direction = "calm, precise, familiar, privacy-conscious, and trustworthy"
-        required_states += ["identity-pending", "verification-failed", "locked", "saving", "saved", "service-unavailable", "confirmation"]
-    elif personal_finance:
-        domain, product_type, interface_archetype = "personal-finance", "family investment tracking dashboard", "analytical"
-        page_type, canonical_page_types = "product-interface", ["product-interface"]
-        audience = "Household investors monitoring allocation, performance, freshness, and risk without professional-terminal complexity"
-        purpose, primary_task = "Provide an accurate, calm view of family investments that supports informed monitoring rather than gamified behavior", "Understand current portfolio position, change, allocation, and data freshness"
-        secondary_tasks = ["compare accounts", "inspect holdings", "review risk", "identify stale or unavailable data"]
-        emotional_objective, tone = ["control", "clarity", "confidence"], ["calm", "precise", "data-forward", "trustworthy"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "high", "high", "daily-or-weekly", "high"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 2, "low", "low", "high"
-        interaction_depth = "high analytical"
-        composition = "Dense but controlled dashboard with portfolio summary, allocation and change views, visible units, timestamps, and drill-down hierarchy"
-        typography = "Excellent numeric typography with tabular figures, explicit units/currencies, compact labels, and readable commentary"
-        material = "Restrained neutral surfaces with one brand accent and semantic positive, negative, neutral, pending, and unavailable states"
-        imagery = "Use truthful charts and data marks only; no decorative market lines or invented balances"
-        motion = "Subtle feedback and data-transition continuity only; no celebratory or urgency-inducing market animation"
-        hero_treatment = "No marketing hero; use an information header with portfolio scope, timestamp, freshness, and primary filters"
-        component_styling = "Aligned data regions, refined tables and charts, clear filters, strong selection, and restrained elevation"
-        direction = "calm, precise, data-forward, restrained, and trustworthy"
-        required_states += ["positive", "negative", "neutral", "pending", "unavailable", "stale-data", "market-closed", "confirmation"]
-        accessibility_needs += ["non-color-financial-state", "chart-table-equivalence", "explicit-units-and-currencies"]
-    elif investment_analytics:
-        domain, product_type, interface_archetype = "investment-analytics", "investment analytics platform", "analytical-technical"
-        page_type, canonical_page_types = "investment-analytics-interface", ["product-interface"]
-        audience = "Professional or advanced investors comparing instruments, scenarios, risk, and time-sensitive data"
-        purpose, primary_task = "Support fast, accurate analytical decisions with inspectable data and controlled density", "Compare performance, risk, exposure, and freshness across selected investments"
-        secondary_tasks = ["filter and segment", "inspect methodology", "export or share", "review exceptions"]
-        emotional_objective, tone = ["command", "precision", "focus"], ["technical", "controlled", "dense", "authoritative"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "high", "very-high", "frequent", "high"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 3, "low", "low-to-medium", "high"
-        interaction_depth = "very-high analytical"
-        composition = "Workspace composition with persistent filters, dense comparative views, aligned data hierarchy, and progressive analytical detail"
-        typography = "Compact technical hierarchy with tabular numerals, explicit units, strong column alignment, and code-like metadata where useful"
-        material = "Controlled high-density surfaces with restrained semantic color and clear active, warning, stale, and unavailable treatments"
-        imagery = "Use only accurate data visualization with legends, baselines, timestamps, and accessible tabular alternatives"
-        motion = "Fast low-amplitude transitions for filter continuity and state feedback; never animate market movement decoratively"
-        hero_treatment = "No hero; begin with workspace title, data scope, freshness, and high-value analytical controls"
-        component_styling = "Compact tables, charts, segmented comparisons, keyboard-friendly filters, and explicit disclosure panels"
-        direction = "dense, precise, analytical, controlled, and professionally distinctive"
-        required_states += ["positive", "negative", "neutral", "pending", "unavailable", "stale-data", "partial-data", "permission-denied"]
-        accessibility_needs += ["chart-table-equivalence", "non-color-financial-state", "keyboard-dense-navigation"]
-    elif finance:
-        domain, product_type, interface_archetype = "finance", "financial product interface", "analytical-transactional"
-        page_type, canonical_page_types = "financial-product-interface", ["product-interface"]
-        audience = "People making or reviewing consequential financial decisions"
-        purpose, primary_task = "Present financial information and actions accurately with clear risk, freshness, units, and confirmation", "Understand the financial state and complete the next action safely"
-        secondary_tasks = ["review details", "confirm consequences", "recover from unavailable data"]
-        emotional_objective, tone = ["clarity", "control", "trust"], ["calm", "precise", "restrained", "credible"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "high", "high", "regular", "high"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 2, "low", "low", "high"
-        composition = "Information-first hierarchy with aligned figures, explicit units and timestamps, and consequence-aware actions"
-        typography = "Readable numeric system with tabular figures, strong labels, and clear currency and percentage formatting"
-        material = "Restrained palette with semantic states communicated by text, shape, and icon as well as color"
-        imagery = "Use verified data visualization only; avoid aspirational or gamified finance imagery"
-        motion = "Conservative feedback and continuity with no decorative financial movement"
-        hero_treatment = "Replace the generic hero with an information header or task summary"
-        component_styling = "Refined data tables, clear confirmations, explicit risk messaging, and familiar navigation"
-        direction = "calm, trustworthy, numeric, restrained, and highly readable"
-        required_states += ["positive", "negative", "neutral", "pending", "unavailable", "stale-data", "confirmation"]
-    elif regulated:
-        domain = "regulated-service"
-        product_type, interface_archetype = "regulated healthcare, legal, or education product", "institutional-transactional"
-        page_type, canonical_page_types = "regulated-service-interface", ["product-interface"]
-        audience = "People completing a serious task with elevated comprehension, privacy, and recovery needs"
-        purpose, primary_task = "Make the consequential task clear, reassuring, accessible, and recoverable", "Complete the task and understand status, consequences, and next steps"
-        secondary_tasks = ["review requirements", "correct errors", "understand status"]
-        emotional_objective, tone = ["reassurance", "clarity", "dignity"], ["plainspoken", "calm", "respectful", "clear"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "high", "medium", "episodic", "high"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 1, "minimal", "very-low", "very-high"
-        composition = "Familiar task sequence with plain-language hierarchy, visible status, and nearby recovery"
-        typography = "Highly legible text system with generous measure and explicit instructional hierarchy"
-        material = "Reassuring restrained palette with high-contrast controls and clear state surfaces"
-        imagery = "Use explanatory imagery only when it improves comprehension"
-        motion = "Minimal status and continuity feedback"
-        hero_treatment = "Begin with the task, context, and next action rather than promotional spectacle"
-        component_styling = "Native-first controls, clear errors, strong focus, and conservative interaction patterns"
-        direction = "clear, reassuring, familiar, accessible, and low-ambiguity"
-        required_states += ["validation-error", "loading", "success", "unavailable", "permission-denied", "recovery"]
-    elif enterprise:
-        domain, product_type, interface_archetype = "enterprise-software", "professional enterprise product", "utilitarian-analytical"
-        page_type, canonical_page_types = "enterprise-product-interface", ["product-interface"]
-        audience = "Frequent professional users balancing speed, oversight, permissions, and complex information"
-        purpose, primary_task = "Make complex operational work fast, reliable, and easy to scan without generic dashboard clutter", "Complete the primary operational workflow with accurate status and permissions"
-        secondary_tasks = ["monitor status", "filter records", "review exceptions", "coordinate handoff"]
-        emotional_objective, tone = ["competence", "control", "efficiency"], ["professional", "precise", "controlled", "purposeful"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "high", "high", "frequent", "high"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 2, "low", "low-to-medium", "high"
-        interaction_depth = "high utilitarian"
-        composition = "Persistent application shell with task-prioritized density, clear status, and progressive detail"
-        typography = "Compact professional hierarchy with strong labels, tabular data where needed, and readable long-form help"
-        material = "Restrained brand expression through alignment, proportion, and state polish rather than decorative effects"
-        imagery = "Prefer real product data and diagrams; avoid fake dashboards and arbitrary illustration"
-        motion = "Fast subtle continuity and feedback tuned for repeated use"
-        hero_treatment = "No landing-page hero inside the product; foreground the current task, scope, and status"
-        component_styling = "Dense but calm controls, clear tables, permission-aware actions, and consistent state surfaces"
-        direction = "calm professional, efficient, information-dense, and quietly distinctive"
-        required_states += ["loading", "empty", "error", "partial-data", "permission-denied", "saving", "saved", "stale"]
-    elif developer_tool:
-        domain, product_type, interface_archetype = "developer-tools", "developer tool", "technical-utilitarian"
-        page_type, canonical_page_types = "developer-tool-interface", ["product-interface"]
-        audience = "Technical users who value speed, precise terminology, inspectability, and keyboard access"
-        purpose, primary_task = "Expose technical capability and system state with a distinctive but low-clutter identity", "Configure, inspect, or execute the primary technical workflow quickly"
-        secondary_tasks = ["read examples", "inspect output", "debug errors", "copy or export"]
-        emotional_objective, tone = ["precision", "fluency", "momentum"], ["technical", "precise", "fast", "confident"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "medium-high", "high", "frequent", "medium-high"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 3, "low-to-medium", "medium", "medium-high"
-        interaction_depth = "high technical"
-        composition = "Keyboard-first technical workspace or documentation/product split with clear command, output, and error hierarchy"
-        typography = "Strong code and data typography paired with a precise UI sans and resilient line lengths"
-        material = "Purposeful technical identity using contrast, syntax roles, grids, or structural marks without decorative clutter"
-        imagery = "Prefer truthful code, terminal, architecture, or product artifacts over generic tech illustration"
-        motion = "Fast purposeful state and spatial continuity; never slow repeated workflows"
-        hero_treatment = "Use a compact technical proposition with an immediate real example or working surface"
-        component_styling = "Keyboard-visible controls, precise inputs, inspectable output panels, and strong loading/error states"
-        direction = "technical, precise, fast, information-rich, and purposefully branded"
-        required_states += ["loading", "empty", "error", "success", "offline", "permission-denied", "rate-limited", "stale-output"]
-        accessibility_needs += ["keyboard-first", "code-reading", "high-density-focus-order"]
-    elif ecommerce and "premium" in haystack:
-        domain, product_type, interface_archetype = "premium-ecommerce", "premium ecommerce product page", "transactional-editorial"
-        page_type, canonical_page_types = "premium-ecommerce-product-page", ["ecommerce", "marketing"]
-        audience = "Discerning shoppers evaluating material quality, fit, provenance, price, and purchase confidence"
-        purpose, primary_task = "Communicate product character and evidence with refined purchase usability, not a luxury stereotype", "Evaluate the product and complete an informed purchase"
-        secondary_tasks = ["inspect material and fit", "review delivery and returns", "compare variants"]
-        emotional_objective, tone = ["desire", "assurance", "discernment"], ["refined", "sensory", "confident", "clear"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "high", "medium", "episodic", "medium"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 3, "low-to-medium", "medium", "high"
-        composition = "Product-evidence editorial composition with decisive imagery, material detail, price, variants, delivery, and purchase action"
-        typography = "Brand-appropriate type chosen from product positioning, balanced by highly legible commerce details and numerals"
-        material = "Palette and surfaces derived from the actual product and brand; never default to black, gold, or excessive whitespace"
-        imagery = "Prioritize real product photography, scale, texture, and use context; never fabricate customers or materials"
-        motion = "Compact tactile motion grammar for zoom, variant, and cart feedback that never slows comparison or purchase"
-        hero_treatment = "Product-first image and product evidence composition with price and action in immediate reach"
-        component_styling = "Refined but familiar variants, quantity, disclosure, delivery, error, and cart controls"
-        direction = "refined, product-specific, tactile, credible, and conversion-clear"
-        required_states += ["variant-unavailable", "low-stock", "cart-loading", "cart-error", "cart-success", "delivery-unavailable"]
-    elif "portfolio" in haystack:
-        domain, product_type, interface_archetype = "creative-portfolio", "creative portfolio", "expressive-editorial"
-        page_type, canonical_page_types = "expressive-portfolio", ["marketing", "editorial"]
-        audience = "Potential collaborators, clients, and hiring decision-makers"
-        purpose, primary_task = "Make the creator's point of view and strongest work memorable and easy to evaluate", "Understand the creator's point of view and inspect their strongest work"
-        secondary_tasks = ["browse projects", "understand role", "make contact"]
-        emotional_objective, tone = ["surprise", "admiration", "curiosity"], ["bold", "editorial", "self-assured", "selective"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "medium", "medium", "occasional", "medium"
-        experimental = "experimental" in haystack or "impossible to ignore" in haystack
-        visual_intensity, motion_intensity = (5, "high") if experimental else (4, "medium-high")
-        experimental_tolerance, familiarity_requirement = "high", "low"
-        composition = "Authored editorial sequence with an unmistakable opening claim and project evidence in varied rhythm"
-        typography = "Characterful display voice paired with disciplined, highly readable project detail"
-        material = "Confident context-specific contrast, limited accent logic, and tactile editorial surfaces"
-        imagery = "Prioritize real project artifacts; use abstract graphics only as authored connective tissue"
-        motion = "Choreographed motion grammar across editorial sequencing, project transitions, and response feedback without delaying reading, with full reduced-motion structure"
-        hero_treatment = "Authored opening statement integrated with project evidence rather than an isolated generic hero"
-        component_styling = "Editorial project entries with varied but systematic hierarchy, minimal card chrome, and clear contact actions"
-        direction = "experimental, editorial, authored, memorable, and evidence-led" if experimental else "expressive, editorial, selective, and authored"
-    elif recipients or "proved" in haystack or "who said" in haystack or "friend" in haystack:
-        domain, product_type, interface_archetype = "personal-expressive", "friend-directed expressive page", "expressive-editorial"
-        page_type, canonical_page_types = "expressive-personal-web-experience", ["editorial", "marketing"]
-        named = recipients[0] if recipients else "the named friend"
-        audience = f"{named}, plus anyone the page is shared with"
-        purpose, primary_task = "Turn a personal message into confident creative proof and a memorable shared moment", "Experience and understand the personal message"
-        secondary_tasks = ["replay or explore the reveal", "share the page"]
-        if any(term in haystack for term in ("funny", "late", "joke")):
-            emotional_objective, tone = ["humor", "affection", "surprise"], ["funny", "playful", "warm", "theatrical"]
-        else:
-            emotional_objective, tone = ["confidence", "surprise", "playfulness"], ["bold", "playful", "editorial", "self-assured"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "low", "low", "one-off", "low"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 4, "medium-high", "high", "low"
-        composition = "Typographic narrative reveal with controlled pacing, asymmetry, and a decisive final signature"
-        typography = "Expressive display typography with editorial scale contrast and a calm readable support face"
-        material = "High-contrast concept-specific field with one deliberate accent and restrained texture"
-        imagery = "Prefer typography and custom abstract marks over unrelated stock imagery"
-        motion = "Narrative motion grammar of reveal and response tied to message beats; preserve the full message with reduced motion"
-        hero_treatment = "Treat the message as a staged opening beat that evolves into the page rather than a static marketing hero"
-        component_styling = "Minimal expressive controls with clear labels, visible focus, and styling derived from the message"
-        direction = "typographic, editorial, playful, and memorable"
-    elif teams or any(term in haystack for term in ("robotics team", "study group", "club")):
-        domain, product_type, interface_archetype = ("robotics-community" if "robotics" in haystack else "learning-community"), "team or community website", "expressive-marketing"
-        page_type, canonical_page_types = "community-team-site", ["marketing"]
-        audience = "Current members, prospective participants, families, mentors, and supporters"
-        purpose, primary_task = "Give the group a distinctive identity while making its activity and next step immediately clear", "Understand what the group does and how to participate or support it"
-        secondary_tasks = ["see current work", "meet the team", "find participation details"]
-        emotional_objective, tone = ["belonging", "momentum", "curiosity"], ["inventive", "welcoming", "energetic", "credible"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "medium", "medium", "occasional", "medium"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = (4, "medium", "medium-high", "medium") if "robotics" in haystack else (3, "low-to-medium", "medium", "medium")
-        composition = "Rallying identity-led opening followed by a clear story, current activity, and one participation path"
-        typography = "Technical display details balanced by friendly, readable body typography"
-        material = "Context-led team colors with structural lines, labels, or diagrams rather than generic tech glow"
-        imagery = "Use real team work when available; otherwise build an honest graphic language from the group's domain"
-        motion = "Mechanical or study-rhythm motion grammar across a focal beat, state continuity, and feedback, with clear pause and reduced-motion outcomes"
-        hero_treatment = "Identity-led team statement paired with real work or a domain-derived graphic system"
-        component_styling = "Open community sections, technical labels where relevant, and clear join/support actions without card saturation"
-        direction = "inventive, technical, energetic, welcoming, and structurally distinctive" if "robotics" in haystack else "welcoming, focused, energetic, and community-led"
-    elif "premium" in haystack:
-        domain, product_type, interface_archetype = "premium-product", "premium product presentation", "editorial-marketing"
-        page_type, canonical_page_types = "premium-product-redesign", ["marketing"]
-        audience = "Prospective users evaluating quality, fit, and trust"
-        purpose, primary_task = "Increase perceived craft and clarity without inventing proof, metrics, exclusivity, or a luxury stereotype", "Understand product quality and decide whether it fits"
-        secondary_tasks = ["inspect evidence", "compare details", "take the primary action"]
-        emotional_objective, tone = ["assurance", "desire", "discernment"], ["refined", "confident", "restrained", "precise"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "high", "medium", "occasional", "medium"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 3, "low", "medium", "medium-high"
-        composition = "Product-led editorial hierarchy with generous but purposeful rhythm, decisive detail, and minimal decorative chrome"
-        typography = "Brand- and product-appropriate hierarchy with polished spacing and resilient loading behavior; no automatic giant serif"
-        material = "Controlled palette and material cues grounded in the product; no automatic black background or gold accent"
-        imagery = "Use real product evidence or honest abstract detail; never fake screenshots or customers"
-        motion = "Restrained tactile feedback and continuity only where it reinforces quality"
-        hero_treatment = "Lead with product evidence and positioning, not empty scale or slow spectacle"
-        component_styling = "Precise role-based details, refined states, and restrained surfaces derived from the product"
-        direction = "refined, product-specific, restrained, precise, and materially grounded"
-    elif concepts or "machines should feel alive" in haystack:
-        domain, product_type, interface_archetype = "conceptual-art", "conceptual web experience", "experimental-editorial"
-        page_type, canonical_page_types = "conceptual-web-experience", ["editorial"]
-        audience = "Curious viewers encountering and sharing the supplied idea"
-        purpose, primary_task = "Give the sentence a distinct visual argument rather than surrounding it with generic marketing sections", "Experience and interpret the supplied concept"
-        secondary_tasks = ["explore the idea", "share or revisit"]
-        emotional_objective, tone = ["wonder", "tension", "curiosity"], ["speculative", "kinetic", "atmospheric", "thoughtful"]
-        trust_level, information_density, frequency_of_use, content_seriousness = "low", "low", "one-off", "low-to-medium"
-        visual_intensity, motion_intensity, experimental_tolerance, familiarity_requirement = 5, "high", "high", "low"
-        composition = "Concept-led sequence that transforms the sentence through scale, rhythm, and spatial tension"
-        typography = "Expressive editorial type that carries the concept with readable supporting annotation"
-        material = "Purposeful light, texture, and mechanical contrast derived from the sentence"
-        imagery = "Use original abstract systems or procedural-looking marks, not fake product imagery"
-        motion = "Ambient-to-responsive motion grammar that suggests life through a focal beat, state continuity, and response feedback while remaining interruptible and optional"
-        hero_treatment = "Begin inside the concept, using the sentence as an evolving spatial object rather than a generic headline block"
-        component_styling = "Sparse controls integrated into the narrative with strong focus and reduced-motion equivalents"
-        direction = "experimental, immersive, kinetic, concept-led, and readable"
-
-    if quoted:
-        primary_message = quoted[0]
-    elif personal_finance:
-        primary_message = "Know what the family owns, how it is changing, and how current the data is"
-    elif investment_analytics:
-        primary_message = "See risk, performance, and exposure with professional clarity"
-    elif banking:
-        primary_message = "Open the account with clear requirements, progress, and protection"
-    elif "robotics team" in haystack:
-        primary_message = "This team builds ambitious machines together"
-    elif "study group" in haystack:
-        primary_message = "Serious learning becomes possible through shared practice"
-    elif "portfolio" in haystack:
-        primary_message = "This creator's work and point of view deserve close attention"
-    elif concepts:
-        primary_message = concepts[0]
-    elif "premium" in haystack:
-        primary_message = "The product deserves a clearer, more crafted presentation"
-    elif public_service:
-        primary_message = "Complete the public-service task with clarity and confidence"
-    elif enterprise:
-        primary_message = "Make complex operational work clear, fast, and dependable"
-    elif developer_tool:
-        primary_message = "Technical power should be precise, inspectable, and fast to use"
-    else:
-        primary_message = "Express the supplied idea as a complete, distinctive web experience"
-
-    supplied_facts = [f"requested outcome: {text.strip()}"]
-    supplied_facts.extend(f"named recipient: {value}" for value in recipients)
-    supplied_facts.extend(f"quoted message: {value}" for value in quoted)
-    supplied_facts.extend(f"team or group: {value}" for value in teams)
-    supplied_facts.extend(f"concept: {value}" for value in concepts)
-    inferred = [
-        f"domain: {domain}", f"audience: {audience}", f"purpose: {purpose}",
-        f"visual intensity: {visual_intensity}", f"direction: {direction}", f"interaction depth: {interaction_depth}",
+    supplied_facts = []
+    if entities.get("quoted_text"):
+        supplied_facts.extend(f"quoted text: {value}" for value in entities["quoted_text"])
+    if entities.get("named_recipients"):
+        supplied_facts.extend(f"request-local recipient: {value}" for value in entities["named_recipients"])
+    if entities.get("products"):
+        supplied_facts.extend(f"named product: {value}" for value in entities["products"])
+    supplied_facts.append(f"user request: {text.strip()}")
+    inferred_assumptions = [
+        f"domain constraint: {domain}",
+        f"primary task: {primary_task}",
+        "exact visual system remains undecided until retrieval and candidate comparison",
+        "final copy remains undecided until fact and content planning",
     ]
-    recipient_status = {
-        "present": bool(recipients),
-        "recipient_visibility": "user-supplied" if recipients else "not-present",
-        "persistence": "request-local",
-        "publication_risk": "review-before-public-release" if recipients else "none",
-    }
     profile = {
-        "build_mode": build_mode,
+        "build_mode": "redesign" if task_type == "existing-redesign" else "new-build",
         "domain": domain,
         "product_type": product_type,
         "interface_archetype": interface_archetype,
@@ -1121,53 +884,31 @@ def _creative_profile(text: str, task_type: str, risk: str, entities: Mapping[st
         "canonical_page_types": canonical_page_types,
         "purpose": purpose,
         "audience": audience,
-        "named_recipient": recipients[0] if recipients else None,
-        "named_recipient_status": recipient_status,
+        "named_recipient_status": "user-supplied-request-local" if entities.get("named_recipients") else "none-detected",
         "primary_user_task": primary_task,
         "secondary_tasks": secondary_tasks,
-        "primary_message": primary_message,
-        "supporting_narrative": supporting_narrative,
-        "emotional_objective": emotional_objective,
-        "emotional_tone": tone,
-        "seriousness": "high" if content_seriousness == "high" else ("low-to-moderate" if risk == "low" else "moderate"),
         "trust_level": trust_level,
         "risk_level": risk,
         "information_density": information_density,
         "frequency_of_use": frequency_of_use,
         "content_seriousness": content_seriousness,
-        "content_maturity": "minimal" if len(tokenize(text)) <= 42 else "developing",
-        "brand_maturity": brand_maturity,
-        "product_maturity": product_maturity,
-        "accessibility_needs": list(dict.fromkeys(accessibility_needs)),
-        "expected_devices": expected_devices,
-        "visual_ambition": "high-execution" if any(term in haystack for term in ("stunning", "world-class", "world class", "premium", "beautiful", "high quality", "distinctive", "impossible")) else "strong-execution",
-        "visual_intensity": visual_intensity,
-        "visual_intensity_label": {1: "institutional", 2: "calm-professional", 3: "distinctive-product", 4: "expressive", 5: "experimental"}[visual_intensity],
-        "visual_intensity_rationale": f"Intensity {visual_intensity} follows {domain}, {trust_level} trust, {risk} risk, {information_density} density, and {familiarity_requirement} familiarity needs—not generic quality adjectives.",
-        "motion_intensity": motion_intensity,
+        "content_maturity": "partial" if len(tokenize(text)) >= 28 else "low",
+        "accessibility_needs": ["keyboard", "visible-focus", "contrast", "reflow", "reduced-motion"],
+        "expected_devices": ["mobile", "desktop"],
+        "motion_tolerance": motion_tolerance,
         "experimental_tolerance": experimental_tolerance,
         "familiarity_requirement": familiarity_requirement,
-        "interaction_depth": interaction_depth,
-        "suggested_composition": composition,
-        "hero_treatment": hero_treatment,
-        "negative_space_role": negative_space_role,
-        "typography_direction": typography,
-        "color_material_direction": material,
-        "imagery_strategy": imagery,
-        "motion_stance": motion,
-        "minimalism_guardrail": minimalism_guardrail,
-        "component_styling": component_styling,
-        "direction": direction,
-        "required_states": list(dict.fromkeys(required_states)),
-        "retrieval_topics": list(AUTONOMOUS_STAGE_TOPICS["brief"]),
-        "verification_priorities": ["desktop-and-mobile-render", "keyboard-and-focus", "responsive-overflow", "copy-and-claim-integrity", "domain-state-integrity", "anti-slop-review", "production-build"],
+        "required_content": required_content,
+        "required_states": required_states,
+        "prohibited_claims": prohibited_claims,
+        "technical_environment": "inspect repository and runtime before framework decisions",
         "user_supplied_facts": supplied_facts,
-        "inferred_assumptions": inferred,
-        "quality_interpretation": "Exceptional appropriateness and execution; higher quality does not imply higher visual or motion intensity. Minimalism is disciplined reduction, not an empty canvas.",
-        "design_thesis": f"Create a {direction} {page_type.replace('-', ' ')} whose {composition.lower()} makes the primary task unmistakable while preserving accessibility, trust, and production integrity.",
+        "inferred_assumptions": inferred_assumptions,
+        "direction_status": "unselected-before-retrieval",
+        "copy_status": "unselected-before-content-retrieval",
     }
-    return profile, {"supplied_facts": supplied_facts, "inferred_assumptions": inferred}
-
+    ledger = {"supplied_facts": supplied_facts, "inferred_assumptions": inferred_assumptions, "prohibited_claims": prohibited_claims}
+    return profile, ledger
 
 def _redact_request_content(value: Any, sensitive: Sequence[str]) -> Any:
     if isinstance(value, str):
@@ -1220,12 +961,26 @@ def classify_task(text: str, context: Mapping[str, Any] | None = None) -> dict[s
     page_types = list(dict.fromkeys(detected_page_types + profile["canonical_page_types"]))
     confidence = min(0.99, 0.66 + (matches[0][0] * 0.06 if matches else 0.0) + (0.12 if autonomous else 0.0))
     topics = list(AUTONOMOUS_STAGE_TOPICS[stage] if autonomous else WORKFLOW_TOPICS[stage])
-    rule_ids = list(AUTONOMOUS_STAGE_RULE_IDS[stage] if autonomous else ())
+    # IDs are reserved only for the tiny mandatory safety kernel. Product,
+    # source-derived, visual, implementation, and copy records must compete by
+    # relevance and diversity rather than receive dominant exact-ID scores.
+    rule_ids = [
+        "a11y.keyboard-complete",
+        "integrity.truthful-proof",
+        "responsive.content-driven-reflow",
+    ] if autonomous else []
     deferred_topics = ["framework", "component", "motion", "performance", "browser"] if autonomous and stage == "brief" else []
     if autonomous and stage == "brief" and _needs_early_motion_guidance(text, profile):
         topics.append("motion")
-        rule_ids.extend(["motion.interaction-specific-tokens", "motion.explain-causality", "motion.reduced-motion-equivalence"])
+        rule_ids.append("motion.reduced-motion-equivalence")
         deferred_topics.remove("motion")
+    needs_clarification = autonomous and not bool(context.get("noninteractive") or context.get("use_judgment"))
+    clarification_questions = [
+        "What must this page or product help people accomplish?",
+        "Who is the primary audience?",
+        "Which content, actions, or features are required?",
+        "Which visual, motion, or voice directions should be pursued or avoided?",
+    ] if needs_clarification else []
     result = {
         "task_type": task_type,
         "operating_mode": task_type,
@@ -1248,8 +1003,13 @@ def classify_task(text: str, context: Mapping[str, Any] | None = None) -> dict[s
             "defer_until_needed": deferred_topics,
         },
         "clarification_policy": {
-            "continue_without_questions": autonomous,
-            "routine_creative_questions": "infer-and-continue" if autonomous else "ask-only-if-materially-blocking",
+            "needs_clarification": needs_clarification,
+            "continue_without_questions": not needs_clarification,
+            "questions": clarification_questions,
+            "maximum_questions": 4,
+            "use_your_judgment_supported": True,
+            "noninteractive_defaults": "infer reversible product, audience, content, and technical assumptions; keep visual and copy direction unlocked until retrieval",
+            "routine_creative_questions": "one-bounded-batch" if needs_clarification else "bypass-or-infer",
             "allowed_blockers": ["missing-required-credential", "irreversible-external-action", "legally-material-fact", "contradictory-requirements", "irreplaceable-critical-asset"],
         },
         "copy_guardrails": ["original-contextual-copy", "no-placeholders", "no-fake-testimonials", "no-fake-metrics", "no-unsupported-claims", "honest-integration-boundaries"],
@@ -1395,6 +1155,17 @@ class RetrievalEngine:
                 score -= 0.5
             if record.confidence == "high":
                 score += 0.25
+            authority_weight = {
+                "standard": 1.5, "platform": 1.4, "official-documentation": 1.3,
+                "official-design-system": 1.2, "maintainer": 1.0, "practitioner": 0.7,
+                "community": 0.3, "commercial-gallery": 0.0, "unknown": -0.25,
+            }.get(str(record.extra.get("source_authority") or ""), 0.0)
+            stability_weight = {"stable": 0.8, "active": 0.45, "experimental": -0.2, "stale": -0.8, "archived": -1.0, "unknown": -0.25}.get(str(record.extra.get("source_stability") or ""), 0.0)
+            score += authority_weight + stability_weight
+            if authority_weight:
+                reasons.append("source-authority")
+            if stability_weight:
+                reasons.append("source-stability")
             retrieval_evidence = any(
                 reason != "mandatory-preservation" for reason in reasons
             )
@@ -1433,18 +1204,47 @@ class RetrievalEngine:
         # Mandatory rules compete on relevance but receive reserved capacity.  A
         # generic mandatory rule is not injected when it has no query/metadata
         # evidence beyond the preservation boost.
+        requested_kernel = [
+            self.by_id[rid]
+            for rid in dict.fromkeys(_record_id(value) for value in _list((filters or {}).get("mandatory_ids")))
+            if rid in self.by_id
+        ][:5]
         mandatory = [item for item in scored if item.record.importance == "mandatory" and item.score >= 3.0]
-        normal = [item for item in scored if item.record.importance != "mandatory"]
-        mandatory_slots = min(len(mandatory), max(1, (budget_records + 2) // 3))
-        chosen = mandatory[:mandatory_slots]
+        mandatory_slots = min(len(mandatory), max(1, min(5, (budget_records + 2) // 3)))
+        chosen = [Scored(record, 4.0, ["mandatory-reserved-capacity"]) for record in requested_kernel]
+        chosen.extend(item for item in mandatory if item.record.id not in {row.record.id for row in chosen})
+        chosen = chosen[:mandatory_slots]
         chosen_ids = {item.record.id for item in chosen}
-        for item in sorted(scored, key=lambda entry: (-entry.score, entry.record.id)):
-            if item.record.id in chosen_ids:
-                continue
-            chosen.append(item)
-            chosen_ids.add(item.record.id)
-            if len(chosen) >= budget_records:
+        family_counts: dict[str, int] = {}
+        topic_counts: dict[str, int] = {}
+        while len(chosen) < budget_records:
+            best: Scored | None = None
+            best_adjusted = float("-inf")
+            for item in scored:
+                if item.record.id in chosen_ids:
+                    continue
+                source_family = str(item.record.extra.get("source_id") or "")
+                family = source_family or str(item.record.sources[0] if item.record.sources else f"core:{item.record.id}")
+                # The two-record ceiling prevents one newly ingested source
+                # from dominating. Mature synthesized core records are already
+                # independently reviewed and should not be suppressed merely
+                # because they share an upstream standards family.
+                if source_family and family_counts.get(family, 0) >= 2:
+                    continue
+                # Relevance remains primary. The light diversity penalty breaks
+                # near-ties without displacing a materially stronger rule from
+                # a focused single-topic query.
+                adjusted = item.score - topic_counts.get(item.record.topic, 0) * 0.35 - family_counts.get(family, 0) * 0.75
+                if adjusted > best_adjusted or (adjusted == best_adjusted and item.record.id < (best.record.id if best else "~")):
+                    best = item
+                    best_adjusted = adjusted
+            if best is None:
                 break
+            chosen.append(best)
+            chosen_ids.add(best.record.id)
+            family = str(best.record.extra.get("source_id") or (best.record.sources[0] if best.record.sources else "core"))
+            family_counts[family] = family_counts.get(family, 0) + 1
+            topic_counts[best.record.topic] = topic_counts.get(best.record.topic, 0) + 1
         chosen.sort(key=lambda item: (-item.score, item.record.id))
 
         packets: list[dict[str, Any]] = []
@@ -1474,11 +1274,15 @@ class RetrievalEngine:
                 "returned": len(packets),
                 "candidates": len(scored),
                 "mandatory_returned": sum(1 for item in packets if item.get("importance") == "mandatory"),
+                "source_families": len({item.get("source_id") or tuple(item.get("sources") or [])[:1] for item in packets}),
+                "topic_diversity": len({item.get("topic") for item in packets}),
                 "estimated_context_tokens": used,
                 "context_budget": context_budget,
                 "truncated": truncated or len(packets) < min(len(chosen), budget_records),
                 "latency_ms": round(elapsed, 3),
                 "offline_fallback": bool(self.info.get("fallback")),
+                "semantic_backend": "deterministic-concept-expansion" if semantic else "lexical",
+                "embeddings_configured": False,
             },
             "corpus": self.info,
         }
@@ -1533,12 +1337,19 @@ def get_workflow(engine: RetrievalEngine, args: Mapping[str, Any]) -> dict[str, 
     augmented = dict(args)
     augmented["topics"] = list(classification["recommended_retrieval"]["topics"] if autonomous else WORKFLOW_TOPICS[stage])
     if autonomous:
-        augmented["ids"] = list(classification["recommended_retrieval"]["record_ids"])
-        augmented.setdefault("budget_records", len(classification["recommended_retrieval"]["record_ids"]))
-        augmented.setdefault("context_budget", 4800)
+        # The safety kernel has reserved capacity, but does not receive the
+        # exact-ID score that would crowd out product, copy, and source-derived
+        # evidence needed before a direction is selected.
+        augmented.setdefault("filters", {})
+        augmented["filters"] = {
+            **dict(augmented["filters"]),
+            "mandatory_ids": list(classification["recommended_retrieval"]["record_ids"]),
+        }
+        augmented.setdefault("budget_records", max(12, classification["recommended_budget"]["records"]))
+        augmented.setdefault("context_budget", 6000)
     packet = _search_args(engine, augmented)
     stage_sequence = {
-        "brief": ["inspect", "classify", "infer-brief", "separate-facts-assumptions", "design-thesis", "select-direction", "retrieve-brief-guidance"],
+        "brief": ["inspect", "classify-constraints", "separate-facts-assumptions", "bounded-clarification", "retrieve-core-source-copy-guidance", "generate-candidate-directions", "compare-candidates", "select-direction", "lock-design-md", "lock-content-md"],
         "planning": ["inventory-system", "map-content-states", "choose-composition-system", "retrieve-planning-guidance", "plan"],
         "implementation": ["write-complete-copy", "update-design-md", "implement-behavior", "integrate-accessibility-responsive", "test-locally"],
         "refinement": ["run-interface", "capture-desktop-mobile", "compare-to-thesis", "anti-slop-review", "fix-top-three", "recapture"],
@@ -1669,6 +1480,154 @@ def audit_payload(engine: RetrievalEngine, args: Mapping[str, Any], kind: str) -
     }
 
 
+_DIRECTION_AXES: tuple[dict[str, Any], ...] = (
+    {
+        "axis": "instrumental-clarity",
+        "composition": "Task-first composition with an explicit primary action and compact proof near the decision point.",
+        "typography": "Role-based hierarchy with restrained display contrast and highly legible operational text.",
+        "identity": "Distinctiveness comes from precise information design, naming, and state behavior.",
+        "surface": "Few surfaces, strong boundaries, and dense regions only where the task benefits.",
+        "motion": "Short causal feedback for state changes; no ambient motion requirement.",
+    },
+    {
+        "axis": "editorial-narrative",
+        "composition": "Sequenced sections with deliberate pacing, one focal statement, and proof that unfolds in reading order.",
+        "typography": "Expressive headline cadence paired with quiet, readable supporting copy.",
+        "identity": "Distinctiveness comes from voice, crop, scale contrast, and authored section rhythm.",
+        "surface": "Open fields and selective framing instead of a repeated card grid.",
+        "motion": "Progressive reveals only when they preserve reading order and reduced-motion equivalence.",
+    },
+    {
+        "axis": "spatial-demonstration",
+        "composition": "A concrete product, object, or workflow demonstration anchors the first viewport; explanation stays adjacent.",
+        "typography": "Compact labels and annotations support the demonstration without competing with it.",
+        "identity": "Distinctiveness comes from the real artifact, spatial relationship, and interaction model.",
+        "surface": "Layered depth is reserved for the demonstrator; the rest of the interface remains conventional.",
+        "motion": "Direct manipulation or state interpolation must be interruptible, optional, and progressively enhanced.",
+    },
+)
+
+
+def generate_candidate_directions(engine: RetrievalEngine, args: Mapping[str, Any]) -> dict[str, Any]:
+    task = str(args.get("task") or args.get("context") or "").strip()
+    if not task:
+        raise ToolError("generate_candidate_directions requires a non-empty task or context")
+    count = max(2, min(3, int(args.get("count") or 3)))
+    classification = classify_task(task, {**args, "noninteractive": True})
+    evidence = engine.search(
+        task,
+        {
+            "topics": _expand_topics(["design-direction", "layout", "typography", "copy", "source-derived"]),
+            "mandatory_ids": classification["recommended_retrieval"]["record_ids"],
+        },
+        budget_records=max(12, count * 4),
+        context_budget=int(args.get("context_budget") or 6200),
+    )
+    records = evidence["records"]
+    candidates = []
+    for idx, axis in enumerate(_DIRECTION_AXES[:count]):
+        supporting = [row for pos, row in enumerate(records) if pos % count == idx][:4]
+        candidates.append({
+            "name": axis["axis"],
+            "status": "candidate-not-lock",
+            "composition": axis["composition"],
+            "typography": axis["typography"],
+            "identity_mechanism": axis["identity"],
+            "color_and_surfaces": axis["surface"],
+            "imagery_or_product_media": "Use only available, licensed, product-relevant media; absence of such media is a constraint, not permission to fabricate it.",
+            "motion": axis["motion"],
+            "responsive_behavior": "Recompose around source order, action priority, long content, zoom, and narrow viewports; do not merely shrink the desktop arrangement.",
+            "content_shape": {
+                "headline": "One concrete outcome or premise grounded in supplied facts.",
+                "support": "Explain audience, mechanism, and limitation without generic benefit language.",
+                "proof": "Show only sourced product evidence, behavior, or honestly labeled placeholders.",
+                "cta": "Name the resulting action or destination rather than using a vague invitation.",
+            },
+            "source_evidence": [{"id": row["id"], "source_id": row.get("source_id"), "principle": row.get("principle")} for row in supporting],
+            "constraints_used": {
+                "domain": classification["creative_profile"]["domain"],
+                "primary_task": classification["creative_profile"]["primary_user_task"],
+                "trust": classification["creative_profile"]["trust_level"],
+                "density": classification["creative_profile"]["information_density"],
+                "motion_tolerance": classification["creative_profile"]["motion_tolerance"],
+            },
+            "tradeoffs": "Validate this candidate against real content, product behavior, accessibility, implementation cost, and source-use restrictions before selection.",
+        })
+    return {
+        "task": task,
+        "direction_status": "unselected",
+        "candidates": candidates,
+        "material_difference_check": {
+            "axes": [row["name"] for row in candidates],
+            "passed": len({row["name"] for row in candidates}) == len(candidates),
+            "rule": "Candidates must differ in composition, identity mechanism, content shape, and motion posture—not palette alone.",
+        },
+        "retrieval": evidence["summary"],
+        "limitation": "These are evidence-backed hypotheses, not an aesthetic verdict. Inspect the repository and rendered product before locking one.",
+    }
+
+
+_COPY_GENERIC_PHRASES = (
+    "unlock your potential", "transform the way", "built for the future", "elevate your workflow",
+    "seamless experience", "next-generation", "cutting-edge", "game-changing", "world-class", "reimagined",
+)
+_COPY_VAGUE_CTAS = {"get started", "learn more", "explore", "discover", "unlock", "transform", "continue"}
+_COPY_FACT_RE = re.compile(r"(?:https?://\S+|\b\d{1,2}:\d{2}\s*(?:a\.m\.|p\.m\.)?|\$\d+(?:\.\d+)?|\b\d+(?:\.\d+)?%|\b\d[\d,]*(?:\.\d+)?\b|\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:,\s*\d{4})?)", re.I)
+
+
+def _copy_facts(value: str) -> list[str]:
+    return list(dict.fromkeys(match.group(0).rstrip(".,;)") for match in _COPY_FACT_RE.finditer(value)))
+
+
+def build_content_brief(engine: RetrievalEngine, args: Mapping[str, Any]) -> dict[str, Any]:
+    task = str(args.get("task") or args.get("context") or "").strip()
+    facts = [str(item).strip() for item in _list(args.get("facts")) if str(item).strip()]
+    required = [str(item).strip() for item in _list(args.get("required_content")) if str(item).strip()]
+    classification = classify_task(task or "frontend content", {**args, "noninteractive": True})
+    guidance = engine.search(task or "frontend content", {"topics": _expand_topics(["content", "copy", "integrity"])}, budget_records=8, context_budget=3600)
+    return {
+        "status": "draft-content-lock",
+        "audience": classification["creative_profile"]["audience"],
+        "primary_user_task": classification["creative_profile"]["primary_user_task"],
+        "fact_ledger": {"supplied": facts, "assumptions": classification["decision_ledger"]["inferred_assumptions"], "prohibited_claims": classification["decision_ledger"]["prohibited_claims"]},
+        "message_hierarchy": ["concrete outcome or premise", "how it works", "proof or product evidence", "limitations or conditions", "specific next action"],
+        "required_content": required or classification["creative_profile"]["required_content"],
+        "responsive_copy_rules": ["front-load meaning before optional qualifiers", "keep action labels specific at narrow widths", "do not hide legal, risk, price, or state information to make copy fit", "test long names, localization expansion, and error text"],
+        "voice_constraints": ["specific before promotional", "concrete nouns and verbs", "sentence rhythm may vary but facts may not", "no fabricated metrics, testimonials, integrations, scarcity, or guarantees"],
+        "cta_rule": "Name the action and destination or result.",
+        "guidance_ids": [row["id"] for row in guidance["records"]],
+        "lock_rule": "CONTENT.md may be locked only after required facts and unknowns are explicit; unresolved facts remain labeled, never invented.",
+    }
+
+
+def audit_frontend_copy(engine: RetrievalEngine, args: Mapping[str, Any]) -> dict[str, Any]:
+    text_value = str(args.get("copy") or args.get("content") or "")
+    source = str(args.get("source_text") or "")
+    ctas = [str(item) for item in _list(args.get("cta_labels"))]
+    lower = text_value.lower()
+    findings = []
+    for phrase in _COPY_GENERIC_PHRASES:
+        if phrase in lower:
+            findings.append({"code": "generic-abstraction", "severity": "medium", "evidence": phrase})
+    vague = sorted(label for label in ctas if label.strip().lower() in _COPY_VAGUE_CTAS)
+    if vague:
+        findings.append({"code": "vague-cta", "severity": "medium", "evidence": vague})
+    if source:
+        source_facts, candidate_facts = set(_copy_facts(source)), set(_copy_facts(text_value))
+        if source_facts - candidate_facts:
+            findings.append({"code": "factual-anchor-omission", "severity": "high", "evidence": sorted(source_facts - candidate_facts)})
+        if candidate_facts - source_facts:
+            findings.append({"code": "unsupported-factual-anchor", "severity": "high", "evidence": sorted(candidate_facts - source_facts)})
+    guidance = engine.search(text_value or "frontend copy audit", {"topics": _expand_topics(["copy", "content", "integrity"])}, budget_records=6, context_budget=2600)
+    return {
+        "passed": not any(row["severity"] == "high" for row in findings),
+        "findings": findings,
+        "fact_anchors": {"source": _copy_facts(source), "candidate": _copy_facts(text_value)},
+        "guidance_ids": [row["id"] for row in guidance["records"]],
+        "limitation": "Deterministic heuristics are review signals, not proof of authorship, quality, truth, or detector performance.",
+    }
+
+
 def compare_directions(engine: RetrievalEngine, args: Mapping[str, Any]) -> dict[str, Any]:
     directions = args.get("directions") or []
     if isinstance(directions, Mapping):
@@ -1688,11 +1647,13 @@ def compare_directions(engine: RetrievalEngine, args: Mapping[str, Any]) -> dict
         accessibility = sum(term in terms for term in ("accessible", "semantic", "contrast", "keyboard"))
         maintainability = sum(term in terms for term in ("tokens", "system", "reuse", "component"))
         originality = sum(term in terms for term in ("distinctive", "editorial", "art-direction", "brand"))
-        score = fit * 2 + integrity * 2 + accessibility + maintainability + originality
+        source_evidence = _list(item.get("source_evidence"))
+        evidence_score = min(3, len(source_evidence))
+        score = fit * 2 + integrity * 2 + accessibility + maintainability + originality + evidence_score
         normalized.append({
             "name": str(item.get("name") or f"direction-{idx}"),
             "score": score,
-            "evidence": {"product_fit_terms": sorted(terms & context_tokens), "integrity": integrity, "accessibility_signals": accessibility, "system_signals": maintainability, "originality_signals": originality},
+            "evidence": {"product_fit_terms": sorted(terms & context_tokens), "integrity": integrity, "accessibility_signals": accessibility, "system_signals": maintainability, "originality_signals": originality, "source_records": source_evidence},
             "tradeoffs": "Requires human review against product constraints and references; keyword evidence is not an aesthetic verdict.",
         })
     normalized.sort(key=lambda item: (-item["score"], item["name"]))
@@ -1730,30 +1691,21 @@ def provenance(engine: RetrievalEngine, args: Mapping[str, Any]) -> dict[str, An
 
 def _external_catalog() -> tuple[list[dict[str, Any]], dict[str, Any]]:
     root = default_plugin_root()
-    seed_path = root / "research" / "source-discovery" / "seed-catalog.yml"
-    registry_path = root / "research" / "source-registry.yml"
+    seed_path = root / "research" / "source-discovery" / "seed-catalog.json"
+    registry_path = root / "research" / "source-registry.json"
     info: dict[str, Any] = {"seed_path": str(seed_path), "registry_path": str(registry_path), "parse_errors": []}
     try:
         seed = json.loads(seed_path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:
         info["parse_errors"].append({"file": str(seed_path), "error": str(exc)})
         return [], info
-    registry: dict[str, dict[str, str]] = {}
+    registry: dict[str, dict[str, Any]] = {}
     try:
-        registry_text = registry_path.read_text(encoding="utf-8")
-        for raw in re.split(r"(?m)^  - id: ", registry_text)[1:]:
-            source_id = raw.splitlines()[0].strip().strip("'\"")
-            entry = {"id": source_id}
-            for field_name in (
-                "name", "author_or_organization", "canonical_url", "supplied_url", "source_type",
-                "classification", "license", "accessible_revision", "last_checked_revision",
-                "reliability_assessment", "maintenance_status", "copying_or_adaptation_restrictions", "notes",
-            ):
-                match = re.search(rf"(?m)^    {field_name}:\s*(.*)$", raw)
-                if match:
-                    entry[field_name] = match.group(1).strip().strip("'\"")
-            registry[source_id] = entry
-    except (OSError, UnicodeError) as exc:
+        registry_value = json.loads(registry_path.read_text(encoding="utf-8"))
+        for entry in registry_value.get("sources") or []:
+            if isinstance(entry, Mapping) and entry.get("id"):
+                registry[str(entry["id"])] = dict(entry)
+    except (OSError, UnicodeError, json.JSONDecodeError, AttributeError) as exc:
         info["parse_errors"].append({"file": str(registry_path), "error": str(exc)})
 
     defaults = dict(seed.get("entry_defaults") or {})
@@ -2048,7 +2000,7 @@ CATEGORY_TOOLS = {
 
 
 TOOLS = [
-    _tool("classify_frontend_task", "Classify a frontend task and infer a deterministic context-adaptive creative profile. Detects minimal page/site/redesign prompts as autonomous-zero-brief-build; infers domain, task, trust, density, visual/motion intensity, familiarity, and direction; extracts request-local entities and quoted text; separates facts from assumptions; and returns staged retrieval, privacy, and completion routing.", {"type": "object", "properties": {"task": {"type": "string"}, "context": {"type": "object", "description": "Optional known framework, route, page type, stage, risk, project facts, or redact_user_content boolean. Do not add speculative style preferences here."}}, "required": ["task"]}),
+    _tool("classify_frontend_task", "Classify product, task, audience, trust, density, content, motion-tolerance, and technical constraints without selecting visual styling. Returns one bounded clarification batch for underspecified autonomous work, plus staged retrieval, privacy, and completion routing.", {"type": "object", "properties": {"task": {"type": "string"}, "context": {"type": "object", "description": "Optional known framework, route, page type, stage, risk, facts, use_judgment, noninteractive, or redact_user_content. Do not add speculative style preferences."}}, "required": ["task"]}),
     _tool("search_frontend_guidance", "Hybrid-search compact, source-backed frontend guidance with deterministic budgets."),
     _tool("get_workflow", "Retrieve stage-specific workflow guidance, including the full production sequence for autonomous zero-brief builds.", {"type": "object", "properties": {"stage": {"type": "string", "enum": list(WORKFLOW_TOPICS)}, "task": {"type": "string"}, "context_budget": {"type": "integer"}}}),
     *[_tool(name, f"Retrieve focused {topic.replace('-', ' ')} guidance.") for name, topic in CATEGORY_TOOLS.items()],
@@ -2058,7 +2010,10 @@ TOOLS = [
     _tool("get_completion_gate", "Return evidence-oriented completion gates, including screenshot refinement and production-build evidence for autonomous builds."),
     _tool("audit_frontend_plan", "Audit a supplied plan for missing frontend product and verification evidence.", {"type": "object", "properties": {"plan": {}, "context": {"type": "string"}}, "required": ["plan"]}),
     _tool("audit_frontend_implementation", "Audit supplied implementation evidence without executing product code.", {"type": "object", "properties": {"implementation": {}, "context": {"type": "string"}}, "required": ["implementation"]}),
+    _tool("generate_candidate_directions", "Generate two or three materially different, evidence-backed direction hypotheses after constraint classification and diversified retrieval. Does not lock a winner.", {"type": "object", "properties": {"task": {"type": "string"}, "context": {"type": "string"}, "count": {"type": "integer", "minimum": 2, "maximum": 3}, "context_budget": {"type": "integer"}}, "required": ["task"]}),
     _tool("compare_design_directions", "Compare design directions against explicit product context using inspectable evidence.", {"type": "object", "properties": {"context": {"type": "string"}, "directions": {}}, "required": ["directions"]}),
+    _tool("build_content_brief", "Build a factual CONTENT.md-ready brief with message hierarchy, responsive copy rules, voice constraints, and explicit unknowns.", {"type": "object", "properties": {"task": {"type": "string"}, "facts": {"type": "array", "items": {"type": "string"}}, "required_content": {"type": "array", "items": {"type": "string"}}}, "required": ["task"]}),
+    _tool("audit_frontend_copy", "Audit frontend copy for generic abstractions, vague calls to action, and factual-anchor drift without claiming authorship detection.", {"type": "object", "properties": {"copy": {"type": "string"}, "source_text": {"type": "string"}, "cta_labels": {"type": "array", "items": {"type": "string"}}}, "required": ["copy"]}),
     *[_tool(name, "Generate a read-only, offline maintenance report; never modifies stable knowledge.") for name in (
         "check_registered_sources", "discover_candidate_sources", "generate_source_audit", "generate_coverage_report",
         "propose_knowledge_update", "run_retrieval_evals", "run_frontend_evals",
@@ -2097,8 +2052,14 @@ def call_tool(engine: RetrievalEngine, name: str, arguments: Mapping[str, Any] |
         return audit_payload(engine, args, "plan")
     if name == "audit_frontend_implementation":
         return audit_payload(engine, args, "implementation")
+    if name == "generate_candidate_directions":
+        return generate_candidate_directions(engine, args)
     if name == "compare_design_directions":
         return compare_directions(engine, args)
+    if name == "build_content_brief":
+        return build_content_brief(engine, args)
+    if name == "audit_frontend_copy":
+        return audit_frontend_copy(engine, args)
     if name in {"check_registered_sources", "discover_candidate_sources", "generate_source_audit", "generate_coverage_report", "propose_knowledge_update", "run_retrieval_evals", "run_frontend_evals"}:
         return maintenance_report(engine, name, args)
     raise ToolError(f"Unknown tool: {name}")
