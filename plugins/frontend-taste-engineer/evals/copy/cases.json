@@ -1,0 +1,82 @@
+[
+  {
+    "id": "robotics-homepage",
+    "domain": "robotics",
+    "verified_facts": "Northstar Robotics is a fictional student team. Open workshop is Saturday at 10:00 a.m. Visitors may tour the shop or ask about joining. No competition record was supplied.",
+    "headline": "See what Northstar is building this Saturday",
+    "copy": "Northstar Robotics is a student team that builds together in an open workshop. Visit Saturday at 10:00 a.m. to tour the shop or ask how to join. Competition results are not shown because none were supplied.",
+    "ctas": ["Plan a workshop visit", "Ask about joining"]
+  },
+  {
+    "id": "developer-tool-page",
+    "domain": "developer-tool",
+    "verified_facts": "Tracebox is a fictional local CLI that compares two JSON files. It does not upload data. Version 0.8 supports macOS and Linux.",
+    "headline": "Compare JSON changes without uploading the file",
+    "copy": "Tracebox is a local CLI for comparing two JSON files. Version 0.8 runs on macOS and Linux, and the comparison stays on the machine. Windows support is not claimed.",
+    "ctas": ["Read the install steps", "View the command reference"]
+  },
+  {
+    "id": "enterprise-dashboard",
+    "domain": "enterprise",
+    "verified_facts": "The dashboard shows 12 open exceptions. Data was refreshed at 9:42 a.m. Export permission is limited to administrators.",
+    "headline": "Review the 12 exceptions that still need an owner",
+    "copy": "Data was refreshed at 9:42 a.m. Select an exception to assign an owner or record a decision. Only administrators can export this view.",
+    "ctas": ["Review open exceptions", "Request export access"]
+  },
+  {
+    "id": "public-service-application",
+    "domain": "public-service",
+    "verified_facts": "Applications close September 18. People may save progress for 30 days. Eligibility is not determined until the agency reviews the submission.",
+    "headline": "Apply by September 18 and save your progress for 30 days",
+    "copy": "Complete the application now or return within 30 days. Submitting the form does not confirm eligibility; the agency will review the information and send a decision.",
+    "ctas": ["Check what documents you need", "Start the application"]
+  },
+  {
+    "id": "creative-portfolio",
+    "domain": "portfolio",
+    "verified_facts": "Jordan Lee is a fictional interaction designer. The case study covers a transit kiosk prototype and names research, prototyping, and usability testing as Jordan's contributions.",
+    "headline": "A transit kiosk prototype shaped around missed connections",
+    "copy": "Jordan Lee led research, prototyping, and usability testing for this fictional transit kiosk study. The case study explains the decisions and limits; it does not claim that the prototype shipped.",
+    "ctas": ["Read the transit kiosk case study", "View Jordan's role"]
+  },
+  {
+    "id": "ecommerce-product-page",
+    "domain": "ecommerce",
+    "verified_facts": "The fictional Alder desk lamp costs $84. It ships in 3 colors. The bulb is included. Delivery dates depend on postal code.",
+    "headline": "A compact desk lamp in 3 colors, with the bulb included",
+    "copy": "The Alder desk lamp costs $84 and ships in 3 colors. Enter a postal code to see an estimated delivery date. The bulb is included.",
+    "ctas": ["Choose a color", "Check delivery date"]
+  },
+  {
+    "id": "incident-status-interface",
+    "domain": "incident-status",
+    "verified_facts": "File uploads are delayed. Existing files remain available. The next update is at 2:30 p.m. This is an investigation, not a resolved incident.",
+    "headline": "File uploads are delayed; existing files remain available",
+    "copy": "We are investigating delayed uploads. Existing files remain available. The next update will be posted at 2:30 p.m., or sooner if the status changes.",
+    "ctas": ["View incident updates", "Subscribe to status changes"]
+  },
+  {
+    "id": "community-organization",
+    "domain": "community",
+    "verified_facts": "The fictional Harbor Pantry distributes groceries on Thursday from 4:00 p.m. to 7:00 p.m. No identification is required. The entrance is step-free.",
+    "headline": "Pick up groceries Thursday from 4:00 p.m. to 7:00 p.m.",
+    "copy": "Harbor Pantry distributes groceries on Thursday from 4:00 p.m. to 7:00 p.m. No identification is required, and the entrance is step-free.",
+    "ctas": ["Get Thursday pickup directions", "Ask an access question"]
+  },
+  {
+    "id": "technical-documentation",
+    "domain": "documentation",
+    "verified_facts": "API version 2 requires an idempotency key for POST requests. Version 1 is supported until November 30. The migration changes the error response shape.",
+    "headline": "Add an idempotency key before moving POST requests to API version 2",
+    "copy": "API version 2 requires an idempotency key for POST requests and changes the error response shape. Version 1 remains supported until November 30.",
+    "ctas": ["Read the version 2 migration", "Compare error responses"]
+  },
+  {
+    "id": "product-launch-page",
+    "domain": "product-launch",
+    "verified_facts": "Fieldnote is a fictional handoff workspace. It launches October 5, 2026. Studio costs $18 per member each month. The trial lasts 30 days without a credit card.",
+    "headline": "Keep project decisions from disappearing between handoffs",
+    "copy": "Fieldnote is a fictional handoff workspace launching October 5, 2026. Studio costs $18 per member each month. Try it for 30 days without a credit card.",
+    "ctas": ["Start the 30-day trial", "Review Studio pricing"]
+  }
+]

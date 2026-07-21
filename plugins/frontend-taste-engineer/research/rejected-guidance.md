@@ -172,6 +172,20 @@ No source instruction requested credentials or destructive filesystem actions in
 - **Why:** A public marketing page does not expose reusable material or permission by default and can encourage direct brand imitation.
 - **Replacement:** Use corporate/product/event pages, including OpenAI Build Week, only when the user supplies them as visual case studies for a specific task; never add them to reusable catalogs.
 
+### R-025 — Testing can always wait until after presenting a web artifact
+
+- **Status:** rejected as a production rule; contextual for explicitly disposable prototypes.
+- **Why:** Presentation speed does not prove functionality, accessibility, responsive behavior, integrity, browser behavior, or deployability. The source instruction is scoped to conversation artifacts, not production websites.
+- **Replacement:** Keep the useful simple-versus-complex artifact boundary, but run proportionate completion gates before any production or deployment-ready claim. If a prototype intentionally defers testing, label the scope and unverified limitations.
+- **Source:** `anthropic-agent-skills` web-artifacts-builder.
+
+### R-026 — `networkidle` is the universal readiness signal for dynamic UI tests
+
+- **Status:** rejected as a blanket browser-testing rule.
+- **Why:** Current Playwright documentation discourages `networkidle` for testing readiness; background traffic can continue after the UI is ready or stop before the required user-visible state is usable.
+- **Replacement:** Wait for explicit role, label, text, URL, enabled state, or other web-first assertion tied to the task; inspect the rendered state before choosing locators and assert the result after acting.
+- **Sources:** `anthropic-agent-skills`, `playwright-docs`.
+
 ## Deprecated or unstable implementation guidance
 
 | Guidance | Status | Replacement |

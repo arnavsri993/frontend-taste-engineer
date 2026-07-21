@@ -1,7 +1,7 @@
 {
-  "corpus_fingerprint": "0d37d70d7f9a024a64b9cede45c44a93cdef471ef1ace919f3107fa82d84fe7e",
+  "corpus_fingerprint": "ce986c29cf7f89ca73bda69d2ae487b1b9e7db85b8b5c555d2e89dd774532cec",
   "generator": "scripts/generate_index.py",
-  "record_count": 86,
+  "record_count": 102,
   "records": [
     {
       "components": [
@@ -904,6 +904,39 @@
     },
     {
       "components": [
+        "button",
+        "link",
+        "form",
+        "dialog",
+        "toast",
+        "status",
+        "navigation"
+      ],
+      "fingerprint": "a3dab0c94c0f69e8",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "content.action-vocabulary-continuity",
+      "importance": "mandatory",
+      "origin": "records/product-content.json",
+      "sources": [
+        "anthropic-agent-skills",
+        "govuk-design-system",
+        "wcag-22"
+      ],
+      "status": "stable",
+      "subtopic": "interface-vocabulary",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "component",
+        "visual-audit"
+      ],
+      "title": "Keep action vocabulary continuous through the flow",
+      "topic": "information-architecture-content"
+    },
+    {
+      "components": [
         "page",
         "section",
         "heading",
@@ -989,6 +1022,54 @@
         "visual-audit"
       ],
       "title": "Front-load meaning in labels and headings",
+      "topic": "information-architecture-content"
+    },
+    {
+      "components": [],
+      "fingerprint": "fa467141d6944425",
+      "frameworks": [],
+      "id": "copy.conventional-labels-before-clever-labels",
+      "importance": "recommended",
+      "origin": "source-derived/copy.json",
+      "sources": [
+        "name-that-ui"
+      ],
+      "status": "specialized",
+      "subtopic": "interface-labels",
+      "task_types": [],
+      "title": "Prefer conventional interface labels over clever substitutes",
+      "topic": "information-architecture-content"
+    },
+    {
+      "components": [],
+      "fingerprint": "ecdd1c0f299c52a6",
+      "frameworks": [],
+      "id": "copy.source-taxonomy-is-not-message-hierarchy",
+      "importance": "recommended",
+      "origin": "source-derived/copy.json",
+      "sources": [
+        "motionsites"
+      ],
+      "status": "specialized",
+      "subtopic": "message-hierarchy",
+      "task_types": [],
+      "title": "Do not confuse section availability with message order",
+      "topic": "information-architecture-content"
+    },
+    {
+      "components": [],
+      "fingerprint": "44bd37eb5a35f54d",
+      "frameworks": [],
+      "id": "copy.translate-style-words-into-testable-decisions",
+      "importance": "recommended",
+      "origin": "source-derived/copy.json",
+      "sources": [
+        "mengto-skills"
+      ],
+      "status": "specialized",
+      "subtopic": "creative-brief-language",
+      "task_types": [],
+      "title": "Translate style adjectives into testable decisions",
       "topic": "information-architecture-content"
     },
     {
@@ -1129,6 +1210,35 @@
         "visual-audit"
       ],
       "title": "Decompose references before borrowing",
+      "topic": "visual-direction"
+    },
+    {
+      "components": [
+        "page",
+        "hero",
+        "navigation",
+        "section"
+      ],
+      "fingerprint": "82595450cfa88fe3",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "direction.subject-derived-identity",
+      "importance": "recommended",
+      "origin": "records/direction-systems.json",
+      "sources": [
+        "anthropic-agent-skills",
+        "govuk-design-system",
+        "taste-skill-repo"
+      ],
+      "status": "specialized",
+      "subtopic": "subject-vernacular",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Derive visual identity from the subject's own world",
       "topic": "visual-direction"
     },
     {
@@ -1533,6 +1643,37 @@
       ],
       "title": "Do not fabricate proof, metrics, logos, or testimonials",
       "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "section",
+        "step-list",
+        "timeline",
+        "heading",
+        "divider",
+        "label"
+      ],
+      "fingerprint": "6173f3d29836e5b2",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "layout.informative-structure-signals",
+      "importance": "recommended",
+      "origin": "records/layout-type-color.json",
+      "sources": [
+        "anthropic-agent-skills",
+        "govuk-design-system",
+        "wcag-22"
+      ],
+      "status": "stable",
+      "subtopic": "structural-signals",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Make structural signals carry real information",
+      "topic": "layout"
     },
     {
       "components": [
@@ -2335,6 +2476,150 @@
       "topic": "seo"
     },
     {
+      "components": [],
+      "fingerprint": "950b37400928637b",
+      "frameworks": [],
+      "id": "source.colorion-text-effects-preserve-reading",
+      "importance": "contextual",
+      "origin": "source-derived/design.json",
+      "sources": [
+        "text-effects-colorion"
+      ],
+      "status": "specialized",
+      "subtopic": "animated-display-text",
+      "task_types": [],
+      "title": "Keep animated typography subordinate to reading",
+      "topic": "typography"
+    },
+    {
+      "components": [],
+      "fingerprint": "43522e2262594a3b",
+      "frameworks": [],
+      "id": "source.kinetics-interruption-contract",
+      "importance": "recommended",
+      "origin": "source-derived/design.json",
+      "sources": [
+        "kinetics-colorion"
+      ],
+      "status": "specialized",
+      "subtopic": "interruption-contract",
+      "task_types": [],
+      "title": "Treat interruption as part of the motion contract",
+      "topic": "motion"
+    },
+    {
+      "components": [],
+      "fingerprint": "35a9cbe505232489",
+      "frameworks": [],
+      "id": "source.mengto-reference-capture-before-remix",
+      "importance": "recommended",
+      "origin": "source-derived/design.json",
+      "sources": [
+        "mengto-skills"
+      ],
+      "status": "specialized",
+      "subtopic": "reference-capture",
+      "task_types": [],
+      "title": "Decompose references into decisions before remixing",
+      "topic": "visual-direction"
+    },
+    {
+      "components": [],
+      "fingerprint": "685fe253c7a8c5ec",
+      "frameworks": [],
+      "id": "source.motionsites-single-focal-plane",
+      "importance": "contextual",
+      "origin": "source-derived/design.json",
+      "sources": [
+        "motionsites"
+      ],
+      "status": "specialized",
+      "subtopic": "focal-hierarchy",
+      "task_types": [],
+      "title": "Give expressive openings one dominant visual plane",
+      "topic": "visual-direction"
+    },
+    {
+      "components": [],
+      "fingerprint": "0736c1083136df1b",
+      "frameworks": [],
+      "id": "source.namethatui-terminology-before-novelty",
+      "importance": "recommended",
+      "origin": "source-derived/design.json",
+      "sources": [
+        "name-that-ui"
+      ],
+      "status": "specialized",
+      "subtopic": "component-terminology",
+      "task_types": [],
+      "title": "Name the conventional interaction before inventing it",
+      "topic": "components-states-forms"
+    },
+    {
+      "components": [],
+      "fingerprint": "803a69b9136664cd",
+      "frameworks": [],
+      "id": "source.opentui-terminal-is-a-platform",
+      "importance": "recommended",
+      "origin": "source-derived/design.json",
+      "sources": [
+        "opentui"
+      ],
+      "status": "specialized",
+      "subtopic": "terminal-ui",
+      "task_types": [],
+      "title": "Design terminal interfaces for terminal constraints",
+      "topic": "frameworks-code-architecture"
+    },
+    {
+      "components": [],
+      "fingerprint": "7acfe079e53feec6",
+      "frameworks": [],
+      "id": "source.originkit-discovery-before-adaptation",
+      "importance": "recommended",
+      "origin": "source-derived/design.json",
+      "sources": [
+        "originkit"
+      ],
+      "status": "specialized",
+      "subtopic": "catalog-selection",
+      "task_types": [],
+      "title": "Use component catalogs for discovery before adaptation",
+      "topic": "components-states-forms"
+    },
+    {
+      "components": [],
+      "fingerprint": "8f9d686fe61b5892",
+      "frameworks": [],
+      "id": "source.shapefactory-assets-need-rights",
+      "importance": "recommended",
+      "origin": "source-derived/design.json",
+      "sources": [
+        "shapefactory"
+      ],
+      "status": "specialized",
+      "subtopic": "generated-assets",
+      "task_types": [],
+      "title": "Separate visual-tool inspiration from asset rights",
+      "topic": "images-icons"
+    },
+    {
+      "components": [],
+      "fingerprint": "dc2fda45e0845c76",
+      "frameworks": [],
+      "id": "source.valessa-3d-progressive-enhancement",
+      "importance": "contextual",
+      "origin": "source-derived/design.json",
+      "sources": [
+        "valessa-riotters"
+      ],
+      "status": "specialized",
+      "subtopic": "product-visualization",
+      "task_types": [],
+      "title": "Make 3D product presentation a progressive layer",
+      "topic": "images-icons"
+    },
+    {
       "components": [
         "all"
       ],
@@ -2474,6 +2759,38 @@
         "redesign"
       ],
       "title": "Scale browser testing by feature and user risk",
+      "topic": "testing-deployment"
+    },
+    {
+      "components": [
+        "page",
+        "navigation",
+        "form",
+        "dialog",
+        "dynamic-content"
+      ],
+      "fingerprint": "81b7ba0fd44363ee",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "testing.rendered-state-before-action",
+      "importance": "mandatory",
+      "origin": "records/architecture-delivery.json",
+      "sources": [
+        "anthropic-agent-skills",
+        "playwright-docs"
+      ],
+      "status": "specialized",
+      "subtopic": "browser-reconnaissance",
+      "task_types": [
+        "testing",
+        "visual-audit",
+        "redesign",
+        "deployment"
+      ],
+      "title": "Inspect the rendered state before automating actions",
       "topic": "testing-deployment"
     },
     {

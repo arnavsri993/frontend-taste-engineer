@@ -2,7 +2,7 @@
 
 ## Product summary
 
-Frontend Taste Engineer is an installable Codex plugin that expands minimal frontend requests into complete, context-aware, responsive, accessible, screenshot-refined, deployment-ready implementations. It combines a compact operating Skill, a local MCP retrieval server, a canonical knowledge corpus, and a safely gated 395-source catalog. No credentials, analytics, or telemetry are required for core operation.
+Frontend Taste Engineer is an installable Codex plugin that expands minimal frontend requests into complete, context-aware, responsive, accessible, screenshot-refined, deployment-ready implementations. It combines a compact operating Skill, a local MCP retrieval server, a canonical knowledge corpus, and a dynamically maintained, safely gated source catalog. No credentials, analytics, or telemetry are required for core operation.
 
 ## Audience
 

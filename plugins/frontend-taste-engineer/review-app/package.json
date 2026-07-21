@@ -1,8 +1,8 @@
 {
-  "name": "frontend-taste-engineer-showcase",
+  "name": "leonida-heat-ledger",
   "version": "1.0.0",
   "private": true,
-  "description": "Standalone local and deployable showcase for the Frontend Taste Engineer Codex plugin.",
+  "description": "Dependency-free unofficial GTA VI release briefing concept.",
   "scripts": {
     "dev": "python3 serve.py",
     "build": "python3 build.py",

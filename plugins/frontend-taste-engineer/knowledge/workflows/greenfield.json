@@ -26,9 +26,9 @@
     {
       "id": "direction",
       "title": "Choose and compare directions",
-      "actions": ["Define relevant visual axes.", "Create two or three materially different direction candidates using real content.", "Score candidates with the design-direction rubric and record the decision."],
+      "actions": ["Define relevant visual axes and inventory useful signals from the subject's materials, tools, language, environment, and evidence.", "Create two or three materially different direction candidates using real content and meaningful structural signals.", "Score candidates with the design-direction rubric and record the decision."],
       "evidence": ["direction comparison", "decision record"],
-      "rule_refs": ["direction.choose-intentional-axis", "direction.systemic-distinctiveness", "layout.intentional-negative-space"],
+      "rule_refs": ["direction.choose-intentional-axis", "direction.subject-derived-identity", "direction.systemic-distinctiveness", "layout.informative-structure-signals", "layout.intentional-negative-space"],
       "exit_criteria": ["The selected direction serves audience and content and has repeatable signals."]
     },
     {
@@ -50,9 +50,9 @@
     {
       "id": "verify-release",
       "title": "Verify, harden, and release",
-      "actions": ["Run completion gates and the browser risk matrix.", "Validate metadata, privacy, performance, and localization.", "Release incrementally when risk warrants and monitor defined success signals."],
+      "actions": ["Run completion gates and the browser risk matrix, establishing explicit user-visible readiness before browser actions and asserting each rendered outcome.", "Validate metadata, privacy, performance, and localization.", "Release incrementally when risk warrants and monitor defined success signals."],
       "evidence": ["gate report", "test report", "performance report", "release plan"],
-      "rule_refs": ["delivery.definition-of-done", "testing.browser-risk-matrix", "performance.core-web-vitals-budget", "delivery.incremental-release"],
+      "rule_refs": ["delivery.definition-of-done", "testing.rendered-state-before-action", "testing.browser-risk-matrix", "performance.core-web-vitals-budget", "delivery.incremental-release"],
       "exit_criteria": ["All mandatory applicable gates pass or have an owned, expiring waiver."]
     }
   ],

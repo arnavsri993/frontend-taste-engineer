@@ -28,9 +28,9 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
 DISCOVERY_ROOT = PLUGIN_ROOT / "research" / "source-discovery"
-DEFAULT_QUERY_FILE = DISCOVERY_ROOT / "discovery-queries.yml"
-DEFAULT_SEED_FILE = DISCOVERY_ROOT / "seed-catalog.yml"
-REGISTRY_FILE = PLUGIN_ROOT / "research" / "source-registry.yml"
+DEFAULT_QUERY_FILE = DISCOVERY_ROOT / "discovery-queries.json"
+DEFAULT_SEED_FILE = DISCOVERY_ROOT / "seed-catalog.json"
+REGISTRY_FILE = PLUGIN_ROOT / "research" / "source-registry.json"
 USER_AGENT = "FrontendTasteEngineer-SourceDiscovery/0.3 (+public-text-only; no-code-execution)"
 
 REQUIRED_SOURCE_FIELDS = (
@@ -267,15 +267,13 @@ def search_public_web(query: str, *, timeout: float, max_bytes: int) -> list[str
 
 
 def registry_urls(path: Path) -> dict[str, str]:
-    text = path.read_text(encoding="utf-8")
+    value = json.loads(path.read_text(encoding="utf-8"))
     result: dict[str, str] = {}
-    for block in re.split(r"(?m)^  - id: ", text)[1:]:
-        source = block.splitlines()[0].strip().strip("\"'")
-        match = re.search(r"(?m)^    canonical_url:\s*[\"']?([^\"'\n]+)", block)
-        if not match:
+    for entry in value.get("sources") or []:
+        if not isinstance(entry, Mapping) or not entry.get("id") or not entry.get("canonical_url"):
             continue
         try:
-            result[normalize_url(match.group(1).strip())] = source
+            result[normalize_url(str(entry["canonical_url"]))] = str(entry["id"])
         except DiscoveryError:
             continue
     return result

@@ -43,14 +43,14 @@
       "id": "direction-copy",
       "title": "Choose direction and write complete copy",
       "actions": [
-        "Write a one-sentence design thesis and select a context-specific intensity, composition, hero treatment, type, color/material, imagery, component, and motion stance; when the stance is non-static, name a compact motion grammar rather than leaving motion as a final flourish.",
+        "Write a one-sentence design thesis, derive two or three useful signals from the subject's materials, tools, language, environment, or evidence, and select a context-specific intensity, composition, hero treatment, type, color/material, imagery, component, and motion stance; when the stance is non-static, name a compact motion grammar rather than leaving motion as a final flourish.",
         "Treat quality adjectives as execution targets rather than automatic permission for flashy, dark, cinematic, or highly animated styling.",
         "Retrieve only brief-stage product, content, direction, composition, typography, responsive, accessibility, integrity, and completion records.",
         "Write original finished copy without placeholders or unsupported factual claims.",
         "Keep the smallest copy set that preserves the task, decision, trust, and recovery information; remove repeated messages and sections with no distinct job."
       ],
       "evidence": ["DESIGN.md", "design thesis", "content outline", "stage retrieval packet"],
-      "rule_refs": ["direction.choose-intentional-axis", "direction.content-before-chrome", "content.front-load-meaning", "content.earn-every-line", "integrity.truthful-proof"],
+      "rule_refs": ["direction.choose-intentional-axis", "direction.subject-derived-identity", "direction.content-before-chrome", "layout.informative-structure-signals", "content.front-load-meaning", "content.action-vocabulary-continuity", "content.earn-every-line", "integrity.truthful-proof"],
       "exit_criteria": ["Direction and copy support the inferred purpose and differ meaningfully across different prompts."]
     },
     {
@@ -70,11 +70,11 @@
       "title": "Run and inspect rendered desktop and mobile output",
       "actions": [
         "Run the application and capture meaningful desktop and mobile screenshots.",
-        "Inspect hierarchy, composition, typography, spacing, color, imagery, copy, motion, responsive behavior, focus, overflow, and console state.",
+        "Wait for an explicit user-visible ready state, inspect the rendered roles, labels, DOM, screenshot, and console before selecting interaction targets, then inspect hierarchy, composition, typography, spacing, color, imagery, copy, motion, responsive behavior, focus, and overflow.",
         "Compare the rendered result with the design thesis and record the three highest-impact weaknesses."
       ],
       "evidence": ["desktop capture", "mobile capture", "runtime observations", "top-three weakness list"],
-      "rule_refs": ["responsive.content-driven-reflow", "type.readable-measure", "a11y.contrast-and-focus", "testing.story-state-coverage"],
+      "rule_refs": ["responsive.content-driven-reflow", "type.readable-measure", "a11y.contrast-and-focus", "testing.rendered-state-before-action", "testing.story-state-coverage"],
       "exit_criteria": ["The implementation was visually inspected at both desktop and mobile widths; static analysis alone is insufficient."]
     },
     {

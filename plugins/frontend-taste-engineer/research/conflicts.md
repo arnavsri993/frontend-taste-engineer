@@ -161,7 +161,7 @@ Recency does not override authority by itself, but it does decide between versio
 
 - **Claims:** A large recurring search can find useful new sources quickly; stable guidance requires provenance, licensing, contextual exceptions, verification, and review.
 - **Risk:** Fresh candidates silently become trusted rules or inflate ordinary retrieval with unreviewed metadata.
-- **Resolution:** Discovery writes deterministic candidate reports only. Stable promotion requires a candidate branch/PR, full registry/license/provenance updates, evaluations, and review. Stage budgets keep the 395-source catalog out of default packets.
+- **Resolution:** Discovery writes deterministic candidate reports only. Stable promotion requires a candidate branch/PR, full registry/license/provenance updates, evaluations, and review. Stage budgets keep the dynamically counted seed catalog out of default packets.
 - **Priority:** Stable-knowledge integrity over discovery speed.
 
 ## C-022 — Agentic installers versus repository control
@@ -184,3 +184,17 @@ Recency does not override authority by itself, but it does decide between versio
 - **Risk:** Literal transfer can remove useful orientation, misstate browser performance, overfit one input device, or turn starting constants into false universal laws.
 - **Resolution:** Preserve the method—purpose/frequency gating, live-value interruption, velocity continuity, exact plans, and real-device feel checks—while treating numerical values and blanket bans as context-qualified hypotheses. Accessibility, platform semantics, existing system contracts, measured runtime behavior, and the product's frequency/risk profile decide the implementation.
 - **Priority:** User task and accessibility > current platform behavior and measured evidence > system consistency > practitioner default.
+
+## C-025 — Fast artifact presentation versus production completion
+
+- **Claims:** `anthropic-agent-skills` web-artifacts-builder treats testing and visualization as optional after presenting a bundled conversation artifact. The Frontend Taste Engineer production contract requires proportionate runtime, accessibility, responsive, integrity, and build evidence before calling a website or frontend complete.
+- **Risk:** An artifact-oriented latency optimization can be misapplied to production work, allowing a visually plausible bundle to ship with broken controls, inaccessible states, overflow, console errors, or unsupported claims.
+- **Resolution:** Keep the useful scope boundary between simple static output and genuinely multi-component/stateful artifacts. Testing may be explicitly deferred only for a clearly labeled disposable prototype whose unverified limits are reported; any production or deployment-ready claim retains the full completion gate.
+- **Priority:** User-requested prototype scope may reduce checks; production integrity and accessibility always outrank presentation speed.
+
+## C-026 — Blanket network-idle waits versus user-visible readiness
+
+- **Claims:** `anthropic-agent-skills` webapp-testing says to wait for `networkidle` before inspecting a dynamic application. Current Playwright documentation discourages `networkidle` as a testing readiness signal and recommends auto-waiting plus web-first assertions on the expected state.
+- **Risk:** Polling, analytics, streams, service workers, or background requests can make network idle hang or arrive independently of hydration and task readiness; fixed waiting can also hide an actual readiness defect.
+- **Resolution:** Preserve reconnaissance-before-action, but define readiness through the route, role, label, text, URL, enabled control, or state the user needs. Use resilient locators and auto-retrying assertions, record console/network failures separately, and reserve network-idle observation for bounded diagnostics rather than a universal gate.
+- **Priority:** Current official Playwright behavior and user-visible state > older skill-specific waiting recipe.

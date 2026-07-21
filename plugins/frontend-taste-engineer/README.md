@@ -2,39 +2,37 @@
 
 This directory is the installable plugin package. The repository root contains the marketplace, CI, contribution policy, and full architecture documentation.
 
-Version 0.4.0 expands the catalog to 395 findability-described seeds, adds a source-backed motion grammar for expressive work, raises the paid-client quality bar, and adds safe automatic refresh for trusted GitHub installations. It preserves the 0.2.0 `autonomous-zero-brief-build` workflow for minimal website, page, portfolio, frontend, and redesign prompts.
+Version 0.4.0 migrates the plugin to source-derived design and copy retrieval. It separates source authority, stability, license, allowed use, and ingestion state; replaces fixed catalog-size assumptions with dynamic validation; adds candidate-only ingestion, compiled source records, coverage and usage reports; and retrieves diversified evidence before visual and content lock. The classifier now emits constraints rather than preselected styling, while candidate-direction, CONTENT-brief, copy-audit, and 21-pair contrastive copy evaluation complete the planning path.
 
-“Stunning” and similar quality language means exceptionally appropriate and well executed. The classifier uses a five-level visual-intensity model plus domain, task, audience, trust, risk, density, frequency, maturity, accessibility, device, familiarity, and experimental-tolerance signals; it does not force dark, cinematic, gradient-heavy, or highly animated styling across products.
+“Stunning” and similar quality language means exceptionally appropriate and well executed. The classifier reports product, audience, task, trust, risk, density, familiarity, and motion-tolerance constraints; it does not select palette, typography, material, component styling, or a finished direction.
 
 Runtime components:
 
 - `skills/frontend-taste-engineer/`: compact operating Skill, offline references, templates, and static audit.
 - `knowledge/`: canonical, diffable frontend knowledge records.
 - `mcp-server/`: stdio classification, retrieval, provenance, audit, and bounded external-source selection tools.
-- `hooks/`: trusted-on-review session context and Git-marketplace update hook.
-- `review-app/`: optional local provenance and audit viewer.
-- `research/source-discovery/`: 395 candidate seed URLs, monthly queries, scoring, promotion policy, and candidate templates.
+- `hooks/`: trusted-on-review session context and opt-out GitHub marketplace update hook.
+- `review-app/`: optional local frontend showcase and deployment example.
+- `research/source-discovery/`: a dynamically counted candidate seed catalog, monthly queries, scoring, promotion policy, and candidate templates.
 - `research/artifact-packs/` and `references/`: source-family summaries plus selection/license/discovery gates.
 - `evals/`, `audits/`, `maintenance/`: evidence, regression, and lifecycle systems.
 
-The MCP classifier extracts named recipients and quoted text, separates supplied facts from assumptions, infers page type/tone/ambition/interaction depth, and routes focused records by workflow stage. Framework, component, performance, and browser guidance is deferred until relevant; motion guidance is brought into the brief when the prompt or creative profile calls for a kinetic, medium-high, or high-motion direction.
+The MCP classifier extracts request-local entities, separates supplied facts from assumptions, reports constraints, and offers one bounded clarification batch. The brief workflow retrieves core UX, source-derived design, copy, responsive, accessibility, integrity, and verification evidence before generating and comparing two or three directions. Framework, component, performance, and browser guidance remains staged.
 
 `get_external_source_catalog` applies separate stage budgets, never loads the full catalog for an ordinary task, blocks premium/unclear-license copying, keeps Awwwards/Mobbin/Page Flows inspiration-only, prioritizes maintained primitives for complex widgets, and treats 21st.dev MCP as optional tooling only when configured. It reports source-specific review status, credibility, reliability basis, and license status. Externality alone is not a negative trust verdict; embedded commands remain source content rather than agent directives, and no candidate is promoted automatically.
 
 Named recipients and messages are request-local by default. Public fixtures use fictional data. `scripts/scan_private_terms.py` reads an untracked local denylist through `FTE_PRIVATE_TERMS_FILE`, scans text files, filenames, added diff lines, logs/evidence, and ZIP contents, and suppresses the sensitive value in its report. Public screenshots require manual review because raster OCR is intentionally out of scope.
 
-The `.app.json` mapping is intentionally empty until a developer-mode ChatGPT app is registered manually. No app ID is fabricated. The MCP server and Skill work without that optional registration.
+This is a Codex plugin only. It packages the Skill and read-only MCP server; no Apps SDK surface or standalone Skill ZIP is distributed.
 
-Install from GitHub:
+Install from the repository root:
 
 ```bash
-codex plugin marketplace add arnavsri993/frontend-taste-engineer --ref main
+codex plugin marketplace add "$(pwd)"
 codex plugin add frontend-taste-engineer@personal
 ```
 
-Then start a new Codex task and review the plugin hook in `/hooks`. Once trusted, it asks Codex to refresh this exact GitHub marketplace at most once every six hours. It never edits plugin cache files directly, refuses unknown repositories, leaves local development installs untouched, and keeps the existing version usable if a check fails. Set `FTE_AUTO_UPDATE=0` to disable it, or run `python3 scripts/plugin_auto_update.py --force` for an immediate refresh. A successfully installed update takes effect in a new task. Every published change must bump the manifest version/cachebuster so Codex can activate a distinct cache entry.
-
-For development from a clone, register the repository root with `codex plugin marketplace add "$(pwd)"`. Local marketplace installs never auto-update from GitHub.
+Then start a new Codex task and review the plugin hook in `/hooks`. The update hook is limited to the trusted `arnavsri993/frontend-taste-engineer` GitHub marketplace source, is rate-limited and configurable, and preserves the current cache on failure; local development installs and unknown origins are not auto-updated.
 
 Preview monthly discovery with no network and no writes:
 
@@ -42,10 +40,13 @@ Preview monthly discovery with no network and no writes:
 python3 scripts/discover_frontend_sources.py --dry-run --max-results 50
 ```
 
-Run a targeted live check of one registered source:
+Run a targeted live registered-source check without changing the registry or knowledge:
 
 ```bash
-python3 scripts/monitor_registered_sources.py --source-id emil-design-skills --json-out audits/source-monitor.json --md-out audits/source-monitor.md
+python3 scripts/monitor_registered_sources.py \
+  --source-id emil-design-skills \
+  --json-out audits/generated/source-monitor.json \
+  --md-out audits/generated/source-monitor.md
 ```
 
-The scheduled weekly monitor compares a cached metadata baseline, uploads JSON and Markdown evidence, and opens or refreshes one review issue when revision, license, deprecation, reachability, redirect, or bounded public-text fingerprint evidence changes. It stores metadata and hashes rather than page dumps and cannot promote stable knowledge.
+The scheduled weekly job checks all registered sources, compares public-text fingerprints with the prior run, uploads reports, and opens or refreshes one review issue when a revision, license/deprecation signal, content fingerprint, redirect, or availability state needs inspection. Reports retain public metadata and hashes only; promotion remains review-gated.

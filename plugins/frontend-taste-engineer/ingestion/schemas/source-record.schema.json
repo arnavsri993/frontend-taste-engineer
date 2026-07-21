@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:frontend-taste-engineer:source-record:1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "id", "name", "canonical_url", "supplied_url", "source_type",
+    "manual_approval", "ingestion_status", "authority", "stability",
+    "allowed_use", "license_status", "accessible_revision",
+    "last_checked_revision", "topics_contributed", "files_or_sections_consulted",
+    "reliability_assessment", "maintenance_status",
+    "copying_or_adaptation_restrictions", "related_sources", "notes"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "canonical_url": {"type": "string", "format": "uri"},
+    "supplied_url": {"type": "string", "format": "uri"},
+    "manual_approval": {"type": "boolean"},
+    "ingestion_status": {"enum": ["queued", "ingested", "partially-ingested", "inaccessible", "failed", "superseded", "rejected"]},
+    "authority": {"enum": ["standard", "platform", "official-documentation", "official-design-system", "maintainer", "practitioner", "community", "commercial-gallery", "unknown"]},
+    "stability": {"enum": ["stable", "active", "experimental", "stale", "archived", "unknown"]},
+    "allowed_use": {"enum": ["rules-and-guidance", "implementation-reference", "adaptation-with-license-review", "inspiration-only", "link-only", "blocked"]},
+    "license_status": {"enum": ["reviewed", "scoped-or-conditional", "unknown", "blocked"]},
+    "topics_contributed": {"type": "array", "items": {"type": "string"}},
+    "files_or_sections_consulted": {"type": "array", "items": {"type": "string"}},
+    "related_sources": {"type": "array", "items": {"type": "string"}}
+  }
+}

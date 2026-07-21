@@ -32,7 +32,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Does it automatically copy components from external sites?",
-    a: "No. Sources are assessed individually: reviewed sources report scoped credibility, reliability evidence, and license status, while candidate links remain not-yet-assessed. Embedded commands stay source content rather than agent instructions. Unknown licensing still blocks copying and adaptation.",
+    a: "No. Sources are assessed individually for authority, reliability, maintenance, license scope, and fit. A candidate is not-yet-assessed rather than automatically untrustworthy. Unknown licensing still blocks copying and adaptation, and inspiration does not authorize copied expression.",
   },
   {
     q: "Which frontend frameworks are supported?",

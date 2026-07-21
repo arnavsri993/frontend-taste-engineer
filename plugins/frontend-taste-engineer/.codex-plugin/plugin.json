@@ -1,6 +1,6 @@
 {
   "name": "frontend-taste-engineer",
-  "version": "0.4.0+codex.20260717074337",
+  "version": "0.4.0+codex.20260721230003",
   "description": "Context-adaptive frontend generation plus safely gated external source discovery, planning, building, auditing, refinement, privacy review, and production verification.",
   "author": {
     "name": "arnavsri993",
@@ -22,11 +22,10 @@
   ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
-  "apps": "./.app.json",
   "interface": {
     "displayName": "Frontend Taste Engineer",
     "shortDescription": "Turn tiny prompts into complete production frontends",
-    "longDescription": "A source-backed frontend operating system that expands short website and redesign prompts into complete, context-appropriate, distinctive, responsive, accessible, screenshot-refined implementations. A safely gated 395-source catalog supports bounded component/template/inspiration discovery without copying unclear-license material or treating agent tools as design authority.",
+    "longDescription": "A source-backed frontend operating system that expands short website and redesign prompts into complete, context-appropriate, distinctive, responsive, accessible, screenshot-refined implementations. A dynamically maintained source catalog supports diversified design and copy retrieval without copying unclear-license material or treating source popularity as design authority.",
     "developerName": "arnavsri993",
     "category": "Developer Tools",
     "capabilities": [

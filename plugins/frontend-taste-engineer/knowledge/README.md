@@ -11,7 +11,7 @@ Start with `index.json`. It points to every record file, workflow, supporting ar
 - `component-state-matrix.json` defines states and checks for ten component archetypes.
 - `completion-gates.json` defines production completion and waiver policy.
 - `direction-comparison-rubric.json` and `guides/design-direction-comparison.md` make visual-direction decisions comparable without reducing taste to a score.
-- `sources.json` is the corpus-facing source index and mirrors stable IDs from the authoritative `../research/source-registry.yml`. Records contain those source IDs, never ad hoc URLs.
+- `sources.json` is the corpus-facing source index and mirrors stable IDs from the authoritative `../research/source-registry.json`. Records contain those source IDs, never ad hoc URLs.
 - `index.json` contains canonical paths and exact corpus counts for retrieval and review.
 
 ## Rule contract

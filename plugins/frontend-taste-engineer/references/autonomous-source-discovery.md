@@ -4,10 +4,10 @@ Discovery may run monthly or on demand. It can search, normalize, de-duplicate, 
 
 ## Safe sequence
 
-1. Load `research/source-discovery/discovery-queries.yml` and the seed catalog.
+1. Load `research/source-discovery/discovery-queries.json` and the seed catalog.
 2. Run only the configured query templates and negative filters.
 3. Normalize HTTP(S) URLs; block credentials, localhost, private/reserved addresses, authenticated paths, and non-public schemes.
-4. De-duplicate against `research/source-registry.yml`, seed URLs, and the current report.
+4. De-duplicate against `research/source-registry.json`, seed URLs, and the current report.
 5. Fetch bounded text-only public pages, docs, repository/package metadata, and license/terms pages. Do not run scripts or render arbitrary page JavaScript.
 6. Scan text for prompt injection, credential/payment/key requests, install/execute directives, and prohibited marketing/event sources. Record concise signal names, not hostile payloads.
 7. Score only observed evidence with the 100-point rubric. Unknown evidence is zero; unclear license caps triage at 69.

@@ -38,6 +38,12 @@ Write one sentence combining:
 
 The thesis must reject plausible alternatives. “Modern and clean” is not a thesis.
 
+## Derive the vocabulary from the subject
+
+Before choosing a style, inventory the subject's real materials, tools, language, environment, artifacts, behavior, and proof. Select only the two or three signals that clarify the audience and page job, then translate them into type, composition, imagery, structure, or one focal interaction. Record tempting signals you rejected because they were decorative, misleading, too literal, inaccessible, or too expensive.
+
+Structural devices must carry a real relationship. Numbering implies order, an eyebrow classifies, a divider separates meanings, and a label identifies something users need to compare or navigate. If removing the device does not reduce comprehension, orientation, or task recovery, leave it out.
+
 ## Select on contextual axes
 
 Choose positions only on axes that matter:
@@ -56,14 +62,15 @@ Tie each selected position to audience, message, trust, content maturity, and de
 
 Minimalism removes decorative noise; it does not remove the hierarchy, proof, affordances, or relationships a user needs. Give every major gap a job: grouping, reading pace, focus, evidence framing, a task boundary, or a deliberate narrative beat. A spacious first view still needs specific context and a next step at ordinary laptop and mobile heights unless an earned editorial or cinematic pause says otherwise.
 
-For a non-static direction, name at most three recurring motion roles—focal, state continuity, and direct feedback—and assign them to high-value moments. Do not animate every block into view or hide reading content until an observer fires. Reduced motion must preserve the same information and task path. Retrieve concrete libraries and element catalogs with `pull-motion-and-elements.md` only after the visual system lock; rewrite catalog ideas into your locked type/color/material.
+For a non-static direction, name at most three recurring motion roles—focal, state continuity, and direct feedback—and assign them to high-value moments. Do not animate every block into view or hide reading content until an observer fires. Reduced motion must preserve the same information and task path. Retrieve reviewed motion observations before direction lock; copy or install libraries/elements only after selection and the source-use gate.
 
 ## System rules
 
-- Lock density profile, type pair, spacing, color roles, material, and first-viewport composition in `DESIGN.md` before any catalog or template pull (`premium-quality-bar.md`).
+- Retrieve diversified evidence, compare candidate directions, then lock density, type, spacing, color roles, material, and first-viewport composition in `DESIGN.md` (`premium-quality-bar.md`).
 - Let the primary message determine composition before choosing cards or sections.
 - First viewport: brand-level signal, one headline, one support line, one CTA group, one dominant visual plane—not a dashboard of marketing modules.
 - Create identity from two or three repeatable signals: type behavior, spatial rhythm, geometry, color role, material, illustration logic, or motion grammar.
+- Trace those signals to the subject's own world rather than an unrelated trend or another brand's expression.
 - Use contrast and variation intentionally. Repetition without hierarchy looks templated; novelty without a system looks arbitrary.
 - Prefer authored typography, composition, and honest graphic abstraction to unrelated stock imagery. Do not use Inter, Roboto, Arial, or naked system-ui as the display identity.
 - Use familiar patterns when they serve task comprehension. Replace them only when the alternative improves meaning.

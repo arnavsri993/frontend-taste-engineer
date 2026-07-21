@@ -1,0 +1,3 @@
+# Preserve the supplied contrastive benchmark byte-for-byte. Its source text
+# contains intentional trailing spaces, so do not treat them as patch damage.
+plugins/frontend-taste-engineer/evals/copy/grubby-ai-humanized-pairs.txt whitespace=-trailing-space

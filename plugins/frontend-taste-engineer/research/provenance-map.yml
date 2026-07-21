@@ -446,6 +446,38 @@ records:
     license_status: synthesized-original-with-source-attribution
     promotion: experimental-candidate
 
+  - finding: F-056
+    candidate_record: direction.subject-derived-identity
+    primary_sources: [anthropic-agent-skills]
+    supporting_sources: [govuk-design-system, taste-skill-repo]
+    conflicts: [C-001]
+    license_status: synthesized-original-with-source-attribution
+    promotion: specialized-candidate
+
+  - finding: F-057
+    candidate_record: layout.informative-structure-signals
+    primary_sources: [anthropic-agent-skills, govuk-design-system]
+    supporting_sources: [wcag-22]
+    conflicts: [C-001]
+    license_status: synthesized-original-with-source-attribution
+    promotion: stable-candidate
+
+  - finding: F-058
+    candidate_record: content.action-vocabulary-continuity
+    primary_sources: [anthropic-agent-skills, govuk-design-system]
+    supporting_sources: [wcag-22]
+    conflicts: []
+    license_status: synthesized-original-with-source-attribution
+    promotion: stable-candidate
+
+  - finding: F-059
+    candidate_record: testing.rendered-state-before-action
+    primary_sources: [anthropic-agent-skills, playwright-docs]
+    supporting_sources: []
+    conflicts: [C-025, C-026]
+    license_status: synthesized-original-with-source-attribution
+    promotion: specialized-candidate
+
 excluded_sources:
   - id: motionsites
     reason: "Substantive content and license inaccessible; contributes no promoted record."
@@ -465,3 +497,5 @@ quarantined_as_instructions:
     material: "installation, scan, report, approval, and fix commands plus executable scanner instructions"
   - id: amicro-micro-transitions
     material: "README install/run commands and copy-to-clipboard component generators"
+  - id: anthropic-agent-skills
+    material: "Claude-specific workflow, stack, helper-script, bundle, and output commands; artifact-only optional-testing instruction; blanket networkidle recipe"

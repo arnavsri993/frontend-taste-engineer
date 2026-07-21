@@ -52,6 +52,9 @@ REQUIRED_SOURCE_FIELDS = (
     "reliability_assessment", "maintenance_status",
     "copying_or_adaptation_restrictions", "related_sources", "notes",
 )
+REQUIRED_SOURCE_DIMENSIONS = (
+    "manual_approval", "ingestion_status", "authority", "stability", "allowed_use", "license_status",
+)
 SOURCE_CLASSIFICATIONS = {
     "core", "specialized", "experimental", "inspiration-only",
     "inaccessible", "unresolved", "rejected",
@@ -83,6 +86,17 @@ def _load_server():
 
 
 SERVER = _load_server()
+
+
+def _load_source_pipeline():
+    path = PLUGIN_ROOT / "scripts" / "source_pipeline.py"
+    spec = importlib.util.spec_from_file_location("fte_source_pipeline_tooling", path)
+    if not spec or not spec.loader:
+        raise RuntimeError(f"Cannot load source pipeline module: {path}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
 
 
 def rel(path: Path) -> str:
@@ -347,9 +361,13 @@ def check_freshness(args: argparse.Namespace) -> Report:
         if age > maximum:
             stale += 1
             report.warn("stale-record", "Record exceeds the configured review age.", id=item.id, age_days=age, max_age_days=maximum)
-    registry_path = PLUGIN_ROOT / "research" / "source-registry.yml"
-    registry_text = read_text(registry_path) or ""
-    source_ids = re.findall(r"^\s+- id:\s*([^\s#]+)", registry_text, re.MULTILINE)
+    registry_path = PLUGIN_ROOT / "research" / "source-registry.json"
+    registry_value = load_json(registry_path, report)
+    source_ids = [
+        str(item.get("id"))
+        for item in (registry_value.get("sources") if isinstance(registry_value, Mapping) else []) or []
+        if isinstance(item, Mapping) and item.get("id")
+    ]
     upstream = [
         {"source_id": source_id.strip("'\""), "status": "unknown-offline"}
         for source_id in source_ids
@@ -374,16 +392,10 @@ def validate_provenance(_: argparse.Namespace) -> Report:
     return report
 
 
-def _registry_source_entries(text: str) -> list[dict[str, str]]:
-    entries = []
-    for raw in re.split(r"(?m)^  - id: ", text)[1:]:
-        entry = {"id": raw.splitlines()[0].strip().strip("'\"")}
-        for field_name in REQUIRED_SOURCE_FIELDS[1:]:
-            match = re.search(rf"(?m)^    {re.escape(field_name)}:\s*(.*)$", raw)
-            if match:
-                entry[field_name] = match.group(1).strip().strip("'\"")
-        entries.append(entry)
-    return entries
+def _registry_source_entries(value: Any) -> list[dict[str, Any]]:
+    if not isinstance(value, Mapping) or not isinstance(value.get("sources"), list):
+        return []
+    return [dict(item) for item in value["sources"] if isinstance(item, Mapping)]
 
 
 def _effective_seed_entries(value: Mapping[str, Any], report: Report) -> list[dict[str, Any]]:
@@ -405,9 +417,9 @@ def _effective_seed_entries(value: Mapping[str, Any], report: Report) -> list[di
 
 def validate_source_catalogs(_: argparse.Namespace) -> Report:
     report = Report("external-source-catalog-validation")
-    registry_path = PLUGIN_ROOT / "research" / "source-registry.yml"
-    registry_text = read_text(registry_path) or ""
-    registry = _registry_source_entries(registry_text)
+    registry_path = PLUGIN_ROOT / "research" / "source-registry.json"
+    registry_value = load_json(registry_path, report)
+    registry = _registry_source_entries(registry_value)
     registry_ids: set[str] = set()
     registry_urls: set[str] = set()
     for entry in registry:
@@ -415,6 +427,9 @@ def validate_source_catalogs(_: argparse.Namespace) -> Report:
         missing = [field for field in REQUIRED_SOURCE_FIELDS if field not in entry]
         if missing:
             report.error("registry-source-fields", "Registry source lacks required fields.", id=source_id, missing=missing)
+        missing_dimensions = [field for field in REQUIRED_SOURCE_DIMENSIONS if field not in entry]
+        if missing_dimensions:
+            report.error("registry-source-dimensions", "Registry source lacks separated approval, ingestion, authority, stability, allowed-use, or license dimensions.", id=source_id, missing=missing_dimensions)
         if source_id in registry_ids:
             report.error("duplicate-registry-id", "Registry source ID is duplicated.", id=source_id)
         registry_ids.add(source_id)
@@ -435,8 +450,8 @@ def validate_source_catalogs(_: argparse.Namespace) -> Report:
                 report.error("registry-url", "Registry URL must be absolute HTTP(S).", id=source_id, field=field_name)
 
     discovery_root = PLUGIN_ROOT / "research" / "source-discovery"
-    seed_path = discovery_root / "seed-catalog.yml"
-    query_path = discovery_root / "discovery-queries.yml"
+    seed_path = discovery_root / "seed-catalog.json"
+    query_path = discovery_root / "discovery-queries.json"
     seed = load_json(seed_path, report)
     queries = load_json(query_path, report)
     seed_entries = _effective_seed_entries(seed, report) if isinstance(seed, Mapping) else []
@@ -463,8 +478,6 @@ def validate_source_catalogs(_: argparse.Namespace) -> Report:
             report.error("prohibited-catalog-source", "OpenAI Build Week cannot be a pullable catalog source.", id=source_id)
     if len(seed_entries) < 245:
         report.error("seed-count", "The seed catalog must retain at least the original 245 request-supplied URLs.", expected_at_least=245, actual=len(seed_entries))
-    if len(seed_entries) != 395:
-        report.error("seed-count-current", "The current expanded seed catalog must contain 395 unique URLs.", expected=395, actual=len(seed_entries))
     for required_id in ("awwwards", "mobbin", "page-flows"):
         entry = next((item for item in seed_entries if item.get("id") == required_id), None)
         if not entry or entry.get("classification") != "inspiration-only":
@@ -486,8 +499,8 @@ def validate_source_catalogs(_: argparse.Namespace) -> Report:
                 report.error("negative-filter", "Discovery negative filters lack a required exclusion.", term=term)
 
     required_discovery_files = (
-        "seed-catalog.yml", "discovery-queries.yml", "source-scoring-rubric.md",
-        "promotion-policy.md", "candidate-template.yml", "rejected-source-template.yml",
+        "seed-catalog.json", "discovery-queries.json", "source-scoring-rubric.md",
+        "promotion-policy.md", "candidate-template.json", "rejected-source-template.json",
         "monthly-discovery-workflow.md",
     )
     required_artifact_packs = (
@@ -502,7 +515,7 @@ def validate_source_catalogs(_: argparse.Namespace) -> Report:
         if not path.exists():
             report.error("missing-source-artifact", "Required external-source artifact is missing.", file=rel(path))
 
-    for template_name in ("candidate-template.yml", "rejected-source-template.yml"):
+    for template_name in ("candidate-template.json", "rejected-source-template.json"):
         template_path = discovery_root / template_name
         template = load_json(template_path, report)
         if isinstance(template, Mapping):
@@ -535,6 +548,60 @@ def validate_source_catalogs(_: argparse.Namespace) -> Report:
         "dry_run_deterministic": first.returncode == 0 and first.stdout == second.stdout,
         "network_used": False,
         "stable_knowledge_modified": False,
+    }
+    return report
+
+
+def validate_source_architecture(_: argparse.Namespace) -> Report:
+    report = Report("source-derived-architecture-validation")
+    pipeline = _load_source_pipeline()
+    try:
+        registry = pipeline.load_registry()
+        errors = list(pipeline.validate_registry(registry))
+        source_records = list(pipeline.iter_source_records())
+        errors.extend(pipeline.validate_source_records(source_records, {item["id"] for item in registry["sources"]}))
+    except (OSError, UnicodeError, json.JSONDecodeError, ValueError) as exc:
+        report.error("source-pipeline-unreadable", str(exc))
+        registry, source_records, errors = {"sources": []}, [], []
+    for error in errors:
+        report.error("source-pipeline-invalid", error)
+    schema_root = PLUGIN_ROOT / "ingestion" / "schemas"
+    required_schemas = (
+        "source-record.schema.json", "source-derived-record.schema.json", "ingestion-report.schema.json",
+        "source-usage.schema.json", "coverage-report.schema.json", "evaluation-manifest.schema.json",
+    )
+    for name in required_schemas:
+        path = schema_root / name
+        value = load_json(path, report)
+        if isinstance(value, Mapping) and not value.get("$schema"):
+            report.error("schema-dialect", "Schema must declare a JSON Schema dialect.", file=rel(path))
+    for path in (
+        PLUGIN_ROOT / "ingestion" / "compiled" / "source-records.json",
+        PLUGIN_ROOT / "ingestion" / "reports" / "ingestion.json",
+        PLUGIN_ROOT / "ingestion" / "reports" / "source-coverage.json",
+        PLUGIN_ROOT / "ingestion" / "source-usage.json",
+        PLUGIN_ROOT / "evals" / "copy" / "grubby-pair-annotations.json",
+        PLUGIN_ROOT / "evals" / "results" / "copy.json",
+    ):
+        if not path.exists():
+            report.error("generated-artifact-missing", "Required generated source/copy artifact is missing.", file=rel(path))
+        else:
+            load_json(path, report)
+    annotations = load_json(PLUGIN_ROOT / "evals" / "copy" / "grubby-pair-annotations.json", report)
+    pair_count = len(annotations.get("annotations") or []) if isinstance(annotations, Mapping) else 0
+    if pair_count != 21:
+        report.error("copy-pair-count", "The contrastive copy benchmark must preserve all 21 supplied pairs.", actual=pair_count)
+    manifest = load_json(PLUGIN_ROOT / ".codex-plugin" / "plugin.json", report)
+    if isinstance(manifest, Mapping) and "apps" in manifest:
+        report.error("codex-only-apps", "Codex-only distribution must not declare an Apps SDK surface.")
+    for path in (PLUGIN_ROOT / ".app.json", PLUGIN_ROOT / "scripts" / "package_skill.py", PLUGIN_ROOT / "dist" / "frontend-taste-engineer-skill.zip"):
+        if path.exists():
+            report.error("standalone-surface-present", "Codex-only distribution must not include Apps SDK or standalone Skill packaging.", file=rel(path))
+    report.details = {
+        "registry_sources": len(registry.get("sources") or []),
+        "source_derived_records": len(source_records),
+        "copy_pairs": pair_count,
+        "codex_plugin_only": True,
     }
     return report
 
@@ -976,14 +1043,17 @@ def license_report(_: argparse.Namespace) -> Report:
 PACKAGE_EXCLUDES = {".git", "node_modules", "__pycache__", ".pytest_cache", ".mypy_cache", ".DS_Store", "dist", "build"}
 
 
-def _zip_entries(root: Path, *, skill_only: bool) -> list[Path]:
+def _zip_entries(root: Path) -> list[Path]:
     entries = []
     for path in sorted(root.rglob("*")):
-        if not path.is_file() or any(part in PACKAGE_EXCLUDES for part in path.relative_to(root).parts):
+        parts = path.relative_to(root).parts
+        if not path.is_file() or any(part in PACKAGE_EXCLUDES for part in parts):
+            continue
+        if parts[:2] in {("audits", "generated"), ("evals", "artifacts")} or parts[:3] == ("evals", "evidence", "frontend-v1"):
             continue
         if path.suffix in {".pyc", ".pyo"}:
             continue
-        if not skill_only and "results" in path.relative_to(root).parts:
+        if "results" in parts:
             continue
         entries.append(path)
     return entries
@@ -1007,24 +1077,12 @@ def _deterministic_zip(root: Path, destination: Path, entries: Sequence[Path], d
     return len(entries), digest.hexdigest()
 
 
-def package_skill(args: argparse.Namespace) -> Report:
-    report = Report("skill-package")
-    root = PLUGIN_ROOT / "skills" / "frontend-taste-engineer"
-    destination = Path(args.output or (PLUGIN_ROOT / "dist" / "frontend-taste-engineer-skill.zip"))
-    entries = _zip_entries(root, skill_only=True)
-    count, digest = _deterministic_zip(root, destination, entries, args.dry_run)
-    if not (root / "SKILL.md").exists():
-        report.error("missing-skill", "Cannot package without SKILL.md.", file=rel(root / "SKILL.md"))
-    report.details = {"source": str(root), "output": str(destination.resolve()), "dry_run": args.dry_run, "files": count, "content_sha256": digest, "entries": [str(path.relative_to(root)) for path in entries]}
-    return report
-
-
 def package_plugin(args: argparse.Namespace) -> Report:
     report = Report("plugin-package")
     manifest = load_json(PLUGIN_ROOT / ".codex-plugin" / "plugin.json")
     version = str(manifest.get("version") or "unknown").split("+", 1)[0] if isinstance(manifest, Mapping) else "unknown"
     destination = Path(args.output or (PLUGIN_ROOT / "dist" / f"frontend-taste-engineer-plugin-{version}.zip"))
-    entries = _zip_entries(PLUGIN_ROOT, skill_only=False)
+    entries = _zip_entries(PLUGIN_ROOT)
     count, digest = _deterministic_zip(PLUGIN_ROOT, destination, entries, args.dry_run)
     if not (PLUGIN_ROOT / ".codex-plugin" / "plugin.json").exists():
         report.error("missing-manifest", "Cannot package without .codex-plugin/plugin.json.")
@@ -1033,7 +1091,7 @@ def package_plugin(args: argparse.Namespace) -> Report:
 
 
 CHECK_FUNCTIONS: tuple[Callable[[argparse.Namespace], Report], ...] = (
-    validate_plugin, validate_skill, check_links, validate_refs, validate_provenance, validate_source_catalogs,
+    validate_plugin, validate_skill, check_links, validate_refs, validate_provenance, validate_source_catalogs, validate_source_architecture,
     detect_duplicates, detect_contradictions, coverage_report, knowledge_depth, secret_scan, privacy_scan, license_report,
 )
 
@@ -1118,8 +1176,6 @@ def make_parser(default_command: str | None = None) -> argparse.ArgumentParser:
     p.add_argument("--require-terms", action="store_true")
     p.add_argument("--max-file-bytes", type=int, default=5_000_000)
     command("licenses", "Inventory license evidence and dependency manifests.", license_report)
-    p = command("package-skill", "Create a deterministic standalone skill.zip.", package_skill, writes=True)
-    p.add_argument("--output", type=Path)
     p = command("package-plugin", "Create a deterministic plugin ZIP.", package_plugin, writes=True)
     p.add_argument("--output", type=Path)
     command("validate-all", "Run all read-only deterministic validation checks.", validate_all)

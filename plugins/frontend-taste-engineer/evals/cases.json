@@ -268,6 +268,36 @@
     "context_budget": 4200
   },
   {
+    "id": "subject-led-interface-language",
+    "name": "Subject-led identity, structure, and action vocabulary",
+    "brief": "Design a field-recording equipment launch page whose visual identity comes from real recording tools and environments, whose numbered or labeled sections encode actual content relationships, and whose demo-booking action keeps the same clear user-facing vocabulary through confirmation, loading, success, error, and retry states.",
+    "task_type": "greenfield-build",
+    "stage": "brief",
+    "expected_topics": ["visual-direction", "layout", "information-architecture-content", "accessibility"],
+    "expected_terms": ["subject", "materials", "structure", "action", "vocabulary", "recovery"],
+    "mandatory_terms": ["subject", "structure", "action"],
+    "required_record_ids": ["direction.subject-derived-identity", "layout.informative-structure-signals", "content.action-vocabulary-continuity"],
+    "forbidden_terms": ["copy another brand"],
+    "retrieval_only": true,
+    "budget_records": 12,
+    "context_budget": 5200
+  },
+  {
+    "id": "rendered-state-browser-qa",
+    "name": "Rendered-state-first browser verification",
+    "brief": "Test a hydrated dashboard with background polling. Establish a user-visible ready condition, inspect rendered roles, labels, DOM, screenshot, and console before acting, use resilient Playwright locators and web-first assertions, then apply a browser risk matrix for audience, capability risk, task consequence, and regression history with real-platform checks at native input, viewport, rendering, and accessibility risk boundaries. Verify navigation, error recovery, keyboard use, and responsive recomposition without treating networkidle or fixed sleeps as universal readiness.",
+    "task_type": "testing",
+    "stage": "verification",
+    "expected_topics": ["testing-deployment", "browsers", "accessibility", "responsive"],
+    "expected_terms": ["rendered", "ready state", "role", "label", "assertion", "browser risk matrix", "real platform", "networkidle"],
+    "mandatory_terms": ["ready state", "role", "assertion", "browser risk matrix", "real platform"],
+    "required_record_ids": ["testing.rendered-state-before-action", "testing.browser-risk-matrix", "browser.test-real-platform-behavior"],
+    "forbidden_terms": ["sleep 5000"],
+    "retrieval_only": true,
+    "budget_records": 14,
+    "context_budget": 6200
+  },
+  {
     "id": "performance-remediation",
     "name": "Performance remediation task",
     "brief": "Remediate a slow media-heavy frontend using measured Core Web Vitals, explicit budgets, image and font delivery, JavaScript reduction, network constraints, and regression checks.",

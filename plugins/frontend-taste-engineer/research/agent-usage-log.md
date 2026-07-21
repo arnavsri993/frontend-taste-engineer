@@ -74,3 +74,11 @@ All workers were instructed not to spawn children. Each had one output owner, an
 - All six skills plus the review standards, audit playbook, and plan template were read. Reusable substance was synthesized into frequency/purpose gating, gesture continuity, momentum context, system-level motion audits, optical typography, and translucent-surface fallbacks.
 - Persona, required response formatting, install instructions, and source-specific delegation commands remained source content. Forceful numerical and universal claims were retained only as contextual starting points under `C-024`, not copied as standards.
 - No subagents were used for this refresh; one writer owned the research, knowledge, workflow, and evaluation updates.
+
+## 2026-07-17 Anthropic Agent Skills ingestion
+
+- The primary agent inspected `anthropics/skills` at immutable revision `fa0fa64bdc967915dc8399e803be67759e1e62b8` through public GitHub/raw/API surfaces. No upstream repository, package, helper script, install command, or build command was executed.
+- Scope was limited to the Apache-2.0 `frontend-design`, `webapp-testing`, and `web-artifacts-builder` skill entrypoints and licenses. Separately licensed document skills, preset theme assets, brand material, and unrelated capabilities were excluded.
+- The official source was treated as high-trust primary evidence for its own workflows. Reusable substance was synthesized into subject-derived visual identity, informative structural signals, action-vocabulary continuity, and rendered-state-before-action browser QA.
+- Claude-specific tool/stack/output commands remained source content. Artifact-only optional testing was rejected for production use, and the blanket `networkidle` recipe was narrowed against current Playwright web-first guidance.
+- No subagents were used; one writer owned the source, canonical knowledge, workflows, retrieval evaluation, and validation updates while preserving unrelated dirty-worktree changes.

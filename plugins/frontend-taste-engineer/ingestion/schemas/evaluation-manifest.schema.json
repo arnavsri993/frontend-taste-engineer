@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:frontend-taste-engineer:evaluation-manifest:1",
+  "type": "object",
+  "required": ["case_id", "project_fingerprint", "commands", "artifacts", "retrieved_records", "applied_records", "evaluator_method", "timestamp"],
+  "properties": {
+    "case_id": {"type": "string"},
+    "project_fingerprint": {"type": "string"},
+    "commands": {"type": "array", "items": {"type": "object", "required": ["command", "exit_code", "output_sha256"]}},
+    "artifacts": {"type": "array", "items": {"type": "object", "required": ["path", "sha256"]}},
+    "retrieved_records": {"type": "array", "items": {"type": "string"}},
+    "applied_records": {"type": "array", "items": {"type": "string"}},
+    "evaluator_method": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"}
+  }
+}

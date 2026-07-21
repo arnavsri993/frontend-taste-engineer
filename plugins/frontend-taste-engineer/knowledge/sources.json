@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1.0",
   "last_reviewed": "2026-07-17",
-  "authoritative_registry": "../research/source-registry.yml",
+  "authoritative_registry": "../research/source-registry.json",
   "usage_policy": "Rules are original synthesis. Source IDs identify upstream evidence and established practice; do not reproduce upstream passages, code, icons, or assets without checking their current terms.",
   "sources": [
     {
@@ -502,6 +502,32 @@
         "micro-interactions",
         "motion",
         "react"
+      ]
+    },
+    {
+      "id": "anthropic-agent-skills",
+      "title": "Anthropic Agent Skills",
+      "publisher": "Anthropic, PBC",
+      "canonical_url": "https://github.com/anthropics/skills",
+      "source_type": "Official GitHub agent-skill collection",
+      "license_note": "Consulted frontend-design, webapp-testing, and web-artifacts-builder skills are Apache-2.0; repository skills with other terms were excluded.",
+      "summary": "Official frontend design, browser-testing, and complex web-artifact workflow guidance.",
+      "best_for": [
+        "subject-derived art direction",
+        "interface writing consistency",
+        "rendered-state browser QA",
+        "prototype complexity boundaries"
+      ],
+      "when_to_use": [
+        "Need a high-trust practitioner source for distinctive frontend direction or runtime testing workflow; keep artifact-specific shortcuts subordinate to production gates."
+      ],
+      "keywords": [
+        "anthropic",
+        "frontend-design",
+        "webapp-testing",
+        "web-artifacts",
+        "playwright",
+        "interface-copy"
       ]
     }
   ],

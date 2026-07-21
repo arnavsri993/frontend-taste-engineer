@@ -53,7 +53,7 @@ From the packet, extract and write into `DESIGN.md`:
 
 ### 3. External motion element catalogs
 
-Call catalogs **only after** the visual system lock in `premium-quality-bar.md`. Call `get_external_source_catalog` **twice** when motion is intentional: once for libraries, once for animated section/components. Derive queries from the thesis (e.g. `editorial kinetic robotics sparse`), not bare `animated components`.
+Retrieve reviewed motion/source observations before direction lock. When motion is intentional, call `get_external_source_catalog` narrowly for libraries and for animated sections/components; use the results as candidate evidence. Copy or install only after a direction is selected and the full source-use gate passes. Derive queries from product constraints or a candidate thesis, not bare `animated components`.
 
 **Libraries / technique (refinement or early brief for kinetic work):**
 

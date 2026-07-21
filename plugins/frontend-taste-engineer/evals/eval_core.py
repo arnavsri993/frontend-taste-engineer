@@ -57,9 +57,21 @@ def load_cases(path: Path) -> list[dict[str, Any]]:
         if "retrieval_only" in case and not isinstance(case["retrieval_only"], bool):
             raise ValueError(f"{case['id']} has invalid retrieval_only")
         if case.get("expected_mode") == SERVER.AUTONOMOUS_MODE:
-            for field in ("expected_page_type", "expected_tone_terms", "expect_no_questions", "expect_production_completion"):
+            for field in ("expect_production_completion",):
                 if field not in case:
                     raise ValueError(f"{case['id']} lacks autonomous classification field {field}")
+    return value
+
+
+def load_frontend_cases(path: Path) -> list[dict[str, Any]]:
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(value, list) or len(value) != 10:
+        raise ValueError("Frontend evaluation fixture must contain exactly ten representative cases")
+    ids = [item.get("id") for item in value if isinstance(item, Mapping)]
+    if len(ids) != 10 or any(not item for item in ids) or len(set(ids)) != 10:
+        raise ValueError("Frontend cases require ten unique non-empty IDs")
+    if any(not item.get("name") or not item.get("brief") for item in value):
+        raise ValueError("Every frontend case requires a name and brief")
     return value
 
 
@@ -129,17 +141,16 @@ def retrieve_variant(engine: Any, case: Mapping[str, Any], variant: str) -> dict
 PROFILE_FIELDS = {
     "build_mode", "domain", "product_type", "interface_archetype", "page_type",
     "purpose", "audience", "named_recipient_status", "primary_user_task",
-    "secondary_tasks", "primary_message", "supporting_narrative", "emotional_objective",
-    "emotional_tone", "seriousness", "trust_level", "risk_level",
-    "information_density", "frequency_of_use", "content_maturity", "brand_maturity",
-    "product_maturity", "accessibility_needs", "expected_devices", "visual_ambition",
-    "visual_intensity", "motion_intensity", "experimental_tolerance",
-    "familiarity_requirement", "interaction_depth", "suggested_composition",
-    "hero_treatment", "negative_space_role", "typography_direction", "color_material_direction",
-    "imagery_strategy", "motion_stance", "component_styling", "direction",
-    "required_states", "retrieval_topics", "verification_priorities",
-    "user_supplied_facts", "inferred_assumptions", "minimalism_guardrail", "quality_interpretation",
-    "design_thesis",
+    "secondary_tasks", "trust_level", "risk_level", "information_density",
+    "frequency_of_use", "content_seriousness", "content_maturity", "accessibility_needs",
+    "expected_devices", "motion_tolerance", "experimental_tolerance", "familiarity_requirement",
+    "required_content", "required_states", "prohibited_claims", "technical_environment",
+    "user_supplied_facts", "inferred_assumptions", "direction_status", "copy_status",
+}
+FORBIDDEN_CLASSIFIER_STYLE_FIELDS = {
+    "visual_intensity", "motion_intensity", "suggested_composition", "hero_treatment",
+    "typography_direction", "color_material_direction", "imagery_strategy", "component_styling",
+    "direction", "design_thesis", "palette", "materials",
 }
 
 
@@ -152,7 +163,6 @@ def score_classification(case: Mapping[str, Any]) -> dict[str, Any] | None:
     ledger = result.get("decision_ledger") or {}
     entities = result.get("entities") or {}
     guardrails = set(result.get("copy_guardrails") or [])
-    tone = set(profile.get("emotional_tone") or [])
     retrieval = result.get("recommended_retrieval") or {}
     expected_deferred = {"framework", "component", "motion", "performance", "browser"}
     if "motion" in set(retrieval.get("topics") or []):
@@ -161,18 +171,13 @@ def score_classification(case: Mapping[str, Any]) -> dict[str, Any] | None:
         "mode": result.get("task_type") == expected_mode,
         "minimal_prompt": bool(result.get("minimal_prompt")),
         "profile_complete": PROFILE_FIELDS <= set(profile) and all(profile.get(field) not in (None, "", []) for field in PROFILE_FIELDS),
-        "page_type": profile.get("page_type") == case.get("expected_page_type"),
-        "domain": not case.get("expected_domain") or profile.get("domain") == case.get("expected_domain"),
-        "tone": set(case.get("expected_tone_terms") or []) <= tone,
-        "visual_intensity": case.get("expected_visual_intensity") is None or profile.get("visual_intensity") == case.get("expected_visual_intensity"),
-        "motion_intensity": not case.get("expected_motion_intensity") or profile.get("motion_intensity") == case.get("expected_motion_intensity"),
-        "trust_level": not case.get("expected_trust_level") or profile.get("trust_level") == case.get("expected_trust_level"),
-        "risk_level": not case.get("expected_risk_level") or profile.get("risk_level") == case.get("expected_risk_level"),
-        "information_density": not case.get("expected_information_density") or profile.get("information_density") == case.get("expected_information_density"),
+        "constraints_only": not (FORBIDDEN_CLASSIFIER_STYLE_FIELDS & set(profile)),
+        "direction_unlocked": profile.get("direction_status") == "unselected-before-retrieval" and profile.get("copy_status") == "unselected-before-content-retrieval",
+        "constraint_values": all(profile.get(field) for field in ("domain", "page_type", "trust_level", "information_density", "motion_tolerance")),
         "facts_and_assumptions": bool(ledger.get("supplied_facts")) and bool(ledger.get("inferred_assumptions")),
         "recipient": not case.get("expected_recipient") or case.get("expected_recipient") in (entities.get("named_recipients") or []),
         "quoted_text": not case.get("expected_quoted_text") or case.get("expected_quoted_text") in (entities.get("quoted_text") or []),
-        "no_unnecessary_questions": not case.get("expect_no_questions") or bool((result.get("clarification_policy") or {}).get("continue_without_questions")),
+        "bounded_clarification": len((result.get("clarification_policy") or {}).get("questions") or []) <= 4 and bool((result.get("clarification_policy") or {}).get("use_your_judgment_supported")),
         "no_invented_claims": {"no-fake-testimonials", "no-fake-metrics", "no-unsupported-claims"} <= guardrails,
         "staged_retrieval": bool(retrieval.get("record_ids")) and set(retrieval.get("defer_until_needed") or []) == expected_deferred,
         "production_completion": not case.get("expect_production_completion") or result.get("completion_workflow") == "production-completion-with-screenshot-refinement",
@@ -185,21 +190,16 @@ def score_classification(case: Mapping[str, Any]) -> dict[str, Any] | None:
         "checks": checks,
         "mode": result.get("task_type"),
         "page_type": profile.get("page_type"),
-        "tone": profile.get("emotional_tone"),
+        "tone": None,
         "entities": entities,
-        "design_thesis": profile.get("design_thesis"),
+        "design_thesis": None,
+        "brief": str(case.get("brief") or ""),
         "direction_profile": {
             "domain": profile.get("domain"),
             "page_type": profile.get("page_type"),
-            "visual_intensity": profile.get("visual_intensity"),
-            "motion_intensity": profile.get("motion_intensity"),
-            "tone": profile.get("emotional_tone"),
-            "composition": profile.get("suggested_composition"),
-            "hero": profile.get("hero_treatment"),
-            "typography": profile.get("typography_direction"),
-            "palette_material": profile.get("color_material_direction"),
-            "components": profile.get("component_styling"),
-            "direction": profile.get("direction"),
+            "trust_level": profile.get("trust_level"),
+            "information_density": profile.get("information_density"),
+            "motion_tolerance": profile.get("motion_tolerance"),
         },
     }
 
@@ -224,46 +224,34 @@ def skill_activation_evidence() -> dict[str, Any]:
 
 def direction_diversity_evidence(rows: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     selected = [row for row in rows if row.get("direction_diversity_case")]
-    profiles = [row["direction_profile"] for row in selected]
-    style_fields = ("palette_material", "typography", "composition", "hero", "components", "tone")
-    unique_counts = {
-        field: len({json.dumps(profile.get(field), sort_keys=True, ensure_ascii=False) for profile in profiles})
-        for field in (*style_fields, "motion_intensity", "visual_intensity", "page_type", "direction")
-    }
-    unique_rates = {field: round(count / max(1, len(profiles)), 3) for field, count in unique_counts.items()}
-    signatures = {
-        json.dumps({field: profile.get(field) for field in (*style_fields, "motion_intensity", "visual_intensity", "page_type")}, sort_keys=True, ensure_ascii=False)
-        for profile in profiles
-    }
-    similar_pairs = []
-    for left_index, left in enumerate(selected):
-        left_tokens = tokens(left["direction_profile"])
-        for right in selected[left_index + 1:]:
-            right_tokens = tokens(right["direction_profile"])
-            union = left_tokens | right_tokens
-            similarity = len(left_tokens & right_tokens) / len(union) if union else 1.0
-            if similarity >= 0.78:
-                similar_pairs.append({"left": left["case_id"], "right": right["case_id"], "similarity": round(similarity, 3)})
-    intensity_levels = sorted({profile.get("visual_intensity") for profile in profiles if isinstance(profile.get("visual_intensity"), int)})
-    motion_levels = sorted({str(profile.get("motion_intensity")) for profile in profiles})
+    engine = SERVER.RetrievalEngine(PLUGIN_ROOT / "knowledge")
+    generated = []
+    for row in selected:
+        result = SERVER.generate_candidate_directions(engine, {"task": row["brief"], "count": 3})
+        candidates = result.get("candidates") or []
+        generated.append({
+            "case_id": row["case_id"],
+            "candidate_count": len(candidates),
+            "axes": [item.get("name") for item in candidates],
+            "unique_compositions": len({item.get("composition") for item in candidates}),
+            "unique_identity_mechanisms": len({item.get("identity_mechanism") for item in candidates}),
+            "evidence_counts": [len(item.get("source_evidence") or []) for item in candidates],
+            "material_difference_passed": bool((result.get("material_difference_check") or {}).get("passed")),
+            "retrieval": result.get("retrieval"),
+        })
     gates = {
         "case_coverage": len(selected) >= 10,
-        "full_signature_uniqueness": len(signatures) / max(1, len(selected)) >= 0.9,
-        "style_dimension_diversity": all(unique_rates[field] >= 0.65 for field in style_fields),
-        "visual_intensity_range": set(intensity_levels) == {1, 2, 3, 4, 5},
-        "motion_range": len(motion_levels) >= 4,
-        "no_overly_similar_cross-domain_pairs": not similar_pairs,
+        "two_or_three_candidates": all(2 <= row["candidate_count"] <= 3 for row in generated),
+        "material_difference": all(row["material_difference_passed"] and row["unique_compositions"] == row["candidate_count"] and row["unique_identity_mechanisms"] == row["candidate_count"] for row in generated),
+        "source_evidence": all(all(count > 0 for count in row["evidence_counts"]) for row in generated),
+        "retrieval_diversity": all((row["retrieval"] or {}).get("topic_diversity", 0) >= 3 and (row["retrieval"] or {}).get("source_families", 0) >= 3 for row in generated),
     }
     return {
         "passed": all(gates.values()),
         "cases": len(selected),
         "gates": gates,
-        "unique_counts": unique_counts,
-        "unique_rates": unique_rates,
-        "visual_intensity_levels": intensity_levels,
-        "motion_levels": motion_levels,
-        "overly_similar_pairs": similar_pairs,
-        "profiles": [{"case_id": row["case_id"], **row["direction_profile"]} for row in selected],
+        "cases_evidence": generated,
+        "policy": "Direction diversity is measured after retrieval; the classifier is prohibited from preselecting visual recipes.",
     }
 
 
@@ -498,7 +486,7 @@ def retrieval_eval(args: argparse.Namespace) -> dict[str, Any]:
             "baseline": "No plugin guidance.",
             "static-skill": "Small offline mandatory kernel, capped at five records.",
             "lexical": "Canonical corpus with metadata and exact/keyword scoring; synonym expansion disabled.",
-            "hybrid": "Canonical corpus with creative-profile classification, stage-specific autonomous routing, metadata, exact/lexical scoring, deterministic synonym expansion, reranking, dedupe, mandatory preservation, and budgets.",
+            "hybrid": "Canonical corpus with constraints-only classification, diversified pre-lock retrieval, metadata, exact/lexical scoring, deterministic concept expansion, reranking, dedupe, reserved mandatory capacity, source-family limits, and budgets.",
             "latency_note": "Latency is observed wall time and therefore informational, while relevance scoring and selection are deterministic for a fixed corpus.",
         },
     }
@@ -514,11 +502,20 @@ RUBRIC = (
 
 
 def _valid_evidence(item: Any) -> bool:
-    return isinstance(item, Mapping) and bool(item.get("observation")) and bool(item.get("artifact") or item.get("command")) and item.get("status") in {"pass", "fail", "partial"}
+    if not isinstance(item, Mapping) or not item.get("observation") or item.get("status") not in {"pass", "fail", "partial"}:
+        return False
+    if item.get("command") and not item.get("artifact"):
+        return True
+    artifact = Path(str(item.get("artifact") or "")).resolve()
+    allowed = (EVAL_ROOT / "artifacts").resolve()
+    if not artifact.exists() or not artifact.is_file() or allowed not in artifact.parents:
+        return False
+    expected = str(item.get("sha256") or "")
+    return bool(expected) and hashlib.sha256(artifact.read_bytes()).hexdigest() == expected
 
 
 def frontend_eval(args: argparse.Namespace) -> dict[str, Any]:
-    cases = [case for case in load_cases(Path(args.cases)) if not case.get("retrieval_only")]
+    cases = load_frontend_cases(Path(args.cases))
     evidence_root = Path(args.evidence_dir)
     rows = []
     scored = 0
@@ -528,6 +525,21 @@ def frontend_eval(args: argparse.Namespace) -> dict[str, Any]:
             rows.append({"id": case["id"], "name": case["name"], "status": "not-run", "reason": "No evidence manifest. Run the frontend task and record artifacts/commands before scoring.", "rubric": {criterion: None for criterion in RUBRIC}})
             continue
         value = json.loads(path.read_text(encoding="utf-8"))
+        captures = value.get("captures") or []
+        allowed_artifacts = (EVAL_ROOT / "artifacts").resolve()
+        expected_captures = {"desktop": [1440, 1000], "mobile": [390, 844]}
+        capture_valid = len(captures) == 2
+        capture_valid = capture_valid and {item.get("label") for item in captures if isinstance(item, Mapping)} == set(expected_captures)
+        for item in captures:
+            if not isinstance(item, Mapping):
+                capture_valid = False
+                continue
+            artifact = Path(str(item.get("artifact") or "")).resolve()
+            capture_valid = capture_valid and artifact.is_file() and allowed_artifacts in artifact.parents
+            capture_valid = capture_valid and item.get("dimensions") == expected_captures.get(str(item.get("label")))
+            capture_valid = capture_valid and not item.get("console_errors")
+            if artifact.is_file():
+                capture_valid = capture_valid and hashlib.sha256(artifact.read_bytes()).hexdigest() == item.get("sha256")
         rubric = {}
         valid = True
         for criterion in RUBRIC:
@@ -540,7 +552,8 @@ def frontend_eval(args: argparse.Namespace) -> dict[str, Any]:
             else:
                 rubric[criterion] = {"score": float(score), "valid": True, "evidence": evidence}
         overall = round(statistics.fmean(item["score"] for item in rubric.values() if item["score"] is not None), 3) if any(item["score"] is not None for item in rubric.values()) else None
-        rows.append({"id": case["id"], "name": case["name"], "status": "scored" if valid else "invalid-evidence", "overall": overall, "rubric": rubric, "manifest": str(path)})
+        valid = valid and capture_valid and value.get("case_id") == case["id"]
+        rows.append({"id": case["id"], "name": case["name"], "status": "scored" if valid else "invalid-evidence", "overall": overall, "rubric": rubric, "manifest": str(path), "capture_integrity": capture_valid, "limitations": value.get("limitations") or []})
         if valid:
             scored += 1
     complete = scored == len(cases)
@@ -554,8 +567,8 @@ def frontend_eval(args: argparse.Namespace) -> dict[str, Any]:
         "unscored_cases": len(cases) - scored,
         "cases": rows,
         "rubric": list(RUBRIC),
-        "integrity_rule": "No score is accepted without a concrete artifact or executed-command observation. Missing evidence remains unscored, never inferred.",
-        "next_step": "Place one evidence manifest per case under evals/evidence/ after executing real frontend outputs.",
+        "integrity_rule": "No score is accepted without a local artifact inside evals/artifacts, a matching SHA-256, two captured viewports, and artifact-backed observations. Missing or non-local evidence remains unscored.",
+        "scope": "Deterministic representative regression surfaces; not an external-model benchmark or substitute for human visual and assistive-technology review.",
     }
 
 
@@ -576,11 +589,11 @@ def markdown(value: Mapping[str, Any]) -> str:
         ])
         diversity = value.get("direction_diversity") or {}
         lines.extend([
-            "", "## Context-adaptive direction", "",
+            "", "## Post-retrieval candidate directions", "",
             f"Direction cases: {diversity.get('cases', 0)}",
             f"Diversity gate: {'PASS' if diversity.get('passed') else 'FAIL'}",
-            f"Visual intensity levels: {', '.join(str(item) for item in diversity.get('visual_intensity_levels', []))}",
-            f"Overly similar pairs: {len(diversity.get('overly_similar_pairs', []))}",
+            "Classifier styling fields: prohibited",
+            "Candidate count: two or three per case",
         ])
         source_policy = value.get("source_policy") or {}
         lines.extend([
@@ -628,8 +641,8 @@ def retrieval_parser() -> argparse.ArgumentParser:
 
 def frontend_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Score real frontend outputs only when evidence manifests exist.")
-    parser.add_argument("--cases", type=Path, default=EVAL_ROOT / "cases.json")
-    parser.add_argument("--evidence-dir", type=Path, default=EVAL_ROOT / "evidence")
+    parser.add_argument("--cases", type=Path, default=EVAL_ROOT / "frontend-cases.json")
+    parser.add_argument("--evidence-dir", type=Path, default=EVAL_ROOT / "evidence" / "frontend-v1")
     parser.add_argument("--json-out", "--output", type=Path, default=EVAL_ROOT / "results" / "frontend.json")
     parser.add_argument("--md-out", type=Path, default=EVAL_ROOT / "results" / "frontend.md")
     return parser

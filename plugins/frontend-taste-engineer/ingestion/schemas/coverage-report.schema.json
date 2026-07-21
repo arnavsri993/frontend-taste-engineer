@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:frontend-taste-engineer:coverage-report:1",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "source_counts", "records_per_source", "records_per_category", "gaps"]
+}

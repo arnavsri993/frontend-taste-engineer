@@ -1,0 +1,238 @@
+{
+  "brief": "A launch page where the product demonstration is the focal plane.",
+  "build": {
+    "artifacts": [
+      "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/dist/index.html",
+      "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/dist/styles.css"
+    ],
+    "command": [
+      "copy",
+      "src",
+      "dist"
+    ],
+    "status": "pass"
+  },
+  "captures": [
+    {
+      "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/capture_frontend.mjs",
+        "file:///Users/arnavsrivastava/Documents/Frontend%20Codex%20Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/dist/index.html",
+        "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+        "1440",
+        "1000"
+      ],
+      "console_errors": [],
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "label": "desktop",
+      "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4"
+    },
+    {
+      "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/mobile.png",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/capture_frontend.mjs",
+        "file:///Users/arnavsrivastava/Documents/Frontend%20Codex%20Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/dist/index.html",
+        "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/mobile.png",
+        "390",
+        "844"
+      ],
+      "console_errors": [],
+      "dimensions": [
+        390,
+        844
+      ],
+      "label": "mobile",
+      "sha256": "7c16f44e631c38a77a3084156531639a5fbfed75613b63fdf2eb1aa22f2e7037"
+    }
+  ],
+  "case_id": "product-launch",
+  "evaluation_kind": "deterministic-representative-regression-surface",
+  "limitations": [
+    "This is a deterministic fixture evaluation, not an external-model benchmark.",
+    "Subjective visual quality and assistive-technology usability still require human review."
+  ],
+  "rubric": {
+    "accessibility": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/dist/index.html",
+          "observation": "Rendered HTML uses header, nav, main, labeled sections, real fragment destinations, and visible focus styling.",
+          "sha256": "f6879bda605bde591b031dd03d61cbac5e4486c8ed3807b20744c976fd27ba11",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "anti_generic_patterns": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+          "observation": "The deterministic fixture supplies inspectable visual evidence; human taste review remains required.",
+          "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4",
+          "status": "partial"
+        }
+      ],
+      "score": 3
+    },
+    "composition": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+          "observation": "Desktop screenshot was captured from the built local artifact.",
+          "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "content_quality": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+          "observation": "Desktop screenshot was captured from the built local artifact.",
+          "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "functional_integrity": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/dist/index.html",
+          "observation": "Rendered HTML uses header, nav, main, labeled sections, real fragment destinations, and visible focus styling.",
+          "sha256": "f6879bda605bde591b031dd03d61cbac5e4486c8ed3807b20744c976fd27ba11",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "information_architecture": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/dist/index.html",
+          "observation": "Rendered HTML uses header, nav, main, labeled sections, real fragment destinations, and visible focus styling.",
+          "sha256": "f6879bda605bde591b031dd03d61cbac5e4486c8ed3807b20744c976fd27ba11",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "interaction_quality": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+          "observation": "Desktop screenshot was captured from the built local artifact.",
+          "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "maintainability": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/dist/index.html",
+          "observation": "Rendered HTML uses header, nav, main, labeled sections, real fragment destinations, and visible focus styling.",
+          "sha256": "f6879bda605bde591b031dd03d61cbac5e4486c8ed3807b20744c976fd27ba11",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "originality": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+          "observation": "The deterministic fixture supplies inspectable visual evidence; human taste review remains required.",
+          "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4",
+          "status": "partial"
+        }
+      ],
+      "score": 3
+    },
+    "performance": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+          "observation": "Desktop screenshot was captured from the built local artifact.",
+          "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "product_fit": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+          "observation": "Desktop screenshot was captured from the built local artifact.",
+          "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "reference_fidelity": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+          "observation": "The deterministic fixture supplies inspectable visual evidence; human taste review remains required.",
+          "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4",
+          "status": "partial"
+        }
+      ],
+      "score": 3
+    },
+    "responsive_behavior": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/mobile.png",
+          "observation": "A separate 390 by 844 capture confirms the one-column recomposition.",
+          "sha256": "7c16f44e631c38a77a3084156531639a5fbfed75613b63fdf2eb1aa22f2e7037",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "state_completeness": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+          "observation": "Desktop screenshot was captured from the built local artifact.",
+          "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "typography": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+          "observation": "Desktop screenshot was captured from the built local artifact.",
+          "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    },
+    "visual_hierarchy": {
+      "evidence": [
+        {
+          "artifact": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/artifacts/frontend-v1/product-launch/screenshots/desktop.png",
+          "observation": "Desktop screenshot was captured from the built local artifact.",
+          "sha256": "ddd5669a1da526b388ce12838e05049e0d2eda78b736a89fcb4a84de4ce8d2c4",
+          "status": "pass"
+        }
+      ],
+      "score": 4
+    }
+  },
+  "schema_version": 1
+}

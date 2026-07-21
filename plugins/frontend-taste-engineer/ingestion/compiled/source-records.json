@@ -1,0 +1,690 @@
+{
+  "generated_at": "2026-07-21T22:48:01Z",
+  "record_count": 12,
+  "records": [
+    {
+      "accessibility": [
+        "Keep visible and programmatic names aligned."
+      ],
+      "allowed_use": "rules-and-guidance",
+      "applies_when": [
+        "Writing navigation, buttons, menus, form labels, and state messages."
+      ],
+      "browser_notes": [
+        "Prefer native control vocabulary and behavior."
+      ],
+      "confidence": "medium",
+      "copying_restriction": "Generalized terminology guidance only; do not copy source prompts or definitions.",
+      "exceptions": [
+        "Domain-specific terms may remain when users know them and consistency is important."
+      ],
+      "id": "copy.conventional-labels-before-clever-labels",
+      "implementation": [
+        "Name the element and its destination or result.",
+        "Use specific actions such as checking eligibility, viewing a report, or uploading a file when context alone is insufficient."
+      ],
+      "importance": "recommended",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "Entries distinguish pattern names by function, not only appearance.",
+        "Plain-language descriptions are mapped to conventional labels and implementation cues."
+      ],
+      "performance": [
+        "Not applicable beyond avoiding unnecessary custom control code."
+      ],
+      "principle": "Use familiar component and navigation names when they reveal behavior or destination; make the product voice distinctive in explanatory copy rather than obscuring controls.",
+      "rationale": "The reviewed dictionary demonstrates that naming similar-looking controls precisely changes the expected semantic and interaction contract.",
+      "record_type": "copy-observation",
+      "related_rules": [
+        "content.action-vocabulary-continuity",
+        "component.native-first"
+      ],
+      "responsive": [
+        "Do not truncate labels until their meaning becomes ambiguous."
+      ],
+      "source_id": "name-that-ui",
+      "source_url": "https://namethatui.com/",
+      "sources": [
+        "name-that-ui"
+      ],
+      "status": "specialized",
+      "subtopic": "interface-labels",
+      "supersedes": [],
+      "title": "Prefer conventional interface labels over clever substitutes",
+      "topic": "information-architecture-content",
+      "verification": [
+        "A first-time user can predict the result before activating the control.",
+        "The visible label and accessible name do not conflict."
+      ]
+    },
+    {
+      "accessibility": [
+        "Do not hide qualifications or limitations behind interaction or motion."
+      ],
+      "allowed_use": "inspiration-only",
+      "applies_when": [
+        "Planning a marketing or product page from sparse content."
+      ],
+      "browser_notes": [
+        "Keep the content sequence coherent without client-side enhancement."
+      ],
+      "confidence": "medium",
+      "copying_restriction": "Generalized section-selection pattern only; do not reuse source wording.",
+      "exceptions": [
+        "A mature product may legitimately require several proof and decision sections when evidence exists."
+      ],
+      "id": "copy.source-taxonomy-is-not-message-hierarchy",
+      "implementation": [
+        "Write the visitor questions, verified facts, proof, objections, and actions before selecting sections.",
+        "Delete any section whose content would be generic, duplicated, or fabricated."
+      ],
+      "importance": "recommended",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "The public sections surface groups many CTA, feature, pricing, testimonial, process, and dashboard patterns.",
+        "Some examples are copyable and others are premium, but neither status establishes factual suitability."
+      ],
+      "performance": [
+        "Avoid media-heavy sections that add no decision value."
+      ],
+      "principle": "Choose sections from the visitor's questions and the available proof; a large gallery taxonomy does not justify adding testimonials, metrics, pricing, or process blocks that the product cannot support truthfully.",
+      "rationale": "The reviewed catalog exposes many section labels and premium examples, which is useful for naming possibilities but can encourage page assembly before factual content planning.",
+      "record_type": "copy-observation",
+      "related_rules": [
+        "ia.one-primary-task",
+        "integrity.truthful-proof"
+      ],
+      "responsive": [
+        "Preserve proof, limitations, and action meaning when recomposing for mobile."
+      ],
+      "source_id": "motionsites",
+      "source_url": "https://motionsites.ai/sections",
+      "sources": [
+        "motionsites"
+      ],
+      "status": "specialized",
+      "subtopic": "message-hierarchy",
+      "supersedes": [],
+      "title": "Do not confuse section availability with message order",
+      "topic": "information-architecture-content",
+      "verification": [
+        "Every section answers a distinct visitor question or supports a real action.",
+        "All metrics, testimonials, integrations, and claims have evidence."
+      ]
+    },
+    {
+      "accessibility": [
+        "Tone must not reduce comprehension, dignity, or error clarity."
+      ],
+      "allowed_use": "rules-and-guidance",
+      "applies_when": [
+        "A brief relies on adjectives without concrete product, audience, proof, or action detail."
+      ],
+      "browser_notes": [
+        "Not applicable."
+      ],
+      "confidence": "medium",
+      "copying_restriction": "Method synthesis only; do not copy source prompt packs or distinctive wording.",
+      "exceptions": [
+        "Preserve a user's required brand words in the fact ledger even when the implementation contract needs more precision."
+      ],
+      "id": "copy.translate-style-words-into-testable-decisions",
+      "implementation": [
+        "Map each adjective to at least one visible or verbal decision and one rejection rule.",
+        "Draft two or three materially different verbal directions before choosing a voice for substantial builds."
+      ],
+      "importance": "recommended",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "The source organizes reusable workflows around triggers, steps, defaults, guardrails, and acceptance checks.",
+        "Its reference workflow treats captures and prompts as versioned inputs rather than invisible inspiration."
+      ],
+      "performance": [
+        "Not applicable."
+      ],
+      "principle": "Replace vague aesthetic or tone adjectives with observable decisions about message order, density, typography role, color purpose, interaction, and acceptance checks before generating page copy.",
+      "rationale": "The reviewed workflow source consistently turns reusable intent into explicit procedures; that method prevents generic words such as premium, modern, or powerful from masquerading as a content strategy.",
+      "record_type": "copy-observation",
+      "related_rules": [
+        "product.outcome-first-brief",
+        "content.front-load-meaning"
+      ],
+      "responsive": [
+        "Keep the same message and qualifications when copy is recomposed for narrow layouts."
+      ],
+      "source_id": "mengto-skills",
+      "source_url": "https://github.com/MengTo/Skills",
+      "sources": [
+        "mengto-skills"
+      ],
+      "status": "specialized",
+      "subtopic": "creative-brief-language",
+      "supersedes": [],
+      "title": "Translate style adjectives into testable decisions",
+      "topic": "information-architecture-content",
+      "verification": [
+        "A reviewer can test whether the selected voice and hierarchy satisfy the brief without relying on taste adjectives.",
+        "Final headlines and CTAs are specific to this product and action."
+      ]
+    },
+    {
+      "accessibility": [
+        "Never encode meaning in visual distortion, color change, or motion alone."
+      ],
+      "allowed_use": "implementation-reference",
+      "applies_when": [
+        "A display word or short status can carry a deliberate visual beat without delaying comprehension."
+      ],
+      "browser_notes": [
+        "Provide a plain-text fallback when an effect depends on unsupported CSS."
+      ],
+      "confidence": "medium",
+      "exceptions": [
+        "Do not animate long text, instructions, errors, prices, deadlines, or frequently reread labels."
+      ],
+      "id": "source.colorion-text-effects-preserve-reading",
+      "implementation": [
+        "Keep the real text node as the accessible source of truth.",
+        "Use decorative pseudo-elements without duplicating accessible text.",
+        "Remove looping animation once it has conveyed its purpose."
+      ],
+      "importance": "contextual",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "The reviewed surface groups 66 self-contained CSS effects.",
+        "The source states that its effects use color tokens and respect reduced motion."
+      ],
+      "performance": [
+        "Prefer transform and opacity where appropriate; measure paint-heavy filters and gradients."
+      ],
+      "principle": "Use animated text as one bounded identity or feedback moment only when the unchanged text remains readable, selectable, semantic, and immediately available in reduced motion.",
+      "rationale": "A broad pure-CSS effect inventory shows many possible treatments, but effect variety is not a reason to animate repeated reading content.",
+      "record_type": "interaction-observation",
+      "related_rules": [
+        "motion.reduced-motion-equivalence",
+        "type.hierarchy-by-role"
+      ],
+      "responsive": [
+        "Check line wrapping before adding per-letter wrappers or absolute layers."
+      ],
+      "source_id": "text-effects-colorion",
+      "source_url": "https://text-effects.colorion.co/",
+      "sources": [
+        "text-effects-colorion"
+      ],
+      "status": "specialized",
+      "subtopic": "animated-display-text",
+      "supersedes": [],
+      "title": "Keep animated typography subordinate to reading",
+      "topic": "typography",
+      "verification": [
+        "The content is understandable with CSS disabled and with prefers-reduced-motion enabled.",
+        "Text selection, zoom, forced colors, and translation expansion remain usable."
+      ]
+    },
+    {
+      "accessibility": [
+        "Provide equivalent discrete controls and a reduced-motion state change."
+      ],
+      "allowed_use": "implementation-reference",
+      "applies_when": [
+        "State transitions or direct manipulation benefit from continuity across rapid input."
+      ],
+      "browser_notes": [
+        "Use pointer events and feature fallbacks consistent with the supported browser baseline."
+      ],
+      "confidence": "medium",
+      "exceptions": [
+        "Frequent tasks may need immediate or low-amplitude feedback instead of overshoot.",
+        "Decorative loops do not become purposeful because they use spring terminology."
+      ],
+      "id": "source.kinetics-interruption-contract",
+      "implementation": [
+        "Model visual state from the latest valid application state.",
+        "Define pointer capture, cancellation, bounds, and keyboard alternatives for gestures.",
+        "Tune constants on representative hardware and content."
+      ],
+      "importance": "recommended",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "The source contrasts fixed-duration easing with motion that continues from current state.",
+        "Its catalog includes direct manipulation, feedback, layout, and decorative examples with varied implementation completeness."
+      ],
+      "performance": [
+        "Measure layout and paint cost; a CSS snippet is not proof of no layout work."
+      ],
+      "principle": "Choose spring-like motion only after defining state ownership, interruption, reversal, cancellation, and final semantic agreement; a spring curve alone does not make an interaction continuous.",
+      "rationale": "The reviewed library correctly emphasizes current velocity and interruption, but some public snippets simplify semantics, content measurement, or pointer behavior and therefore remain hypotheses rather than production components.",
+      "record_type": "interaction-observation",
+      "related_rules": [
+        "motion.interruption-safe",
+        "motion.direct-manipulation-continuity"
+      ],
+      "responsive": [
+        "Retest gesture bounds after resize, rotation, and dynamic content changes."
+      ],
+      "source_id": "kinetics-colorion",
+      "source_url": "https://kinetics.colorion.co/",
+      "sources": [
+        "kinetics-colorion"
+      ],
+      "status": "specialized",
+      "subtopic": "interruption-contract",
+      "supersedes": [],
+      "title": "Treat interruption as part of the motion contract",
+      "topic": "motion",
+      "verification": [
+        "Interrupt and reverse the interaction during every phase.",
+        "Confirm DOM state, focus, accessible value, and rendered position agree after cancellation and rapid repeat input."
+      ]
+    },
+    {
+      "accessibility": [
+        "Reference appearance never overrides semantic, focus, reflow, or reduced-motion requirements."
+      ],
+      "allowed_use": "rules-and-guidance",
+      "applies_when": [
+        "A visual reference, screen recording, or existing page materially informs a new direction."
+      ],
+      "browser_notes": [
+        "Validate recreated behavior in the project's browser baseline."
+      ],
+      "confidence": "medium",
+      "exceptions": [
+        "Skip reference capture when the task is a tiny local fix with no art-direction decision."
+      ],
+      "id": "source.mengto-reference-capture-before-remix",
+      "implementation": [
+        "Record observed facts separately from inferred behavior.",
+        "Generate materially different candidates from the same product constraints.",
+        "Keep a ledger of applied and rejected reference evidence."
+      ],
+      "importance": "recommended",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "The repository separates capture workflows, implementation skills, references, and runnable demos.",
+        "Its published workflow emphasizes clear constraints, hierarchy, and bounded iteration."
+      ],
+      "performance": [
+        "Reject reference effects that exceed the project's measured budget."
+      ],
+      "principle": "Capture reference structure, hierarchy, motion, and implementation constraints as separate observations, then produce variants from the product brief instead of rerolling or copying the reference expression.",
+      "rationale": "The reviewed workflow repository treats prompts, captures, and skills as versioned assets; the transferable value is the explicit decomposition and iteration contract, not the supplied demos or presets.",
+      "record_type": "visual-observation",
+      "related_rules": [
+        "direction.reference-decomposition",
+        "direction.choose-intentional-axis"
+      ],
+      "responsive": [
+        "Infer responsive behavior explicitly and verify it in rendered output."
+      ],
+      "source_id": "mengto-skills",
+      "source_url": "https://github.com/MengTo/Skills",
+      "sources": [
+        "mengto-skills"
+      ],
+      "status": "specialized",
+      "subtopic": "reference-capture",
+      "supersedes": [],
+      "title": "Decompose references into decisions before remixing",
+      "topic": "visual-direction",
+      "verification": [
+        "The selected direction can explain each borrowed principle without reproducing source expression.",
+        "Candidates differ in composition and system, not only color."
+      ]
+    },
+    {
+      "accessibility": [
+        "Keep ordinary reading content available without animation and define an equivalent reduced-motion outcome."
+      ],
+      "allowed_use": "inspiration-only",
+      "applies_when": [
+        "An occasional-use marketing, portfolio, or launch page has a verified reason for an expressive first viewport."
+      ],
+      "browser_notes": [
+        "Treat advanced background and scroll effects as progressive enhancement."
+      ],
+      "confidence": "medium",
+      "exceptions": [
+        "Dense operational interfaces and high-frequency tasks should not inherit gallery-style focal motion.",
+        "Unknown or paid prompt terms block prompt, screenshot, and expression copying."
+      ],
+      "id": "source.motionsites-single-focal-plane",
+      "implementation": [
+        "Choose the primary reading action before selecting a visual reference.",
+        "Assign one focal motion role and reduce amplitude, contrast, and repetition elsewhere.",
+        "Rewrite any referenced pattern into the project's type, color, content, and interaction system."
+      ],
+      "importance": "contextual",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "The public catalog groups complete pages, sections, components, and animated backgrounds separately.",
+        "Premium and copyable examples coexist, so availability is not evidence of product fit or reuse permission."
+      ],
+      "performance": [
+        "Budget animated media against LCP, memory, battery, and input responsiveness."
+      ],
+      "principle": "When an expressive marketing page needs motion, let one dominant visual plane establish identity while secondary sections remain quieter and task-led.",
+      "rationale": "The reviewed gallery separates hero, section, component, and background patterns; that taxonomy is useful only when the product hierarchy chooses which layer deserves attention.",
+      "record_type": "visual-observation",
+      "related_rules": [
+        "motion.frequency-purpose-gate",
+        "direction.content-before-chrome"
+      ],
+      "responsive": [
+        "Recompose the focal plane for narrow and short viewports instead of shrinking a desktop spectacle."
+      ],
+      "source_id": "motionsites",
+      "source_url": "https://motionsites.ai/",
+      "sources": [
+        "motionsites"
+      ],
+      "status": "specialized",
+      "subtopic": "focal-hierarchy",
+      "supersedes": [],
+      "title": "Give expressive openings one dominant visual plane",
+      "topic": "visual-direction",
+      "verification": [
+        "The first viewport still has one clear headline, support sentence, and action with motion disabled.",
+        "No copied prompt, screenshot, metric, testimonial, or branded expression appears in the implementation."
+      ]
+    },
+    {
+      "accessibility": [
+        "Treat dictionary cues as discovery leads, not normative ARIA guidance."
+      ],
+      "allowed_use": "rules-and-guidance",
+      "applies_when": [
+        "A request describes an element by appearance or behavior but does not name the interaction pattern."
+      ],
+      "browser_notes": [
+        "Confirm platform API names against current primary documentation."
+      ],
+      "confidence": "medium",
+      "exceptions": [
+        "Do not force an existing custom interaction into an ill-fitting conventional label."
+      ],
+      "id": "source.namethatui-terminology-before-novelty",
+      "implementation": [
+        "Record the likely conventional name and native semantic base.",
+        "Check keyboard, focus, state, and naming requirements in primary documentation before coding."
+      ],
+      "importance": "recommended",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "The reviewed dictionary maps plain-language descriptions to conventional names and representative API or semantic cues.",
+        "Entries distinguish visually similar elements such as headers and navigation, dividers and separators, or progress and indeterminate waiting."
+      ],
+      "performance": [
+        "Prefer the simplest native or maintained implementation that fulfills the contract."
+      ],
+      "principle": "Translate a visual description into the conventional component and platform term before implementation so semantics, native options, expected states, and maintained primitives can be evaluated precisely.",
+      "rationale": "A visual dictionary is useful for moving from vague appearance language to search terms, but terminology must still be checked against authoritative platform and accessibility guidance.",
+      "record_type": "implementation-observation",
+      "related_rules": [
+        "component.native-first",
+        "component.state-completeness"
+      ],
+      "responsive": [
+        "Verify the named pattern's responsive transformation and touch behavior."
+      ],
+      "source_id": "name-that-ui",
+      "source_url": "https://namethatui.com/",
+      "sources": [
+        "name-that-ui"
+      ],
+      "status": "specialized",
+      "subtopic": "component-terminology",
+      "supersedes": [],
+      "title": "Name the conventional interaction before inventing it",
+      "topic": "components-states-forms",
+      "verification": [
+        "The implemented element matches the named interaction contract, not merely its appearance.",
+        "User-facing labels remain familiar and descriptive."
+      ]
+    },
+    {
+      "accessibility": [
+        "Document terminal and assistive-technology limits honestly; do not infer screen-reader support from component names."
+      ],
+      "allowed_use": "implementation-reference",
+      "applies_when": [
+        "The requested product actually runs in a terminal environment."
+      ],
+      "browser_notes": [
+        "Not applicable to web delivery; keep platform guidance separate."
+      ],
+      "confidence": "high",
+      "exceptions": [
+        "A developer-tool website should not inherit terminal visuals unless the product narrative and interaction require them."
+      ],
+      "id": "source.opentui-terminal-is-a-platform",
+      "implementation": [
+        "Choose terminal-native components and define focus and key bindings before color styling.",
+        "Plan resize, narrow columns, scrolling, selection, and fallback color behavior."
+      ],
+      "importance": "recommended",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "The official homepage lists Text, Box, Input, Select, ScrollBox, Code, Diff, focus management, and timeline animation.",
+        "The project provides TypeScript bindings over a native core."
+      ],
+      "performance": [
+        "Measure native binding startup and rendering for the target workload."
+      ],
+      "principle": "Treat a terminal UI as its own keyboard-first platform with explicit focus, layout, scrolling, color, resize, and text-rendering contracts rather than styling a web page to resemble a terminal.",
+      "rationale": "The official surface exposes terminal-native components, focus handling, flexible layout, syntax rendering, and framework bindings as actual capabilities, not decorative chrome.",
+      "record_type": "implementation-observation",
+      "related_rules": [
+        "component.focus-contract",
+        "anti.generic-developer-shell"
+      ],
+      "responsive": [
+        "Treat terminal resize and narrow columns as first-class reflow conditions."
+      ],
+      "source_id": "opentui",
+      "source_url": "https://opentui.com/",
+      "sources": [
+        "opentui"
+      ],
+      "status": "specialized",
+      "subtopic": "terminal-ui",
+      "supersedes": [],
+      "title": "Design terminal interfaces for terminal constraints",
+      "topic": "frameworks-code-architecture",
+      "verification": [
+        "Run the TUI in supported terminals and dimensions.",
+        "Verify keyboard completion, focus visibility, copy/select behavior, and readable output without full color support."
+      ]
+    },
+    {
+      "accessibility": [
+        "A catalog demo is not accessibility evidence."
+      ],
+      "allowed_use": "adaptation-with-license-review",
+      "applies_when": [
+        "A project lacks a component for a specific, already-defined interaction need."
+      ],
+      "browser_notes": [
+        "Confirm APIs and fallbacks against maintained primary documentation."
+      ],
+      "confidence": "medium",
+      "exceptions": [
+        "Prefer a native element or an existing project primitive when it already satisfies the behavior."
+      ],
+      "id": "source.originkit-discovery-before-adaptation",
+      "implementation": [
+        "Write the component contract and state matrix before catalog search.",
+        "Inspect the exact item and license before adapting code.",
+        "Retest the result inside realistic project content rather than trusting the demo."
+      ],
+      "importance": "recommended",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "The public surface advertises React, Framer, copy, and MCP access.",
+        "The visible responsive skeleton changes column count across viewport bands."
+      ],
+      "performance": [
+        "Account for animation and framework dependencies before adoption."
+      ],
+      "principle": "Use an animated component catalog to name and compare candidate behaviors, then select or adapt only after item-level license, semantic, state, responsive, dependency, and motion review.",
+      "rationale": "A large copy-oriented catalog improves findability, but the catalog surface does not prove that any specific component fits the product or meets production requirements.",
+      "record_type": "implementation-observation",
+      "related_rules": [
+        "component.native-first",
+        "component.state-completeness"
+      ],
+      "responsive": [
+        "Test the integrated component between named breakpoints and with long content."
+      ],
+      "source_id": "originkit",
+      "source_url": "https://www.originkit.dev/",
+      "sources": [
+        "originkit"
+      ],
+      "status": "specialized",
+      "subtopic": "catalog-selection",
+      "supersedes": [],
+      "title": "Use component catalogs for discovery before adaptation",
+      "topic": "components-states-forms",
+      "verification": [
+        "Keyboard, names, focus, errors, touch, reduced motion, and narrow-content behavior are observed in the integrated component.",
+        "No dependency or code is installed solely because an MCP or catalog result suggested it."
+      ]
+    },
+    {
+      "accessibility": [
+        "Decorative transformations must not obscure text or remove required alternatives."
+      ],
+      "allowed_use": "inspiration-only",
+      "applies_when": [
+        "A visual system needs a specific asset transformation or palette exploration."
+      ],
+      "browser_notes": [
+        "Provide fallbacks for unsupported image or color features."
+      ],
+      "confidence": "medium",
+      "exceptions": [
+        "Do not use generated logos or third-party imagery without trademark and source-rights review."
+      ],
+      "id": "source.shapefactory-assets-need-rights",
+      "implementation": [
+        "Write the asset's product purpose and required rights before generation.",
+        "Keep source, license, attribution, and transformation evidence with the asset."
+      ],
+      "importance": "recommended",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "The reviewed surface separates logo, pigment, gradient, and duotone tools.",
+        "The terms identify a commercial operator but do not provide a blanket license for every generated asset."
+      ],
+      "performance": [
+        "Optimize delivered formats and dimensions."
+      ],
+      "principle": "Use visual tooling to explore color, gradient, duotone, or logo directions only after defining the product role, then verify the exact asset and tool terms before public or commercial use.",
+      "rationale": "A collection of creative tools can improve the exploration vocabulary without granting blanket rights to generated marks, source imagery, or branded output.",
+      "record_type": "visual-observation",
+      "related_rules": [
+        "images.reserve-space",
+        "integrity.truthful-proof"
+      ],
+      "responsive": [
+        "Generate or export appropriate aspect ratios and sizes rather than cropping blindly."
+      ],
+      "source_id": "shapefactory",
+      "source_url": "https://shapefactory.co/",
+      "sources": [
+        "shapefactory"
+      ],
+      "status": "specialized",
+      "subtopic": "generated-assets",
+      "supersedes": [],
+      "title": "Separate visual-tool inspiration from asset rights",
+      "topic": "images-icons",
+      "verification": [
+        "The final asset has recorded rights and attribution status.",
+        "Contrast, crop, responsive sizing, and non-visual alternatives are verified."
+      ]
+    },
+    {
+      "accessibility": [
+        "Provide non-pointer controls and equivalent descriptive information."
+      ],
+      "allowed_use": "inspiration-only",
+      "applies_when": [
+        "A product's spatial or material properties are central to the user's decision."
+      ],
+      "browser_notes": [
+        "Feature-detect WebGL capabilities and preserve a static fallback."
+      ],
+      "confidence": "low",
+      "exceptions": [
+        "Prefer static images, diagrams, or video when 3D adds cost without new understanding."
+      ],
+      "id": "source.valessa-3d-progressive-enhancement",
+      "implementation": [
+        "Define a static poster and text description before WebGL integration.",
+        "Expose discrete camera, material, and animation controls when direct manipulation is not accessible."
+      ],
+      "importance": "contextual",
+      "introduced_in": "0.4.0",
+      "last_reviewed": "2026-07-21",
+      "license_status": "synthesized-original-with-source-attribution",
+      "observations": [
+        "The public description frames 3D as a configurable product-visualization workflow rather than generic decoration.",
+        "The server-rendered shell uses a full-screen loading treatment before the interactive application."
+      ],
+      "performance": [
+        "Budget model size, texture memory, shaders, and render loop cost."
+      ],
+      "principle": "Use interactive 3D product presentation only when it explains material, shape, configuration, or motion better than static media, with a complete static and non-pointer fallback.",
+      "rationale": "The reviewed product surface centers model upload, materials, lighting, animation, and export, but its public shell does not prove accessibility, device support, performance, or output integrity.",
+      "record_type": "visual-observation",
+      "related_rules": [
+        "architecture.progressive-enhancement",
+        "motion.reduced-motion-equivalence"
+      ],
+      "responsive": [
+        "Reframe controls and model bounds for narrow, touch, and short viewports."
+      ],
+      "source_id": "valessa-riotters",
+      "source_url": "https://valessa.riotters.com/",
+      "sources": [
+        "valessa-riotters"
+      ],
+      "status": "specialized",
+      "subtopic": "product-visualization",
+      "supersedes": [],
+      "title": "Make 3D product presentation a progressive layer",
+      "topic": "images-icons",
+      "verification": [
+        "Test loading, failure, low-power, keyboard, reduced-motion, and no-WebGL paths.",
+        "Measure memory, frame pacing, interaction latency, and export accuracy on target devices."
+      ]
+    }
+  ],
+  "registry_fingerprint": "0f717940fabc22276d6c339709b1fbd00e1757d640b9664a8f6453c33ad8f2fd",
+  "schema_version": 1
+}

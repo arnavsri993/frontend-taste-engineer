@@ -1,0 +1,544 @@
+{
+  "generated_at": "2026-07-21T23:06:10Z",
+  "schema_version": 1,
+  "sources": [
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "5914ede5ce5ca0cade0573f39b6ee69050f9806b",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "amicro-micro-transitions"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "fa0fa64bdc967915dc8399e803be67759e1e62b8",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "anthropic-agent-skills"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "hig@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "apple-hig"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "astro-v7-docs@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "astro-docs"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "atlassian-design@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "atlassian-design-system"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "664b3e7",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "awesome-design-md"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "v11.108.0",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "carbon-design-system"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "6bf24434f7730ad169077756cf9c7cd7bd675fc6",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "emil-design-skills"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "fluent2@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "fluent-2"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "search-central@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "google-search-docs"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "govuk-frontend-v6.3.0",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "govuk-design-system"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "main@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "hive-mind-landing-page"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "2d21245d3c51b1d8eb03078c9e773293307f05a4",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "kill-ai-slop"
+    },
+    {
+      "applied_count": 0,
+      "categories": [
+        "motion"
+      ],
+      "last_applied_at": "",
+      "last_ingested_revision": "117-patterns@2026-07-21",
+      "last_retrieved_at": "2026-07-21T23:06:10Z",
+      "records_generated": 1,
+      "rejected_count": 0,
+      "retrieval_count": 2,
+      "source_id": "kinetics-colorion"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "slds@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "lightning-design-system"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "m3-and-material-web@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "material-3"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "live-page@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "mdn-web-docs"
+    },
+    {
+      "applied_count": 0,
+      "categories": [
+        "information-architecture-content",
+        "visual-direction"
+      ],
+      "last_applied_at": "",
+      "last_ingested_revision": "bdf0e83c5d12c84229b4f9c6524900aca65e44b8",
+      "last_retrieved_at": "2026-07-21T23:06:10Z",
+      "records_generated": 2,
+      "rejected_count": 0,
+      "retrieval_count": 1,
+      "source_id": "mengto-skills"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "unresolved@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "monokern-x-post"
+    },
+    {
+      "applied_count": 0,
+      "categories": [
+        "information-architecture-content",
+        "visual-direction"
+      ],
+      "last_applied_at": "",
+      "last_ingested_revision": "live-surface@2026-07-21",
+      "last_retrieved_at": "2026-07-21T23:06:10Z",
+      "records_generated": 2,
+      "rejected_count": 0,
+      "retrieval_count": 2,
+      "source_id": "motionsites"
+    },
+    {
+      "applied_count": 0,
+      "categories": [
+        "components-states-forms",
+        "information-architecture-content"
+      ],
+      "last_applied_at": "",
+      "last_ingested_revision": "71-entries@2026-07-21",
+      "last_retrieved_at": "2026-07-21T23:06:10Z",
+      "records_generated": 2,
+      "rejected_count": 0,
+      "retrieval_count": 3,
+      "source_id": "name-that-ui"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "nextjs-docs@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "nextjs-docs"
+    },
+    {
+      "applied_count": 0,
+      "categories": [
+        "frameworks-code-architecture"
+      ],
+      "last_applied_at": "",
+      "last_ingested_revision": "34e78b2fbf18fd969efdf5f3e2589d17d1f536f1",
+      "last_retrieved_at": "2026-07-21T23:06:10Z",
+      "records_generated": 1,
+      "rejected_count": 0,
+      "retrieval_count": 3,
+      "source_id": "opentui"
+    },
+    {
+      "applied_count": 0,
+      "categories": [
+        "components-states-forms"
+      ],
+      "last_applied_at": "",
+      "last_ingested_revision": "vercel-etag-12gh4x8iost3xy8@2026-07-21",
+      "last_retrieved_at": "2026-07-21T23:06:10Z",
+      "records_generated": 1,
+      "rejected_count": 0,
+      "retrieval_count": 3,
+      "source_id": "originkit"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "owasp-cheatsheets@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "owasp-cheat-sheets"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "playwright-docs@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "playwright-docs"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "polaris-web-components@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "polaris"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "primer@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "primer-design-system"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "radix-primitives@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "radix-primitives"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "react-aria@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "react-aria"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "react-docs@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "react-docs"
+    },
+    {
+      "applied_count": 0,
+      "categories": [
+        "images-icons"
+      ],
+      "last_applied_at": "",
+      "last_ingested_revision": "live-surface@2026-07-21",
+      "last_retrieved_at": "2026-07-21T23:06:10Z",
+      "records_generated": 1,
+      "rejected_count": 0,
+      "retrieval_count": 1,
+      "source_id": "shapefactory"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "spectrum@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "spectrum-design-system"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "svelte-docs@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "svelte-docs"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "b177427",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "taste-skill-repo"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "live-page@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "taste-skill-site"
+    },
+    {
+      "applied_count": 0,
+      "categories": [
+        "typography"
+      ],
+      "last_applied_at": "",
+      "last_ingested_revision": "66-effects@2026-07-21",
+      "last_retrieved_at": "2026-07-21T23:06:10Z",
+      "records_generated": 1,
+      "rejected_count": 0,
+      "retrieval_count": 2,
+      "source_id": "text-effects-colorion"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "main@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "transitions-dev-repo"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "live-page@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "transitions-refine-page"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "uswds@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "uswds"
+    },
+    {
+      "applied_count": 0,
+      "categories": [
+        "images-icons"
+      ],
+      "last_applied_at": "",
+      "last_ingested_revision": "vercel-live-surface@2026-07-21",
+      "last_retrieved_at": "",
+      "records_generated": 1,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "valessa-riotters"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "vue3-docs@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "vue-docs"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "w3c-i18n@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "w3c-i18n"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "live-page@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "wai-aria-apg"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "REC-WCAG22-20241212",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "wcag-22"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "live-page@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "webdev"
+    },
+    {
+      "applied_count": 0,
+      "categories": [],
+      "last_applied_at": "",
+      "last_ingested_revision": "living-standard@2026-07-10",
+      "last_retrieved_at": "",
+      "records_generated": 0,
+      "rejected_count": 0,
+      "retrieval_count": 0,
+      "source_id": "whatwg-html"
+    }
+  ]
+}

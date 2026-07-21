@@ -4,18 +4,19 @@ Use this for every client frontend. “Good” is failure. The page must feel au
 
 ## Non-negotiable sequence
 
-Do these in order. Catalogs and templates come **after** the system is locked.
+Do these in order. Compact, diversified source retrieval comes before direction lock; copying or installing any component/template still requires the license and implementation gate.
 
-1. Inspect project / invent honest product facts from the brief (no fake proof).
+1. Inspect the project and inventory supplied facts, unknowns, and prohibited claims (no fake proof).
 2. `classify_frontend_task` with the exact prompt.
-3. Lock the **visual system** in `DESIGN.md` (section below) before any component library, template, or animated catalog pull.
-4. Write finished copy (text-only outline → page copy).
-5. Implement structure, states, and responsive behavior with that system.
-6. Only then pull motion/elements/templates with thesis-derived queries.
-7. Run the mandatory screenshot refine loop twice if the first pass still looks generic.
-8. Production build + completion report with the anti-generic proof line.
+3. Ask one bounded clarification batch if needed, or record reversible judgment defaults.
+4. Retrieve core UX, source-derived design, copy, responsive, accessibility, integrity, and verification evidence.
+5. Generate and compare two or three materially different candidate directions.
+6. Select one direction and lock the **visual system** in `DESIGN.md`; lock facts, hierarchy, actions, and responsive copy in `CONTENT.md`.
+7. Implement structure, states, and responsive behavior with that system. Copy/install external code only after the source-use gate.
+8. Run the mandatory screenshot refine loop twice if the first pass still looks generic.
+9. Production build + completion report with the anti-generic proof line.
 
-If you skip step 3 and start from Magic UI / Aceternity / ThemeWagon / a SaaS starter, restart.
+If you skip retrieval/candidate comparison and start from Magic UI / Aceternity / ThemeWagon / a SaaS starter, restart.
 
 ## Visual system lock (required fields)
 
@@ -88,8 +89,8 @@ Run a dedicated copy pass after first layout: read the page as text only and cut
 ## Catalog / template discipline
 
 - Query from the thesis, e.g. `editorial serif kinetic robotics sparse portfolio`, never bare `animated components`.
-- Pull catalogs only after the system lock.
-- Steal structure and interaction ideas; rewrite visuals in your locked type/color/material.
+- Retrieve reviewed observations before the system lock; record source IDs and allowed-use restrictions.
+- Copy or install components/templates only after direction selection and the source gate. Adapt permitted ideas into the selected type/color/material.
 - One motion library max. Three motion roles max.
 - Templates are IA references, not final skins.
 

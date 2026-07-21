@@ -1,6 +1,8 @@
-# Frontend Taste Engineer showcase
+# Leonida Heat Ledger
 
-This is a full, dependency-free localhost and a standalone static deployment.
+Leonida Heat Ledger is a dependency-free, unofficial GTA VI release briefing concept. It uses original AI-generated Gulf-coast editorial photography, verified release information linked to Rockstar Games, a keyboard-operable daylight/midnight view, clipboard recovery, local preference persistence, and responsive/reduced-motion fallbacks.
+
+It is not affiliated with Rockstar Games or Take-Two Interactive. No official logos, screenshots, trailer frames, character likenesses, maps, audio, or key art are included.
 
 ## Run locally
 
@@ -9,27 +11,22 @@ cd plugins/frontend-taste-engineer/review-app
 npm run dev
 ```
 
-Open `http://127.0.0.1:8765/`. The command rebuilds the standalone site before serving it. Python 3 is the only runtime requirement; `python3 serve.py` is equivalent.
+Open `http://127.0.0.1:8765/`.
 
-## Build and deploy
+## Build and preview
 
 ```bash
 npm run build
+npm run preview
 ```
 
-The deployable output is written to `review-app/dist/`. It includes the interface, favicon, and a read-only snapshot of the relevant knowledge and evaluation artifacts, so it does not depend on repository-relative paths in production.
+The deployable output is written to `review-app/dist/`. The Python builder includes the page shell, stylesheet, script, favicon, original JPEG assets, static-host redirect, security headers, and a `404.html` fallback. There are no frontend dependencies, remote fonts, trackers, or external runtime image requests.
 
-- Netlify: import the repository; the root `netlify.toml` supplies the build command, publish directory, and security headers.
-- Any static host: use `python3 plugins/frontend-taste-engineer/review-app/build.py` as the build command and `plugins/frontend-taste-engineer/review-app/dist` as the output directory.
-- Local production preview: run `npm run preview` after a build.
+## Product boundaries
 
-The compact technical showcase includes:
+- Rockstar's official page is the source for the visible November 19, 2026 date, PlayStation 5 and Xbox Series X|S platforms, and the Jason/Lucia premise.
+- The daylight/midnight preference is the only value saved locally. No data leaves the browser.
+- The copy control uses the Clipboard API when available and exposes a selectable address when it is not.
+- The page remains readable and navigable without JavaScript; the visual switch and copy helper are hidden progressive enhancements.
 
-- a direct link to the verified GitHub repository;
-- an interactive, explicitly conceptual specimen showing how art direction changes with product context;
-- the plugin's documented operating loop and install commands;
-- the existing local knowledge search and evaluation summary.
-
-The interface has no external frontend dependencies, fonts, analytics, or backend. Artifact loading can fail without blocking the primary content or GitHub action, and the page never modifies stable knowledge. Deployments contain a build-time evidence snapshot; rebuild the site when the canonical plugin artifacts change.
-
-See `DESIGN.md` for the product brief, design thesis, accessibility target, and rendered refinement record.
+See `DESIGN.md` for the classification, system lock, content outline, motion grammar, accessibility target, and verification plan.

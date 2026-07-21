@@ -1,3 +1,4 @@
+approval_policy = "never"
 [agents]
 max_threads = 4
 max_depth = 1

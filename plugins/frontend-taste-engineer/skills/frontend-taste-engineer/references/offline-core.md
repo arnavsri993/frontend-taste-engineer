@@ -38,6 +38,7 @@ Load this file when the MCP server is unavailable or the work carries accessibil
 ## Visual-quality baseline
 
 - Write a design thesis before substantial styling.
+- Derive high-value visual signals from the subject's real materials, tools, language, environment, and evidence; do not assign an unrelated fashionable skin.
 - Use hierarchy, rhythm, composition, type, color, imagery, and motion to express product character.
 - Treat minimalism as selective reduction, not blank scale: every major gap needs a hierarchy, grouping, pacing, focus, evidence, or boundary job.
 - For a non-static direction, use a small motion grammar across focal, state, and feedback moments. Gate candidates by purpose, frequency, and task cost; keep a short rejection list; preserve reduced-motion outcomes; and never hide ordinary reading content behind generic reveals.
@@ -52,4 +53,5 @@ Load this file when the MCP server is unavailable or the work carries accessibil
 - Inspect and preserve useful architecture.
 - Prefer composition over monolithic components and derived state over synchronized copies.
 - Avoid new dependencies and abstractions without repeated need.
+- For dynamic browser work, wait on an explicit user-visible ready state, inspect rendered roles, labels, DOM, screenshot, and console before acting, prefer role/label locators, and assert the resulting state; do not use `networkidle` or fixed sleeps as universal readiness.
 - Verify build, types, tests, console, URLs, assets, and failure paths proportionately.

@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-07-21T22:48:01Z",
+  "promotion_behavior": "candidate-only; human-reviewed promotion required",
+  "registry_fingerprint": "0f717940fabc22276d6c339709b1fbd00e1757d640b9664a8f6453c33ad8f2fd",
+  "results": [
+    {
+      "accessible_revision": "Public homepage, sections catalog, templates catalog, and pricing/access page observed 2026-07-21; paid prompt bodies were not copied",
+      "event": "review-current-ingestion-state",
+      "evidence_consulted": [
+        "homepage",
+        "/sections",
+        "/templates",
+        "/unlimited"
+      ],
+      "next_action": "review candidate evidence; do not promote automatically",
+      "source_id": "motionsites",
+      "status": "partially-ingested"
+    },
+    {
+      "accessible_revision": "Public metadata, structured data, responsive skeleton layout, and component-library claims observed 2026-07-21; component implementations were not copied",
+      "event": "review-current-ingestion-state",
+      "evidence_consulted": [
+        "homepage metadata",
+        "structured data",
+        "server-rendered responsive skeleton"
+      ],
+      "next_action": "review candidate evidence; do not promote automatically",
+      "source_id": "originkit",
+      "status": "partially-ingested"
+    },
+    {
+      "accessible_revision": "Homepage tool index and terms surface observed 2026-07-21",
+      "event": "review-current-ingestion-state",
+      "evidence_consulted": [
+        "homepage",
+        "terms and privacy"
+      ],
+      "next_action": "review candidate evidence; do not promote automatically",
+      "source_id": "shapefactory",
+      "status": "partially-ingested"
+    },
+    {
+      "accessible_revision": "Public metadata, application shell, loading treatment, and product description observed 2026-07-21",
+      "event": "review-current-ingestion-state",
+      "evidence_consulted": [
+        "homepage metadata",
+        "server-rendered application shell",
+        "Open Graph description"
+      ],
+      "next_action": "review candidate evidence; do not promote automatically",
+      "source_id": "valessa-riotters",
+      "status": "partially-ingested"
+    }
+  ],
+  "schema_version": 1,
+  "selected_sources": [
+    "motionsites",
+    "originkit",
+    "shapefactory",
+    "valessa-riotters"
+  ]
+}

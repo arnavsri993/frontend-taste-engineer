@@ -1,0 +1,882 @@
+{
+  "schema_version": 1,
+  "dataset": "grubby-ai-humanized-pairs.txt",
+  "pair_count": 21,
+  "preservation": "AI and humanized texts remain exact in the source file; annotations do not rewrite raw output.",
+  "ground_truth_policy": "The humanized side is not a gold label.",
+  "annotation_counts": {
+    "ai-stronger": 21,
+    "humanized-stronger": 0,
+    "mixed": 0,
+    "both-require-revision": 0
+  },
+  "annotations": [
+    {
+      "pair_number": 1,
+      "pair_id": "academic-urban-shade-equity",
+      "title": "Tree Canopy, Heat Exposure, and Unequal Access to Shade",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [
+          "6"
+        ],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite implies 240 sensors in each tract rather than 240 across the study and weakens the private-garden and route-dependence distinctions."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [
+        "6"
+      ],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "factual-anchor-omission",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "transition-overuse"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 2,
+      "pair_id": "academic-remote-work-learning",
+      "title": "Remote Work and the Informal Circulation of Organizational Knowledge",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite omits the event-definition method and several access mechanisms, then compresses causal limitations."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [
+          "transition-overuse"
+        ],
+        "humanized": [
+          "double-spaced punctuation",
+          "mechanical expansion",
+          "repeated-sentence-opening",
+          "repetition or flattened voice",
+          "transition-overuse"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 3,
+      "pair_id": "academic-retrieval-practice",
+      "title": "Retrieval Practice in an Introductory Community College Course",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite drops design detail and shifts cautious classroom associations toward broader effectiveness claims."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "transition-overuse"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 4,
+      "pair_id": "academic-right-to-repair",
+      "title": "Right-to-Repair Policy as a Question of Market Access and Product Longevity",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite removes policy distinctions and implementation qualifications that make the market-access argument precise."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "bureaucratic-padding",
+          "double-spaced punctuation",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "transition-overuse"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 5,
+      "pair_id": "academic-community-flood-mapping",
+      "title": "Community Flood Mapping and the Limits of Participatory Data",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [
+          "48"
+        ],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite repeats conclusions, introduces awkward causality, and blurs when citizen reports are appropriate evidence."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [
+        "48"
+      ],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "factual-anchor-omission",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "transition-overuse"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 6,
+      "pair_id": "academic-libraries-social-infrastructure",
+      "title": "Public Libraries as Everyday Social Infrastructure",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [
+          "12",
+          "16",
+          "3:20 p.m",
+          "54"
+        ],
+        "introduced_anchors": [
+          "3:20 "
+        ],
+        "curated_observation": "The rewrite inherits a source sentence defect, omits several observed staff tasks, and changes the proposed measures."
+      },
+      "grammatical_errors": [
+        "included of",
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [
+        "12",
+        "16",
+        "3:20 p.m",
+        "54"
+      ],
+      "introduced_details": [
+        "3:20 "
+      ],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "factual-anchor-omission",
+          "included of",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "transition-overuse",
+          "unsupported-factual-anchor"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 7,
+      "pair_id": "academic-sleep-regularity",
+      "title": "Sleep Regularity and Student Well-Being in a Residential College",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite turns a cautious association into a proven impact and drops structural and clinical qualifications."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "transition-overuse"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 8,
+      "pair_id": "academic-circular-procurement",
+      "title": "Circular Procurement in Municipal Information Technology",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite reduces lifecycle and procurement detail and makes the evidence less operationally useful."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [
+          "transition-overuse"
+        ],
+        "humanized": [
+          "double-spaced punctuation",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "transition-overuse"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 9,
+      "pair_id": "academic-archives-public-memory",
+      "title": "Community Archives and the Construction of Public Memory",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite flattens the distinction between community authority, archival selection, and public-memory claims."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "mechanical expansion",
+          "repetition or flattened voice"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 10,
+      "pair_id": "academic-algorithmic-decision-support",
+      "title": "Accountability in Algorithmic Decision-Support Systems",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [
+          "10,000",
+          "February 2, 2026"
+        ],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite removes accountability boundaries and weakens the difference between decision support and automated authority."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [
+        "10,000",
+        "February 2, 2026"
+      ],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "factual-anchor-omission",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "transition-overuse"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 11,
+      "pair_id": "academic-edge-computing-public-services",
+      "title": "Edge Computing for Intermittently Connected Public Services",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [
+          "March 20"
+        ],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite loses technical and public-service constraints while increasing generalized certainty."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [
+        "March 20"
+      ],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "factual-anchor-omission",
+          "mechanical expansion",
+          "repetition or flattened voice"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 12,
+      "pair_id": "academic-soil-microbial-restoration",
+      "title": "Soil Microbial Recovery in a Restored Prairie Landscape",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [
+          "30",
+          "October 20"
+        ],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite says sequencing detected active populations, reversing the source warning that dormant organisms may also be detected."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [
+        "30",
+        "October 20"
+      ],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [
+          "transition-overuse"
+        ],
+        "humanized": [
+          "double-spaced punctuation",
+          "factual-anchor-omission",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "transition-overuse"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 13,
+      "pair_id": "academic-language-access-administration",
+      "title": "Language Access and Administrative Burden in Public Benefit Programs",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite changes the program framing, applicant goal, and administrative-burden emphasis."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "mechanical expansion",
+          "repetition or flattened voice"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 14,
+      "pair_id": "professional-four-day-pilot-memo",
+      "title": "Executive Memo: Recommendation on the Four-Day Schedule Pilot",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [
+          "October 9",
+          "September 25"
+        ],
+        "introduced_anchors": [
+          "August 24"
+        ],
+        "curated_observation": "The rewrite changes schedule mechanics, department descriptions, outage impact, and the promised recommendation date from October 9 to August 24."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [
+        "October 9",
+        "September 25"
+      ],
+      "introduced_details": [
+        "August 24"
+      ],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "factual-anchor-omission",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "unsupported-factual-anchor"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 15,
+      "pair_id": "professional-release-incident-review",
+      "title": "Operational Incident Review: Delayed Account Notifications",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [
+          "12:01 "
+        ],
+        "curated_observation": "The rewrite compresses detection and review roles, changes operational detail, and obscures why independent capacity review failed."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [
+        "12:01 "
+      ],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "transition-overuse",
+          "unsupported-factual-anchor"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 16,
+      "pair_id": "journalistic-night-bakery",
+      "title": "Before Sunrise, a Neighborhood Bakery Starts Its Day",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [
+          "6:00"
+        ],
+        "introduced_anchors": [
+          "6:00 a.m"
+        ],
+        "curated_observation": "The rewrite introduces impossible sunrise timing, changes delivery timing and dough handling, and removes observed scene detail and voice."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [
+        "6:00"
+      ],
+      "introduced_details": [
+        "6:00 a.m"
+      ],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "factual-anchor-omission",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "unsupported-factual-anchor"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 17,
+      "pair_id": "marketing-fieldnote-launch",
+      "title": "Product Launch Story: Fieldnote Project Handoffs",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [
+          "September 12"
+        ],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite changes the fictional agency example, drops downstream task detail, and turns a measured trial invitation into a stronger outcome implication."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [
+        "September 12"
+      ],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "factual-anchor-omission",
+          "mechanical expansion",
+          "repetition or flattened voice"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 18,
+      "pair_id": "reflective-moving-cities",
+      "title": "Learning a City by Walking the Same Block",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [
+          "April 15"
+        ],
+        "curated_observation": "The rewrite invents April 15 and new friends, changes street and delivery details, and repeats the emotional conclusion."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [
+        "April 15"
+      ],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "unsupported-factual-anchor"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 19,
+      "pair_id": "email-community-garden",
+      "title": "Friendly Planning Email for a Community Garden Workday",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite reallocates who brings food, changes the library reservation from pending to confirmed, and removes access and child-safety detail."
+      },
+      "grammatical_errors": [
+        "as-clause fragment",
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [
+          "bureaucratic-padding"
+        ],
+        "humanized": [
+          "as-clause fragment",
+          "double-spaced punctuation",
+          "mechanical expansion",
+          "repetition or flattened voice"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 20,
+      "pair_id": "social-casual-dinner-hosting",
+      "title": "A Very Unfancy Guide to Feeding Friends on a Weeknight",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite changes who found the mango and where, flattens jokes, and adds awkward or contradictory sentences."
+      },
+      "grammatical_errors": [
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "mechanical expansion",
+          "repetition or flattened voice"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    },
+    {
+      "pair_number": 21,
+      "pair_id": "fiction-bellweather-borrowed-time",
+      "title": "Bellweather — Borrowed Time",
+      "annotation": "ai-stronger",
+      "factual_differences": {
+        "omitted_anchors": [],
+        "introduced_anchors": [],
+        "curated_observation": "The rewrite introduces grammar errors, removes causal and atmospheric detail, and weakens the final image while preserving the basic plot."
+      },
+      "grammatical_errors": [
+        "it was always been",
+        "slid the lock open the door",
+        "double-spaced punctuation"
+      ],
+      "omitted_details": [],
+      "introduced_details": [],
+      "style_strengths": {
+        "ai": [
+          "specific structure",
+          "controlled qualification",
+          "stronger sentence rhythm"
+        ],
+        "humanized": [
+          "occasionally shorter local phrasing"
+        ]
+      },
+      "style_weaknesses": {
+        "ai": [],
+        "humanized": [
+          "double-spaced punctuation",
+          "it was always been",
+          "mechanical expansion",
+          "repetition or flattened voice",
+          "slid the lock open the door"
+        ]
+      },
+      "best_revision_strategy": "Start from the AI version, preserve every verified fact and qualification, then edit only for audience fit, concision, natural rhythm, and interface-specific hierarchy; do not imitate the humanized version's drift.",
+      "evaluation_target": "A revision better than both supplied versions, with exact factual anchors and no mechanical-humanization artifacts."
+    }
+  ]
+}
