@@ -220,6 +220,7 @@ AUTONOMOUS_STAGE_TOPICS: dict[str, tuple[str, ...]] = {
 AUTONOMOUS_STAGE_RULE_IDS: dict[str, tuple[str, ...]] = {
     "brief": (
         "product.outcome-first-brief", "ia.one-primary-task", "content.front-load-meaning",
+        "content.no-build-narration",
         "direction.choose-intentional-axis", "direction.content-before-chrome",
         "layout.rhythm-over-boxes", "layout.intentional-negative-space", "type.hierarchy-by-role",
         "responsive.recompose-not-shrink", "a11y.keyboard-complete",
@@ -240,7 +241,8 @@ AUTONOMOUS_STAGE_RULE_IDS: dict[str, tuple[str, ...]] = {
         "layout.rhythm-over-boxes", "layout.intentional-negative-space", "type.hierarchy-by-role", "motion.explain-causality",
         "motion.interaction-specific-tokens",
         "motion.reduced-motion-equivalence", "responsive.recompose-not-shrink",
-        "anti.card-everything", "anti.hero-empty-scale", "anti.motion-everywhere",
+        "anti.card-everything", "anti.panelized-page-shell", "anti.hero-empty-scale", "anti.motion-everywhere",
+        "content.no-build-narration",
     ),
     "verification": (
         "delivery.definition-of-done", "testing.browser-risk-matrix", "a11y.keyboard-complete",
@@ -1012,7 +1014,7 @@ def classify_task(text: str, context: Mapping[str, Any] | None = None) -> dict[s
             "routine_creative_questions": "one-bounded-batch" if needs_clarification else "bypass-or-infer",
             "allowed_blockers": ["missing-required-credential", "irreversible-external-action", "legally-material-fact", "contradictory-requirements", "irreplaceable-critical-asset"],
         },
-        "copy_guardrails": ["original-contextual-copy", "no-placeholders", "no-fake-testimonials", "no-fake-metrics", "no-unsupported-claims", "honest-integration-boundaries"],
+        "copy_guardrails": ["original-contextual-copy", "no-placeholders", "no-fake-testimonials", "no-fake-metrics", "no-unsupported-claims", "honest-integration-boundaries", "no-internal-build-narration"],
         "privacy": {
             "user_supplied_names": "request-local",
             "persist_to_plugin_knowledge": False,

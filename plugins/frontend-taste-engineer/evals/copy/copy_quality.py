@@ -15,6 +15,13 @@ GENERIC_PHRASES = (
 )
 TRANSITIONS = ("additionally", "furthermore", "moreover", "thus", "therefore", "consequently", "overall", "as a result", "for instance", "in conclusion")
 BUREAUCRATIC = ("in relation to", "with regard to", "in the process of", "due to the fact that", "in order to", "has the ability to", "it is important to note that", "it should be understood that")
+BUILD_NARRATION = (
+    "development preview", "mocked connector", "mocked connectors", "test fixture", "test fixtures",
+    "no agent endpoint", "missing backend", "backend is not implemented", "none were supplied",
+    "not shown because", "support is not claimed", "does not claim that", "not ready to pretend",
+    "task shape", "no signed public download yet", "not signed yet", "fictional product",
+    "fictional workspace", "fictional cli", "fictional student team", "fictional interaction designer",
+)
 VAGUE_CTAS = {"get started", "learn more", "explore", "discover", "unlock", "transform", "continue"}
 FACT_RE = re.compile(r"(?:https?://\S+|\b\d{1,2}:\d{2}\s*(?:a\.m\.|p\.m\.)?|\$\d+(?:\.\d+)?|\b\d+(?:\.\d+)?%|\b\d[\d,]*(?:\.\d+)?\b|\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:,\s*\d{4})?)", re.I)
 SENTENCE_RE = re.compile(r"(?<=[.!?])\s+")
@@ -43,6 +50,9 @@ def audit_copy(text: str, *, source_text: str = "", cta_labels: list[str] | None
     for phrase in BUREAUCRATIC:
         if phrase in lower:
             findings.append({"code": "bureaucratic-padding", "evidence": phrase, "severity": "medium"})
+    for phrase in BUILD_NARRATION:
+        if phrase in lower:
+            findings.append({"code": "internal-build-narration", "evidence": phrase, "severity": "medium"})
     transition_counts = {term: len(re.findall(rf"\b{re.escape(term)}\b", lower)) for term in TRANSITIONS}
     for term, count in transition_counts.items():
         if count >= 2:

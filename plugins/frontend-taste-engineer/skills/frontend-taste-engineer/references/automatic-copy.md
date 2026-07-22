@@ -16,6 +16,7 @@ Write finished page copy when the prompt is sparse. Copy is part of composition,
 - Keep one recognizable verb and object for an action across its trigger, confirmation, progress, success, error, and recovery states; expand destructive labels with the consequence without renaming the underlying action.
 - Write empty, error, loading, success, and recovery copy for reachable states.
 - Keep metadata truthful and specific to the visible page.
+- Do not narrate the build process in product voice. Phrases about mocked connectors, supplied or missing facts, absent endpoints, fictional fixtures, development previews, or why the page avoided a claim are internal evidence unless they change a user's action or consequence.
 
 ## Integrity boundary
 
@@ -24,6 +25,13 @@ Do not invent customers, testimonials, metrics, integrations, partnerships, pric
 Original dramatic or humorous language is allowed when it is plainly creative expression. “The clock has filed a complaint about you” can support a funny lateness page; “Trusted by 10,000 punctual people” is a fabricated metric. Keep user-supplied names and messages request-local rather than reusing them in plugin examples or public evidence.
 
 When backend behavior does not exist, use an honest local interaction, a mail/link boundary, or explicit integration note. Do not write a success state that implies data was sent.
+
+An honest boundary is not a license for disclaimer sections. Keep provenance, unsupported-claim notes, mock status, and release-gate detail in `CONTENT.md`, project documentation, a status page, or the completion report. On the visible product page:
+
+- Omit unsupported proof and dead actions instead of explaining why they were omitted.
+- Name a preview or unavailable action once, next to the affected control, when the distinction changes what the user can do.
+- Preserve concise safety, legal, price, eligibility, consent, transmission, validation, availability, and recovery information.
+- Delete sentences whose only message is that the generator behaved honestly.
 
 ## Composition fit
 
@@ -41,6 +49,7 @@ After first layout, read the page as text only and:
 2. Sharpen the headline until it could only belong to this product.
 3. Replace vague CTAs.
 4. Delete sections that exist only to fill a template slot.
+5. Remove build narration and move internal caveats to the content ledger or completion report.
 
 ## Verification
 
@@ -51,3 +60,4 @@ After first layout, read the page as text only and:
 - The page reads coherently without styling.
 - Long and narrow layouts preserve the distinguishing words.
 - Every factual claim traces to the prompt, project, or supplied source.
+- Every visible limitation changes a user decision or consequence; internal QA and provenance narration is absent.

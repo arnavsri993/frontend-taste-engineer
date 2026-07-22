@@ -621,6 +621,34 @@
     "direction_diversity_case": true
   },
   {
+    "id": "continuous-narrative-unboxing",
+    "name": "Panelized landing page remediation",
+    "brief": "Refine a product marketing landing page whose navigation, process steps, proof, feature explanations, product preview, and footer all reuse bordered, filled, or elevated panels. Keep the narrative page off the panel grid and use cards only for bounded, reusable, selectable, or independently actionable objects; do not turn every group into a card. Build hierarchy with rhythm before containers by using proximity, alignment, whitespace, and type hierarchy. Preserve real product UI boundaries, but replace the boxed-everything shell with a continuous composition, open grids, spacing rhythm, and one focal product surface. Audit every wrapper and remove chrome that does not communicate an independent object, action, selection, state, device, or material boundary.",
+    "task_type": "existing-redesign",
+    "stage": "refinement",
+    "expected_topics": ["anti-slop-integrity", "layout", "visual-direction"],
+    "expected_terms": ["continuous", "panel", "bordered", "object", "rhythm", "hierarchy"],
+    "mandatory_terms": ["boundary", "remove", "panel"],
+    "forbidden_terms": ["put every section in a card"],
+    "required_record_ids": ["anti.panelized-page-shell"],
+    "budget_records": 12,
+    "context_budget": 6000
+  },
+  {
+    "id": "customer-copy-without-build-narration",
+    "name": "Customer-facing copy without internal caveats",
+    "brief": "Rewrite a customer-facing product landing page that repeatedly says development preview, mocked connectors, test fixture, no agent endpoint, missing backend, and that unsupported claims were omitted. Keep truthful availability, safety, legal, price, consent, transmission, and consequence boundaries only where they change a user's decision or action; move internal build narration and provenance notes to the content ledger or completion report.",
+    "task_type": "existing-redesign",
+    "stage": "brief",
+    "expected_topics": ["information-architecture-content", "anti-slop-integrity"],
+    "expected_terms": ["customer-facing", "build", "mock", "action", "consequence", "remove"],
+    "mandatory_terms": ["action", "user", "remove"],
+    "forbidden_terms": ["add a disclaimer section"],
+    "required_record_ids": ["content.no-build-narration", "content.earn-every-line", "integrity.truthful-proof"],
+    "budget_records": 8,
+    "context_budget": 3800
+  },
+  {
     "id": "concise-marketing-copy",
     "name": "Verbose marketing page content reduction",
     "brief": "Cut a verbose product landing page down to the essential copy without hiding trust, pricing, eligibility, instructions, or recovery information.",
