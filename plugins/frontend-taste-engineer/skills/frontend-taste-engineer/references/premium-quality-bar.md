@@ -58,6 +58,7 @@ During implementation and the anti-slop pass, reject unless the thesis has a one
 - Glow, neon borders, glassmorphism stacks, gradient text on every heading
 - Rounded-full pill forests and badge stickers on the hero
 - Decorative bento grids with no content hierarchy
+- Boxed-everything page shells where navigation, process, proof, features, and prose reuse the same panel or cell grammar
 - Fake dashboards, fake metrics, fake testimonials, fake avatars
 - Scroll-hijacking and animate-every-section-on-enter
 - Stock “team smiling in office” imagery with no product truth
@@ -83,6 +84,7 @@ Do not put `dense-app` chrome on a campaign landing. Do not put `portfolio-expre
 - CTA is a concrete verb (“Book a pilot”, “See live telemetry”) not “Get started” / “Learn more” unless no better verb exists.
 - Every section has one job; delete duplicate promise blocks.
 - No invented metrics, customers, press, or partnerships.
+- No internal build narration in product voice. Omit unsupported sections and dead actions; keep a concise preview, availability, safety, legal, price, consent, or transmission boundary only where it changes what the user can do.
 
 Run a dedicated copy pass after first layout: read the page as text only and cut anything that does not change a decision, trust, instruction, or recovery.
 

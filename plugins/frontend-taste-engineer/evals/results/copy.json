@@ -16,7 +16,7 @@
       "responsive_fit": 5,
       "result": "pass",
       "observations": [],
-      "artifact_sha256": "14d9f10fb342cd02f62412e3a1bf14466ee03ad4acd0e7591c0683b4cbec3009"
+      "artifact_sha256": "71ae94e9aabf0966e2f8059e13ca217979a12573408029943b274b11ce60a923"
     },
     {
       "case": "developer-tool-page",
@@ -30,7 +30,7 @@
       "responsive_fit": 5,
       "result": "pass",
       "observations": [],
-      "artifact_sha256": "4f6dec2f34050c87e1c2032c10781b6899774bfcb2fa82cfa8c6049f7cafd80c"
+      "artifact_sha256": "1b731a1931c6e4a7dc29b2ee829c9c915b597eaae1beae058b55b13678ebb379"
     },
     {
       "case": "enterprise-dashboard",
@@ -72,7 +72,7 @@
       "responsive_fit": 5,
       "result": "pass",
       "observations": [],
-      "artifact_sha256": "01ca9e19da7e75636b3975a16735e9d0641a9eac55e3ab821659de7679080aef"
+      "artifact_sha256": "4745d05705e2ce6e84fac8780aa4fb1b9f03ca582bf725bf1f2ee9ee1b5efb4d"
     },
     {
       "case": "ecommerce-product-page",
@@ -142,7 +142,7 @@
       "responsive_fit": 5,
       "result": "pass",
       "observations": [],
-      "artifact_sha256": "eb7af08c8de6475d5b32142f285a1664adf27c7a01f818243c1b49e8e8956408"
+      "artifact_sha256": "79d48275559a8ef9bdfbcbf77f1b235158c435a4baba13f98672bf7ac61fb9ec"
     }
   ]
 }

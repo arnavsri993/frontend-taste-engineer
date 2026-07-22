@@ -4,7 +4,7 @@
     "domain": "robotics",
     "verified_facts": "Northstar Robotics is a fictional student team. Open workshop is Saturday at 10:00 a.m. Visitors may tour the shop or ask about joining. No competition record was supplied.",
     "headline": "See what Northstar is building this Saturday",
-    "copy": "Northstar Robotics is a student team that builds together in an open workshop. Visit Saturday at 10:00 a.m. to tour the shop or ask how to join. Competition results are not shown because none were supplied.",
+    "copy": "Northstar Robotics is a student team that builds together in an open workshop. Visit Saturday at 10:00 a.m. to tour the shop or ask how to join.",
     "ctas": ["Plan a workshop visit", "Ask about joining"]
   },
   {
@@ -12,7 +12,7 @@
     "domain": "developer-tool",
     "verified_facts": "Tracebox is a fictional local CLI that compares two JSON files. It does not upload data. Version 0.8 supports macOS and Linux.",
     "headline": "Compare JSON changes without uploading the file",
-    "copy": "Tracebox is a local CLI for comparing two JSON files. Version 0.8 runs on macOS and Linux, and the comparison stays on the machine. Windows support is not claimed.",
+    "copy": "Tracebox compares two JSON files on the machine. Version 0.8 runs on macOS and Linux without uploading either file.",
     "ctas": ["Read the install steps", "View the command reference"]
   },
   {
@@ -36,7 +36,7 @@
     "domain": "portfolio",
     "verified_facts": "Jordan Lee is a fictional interaction designer. The case study covers a transit kiosk prototype and names research, prototyping, and usability testing as Jordan's contributions.",
     "headline": "A transit kiosk prototype shaped around missed connections",
-    "copy": "Jordan Lee led research, prototyping, and usability testing for this fictional transit kiosk study. The case study explains the decisions and limits; it does not claim that the prototype shipped.",
+    "copy": "Jordan Lee led research, prototyping, and usability testing for a transit kiosk prototype. Read how missed-connection research changed the interaction flow.",
     "ctas": ["Read the transit kiosk case study", "View Jordan's role"]
   },
   {
@@ -76,7 +76,7 @@
     "domain": "product-launch",
     "verified_facts": "Fieldnote is a fictional handoff workspace. It launches October 5, 2026. Studio costs $18 per member each month. The trial lasts 30 days without a credit card.",
     "headline": "Keep project decisions from disappearing between handoffs",
-    "copy": "Fieldnote is a fictional handoff workspace launching October 5, 2026. Studio costs $18 per member each month. Try it for 30 days without a credit card.",
+    "copy": "Fieldnote launches October 5, 2026. Studio costs $18 per member each month. Try it for 30 days without a credit card.",
     "ctas": ["Start the 30-day trial", "Review Studio pricing"]
   }
 ]

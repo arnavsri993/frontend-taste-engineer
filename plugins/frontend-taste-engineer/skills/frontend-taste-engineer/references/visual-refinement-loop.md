@@ -22,8 +22,10 @@ Compare the result against the design thesis and inspect:
 - Hierarchy and primary-message dominance.
 - Typography, measure, wrapping, and loading behavior.
 - Spacing rhythm, alignment, density, edge treatment, and the role of each major empty region.
+- Wrapper contract: every bordered, filled, elevated, or radius-defined non-control region communicates an independent object, action, selection, state, device, or material boundary; ordinary narrative groups remain open.
 - Color, contrast, materials, imagery, and icon consistency.
 - Copy specificity (audience + outcome) and section necessity.
+- Copy boundary: customer-facing prose does not narrate mocks, fixtures, missing backends, prompt provenance, unsupported facts, or implementation honesty unless one concise statement changes the nearby action or consequence.
 - Motion: ≤3 roles, purpose, interruption, repetition, reduced motion—not every section animating in.
 - Mobile recomposition, short viewports, overflow, and touch targets.
 - Focus visibility, keyboard path, console errors, and broken controls.
@@ -43,6 +45,8 @@ If the brand test still fails or the page still matches the default AI cluster, 
 Continue only when another change has meaningful value; stop when remaining issues are low impact or a real limitation blocks progress.
 
 Examples of high-impact fixes: changing a generic centered composition, strengthening brand-level type, replacing vacant scale with content-led rhythm, repairing mobile hierarchy, rewriting weak headlines/CTAs, correcting type scale/measure, removing unjustified chrome, making a dead control real, adding one missing intentional focal/state motion role, or deleting scroll-reveal-everywhere.
+
+For panelized pages, remove all non-control wrapper chrome in one pass, restore only boundaries with named contracts, and recapture the full reading sequence. For disclaimer-heavy pages, move internal build/provenance notes out of visible product copy and keep only user-relevant availability or consequence text at the affected action.
 
 ## Evidence rules
 

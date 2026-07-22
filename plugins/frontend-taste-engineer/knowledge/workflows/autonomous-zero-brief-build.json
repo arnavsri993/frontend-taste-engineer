@@ -47,10 +47,11 @@
         "Treat quality adjectives as execution targets rather than automatic permission for flashy, dark, cinematic, or highly animated styling.",
         "Retrieve only brief-stage product, content, direction, composition, typography, responsive, accessibility, integrity, and completion records.",
         "Write original finished copy without placeholders or unsupported factual claims.",
-        "Keep the smallest copy set that preserves the task, decision, trust, and recovery information; remove repeated messages and sections with no distinct job."
+        "Keep the smallest copy set that preserves the task, decision, trust, and recovery information; remove repeated messages and sections with no distinct job.",
+        "Keep internal build, mock, fixture, missing-backend, and unsupported-claim narration in the content ledger or completion report; retain one plain boundary beside an affected action only when it changes what the user can do."
       ],
       "evidence": ["DESIGN.md", "design thesis", "content outline", "stage retrieval packet"],
-      "rule_refs": ["direction.choose-intentional-axis", "direction.subject-derived-identity", "direction.content-before-chrome", "layout.informative-structure-signals", "content.front-load-meaning", "content.action-vocabulary-continuity", "content.earn-every-line", "integrity.truthful-proof"],
+      "rule_refs": ["direction.choose-intentional-axis", "direction.subject-derived-identity", "direction.content-before-chrome", "layout.informative-structure-signals", "content.front-load-meaning", "content.action-vocabulary-continuity", "content.earn-every-line", "content.no-build-narration", "integrity.truthful-proof"],
       "exit_criteria": ["Direction and copy support the inferred purpose and differ meaningfully across different prompts."]
     },
     {
@@ -82,11 +83,13 @@
       "title": "Replace generic output and fix the largest gaps",
       "actions": [
         "Run the contextual anti-slop review and require a product or narrative reason for familiar generated patterns, including empty scale masquerading as minimalism.",
+        "Run a wrapper-contract audit and remove panel chrome from ordinary narrative groups that do not communicate an independent object, action, selection, state, device, or material boundary.",
+        "Run a build-narration audit and remove customer-facing copy about prompts, mocks, fixtures, missing endpoints, implementation honesty, or omitted unsupported claims unless it changes a nearby action or consequence.",
         "Fix the three highest-impact weaknesses.",
         "Capture and inspect the revised interface again."
       ],
       "evidence": ["anti-slop review", "implemented fixes", "revised captures", "before and after comparison"],
-      "rule_refs": ["anti.card-everything", "anti.hero-empty-scale", "anti.motion-everywhere", "direction.systemic-distinctiveness", "layout.intentional-negative-space"],
+      "rule_refs": ["anti.card-everything", "anti.panelized-page-shell", "anti.hero-empty-scale", "anti.motion-everywhere", "content.no-build-narration", "direction.systemic-distinctiveness", "layout.intentional-negative-space"],
       "exit_criteria": ["Remaining changes are low value or a real limitation is documented."]
     },
     {

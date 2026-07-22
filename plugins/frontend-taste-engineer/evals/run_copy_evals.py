@@ -31,7 +31,7 @@ def score(case: dict[str, object]) -> dict[str, object]:
     specificity = 5 if source_facts and not any(f["code"] == "generic-abstraction" for f in audit["findings"]) else 4
     voice = 5 if str(case["domain"]).replace("-", " ") not in headline.lower() else 4
     cta_quality = 5 if not any(f["code"] == "vague-cta" for f in audit["findings"]) else 2
-    anti_slop = max(0, 5 - sum(f["code"] in {"generic-abstraction", "transition-overuse", "bureaucratic-padding", "repeated-sentence-opening"} for f in audit["findings"]))
+    anti_slop = max(0, 5 - sum(f["code"] in {"generic-abstraction", "transition-overuse", "bureaucratic-padding", "internal-build-narration", "repeated-sentence-opening"} for f in audit["findings"]))
     responsive_fit = 5 if len(headline) <= 80 and max((len(p.split()) for p in copy.split("\n") if p), default=0) <= 65 else 4
     result = "pass" if fact_preservation == 5 and min(message_clarity, specificity, voice, cta_quality, anti_slop, responsive_fit) >= 4 else "fail"
     return {

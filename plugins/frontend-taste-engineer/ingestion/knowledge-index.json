@@ -1,7 +1,7 @@
 {
-  "corpus_fingerprint": "ce986c29cf7f89ca73bda69d2ae487b1b9e7db85b8b5c555d2e89dd774532cec",
+  "corpus_fingerprint": "30c08ed26c8c00a3007d46377b05e6852d033a01894864cf908f8ffda5068b55",
   "generator": "scripts/generate_index.py",
-  "record_count": 102,
+  "record_count": 104,
   "records": [
     {
       "components": [
@@ -432,6 +432,38 @@
         "visual-audit"
       ],
       "title": "Build emphasis from meaning before ornamental text effects",
+      "topic": "anti-slop-integrity"
+    },
+    {
+      "components": [
+        "page",
+        "section",
+        "hero",
+        "feature-list",
+        "process",
+        "card"
+      ],
+      "fingerprint": "fb26b4d9f61267e7",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "anti.panelized-page-shell",
+      "importance": "mandatory",
+      "origin": "records/anti-slop.json",
+      "sources": [
+        "taste-skill-repo",
+        "govuk-design-system",
+        "material-3",
+        "carbon-design-system"
+      ],
+      "status": "stable",
+      "subtopic": "panelized-page-overuse",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Keep narrative pages off the panel grid",
       "topic": "anti-slop-integrity"
     },
     {
@@ -1022,6 +1054,38 @@
         "visual-audit"
       ],
       "title": "Front-load meaning in labels and headings",
+      "topic": "information-architecture-content"
+    },
+    {
+      "components": [
+        "page",
+        "hero",
+        "section",
+        "call-to-action",
+        "status",
+        "demo"
+      ],
+      "fingerprint": "841aa78d1c457cd3",
+      "frameworks": [
+        "agnostic"
+      ],
+      "id": "content.no-build-narration",
+      "importance": "mandatory",
+      "origin": "records/product-content.json",
+      "sources": [
+        "govuk-design-system",
+        "uswds",
+        "polaris",
+        "taste-skill-repo"
+      ],
+      "status": "stable",
+      "subtopic": "customer-facing-scope-language",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "visual-audit"
+      ],
+      "title": "Keep build narration out of product copy",
       "topic": "information-architecture-content"
     },
     {
