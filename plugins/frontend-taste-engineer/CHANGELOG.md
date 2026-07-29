@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+Made route-backed primary navigation the default for generated sites. The Skill now classifies site shape before visual direction, maps every top-level item to an honest destination, opens distinct sections as real same-tab pages with stable URLs, and reserves same-page scrolling for intentional single-document experiences or contextual tables of contents. Added direct-entry, history, current-page, metadata, mobile-navigation, and hosting-fallback checks across the workflow, content lock, completion gates, and retrieval regression coverage.
+
 Made interface copy aggressively scan-first and deletion-first. The Skill now defaults to short labels, one message per region, sentence-by-sentence removal, and accessible progressive disclosure for optional depth while protecting consequential text. Added a required copy-budget audit, a blocking content completion gate, denser retrieval regression coverage, and deterministic review signals for overlong interface blocks and sentences. Removed the stale CI step that still attempted the intentionally retired standalone Skill package; CI now produces only the supported Codex plugin artifact.
 
 Added mandatory anti-panelization and anti-build-narration rules. Narrative pages now require a wrapper-contract audit that removes bordered, filled, elevated, or rounded chrome without an object/action/state/device/material boundary; customer-facing copy now keeps mock, fixture, missing-backend, provenance, and unsupported-claim narration in internal evidence unless one concise boundary changes the affected action or consequence. Wired both rules through the Skill, autonomous workflow, completion gate, deterministic copy scanner, and required-ID retrieval regressions.

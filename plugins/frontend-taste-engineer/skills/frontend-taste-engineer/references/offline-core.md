@@ -51,7 +51,8 @@ Load this file when the MCP server is unavailable or the work carries accessibil
 ## Engineering baseline
 
 - Inspect and preserve useful architecture.
+- Decide whether the experience is a single document, multi-page site, or application before styling. Default distinct top-level header destinations to real same-tab routes with stable URLs; reserve fragments for intentional single-document navigation or contextual tables of contents. Omit a destination instead of inventing a thin page.
 - Prefer composition over monolithic components and derived state over synchronized copies.
 - Avoid new dependencies and abstractions without repeated need.
 - For dynamic browser work, wait on an explicit user-visible ready state, inspect rendered roles, labels, DOM, screenshot, and console before acting, prefer role/label locators, and assert the resulting state; do not use `networkidle` or fixed sleeps as universal readiness.
-- Verify build, types, tests, console, URLs, assets, and failure paths proportionately.
+- Verify build, types, tests, console, direct routes, URL/history behavior, navigation destinations, assets, and failure paths proportionately.

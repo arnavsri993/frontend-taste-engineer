@@ -7,6 +7,7 @@ An autonomous build is complete only when it is a finished, deployable frontend 
 - Complete semantic page structure and finished copy.
 - Coherent tokens, typography, color/material, composition, imagery, and motion locked after diversified evidence retrieval and candidate comparison.
 - First viewport as one composition with a hero-level brand signal.
+- A site shape and destination map in which distinct top-level navigation opens real same-tab routes by default; same-page fragments are limited to intentional single-document experiences or contextual tables of contents.
 - Functional visible controls and honest integration boundaries.
 - Relevant default, hover, focus, active, disabled, loading, empty, error, success, offline, permission, saving, and recovery states.
 - Responsive layouts that survive narrow, intermediate, wide, short, zoomed, and long-content conditions.
@@ -16,13 +17,14 @@ An autonomous build is complete only when it is a finished, deployable frontend 
 
 ## Production checks
 
-Run the project's applicable type, lint, unit/component/integration/end-to-end, and production build commands. Verify production routes and asset paths rather than only development mode.
+Run the project's applicable type, lint, unit/component/integration/end-to-end, and production build commands. Verify production routes and asset paths rather than only development mode. For every primary navigation destination, verify the URL and content change, direct entry and refresh, back/forward behavior, current-page indication, route title/metadata, mobile access, and static-host fallback where applicable.
 
 Inspect:
 
 - Desktop and mobile output after the refinement pass (and second pass if still generic).
 - Console errors and warnings caused by the change.
 - Broken links and missing assets.
+- Header destinations that only scroll to generic home-page sections despite representing distinct topics.
 - Horizontal overflow and clipped required content.
 - Keyboard path and focus visibility.
 - Reduced-motion behavior.

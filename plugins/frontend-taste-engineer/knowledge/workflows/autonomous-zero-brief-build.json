@@ -1,9 +1,9 @@
 {
   "id": "workflow.autonomous-zero-brief-build",
   "title": "Autonomous zero-brief frontend build workflow",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "active",
-  "last_reviewed": "2026-07-10",
+  "last_reviewed": "2026-07-29",
   "applies_to": [
     "minimal website or page creation prompt",
     "minimal landing-page or portfolio prompt",
@@ -40,6 +40,19 @@
       "exit_criteria": ["The brief is specific enough to reject generic or contextually wrong output."]
     },
     {
+      "id": "map-site-shape",
+      "title": "Choose the site shape and map destinations",
+      "actions": [
+        "Classify the experience as a single document, multi-page site, or application before visual direction is selected.",
+        "Map each proposed primary navigation item to a real route, application state, intentional in-page landmark, or removal.",
+        "Default distinct top-level destinations to same-tab routes with stable URLs; reserve fragments for an intentional single-document experience or contextual table of contents.",
+        "Omit destinations with no honest distinct content or task instead of inventing thin pages."
+      ],
+      "evidence": ["site-shape decision", "route and destination map", "fragment rationale where applicable"],
+      "rule_refs": ["ia.route-backed-primary-navigation", "ia.one-primary-task", "architecture.progressive-enhancement"],
+      "exit_criteria": ["Every proposed primary navigation item has an honest destination and distinct top-level topics use real routes by default."]
+    },
+    {
       "id": "direction-copy",
       "title": "Choose direction and write complete copy",
       "actions": [
@@ -50,7 +63,7 @@
         "Keep the smallest copy set that preserves the task, decision, trust, and recovery information; remove repeated messages and sections with no distinct job.",
         "Keep internal build, mock, fixture, missing-backend, and unsupported-claim narration in the content ledger or completion report; retain one plain boundary beside an affected action only when it changes what the user can do."
       ],
-      "evidence": ["DESIGN.md", "design thesis", "content outline", "stage retrieval packet"],
+      "evidence": ["DESIGN.md", "CONTENT.md with route and destination map", "design thesis", "content outline", "stage retrieval packet"],
       "rule_refs": ["direction.choose-intentional-axis", "direction.subject-derived-identity", "direction.content-before-chrome", "layout.informative-structure-signals", "content.front-load-meaning", "content.action-vocabulary-continuity", "content.earn-every-line", "content.no-build-narration", "integrity.truthful-proof"],
       "exit_criteria": ["Direction and copy support the inferred purpose and differ meaningfully across different prompts."]
     },
@@ -58,7 +71,8 @@
       "id": "implement",
       "title": "Implement the complete frontend",
       "actions": [
-        "Implement semantic structure, responsive composition, finished copy, functional controls, and reachable states.",
+        "Implement semantic structure, responsive composition, finished copy, functional controls, reachable states, and route-backed primary navigation.",
+        "Give route destinations meaningful headings, titles, direct-entry behavior, and same-tab semantic links or framework-native routing.",
         "Add keyboard behavior, visible focus, accessible names, error recovery, and reduced-motion behavior during implementation.",
         "For a non-static direction, implement a compact motion grammar across focal or narrative beats, meaningful state changes, and direct interaction feedback; keep ordinary reading content stable and preserve equivalent reduced-motion outcomes."
       ],
@@ -83,13 +97,14 @@
       "title": "Replace generic output and fix the largest gaps",
       "actions": [
         "Run the contextual anti-slop review and require a product or narrative reason for familiar generated patterns, including empty scale masquerading as minimalism.",
+        "Run a navigation-contract audit and verify every primary navigation item resolves to a real route, application state, intentional in-page landmark, or removal; distinct top-level destinations use same-tab routes by default.",
         "Run a wrapper-contract audit and remove panel chrome from ordinary narrative groups that do not communicate an independent object, action, selection, state, device, or material boundary.",
         "Run a build-narration audit and remove customer-facing copy about prompts, mocks, fixtures, missing endpoints, implementation honesty, or omitted unsupported claims unless it changes a nearby action or consequence.",
         "Fix the three highest-impact weaknesses.",
         "Capture and inspect the revised interface again."
       ],
-      "evidence": ["anti-slop review", "implemented fixes", "revised captures", "before and after comparison"],
-      "rule_refs": ["anti.card-everything", "anti.panelized-page-shell", "anti.hero-empty-scale", "anti.motion-everywhere", "content.no-build-narration", "direction.systemic-distinctiveness", "layout.intentional-negative-space"],
+      "evidence": ["anti-slop review", "navigation-contract audit", "implemented fixes", "revised captures", "before and after comparison"],
+      "rule_refs": ["ia.route-backed-primary-navigation", "anti.card-everything", "anti.panelized-page-shell", "anti.hero-empty-scale", "anti.motion-everywhere", "content.no-build-narration", "direction.systemic-distinctiveness", "layout.intentional-negative-space"],
       "exit_criteria": ["Remaining changes are low value or a real limitation is documented."]
     },
     {
@@ -97,11 +112,11 @@
       "title": "Verify production completion and report concisely",
       "actions": [
         "Run the production build and applicable type, lint, test, accessibility, link, metadata, console, overflow, and configured private-term checks.",
-        "Verify routes and asset paths from production output.",
+        "Verify every primary navigation destination, direct route entry and refresh, URL/history behavior, current-page state, route title/metadata, mobile navigation, hosting fallback, and asset paths from production output.",
         "Report the result, evidence, assumptions, limitations, and deployment boundary without narrating routine process."
       ],
       "evidence": ["production build result", "gate report", "completion report", "deployment-ready output"],
-      "rule_refs": ["delivery.definition-of-done", "testing.browser-risk-matrix", "performance.core-web-vitals-budget", "integrity.truthful-proof"],
+      "rule_refs": ["delivery.definition-of-done", "ia.route-backed-primary-navigation", "testing.browser-risk-matrix", "performance.core-web-vitals-budget", "integrity.truthful-proof"],
       "exit_criteria": ["Every applicable blocking gate passes or is reported honestly with reproducible evidence."]
     }
   ],

@@ -1,9 +1,9 @@
 {
   "id": "gates.frontend-completion",
   "title": "Frontend completion gates",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "stable",
-  "last_reviewed": "2026-07-10",
+  "last_reviewed": "2026-07-29",
   "policy": {
     "mandatory_behavior": "Every applicable gate with severity blocking must pass before a production release.",
     "not_applicable": "Record why the gate cannot apply; absence of evidence is not not-applicable.",
@@ -25,9 +25,9 @@
       "title": "Information architecture and content",
       "severity": "blocking",
       "applies_when": ["The change adds or alters visible content, navigation, labels, or errors."],
-      "pass_conditions": ["A scan of headings, short labels, controls, and first sentences reveals the dominant task, reading sequence, and next action without careful reading.", "Every remaining sentence has a distinct task, decision, trust, instruction, or recovery job; repeated, obvious, decorative, and template-filling copy is removed.", "Optional depth uses descriptive, accessible progressive disclosure without hiding safety, legal, price, eligibility, consent, validation, recovery, or accessibility information.", "Labels remain meaningful out of context.", "The same user action retains recognizable vocabulary through confirmation, status, result, error, and recovery.", "Errors name recovery and do not blame the user.", "Representative, empty, long, and failure content is exercised."],
-      "required_evidence": ["Text outline", "sentence deletion and repetition audit", "collapsed and expanded disclosure review when secondary detail exists", "content fixtures", "error and empty-state captures"],
-      "rule_refs": ["ia.one-primary-task", "ia.progressive-disclosure", "content.earn-every-line", "content.front-load-meaning", "content.action-vocabulary-continuity", "content.error-recovery-copy", "product.define-real-data"]
+      "pass_conditions": ["A scan of headings, short labels, controls, and first sentences reveals the dominant task, reading sequence, and next action without careful reading.", "The experience is classified as a single document, multi-page site, or application, and every primary navigation item maps to a real route, application state, intentional in-page landmark, or removal.", "Distinct top-level destinations use real same-tab routes with stable URLs by default; fragments are limited to intentional single-document navigation or contextual tables of contents, and thin pages are not invented to fill navigation.", "Every remaining sentence has a distinct task, decision, trust, instruction, or recovery job; repeated, obvious, decorative, and template-filling copy is removed.", "Optional depth uses descriptive, accessible progressive disclosure without hiding safety, legal, price, eligibility, consent, validation, recovery, or accessibility information.", "Labels remain meaningful out of context.", "The same user action retains recognizable vocabulary through confirmation, status, result, error, and recovery.", "Errors name recovery and do not blame the user.", "Representative, empty, long, and failure content is exercised."],
+      "required_evidence": ["Text outline", "site-shape and route/destination map", "direct-entry and URL/history walkthrough", "sentence deletion and repetition audit", "collapsed and expanded disclosure review when secondary detail exists", "content fixtures", "error and empty-state captures"],
+      "rule_refs": ["ia.one-primary-task", "ia.route-backed-primary-navigation", "ia.progressive-disclosure", "content.earn-every-line", "content.front-load-meaning", "content.action-vocabulary-continuity", "content.error-recovery-copy", "product.define-real-data"]
     },
     {
       "id": "gate.visual-direction",
@@ -124,9 +124,9 @@
       "title": "Release and observability",
       "severity": "blocking",
       "applies_when": ["Any production deployment."],
-      "pass_conditions": ["Production output—not only development mode—was tested.", "Routes, asset paths, metadata, console state, broken links, and horizontal overflow were checked against production output.", "Rollback or disable path exists for material risk.", "Outcome, error, performance, and critical integrity signals have owners and thresholds.", "Known waivers and changes are communicated."],
+      "pass_conditions": ["Production output—not only development mode—was tested.", "Every primary navigation destination was checked for direct entry and refresh, URL/history behavior, current-page indication, route heading/title/metadata, mobile access, hosting fallback where applicable, and honest content.", "Routes, asset paths, metadata, console state, broken links, and horizontal overflow were checked against production output.", "Rollback or disable path exists for material risk.", "Outcome, error, performance, and critical integrity signals have owners and thresholds.", "Known waivers and changes are communicated."],
       "required_evidence": ["Production-build results", "release plan", "rollback test", "monitoring and ownership record"],
-      "rule_refs": ["delivery.incremental-release", "delivery.definition-of-done", "performance.core-web-vitals-budget"]
+      "rule_refs": ["delivery.incremental-release", "delivery.definition-of-done", "ia.route-backed-primary-navigation", "performance.core-web-vitals-budget"]
     }
   ]
 }

@@ -649,6 +649,21 @@
     "context_budget": 3800
   },
   {
+    "id": "route-backed-primary-navigation",
+    "name": "Real pages for top-level website navigation",
+    "brief": "Build a company website whose header includes Services, Work, About, and Contact. Classify the site shape and map each primary navigation item to an honest destination. Default distinct topics to real same-tab routes with stable URLs instead of scrolling to home-page fragments. Preserve semantic links, direct entry, refresh, back and forward history, current-page indication, route headings and metadata, mobile navigation, and static-host fallbacks. Allow fragments only for a deliberate single-document experience or contextual table of contents, and omit thin pages with no real content.",
+    "task_type": "greenfield-build",
+    "stage": "planning",
+    "expected_topics": ["information-architecture-content", "code-architecture", "testing-deployment"],
+    "expected_terms": ["site shape", "route", "stable", "direct entry", "history", "fragment"],
+    "mandatory_terms": ["route", "direct entry", "history"],
+    "forbidden_terms": ["target blank"],
+    "required_record_ids": ["ia.route-backed-primary-navigation"],
+    "retrieval_only": true,
+    "budget_records": 10,
+    "context_budget": 4600
+  },
+  {
     "id": "concise-marketing-copy",
     "name": "Verbose marketing page content reduction",
     "brief": "Assume users scan instead of reading carefully. Cut a verbose product landing page to short labels and the least visible copy that preserves task, decision, trust, instructions, and recovery. Delete repeated, obvious, decorative, and template-filling sentences; move genuinely secondary details behind descriptive accessible disclosure without hiding safety, pricing, eligibility, consent, validation, or consequences.",

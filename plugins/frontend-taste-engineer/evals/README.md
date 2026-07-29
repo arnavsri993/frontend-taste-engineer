@@ -1,8 +1,8 @@
 # Evaluations
 
-`cases.json` contains 34 heterogeneous frontend tasks, including required-record regressions
-for scan-first copy reduction and accessible progressive disclosure, two retrieval-only
-motion/minimalism regressions and eight minimal
+`cases.json` contains 35 heterogeneous frontend tasks, including required-record regressions
+for route-backed primary navigation, scan-first copy reduction, and accessible progressive
+disclosure, retrieval-only motion/minimalism regressions, and eight minimal
 website/page prompts for autonomous classification and stage routing. Retrieval evaluation
 compares no-plugin baseline, compact static Skill kernel, lexical retrieval, and
 hybrid retrieval. It reports precision, recall, mandatory-rule recall, duplicate

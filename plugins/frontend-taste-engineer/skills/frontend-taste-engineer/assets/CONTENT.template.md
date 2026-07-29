@@ -22,6 +22,14 @@
 4. Limitations or conditions:
 5. Specific next action:
 
+## Site shape and destination map
+
+- Site shape: single document / multi-page / application
+- Primary navigation destination → route, application state, or intentional in-page landmark:
+- Direct-entry page heading and title:
+- Same-page fragment rationale, if any:
+- Omitted destinations with no honest distinct content:
+
 ## Final page and state copy
 
 - Headline:
