@@ -26,4 +26,4 @@ Describe what remains visible at narrow widths, how action labels stay specific,
 
 ## Copy audit
 
-Record factual-anchor omissions or introductions, vague calls to action, generic abstractions, repeated transitions/openings, and the corrections made. Treat heuristics as review signals, not authorship or quality proof.
+Read only headings, labels, controls, and first sentences; verify the task and next action remain clear. Give every sentence one unique task, decision, trust, instruction, or recovery job, then delete it if removal does not reduce comprehension, safety, or actionability. Record repeated meaning removed, optional depth moved behind accessible disclosure, consequential copy retained, factual-anchor omissions or introductions, vague calls to action, generic abstractions, and corrections. Treat heuristics as review signals, not authorship or quality proof.

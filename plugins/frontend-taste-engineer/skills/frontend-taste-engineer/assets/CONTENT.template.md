@@ -46,6 +46,11 @@
 
 ## Audit result
 
+- Scan-only task and next-action check:
+- Sentence deletion test:
+- Repeated meaning removed:
+- Optional detail disclosed:
+- Protected consequential copy retained:
 - Findings:
 - Corrections:
 - Remaining unknowns:

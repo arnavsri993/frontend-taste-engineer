@@ -13,7 +13,7 @@ from pathlib import Path
 EVAL_ROOT = Path(__file__).resolve().parent
 COPY_ROOT = EVAL_ROOT / "copy"
 sys.path.insert(0, str(COPY_ROOT))
-from copy_quality import audit_copy, facts  # noqa: E402
+from copy_quality import MAX_INTERFACE_BLOCK_WORDS, audit_copy, facts  # noqa: E402
 
 
 def score(case: dict[str, object]) -> dict[str, object]:
@@ -27,12 +27,12 @@ def score(case: dict[str, object]) -> dict[str, object]:
     candidate_facts = set(facts(combined))
     fact_preservation = 5 if source_facts == candidate_facts else max(0, 5 - len(source_facts ^ candidate_facts))
     word_count = len(re.findall(r"\b\w+\b", combined))
-    message_clarity = 5 if 4 <= len(headline.split()) <= 14 and word_count <= 90 else 4
+    message_clarity = 5 if 4 <= len(headline.split()) <= 14 and word_count <= 70 else 4
     specificity = 5 if source_facts and not any(f["code"] == "generic-abstraction" for f in audit["findings"]) else 4
     voice = 5 if str(case["domain"]).replace("-", " ") not in headline.lower() else 4
     cta_quality = 5 if not any(f["code"] == "vague-cta" for f in audit["findings"]) else 2
-    anti_slop = max(0, 5 - sum(f["code"] in {"generic-abstraction", "transition-overuse", "bureaucratic-padding", "internal-build-narration", "repeated-sentence-opening"} for f in audit["findings"]))
-    responsive_fit = 5 if len(headline) <= 80 and max((len(p.split()) for p in copy.split("\n") if p), default=0) <= 65 else 4
+    anti_slop = max(0, 5 - sum(f["code"] in {"generic-abstraction", "transition-overuse", "bureaucratic-padding", "internal-build-narration", "repeated-sentence-opening", "dense-interface-copy", "long-interface-sentence"} for f in audit["findings"]))
+    responsive_fit = 5 if len(headline) <= 80 and max((len(p.split()) for p in copy.split("\n") if p), default=0) <= MAX_INTERFACE_BLOCK_WORDS else 4
     result = "pass" if fact_preservation == 5 and min(message_clarity, specificity, voice, cta_quality, anti_slop, responsive_fit) >= 4 else "fail"
     return {
         "case": case["id"],

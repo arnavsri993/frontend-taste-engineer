@@ -28,6 +28,28 @@ class CopyQualityTests(unittest.TestCase):
 
         self.assertFalse(any(row["code"] == "internal-build-narration" for row in findings))
 
+    def test_dense_interface_copy_is_flagged_for_review(self) -> None:
+        copy = (
+            "This workspace provides a comprehensive and thoughtfully organized collection of tools that can help "
+            "every member of your team understand project activity, coordinate their daily work, review important "
+            "updates, discover useful information, and make better decisions without needing to switch between "
+            "multiple separate applications."
+        )
+
+        report = audit_copy(copy)
+        codes = {row["code"] for row in report["findings"]}
+
+        self.assertIn("dense-interface-copy", codes)
+        self.assertIn("long-interface-sentence", codes)
+        self.assertGreater(report["metrics"]["max_block_words"], 40)
+
+    def test_short_specific_interface_copy_stays_clear(self) -> None:
+        copy = "Review project activity and assign the next step."
+
+        findings = audit_copy(copy)["findings"]
+
+        self.assertFalse(any(row["code"] in {"dense-interface-copy", "long-interface-sentence"} for row in findings))
+
 
 if __name__ == "__main__":
     unittest.main()

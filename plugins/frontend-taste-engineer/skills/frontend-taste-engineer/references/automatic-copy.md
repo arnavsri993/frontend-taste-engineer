@@ -9,7 +9,10 @@ Write finished page copy when the prompt is sparse. Copy is part of composition,
 - Headlines must name audience + outcome or conflict (not “Welcome to the future,” “Build faster,” or “The future of X”).
 - Support lines add new information; they do not restate the headline with synonyms.
 - CTAs use concrete verbs (“Book a pilot,” “See live telemetry”) instead of “Get started” / “Learn more” when a better verb exists.
-- Use the smallest copy set that preserves the task, decision, trust, and recovery information. Do not restate the same promise in the hero, section intro, cards, and closing action.
+- Assume users scan headings, labels, controls, and the start of a region instead of reading every sentence.
+- Start with the smallest copy set that preserves the task, decision, trust, instruction, and recovery information. Add explanation only when the interface becomes ambiguous, unsafe, or incomplete without it.
+- Prefer short, specific labels over explanatory labels. Do not restate the same promise in the hero, section intro, cards, and closing action.
+- Move genuinely secondary detail behind descriptive, accessible disclosure. Do not hide price, eligibility, consent, safety, validation, transmission, or irreversible consequences.
 - Give each section one job in the narrative or task flow.
 - Match sentence length and rhythm to the direction: concise and calm for high-trust tasks; dramatic, playful, editorial, or humorous for expressive personal work.
 - Write buttons and links as clear actions. Do not create a control if no honest action exists.
@@ -45,16 +48,22 @@ An honest boundary is not a license for disclaimer sections. Keep provenance, un
 
 After first layout, read the page as text only and:
 
-1. Cut duplicate promises.
-2. Sharpen the headline until it could only belong to this product.
-3. Replace vague CTAs.
-4. Delete sections that exist only to fill a template slot.
-5. Remove build narration and move internal caveats to the content ledger or completion report.
+1. Read only headings, labels, controls, and the first sentence of each region; confirm the task and next action remain clear.
+2. Assign every sentence one unique job: task, decision, trust, instruction, or recovery.
+3. Delete the sentence if removing it does not reduce comprehension, safety, or actionability.
+4. Cut duplicate promises and consolidate repeated explanations.
+5. Sharpen the headline until it could only belong to this product.
+6. Replace vague CTAs.
+7. Delete sections that exist only to fill a template slot.
+8. Move optional depth behind descriptive, keyboard-operable disclosure.
+9. Remove build narration and move internal caveats to the content ledger or completion report.
 
 ## Verification
 
 - No placeholder, generic AI marketing phrase, unsupported superlative, or fake proof remains.
 - Every content block has a distinct task, decision, trust, or recovery job; repeated meaning is removed.
+- The primary task and next action remain clear when only headings, labels, controls, and first sentences are scanned.
+- Every retained sentence fails the deletion test: removing it would reduce comprehension, safety, or actionability.
 - Visible labels remain meaningful out of context.
 - Core action vocabulary remains consistent and user-facing across every reachable state.
 - The page reads coherently without styling.

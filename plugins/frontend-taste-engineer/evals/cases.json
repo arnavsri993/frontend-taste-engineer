@@ -651,14 +651,15 @@
   {
     "id": "concise-marketing-copy",
     "name": "Verbose marketing page content reduction",
-    "brief": "Cut a verbose product landing page down to the essential copy without hiding trust, pricing, eligibility, instructions, or recovery information.",
+    "brief": "Assume users scan instead of reading carefully. Cut a verbose product landing page to short labels and the least visible copy that preserves task, decision, trust, instructions, and recovery. Delete repeated, obvious, decorative, and template-filling sentences; move genuinely secondary details behind descriptive accessible disclosure without hiding safety, pricing, eligibility, consent, validation, or consequences.",
     "task_type": "existing-redesign",
     "stage": "brief",
     "expected_topics": ["information-architecture-content"],
-    "expected_terms": ["smallest", "task", "decision", "repeat", "remove", "essential"],
-    "mandatory_terms": ["remove", "task", "decision"],
+    "expected_terms": ["scan", "short", "task", "decision", "repeat", "remove", "disclosure"],
+    "mandatory_terms": ["scan", "remove", "task", "decision"],
     "forbidden_terms": ["add more copy"],
-    "budget_records": 6,
-    "context_budget": 3000
+    "required_record_ids": ["content.earn-every-line", "ia.progressive-disclosure"],
+    "budget_records": 8,
+    "context_budget": 3800
   }
 ]

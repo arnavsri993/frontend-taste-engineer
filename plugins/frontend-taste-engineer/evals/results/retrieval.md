@@ -4,10 +4,10 @@
 
 | Variant | Quality | Precision | Recall | Mandatory recall | Duplicates | Irrelevant tokens | Provenance | Context tokens | p95 ms |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| baseline | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0 | 0.001 |
-| static-skill | 0.634 | 0.551 | 0.344 | 0.702 | 0.000 | 0.439 | 1.000 | 1291 | 0.360 |
-| lexical | 0.817 | 0.777 | 0.662 | 0.858 | 0.000 | 0.219 | 1.000 | 3809 | 2.354 |
-| hybrid | 0.871 | 0.819 | 0.712 | 0.967 | 0.000 | 0.184 | 1.000 | 3815 | 3.771 |
+| baseline | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0 | 0.008 |
+| static-skill | 0.635 | 0.556 | 0.346 | 0.698 | 0.000 | 0.434 | 1.000 | 1293 | 3.052 |
+| lexical | 0.818 | 0.782 | 0.662 | 0.858 | 0.000 | 0.214 | 1.000 | 3886 | 16.289 |
+| hybrid | 0.870 | 0.817 | 0.710 | 0.967 | 0.000 | 0.188 | 1.000 | 3888 | 18.951 |
 
 ## Gates
 
@@ -46,7 +46,7 @@ Passed cases: 8 / 8
 - `consumer-landing` — hybrid quality 0.659
 - `developer-tool` — hybrid quality 0.823
 - `enterprise-dashboard` — hybrid quality 0.850
-- `mobile-onboarding` — hybrid quality 0.772
+- `mobile-onboarding` — hybrid quality 0.770
 - `settings-interface` — hybrid quality 0.751
 - `searchable-table` — hybrid quality 0.720
 - `checkout-form` — hybrid quality 0.703
@@ -54,9 +54,9 @@ Passed cases: 8 / 8
 - `anti-slop-remediation` — hybrid quality 0.963
 - `screenshot-reconstruction` — hybrid quality 0.840
 - `constrained-system` — hybrid quality 0.912
-- `public-service` — hybrid quality 0.763
+- `public-service` — hybrid quality 0.762
 - `dark-mode-product` — hybrid quality 0.934
-- `rtl-interface` — hybrid quality 0.797
+- `rtl-interface` — hybrid quality 0.743
 - `animated-component` — hybrid quality 0.912
 - `intentional-motion-system` — hybrid quality 1.000
 - `motion-opportunity-gate` — hybrid quality 0.849
@@ -72,7 +72,7 @@ Passed cases: 8 / 8
 - `minimal-portfolio` — hybrid quality 0.948; classification PASS (autonomous-zero-brief-build)
 - `minimal-machines-alive` — hybrid quality 0.870; classification PASS (autonomous-zero-brief-build)
 - `minimal-funny-late-friend` — hybrid quality 0.934; classification PASS (autonomous-zero-brief-build)
-- `minimal-premium-product` — hybrid quality 0.944; classification PASS (autonomous-zero-brief-build)
+- `minimal-premium-product` — hybrid quality 0.945; classification PASS (autonomous-zero-brief-build)
 - `minimal-public-service` — hybrid quality 0.895; classification PASS (autonomous-zero-brief-build)
 - `adaptive-personal-finance` — hybrid quality 0.961; classification PASS (autonomous-zero-brief-build)
 - `adaptive-banking-onboarding` — hybrid quality 0.935; classification PASS (autonomous-zero-brief-build)
@@ -80,6 +80,6 @@ Passed cases: 8 / 8
 - `adaptive-enterprise-product` — hybrid quality 0.935; classification PASS (autonomous-zero-brief-build)
 - `adaptive-developer-tool` — hybrid quality 0.908; classification PASS (autonomous-zero-brief-build)
 - `adaptive-premium-ecommerce` — hybrid quality 0.948; classification PASS (autonomous-zero-brief-build)
-- `continuous-narrative-unboxing` — hybrid quality 0.922
-- `customer-copy-without-build-narration` — hybrid quality 0.924
+- `continuous-narrative-unboxing` — hybrid quality 0.923
+- `customer-copy-without-build-narration` — hybrid quality 0.925
 - `concise-marketing-copy` — hybrid quality 1.000

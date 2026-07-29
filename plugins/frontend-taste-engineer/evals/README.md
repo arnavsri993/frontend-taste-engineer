@@ -1,6 +1,7 @@
 # Evaluations
 
-`cases.json` contains 34 heterogeneous frontend tasks, including two retrieval-only
+`cases.json` contains 34 heterogeneous frontend tasks, including required-record regressions
+for scan-first copy reduction and accessible progressive disclosure, two retrieval-only
 motion/minimalism regressions and eight minimal
 website/page prompts for autonomous classification and stage routing. Retrieval evaluation
 compares no-plugin baseline, compact static Skill kernel, lexical retrieval, and
@@ -50,6 +51,11 @@ fixture, captures desktop/mobile output, records refinement, and completes the
 production build. The harness sends only the synthetic prompt; its pre-created
 files provide build, preview, and Chrome capture infrastructure, not hidden
 design direction.
+
+The copy evaluator also emits review signals when an interface prose block exceeds 40 words
+or a sentence exceeds 24 words. These are deliberately conservative prompts for human review,
+not universal failures: consequential instructions and reading-first editorial surfaces may
+justify longer text.
 
 No evaluator uses the network, installs dependencies, mutates stable knowledge,
 or executes code from researched sources.
