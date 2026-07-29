@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-Made interface copy aggressively scan-first and deletion-first. The Skill now defaults to short labels, one message per region, sentence-by-sentence removal, and accessible progressive disclosure for optional depth while protecting consequential text. Added a required copy-budget audit, a blocking content completion gate, denser retrieval regression coverage, and deterministic review signals for overlong interface blocks and sentences.
+Made interface copy aggressively scan-first and deletion-first. The Skill now defaults to short labels, one message per region, sentence-by-sentence removal, and accessible progressive disclosure for optional depth while protecting consequential text. Added a required copy-budget audit, a blocking content completion gate, denser retrieval regression coverage, and deterministic review signals for overlong interface blocks and sentences. Removed the stale CI step that still attempted the intentionally retired standalone Skill package; CI now produces only the supported Codex plugin artifact.
 
 Added mandatory anti-panelization and anti-build-narration rules. Narrative pages now require a wrapper-contract audit that removes bordered, filled, elevated, or rounded chrome without an object/action/state/device/material boundary; customer-facing copy now keeps mock, fixture, missing-backend, provenance, and unsupported-claim narration in internal evidence unless one concise boundary changes the affected action or consequence. Wired both rules through the Skill, autonomous workflow, completion gate, deterministic copy scanner, and required-ID retrieval regressions.
 
