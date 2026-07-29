@@ -12,5 +12,5 @@ Result: PASS
 | ecommerce-product-page | 5 | 5 | 5 | 5 | 5 | 5 | 5 | pass |
 | incident-status-interface | 5 | 5 | 5 | 5 | 5 | 5 | 5 | pass |
 | community-organization | 5 | 5 | 5 | 5 | 5 | 5 | 5 | pass |
-| technical-documentation | 5 | 5 | 5 | 5 | 5 | 5 | 5 | pass |
+| technical-documentation | 5 | 5 | 5 | 5 | 5 | 4 | 5 | pass |
 | product-launch-page | 5 | 5 | 5 | 5 | 5 | 5 | 5 | pass |

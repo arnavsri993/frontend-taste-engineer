@@ -25,6 +25,8 @@ BUILD_NARRATION = (
 VAGUE_CTAS = {"get started", "learn more", "explore", "discover", "unlock", "transform", "continue"}
 FACT_RE = re.compile(r"(?:https?://\S+|\b\d{1,2}:\d{2}\s*(?:a\.m\.|p\.m\.)?|\$\d+(?:\.\d+)?|\b\d+(?:\.\d+)?%|\b\d[\d,]*(?:\.\d+)?\b|\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:,\s*\d{4})?)", re.I)
 SENTENCE_RE = re.compile(r"(?<=[.!?])\s+")
+MAX_INTERFACE_BLOCK_WORDS = 40
+MAX_INTERFACE_SENTENCE_WORDS = 24
 
 
 def facts(text: str) -> list[str]:
@@ -37,6 +39,8 @@ def sentences(text: str) -> list[str]:
 
 def audit_copy(text: str, *, source_text: str = "", cta_labels: list[str] | None = None) -> dict[str, Any]:
     lower = text.lower()
+    visible_blocks = [block.strip() for block in text.splitlines() if block.strip()]
+    block_lengths = [len(re.findall(r"\b\w+\b", block)) for block in visible_blocks]
     sentence_rows = sentences(text)
     openings = [" ".join(re.findall(r"[a-z0-9']+", row.lower())[:3]) for row in sentence_rows]
     opening_counts = Counter(openings)
@@ -60,6 +64,12 @@ def audit_copy(text: str, *, source_text: str = "", cta_labels: list[str] | None
     for opening, count in opening_counts.items():
         if opening and count >= 3:
             findings.append({"code": "repeated-sentence-opening", "evidence": opening, "count": count, "severity": "low"})
+    dense_blocks = [length for length in block_lengths if length > MAX_INTERFACE_BLOCK_WORDS]
+    if dense_blocks:
+        findings.append({"code": "dense-interface-copy", "evidence": {"word_counts": dense_blocks, "review_threshold": MAX_INTERFACE_BLOCK_WORDS}, "severity": "medium"})
+    long_sentences = [length for length in lengths if length > MAX_INTERFACE_SENTENCE_WORDS]
+    if long_sentences:
+        findings.append({"code": "long-interface-sentence", "evidence": {"word_counts": long_sentences, "review_threshold": MAX_INTERFACE_SENTENCE_WORDS}, "severity": "medium"})
     if lengths and len(lengths) >= 5 and max(lengths) - min(lengths) <= 5:
         findings.append({"code": "sentence-length-monotony", "evidence": {"min": min(lengths), "max": max(lengths)}, "severity": "low"})
     if source_text:
@@ -78,6 +88,9 @@ def audit_copy(text: str, *, source_text: str = "", cta_labels: list[str] | None
         "metrics": {
             "words": len(re.findall(r"\b\w+\b", text)),
             "sentences": len(sentence_rows),
+            "visible_blocks": len(visible_blocks),
+            "max_block_words": max(block_lengths, default=0),
+            "max_sentence_words": max(lengths, default=0),
             "transition_counts": transition_counts,
             "source_fact_count": len(source_facts),
             "candidate_fact_count": len(candidate_facts),

@@ -1,5 +1,5 @@
 {
-  "corpus_fingerprint": "30c08ed26c8c00a3007d46377b05e6852d033a01894864cf908f8ffda5068b55",
+  "corpus_fingerprint": "18aec62fb25f87c97665f7b091e03330a6af1aa498f7e2e602920b22bba4ee7a",
   "generator": "scripts/generate_index.py",
   "record_count": 104,
   "records": [
@@ -975,7 +975,7 @@
         "navigation",
         "call-to-action"
       ],
-      "fingerprint": "4f575fd8f6cc7281",
+      "fingerprint": "84fe23cfe347de5a",
       "frameworks": [
         "agnostic"
       ],
@@ -1034,7 +1034,7 @@
         "navigation",
         "form"
       ],
-      "fingerprint": "e961c9b92dd3bb83",
+      "fingerprint": "25f9e3cc2b2e5dfe",
       "frameworks": [
         "agnostic"
       ],

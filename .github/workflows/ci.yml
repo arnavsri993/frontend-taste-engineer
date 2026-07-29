@@ -27,8 +27,6 @@ jobs:
       - name: Run frontend rubric evaluations
         run: python3 plugins/frontend-taste-engineer/evals/run_frontend_evals.py
         continue-on-error: true
-      - name: Package standalone Skill
-        run: python3 plugins/frontend-taste-engineer/scripts/package_skill.py
       - name: Package plugin
         run: python3 plugins/frontend-taste-engineer/scripts/package_plugin.py
       - uses: actions/upload-artifact@v4

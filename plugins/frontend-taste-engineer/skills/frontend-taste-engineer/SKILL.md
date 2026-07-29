@@ -89,7 +89,8 @@ Load these focused references directly when running this mode:
 - For a responsive, narrative, tactile, or expressive direction, define at most three motion roles (focal, state, feedback). Use them for continuity, causality, feedback, orientation, or one intentional narrative beat; make interactive motion interruptible; never animate every section on enter; provide reduced-motion outcomes.
 - Set proportionate performance budgets. Avoid unnecessary JavaScript, dependencies, hydration, fonts, images, animation work, and third-party scripts.
 - Preserve content integrity and localization readiness. Stress-test expansion, RTL where relevant, dates/numbers, empty data, and realistic errors.
-- Keep copy proportional to the task. Remove lines and sections that repeat an existing message or add no decision, trust, instruction, or recovery value; keep the same recognizable action vocabulary from trigger through status, result, error, and recovery; never hide necessary safety, legal, price, eligibility, consent, validation, or accessibility information for brevity.
+- Assume users scan and will ignore dense prose. Default to short labels, one clear message per region, and the least visible copy that preserves task, decision, trust, instruction, and recovery value. Delete any sentence the interface still explains without; remove repeated, obvious, decorative, and throat-clearing copy; place genuinely secondary detail behind descriptive, accessible disclosure. Never hide safety, legal, price, eligibility, consent, validation, recovery, or accessibility information for brevity.
+- Keep the same recognizable action vocabulary from trigger through status, result, error, and recovery. Concision must not make controls vague or force users to decode icons, layout, or context.
 - Keep internal build narration out of customer-facing copy. Fact provenance, mock status, missing backends, unsupported-claim notes, and test-fixture language belong in the content ledger, project documentation, or completion report unless one concise boundary changes whether a nearby action is real, safe, available, paid, legally effective, or externally transmitted.
 - Never claim testing, pixel accuracy, accessibility, or performance results that were not observed.
 - Keep request-local names and messages out of reusable plugin knowledge and public evidence unless the user explicitly approves publication.
@@ -239,9 +240,10 @@ Gate every retained or proposed animation by purpose, frequency, task cost, and 
 
 Challenge patterns, not aesthetics or presumed authorship. Look for reflexive centered heroes, three-card sections, purple gradients, glow or glass without purpose, rounded-card and pill proliferation, decorative bento grids, ornamental word emphasis, signal components with no real state, generic terminal costumes, fake dashboards, arbitrary icons, placeholder copy, blank scale standing in for minimalism, random animation, generic framework defaults, desktop-only structure, and monolithic components.
 
-Run two explicit audits before completion:
+Run these explicit audits before completion:
 
 - **Wrapper contract:** for every bordered, filled, elevated, or radius-defined non-control wrapper, name the object, action, selection, state, device, or material boundary it communicates. Remove the wrapper chrome when no contract exists. Ordinary landing-page sections, feature prose, process steps, and trust copy do not earn panels merely by being grouped.
+- **Copy budget:** read the interface without styling, then inspect only headings, labels, controls, and the first sentence of each region. The primary task and next action must still be clear. Give every remaining sentence one unique task, decision, trust, instruction, or recovery job; delete it if removal does not reduce comprehension or safety. Consolidate repeated meaning and move optional depth behind descriptive, keyboard-operable disclosure.
 - **Build-narration audit:** read visible copy without styling and flag references to prompts, supplied or missing facts, mocks, fixtures, development previews, absent endpoints, implementation honesty, and why claims were omitted. Move that material to internal evidence, omit the unsupported section, or reduce a genuinely user-relevant boundary to one plain sentence beside the affected action.
 
 Treat static matches as leads, not verdicts. Inspect the product thesis, existing tokens, component contracts, brand decisions, and rendered result before labeling a choice. Group confirmed findings by root cause—such as theme tokens, typography, surface/elevation, signal components, copy voice, layout template, or motion—and prefer the smallest shared-system correction that preserves behavior and accessibility. For audit-only work, report the grouped evidence. For authorized implementation, compare matching before/after states and viewports and record intentional exceptions; do not replace one template with another.
@@ -283,6 +285,7 @@ Do not call work complete until all applicable gates pass:
 
 - Product: primary task works with real or explicitly mocked data and honest content.
 - Structure: navigation, headings, order, URL/history, and permissions are coherent.
+- Content: scan order, short labels, and visible hierarchy communicate the primary task without requiring careful reading; every remaining sentence has a distinct job, repeated or decorative copy is gone, and optional depth is disclosed progressively without hiding consequential information.
 - Interaction: controls work across keyboard, pointer, and touch; states and recovery exist.
 - Accessibility: semantics, names, focus, contrast, reflow, motion, and errors are checked.
 - Responsive: required viewports and content extremes have evidence.

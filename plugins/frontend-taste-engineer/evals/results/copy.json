@@ -124,10 +124,21 @@
       "specificity": 5,
       "voice": 5,
       "cta_quality": 5,
-      "anti_slop": 5,
+      "anti_slop": 4,
       "responsive_fit": 5,
       "result": "pass",
-      "observations": [],
+      "observations": [
+        {
+          "code": "long-interface-sentence",
+          "evidence": {
+            "word_counts": [
+              28
+            ],
+            "review_threshold": 24
+          },
+          "severity": "medium"
+        }
+      ],
       "artifact_sha256": "ea1ace4fb190bdb2dedf73eb4257b8f9d44345b028c51c9a21cf70e7682f1eda"
     },
     {

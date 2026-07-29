@@ -25,9 +25,9 @@
       "title": "Information architecture and content",
       "severity": "blocking",
       "applies_when": ["The change adds or alters visible content, navigation, labels, or errors."],
-      "pass_conditions": ["The dominant task and reading sequence are clear.", "Labels remain meaningful out of context.", "The same user action retains recognizable vocabulary through confirmation, status, result, error, and recovery.", "Errors name recovery and do not blame the user.", "Representative, empty, long, and failure content is exercised."],
-      "required_evidence": ["Text outline", "content fixtures", "error and empty-state captures"],
-      "rule_refs": ["ia.one-primary-task", "content.front-load-meaning", "content.action-vocabulary-continuity", "content.error-recovery-copy", "product.define-real-data"]
+      "pass_conditions": ["A scan of headings, short labels, controls, and first sentences reveals the dominant task, reading sequence, and next action without careful reading.", "Every remaining sentence has a distinct task, decision, trust, instruction, or recovery job; repeated, obvious, decorative, and template-filling copy is removed.", "Optional depth uses descriptive, accessible progressive disclosure without hiding safety, legal, price, eligibility, consent, validation, recovery, or accessibility information.", "Labels remain meaningful out of context.", "The same user action retains recognizable vocabulary through confirmation, status, result, error, and recovery.", "Errors name recovery and do not blame the user.", "Representative, empty, long, and failure content is exercised."],
+      "required_evidence": ["Text outline", "sentence deletion and repetition audit", "collapsed and expanded disclosure review when secondary detail exists", "content fixtures", "error and empty-state captures"],
+      "rule_refs": ["ia.one-primary-task", "ia.progressive-disclosure", "content.earn-every-line", "content.front-load-meaning", "content.action-vocabulary-continuity", "content.error-recovery-copy", "product.define-real-data"]
     },
     {
       "id": "gate.visual-direction",

@@ -3,7 +3,7 @@
   "corpus_id": "frontend-taste-engineer",
   "title": "Frontend Taste Engineer canonical knowledge corpus",
   "introduced_in": "0.1.0",
-  "last_reviewed": "2026-07-21",
+  "last_reviewed": "2026-07-29",
   "record_schema": "rule.schema.json",
   "source_registry": "sources.json",
   "authoritative_research_source_registry": "../research/source-registry.json",

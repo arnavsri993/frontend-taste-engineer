@@ -5,8 +5,8 @@
       "context_tokens": 0.0,
       "duplicate_rate": 0.0,
       "irrelevant_token_rate": 0.0,
-      "latency_median_ms": 0.001,
-      "latency_p95_ms": 0.001,
+      "latency_median_ms": 0.004,
+      "latency_p95_ms": 0.008,
       "mandatory_rule_recall": 0.0,
       "precision": 0.0,
       "provenance_correctness": 0.0,
@@ -16,44 +16,44 @@
     },
     "hybrid": {
       "cases": 41,
-      "context_tokens": 3815.366,
+      "context_tokens": 3887.707,
       "duplicate_rate": 0.0,
-      "irrelevant_token_rate": 0.184,
-      "latency_median_ms": 2.307,
-      "latency_p95_ms": 3.771,
+      "irrelevant_token_rate": 0.188,
+      "latency_median_ms": 12.985,
+      "latency_p95_ms": 18.951,
       "mandatory_rule_recall": 0.967,
-      "precision": 0.819,
+      "precision": 0.817,
       "provenance_correctness": 1.0,
-      "quality_score": 0.871,
-      "recall": 0.712,
+      "quality_score": 0.87,
+      "recall": 0.71,
       "stable_experimental_separation": 0.829
     },
     "lexical": {
       "cases": 41,
-      "context_tokens": 3808.634,
+      "context_tokens": 3885.78,
       "duplicate_rate": 0.0,
-      "irrelevant_token_rate": 0.219,
-      "latency_median_ms": 2.133,
-      "latency_p95_ms": 2.354,
+      "irrelevant_token_rate": 0.214,
+      "latency_median_ms": 9.571,
+      "latency_p95_ms": 16.289,
       "mandatory_rule_recall": 0.858,
-      "precision": 0.777,
+      "precision": 0.782,
       "provenance_correctness": 1.0,
-      "quality_score": 0.817,
+      "quality_score": 0.818,
       "recall": 0.662,
       "stable_experimental_separation": 0.78
     },
     "static-skill": {
       "cases": 41,
-      "context_tokens": 1291.171,
+      "context_tokens": 1292.756,
       "duplicate_rate": 0.0,
-      "irrelevant_token_rate": 0.439,
-      "latency_median_ms": 0.307,
-      "latency_p95_ms": 0.36,
-      "mandatory_rule_recall": 0.702,
-      "precision": 0.551,
+      "irrelevant_token_rate": 0.434,
+      "latency_median_ms": 1.253,
+      "latency_p95_ms": 3.052,
+      "mandatory_rule_recall": 0.698,
+      "precision": 0.556,
       "provenance_correctness": 1.0,
-      "quality_score": 0.634,
-      "recall": 0.344,
+      "quality_score": 0.635,
+      "recall": 0.346,
       "stable_experimental_separation": 1.0
     }
   },
@@ -76,7 +76,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.005,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -136,7 +136,7 @@
             ]
           },
           "irrelevant_token_rate": 0.505,
-          "latency_ms": 2.376,
+          "latency_ms": 15.919,
           "mandatory_rule_recall": 0.667,
           "missing_required_record_ids": [],
           "precision": 0.5,
@@ -146,7 +146,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 3926,
+          "context_tokens": 4055,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -163,7 +163,7 @@
               "anti.hero-empty-scale": true,
               "anti.heuristic-triage": false,
               "anti.panelized-page-shell": false,
-              "content.earn-every-line": false,
+              "content.earn-every-line": true,
               "direction.subject-derived-identity": true,
               "i18n.expansion-safe-layout": false,
               "ia.one-primary-task": false,
@@ -194,13 +194,13 @@
               "visual-direction"
             ]
           },
-          "irrelevant_token_rate": 0.503,
-          "latency_ms": 2.354,
+          "irrelevant_token_rate": 0.38,
+          "latency_ms": 9.535,
           "mandatory_rule_recall": 0.667,
           "missing_required_record_ids": [],
-          "precision": 0.5,
+          "precision": 0.6,
           "provenance_correctness": 1.0,
-          "quality_score": 0.663,
+          "quality_score": 0.696,
           "recall": 0.6,
           "stable_experimental_separation": 1.0
         },
@@ -242,7 +242,7 @@
             ]
           },
           "irrelevant_token_rate": 0.541,
-          "latency_ms": 0.307,
+          "latency_ms": 1.172,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.4,
@@ -271,7 +271,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.003,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -328,7 +328,7 @@
             ]
           },
           "irrelevant_token_rate": 0.267,
-          "latency_ms": 2.187,
+          "latency_ms": 9.714,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.7,
@@ -385,7 +385,7 @@
             ]
           },
           "irrelevant_token_rate": 0.267,
-          "latency_ms": 2.196,
+          "latency_ms": 10.886,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.7,
@@ -430,7 +430,7 @@
             ]
           },
           "irrelevant_token_rate": 0.808,
-          "latency_ms": 0.469,
+          "latency_ms": 1.359,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.2,
@@ -459,7 +459,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.008,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -518,7 +518,7 @@
             ]
           },
           "irrelevant_token_rate": 0.273,
-          "latency_ms": 2.15,
+          "latency_ms": 17.434,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.8,
@@ -575,7 +575,7 @@
             ]
           },
           "irrelevant_token_rate": 0.367,
-          "latency_ms": 2.07,
+          "latency_ms": 16.289,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.7,
@@ -623,7 +623,7 @@
             ]
           },
           "irrelevant_token_rate": 0.194,
-          "latency_ms": 0.3,
+          "latency_ms": 1.13,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.8,
@@ -652,7 +652,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.007,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -662,7 +662,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 4100,
+          "context_tokens": 4230,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -714,8 +714,8 @@
               "typography"
             ]
           },
-          "irrelevant_token_rate": 0.204,
-          "latency_ms": 2.215,
+          "irrelevant_token_rate": 0.198,
+          "latency_ms": 18.179,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.8,
@@ -725,7 +725,7 @@
           "stable_experimental_separation": 0.0
         },
         "lexical": {
-          "context_tokens": 4030,
+          "context_tokens": 4160,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -777,13 +777,13 @@
               "typography"
             ]
           },
-          "irrelevant_token_rate": 0.208,
-          "latency_ms": 2.166,
+          "irrelevant_token_rate": 0.201,
+          "latency_ms": 25.665,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.8,
           "provenance_correctness": 1.0,
-          "quality_score": 0.849,
+          "quality_score": 0.85,
           "recall": 0.6,
           "stable_experimental_separation": 0.0
         },
@@ -826,7 +826,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.304,
+          "latency_ms": 5.86,
           "mandatory_rule_recall": 0.667,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -855,7 +855,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.005,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -865,7 +865,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 3670,
+          "context_tokens": 3799,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -914,18 +914,18 @@
               "product-requirements"
             ]
           },
-          "irrelevant_token_rate": 0.343,
-          "latency_ms": 2.104,
+          "irrelevant_token_rate": 0.365,
+          "latency_ms": 13.518,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.7,
           "provenance_correctness": 1.0,
-          "quality_score": 0.772,
+          "quality_score": 0.77,
           "recall": 0.4,
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 3939,
+          "context_tokens": 4068,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -973,13 +973,13 @@
               "product-requirements"
             ]
           },
-          "irrelevant_token_rate": 0.47,
-          "latency_ms": 1.976,
+          "irrelevant_token_rate": 0.487,
+          "latency_ms": 11.854,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.6,
           "provenance_correctness": 1.0,
-          "quality_score": 0.717,
+          "quality_score": 0.716,
           "recall": 0.3,
           "stable_experimental_separation": 1.0
         },
@@ -1020,7 +1020,7 @@
             ]
           },
           "irrelevant_token_rate": 0.707,
-          "latency_ms": 0.293,
+          "latency_ms": 1.364,
           "mandatory_rule_recall": 0.667,
           "missing_required_record_ids": [],
           "precision": 0.4,
@@ -1049,7 +1049,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -1109,7 +1109,7 @@
             ]
           },
           "irrelevant_token_rate": 0.327,
-          "latency_ms": 2.101,
+          "latency_ms": 12.824,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.7,
@@ -1169,7 +1169,7 @@
             ]
           },
           "irrelevant_token_rate": 0.326,
-          "latency_ms": 1.948,
+          "latency_ms": 13.659,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.7,
@@ -1214,7 +1214,7 @@
             ]
           },
           "irrelevant_token_rate": 0.574,
-          "latency_ms": 0.314,
+          "latency_ms": 1.516,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.4,
@@ -1243,7 +1243,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -1303,7 +1303,7 @@
             ]
           },
           "irrelevant_token_rate": 0.426,
-          "latency_ms": 2.156,
+          "latency_ms": 14.3,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.6,
@@ -1363,7 +1363,7 @@
             ]
           },
           "irrelevant_token_rate": 0.429,
-          "latency_ms": 2.2,
+          "latency_ms": 13.113,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.6,
@@ -1409,7 +1409,7 @@
             ]
           },
           "irrelevant_token_rate": 0.193,
-          "latency_ms": 0.36,
+          "latency_ms": 2.339,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.8,
@@ -1438,7 +1438,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.009,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -1497,7 +1497,7 @@
             ]
           },
           "irrelevant_token_rate": 0.613,
-          "latency_ms": 2.008,
+          "latency_ms": 11.337,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.4,
@@ -1556,7 +1556,7 @@
             ]
           },
           "irrelevant_token_rate": 0.52,
-          "latency_ms": 1.915,
+          "latency_ms": 12.981,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.5,
@@ -1599,7 +1599,7 @@
             ]
           },
           "irrelevant_token_rate": 0.849,
-          "latency_ms": 0.307,
+          "latency_ms": 1.347,
           "mandatory_rule_recall": 0.667,
           "missing_required_record_ids": [],
           "precision": 0.2,
@@ -1628,7 +1628,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -1688,7 +1688,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.235,
+          "latency_ms": 10.983,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -1747,7 +1747,7 @@
             ]
           },
           "irrelevant_token_rate": 0.08,
-          "latency_ms": 2.257,
+          "latency_ms": 15.396,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.9,
@@ -1796,7 +1796,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.322,
+          "latency_ms": 1.239,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -1825,7 +1825,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -1886,7 +1886,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.333,
+          "latency_ms": 10.069,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -1896,7 +1896,7 @@
           "stable_experimental_separation": 0.0
         },
         "lexical": {
-          "context_tokens": 3784,
+          "context_tokens": 3950,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -1916,11 +1916,11 @@
               "anti.heuristic-triage": true,
               "anti.ornamental-emphasis": true,
               "anti.pill-overload": true,
+              "content.earn-every-line": true,
               "icons.semantic-consistency": true,
               "layout.informative-structure-signals": true,
               "layout.rhythm-over-boxes": true,
-              "motion.audit-by-system-leverage": true,
-              "source.opentui-terminal-is-a-platform": true
+              "motion.audit-by-system-leverage": true
             },
             "required_record_ids": [],
             "required_record_ids_found": [],
@@ -1929,24 +1929,24 @@
               "anti.heuristic-triage",
               "layout.informative-structure-signals",
               "icons.semantic-consistency",
+              "content.earn-every-line",
               "motion.audit-by-system-leverage",
               "a11y.contrast-and-focus",
               "anti.ornamental-emphasis",
               "anti.pill-overload",
-              "layout.rhythm-over-boxes",
-              "source.opentui-terminal-is-a-platform"
+              "layout.rhythm-over-boxes"
             ],
             "topics_found": [
               "accessibility",
               "anti-slop-integrity",
-              "frameworks-code-architecture",
               "images-icons",
+              "information-architecture-content",
               "layout",
               "motion"
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.173,
+          "latency_ms": 9.5,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -1993,7 +1993,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.303,
+          "latency_ms": 1.38,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -2022,7 +2022,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -2081,7 +2081,7 @@
             ]
           },
           "irrelevant_token_rate": 0.312,
-          "latency_ms": 1.923,
+          "latency_ms": 7.379,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.7,
@@ -2140,7 +2140,7 @@
             ]
           },
           "irrelevant_token_rate": 0.258,
-          "latency_ms": 1.855,
+          "latency_ms": 8.043,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.7,
@@ -2184,7 +2184,7 @@
             ]
           },
           "irrelevant_token_rate": 0.658,
-          "latency_ms": 0.322,
+          "latency_ms": 1.207,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.4,
@@ -2213,7 +2213,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -2274,7 +2274,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 1.934,
+          "latency_ms": 7.825,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -2335,7 +2335,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 1.875,
+          "latency_ms": 8.403,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -2378,7 +2378,7 @@
             ]
           },
           "irrelevant_token_rate": 0.7,
-          "latency_ms": 0.435,
+          "latency_ms": 1.203,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.4,
@@ -2407,7 +2407,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.003,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -2417,7 +2417,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 3353,
+          "context_tokens": 3482,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -2465,18 +2465,18 @@
               "responsive"
             ]
           },
-          "irrelevant_token_rate": 0.438,
-          "latency_ms": 1.996,
+          "irrelevant_token_rate": 0.459,
+          "latency_ms": 8.784,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.6,
           "provenance_correctness": 1.0,
-          "quality_score": 0.763,
+          "quality_score": 0.762,
           "recall": 0.5,
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 3346,
+          "context_tokens": 3475,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -2525,13 +2525,13 @@
               "seo"
             ]
           },
-          "irrelevant_token_rate": 0.441,
-          "latency_ms": 2.09,
+          "irrelevant_token_rate": 0.462,
+          "latency_ms": 8.11,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.6,
           "provenance_correctness": 1.0,
-          "quality_score": 0.763,
+          "quality_score": 0.762,
           "recall": 0.5,
           "stable_experimental_separation": 1.0
         },
@@ -2573,7 +2573,7 @@
             ]
           },
           "irrelevant_token_rate": 0.639,
-          "latency_ms": 0.301,
+          "latency_ms": 1.157,
           "mandatory_rule_recall": 0.667,
           "missing_required_record_ids": [],
           "precision": 0.4,
@@ -2602,7 +2602,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -2663,7 +2663,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.098,
+          "latency_ms": 10.065,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -2673,7 +2673,7 @@
           "stable_experimental_separation": 0.0
         },
         "lexical": {
-          "context_tokens": 3585,
+          "context_tokens": 3586,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -2724,7 +2724,7 @@
             ]
           },
           "irrelevant_token_rate": 0.132,
-          "latency_ms": 2.16,
+          "latency_ms": 8.383,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.9,
@@ -2769,7 +2769,7 @@
             ]
           },
           "irrelevant_token_rate": 0.299,
-          "latency_ms": 0.305,
+          "latency_ms": 1.065,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.6,
@@ -2798,7 +2798,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -2808,7 +2808,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 3700,
+          "context_tokens": 3874,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -2823,9 +2823,70 @@
               "reflow"
             ],
             "relevance_by_id": {
+              "content.earn-every-line": false,
               "content.no-build-narration": false,
               "i18n.bidirectional-logical": true,
               "i18n.expansion-safe-layout": true,
+              "i18n.locale-aware-formatting": true,
+              "images.reserve-space": false,
+              "integrity.truthful-proof": false,
+              "layout.source-order": true,
+              "product.define-real-data": false,
+              "testing.rendered-state-before-action": false
+            },
+            "required_record_ids": [],
+            "required_record_ids_found": [],
+            "retrieved_ids": [
+              "i18n.bidirectional-logical",
+              "content.earn-every-line",
+              "product.define-real-data",
+              "i18n.locale-aware-formatting",
+              "layout.source-order",
+              "testing.rendered-state-before-action",
+              "integrity.truthful-proof",
+              "images.reserve-space",
+              "i18n.expansion-safe-layout",
+              "content.no-build-narration"
+            ],
+            "topics_found": [
+              "anti-slop-integrity",
+              "images-icons",
+              "information-architecture-content",
+              "internationalization",
+              "layout",
+              "product-requirements",
+              "testing-deployment"
+            ]
+          },
+          "irrelevant_token_rate": 0.675,
+          "latency_ms": 8.588,
+          "mandatory_rule_recall": 1.0,
+          "missing_required_record_ids": [],
+          "precision": 0.4,
+          "provenance_correctness": 1.0,
+          "quality_score": 0.743,
+          "recall": 0.7,
+          "stable_experimental_separation": 1.0
+        },
+        "lexical": {
+          "context_tokens": 3922,
+          "duplicate_rate": 0.0,
+          "evidence": {
+            "expected_terms_found": [
+              "rtl",
+              "bidirectional",
+              "locale",
+              "expansion",
+              "source order"
+            ],
+            "mandatory_terms_found": [
+              "language",
+              "reflow"
+            ],
+            "relevance_by_id": {
+              "content.earn-every-line": false,
+              "content.no-build-narration": false,
+              "i18n.bidirectional-logical": true,
               "i18n.locale-aware-formatting": true,
               "images.reserve-space": false,
               "integrity.truthful-proof": false,
@@ -2838,13 +2899,13 @@
             "required_record_ids_found": [],
             "retrieved_ids": [
               "i18n.bidirectional-logical",
+              "content.earn-every-line",
               "product.define-real-data",
-              "i18n.locale-aware-formatting",
               "layout.source-order",
+              "i18n.locale-aware-formatting",
               "testing.rendered-state-before-action",
               "integrity.truthful-proof",
               "images.reserve-space",
-              "i18n.expansion-safe-layout",
               "content.no-build-narration",
               "source.colorion-text-effects-preserve-reading"
             ],
@@ -2859,75 +2920,13 @@
               "typography"
             ]
           },
-          "irrelevant_token_rate": 0.555,
-          "latency_ms": 2.165,
+          "irrelevant_token_rate": 0.667,
+          "latency_ms": 9.64,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
-          "precision": 0.5,
+          "precision": 0.4,
           "provenance_correctness": 1.0,
-          "quality_score": 0.797,
-          "recall": 0.8,
-          "stable_experimental_separation": 1.0
-        },
-        "lexical": {
-          "context_tokens": 3669,
-          "duplicate_rate": 0.0,
-          "evidence": {
-            "expected_terms_found": [
-              "rtl",
-              "bidirectional",
-              "locale",
-              "expansion",
-              "source order"
-            ],
-            "mandatory_terms_found": [
-              "language",
-              "reflow"
-            ],
-            "relevance_by_id": {
-              "content.no-build-narration": false,
-              "i18n.bidirectional-logical": true,
-              "i18n.expansion-safe-layout": true,
-              "i18n.locale-aware-formatting": true,
-              "images.reserve-space": false,
-              "integrity.truthful-proof": false,
-              "layout.source-order": true,
-              "product.define-real-data": false,
-              "source.colorion-text-effects-preserve-reading": true,
-              "testing.rendered-state-before-action": false
-            },
-            "required_record_ids": [],
-            "required_record_ids_found": [],
-            "retrieved_ids": [
-              "i18n.bidirectional-logical",
-              "product.define-real-data",
-              "layout.source-order",
-              "i18n.locale-aware-formatting",
-              "testing.rendered-state-before-action",
-              "integrity.truthful-proof",
-              "images.reserve-space",
-              "content.no-build-narration",
-              "source.colorion-text-effects-preserve-reading",
-              "i18n.expansion-safe-layout"
-            ],
-            "topics_found": [
-              "anti-slop-integrity",
-              "images-icons",
-              "information-architecture-content",
-              "internationalization",
-              "layout",
-              "product-requirements",
-              "testing-deployment",
-              "typography"
-            ]
-          },
-          "irrelevant_token_rate": 0.56,
-          "latency_ms": 2.247,
-          "mandatory_rule_recall": 1.0,
-          "missing_required_record_ids": [],
-          "precision": 0.5,
-          "provenance_correctness": 1.0,
-          "quality_score": 0.797,
+          "quality_score": 0.765,
           "recall": 0.8,
           "stable_experimental_separation": 1.0
         },
@@ -2964,7 +2963,7 @@
             ]
           },
           "irrelevant_token_rate": 0.674,
-          "latency_ms": 0.313,
+          "latency_ms": 1.881,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.4,
@@ -2993,7 +2992,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.003,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -3045,7 +3044,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.212,
+          "latency_ms": 11.567,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -3097,7 +3096,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.109,
+          "latency_ms": 9.244,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -3144,7 +3143,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.305,
+          "latency_ms": 1.17,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -3178,7 +3177,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.005,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [
             "motion.interaction-specific-tokens",
@@ -3245,7 +3244,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.047,
+          "latency_ms": 17.771,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -3307,7 +3306,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.053,
+          "latency_ms": 16.575,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -3355,7 +3354,7 @@
             ]
           },
           "irrelevant_token_rate": 0.618,
-          "latency_ms": 0.3,
+          "latency_ms": 3.052,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [
             "motion.interaction-specific-tokens",
@@ -3392,7 +3391,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.006,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [
             "motion.frequency-purpose-gate",
@@ -3405,7 +3404,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 3738,
+          "context_tokens": 3739,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -3463,7 +3462,7 @@
             ]
           },
           "irrelevant_token_rate": 0.45,
-          "latency_ms": 2.228,
+          "latency_ms": 12.231,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.5,
@@ -3473,7 +3472,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 3722,
+          "context_tokens": 3723,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -3531,7 +3530,7 @@
             ]
           },
           "irrelevant_token_rate": 0.452,
-          "latency_ms": 2.137,
+          "latency_ms": 9.361,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.5,
@@ -3582,7 +3581,7 @@
             ]
           },
           "irrelevant_token_rate": 0.502,
-          "latency_ms": 0.298,
+          "latency_ms": 2.837,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [
             "motion.frequency-purpose-gate",
@@ -3618,7 +3617,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.005,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [
             "motion.direct-manipulation-continuity",
@@ -3692,7 +3691,7 @@
             ]
           },
           "irrelevant_token_rate": 0.082,
-          "latency_ms": 2.212,
+          "latency_ms": 10.829,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.9,
@@ -3762,7 +3761,7 @@
             ]
           },
           "irrelevant_token_rate": 0.083,
-          "latency_ms": 2.112,
+          "latency_ms": 14.431,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.9,
@@ -3816,7 +3815,7 @@
             ]
           },
           "irrelevant_token_rate": 0.48,
-          "latency_ms": 0.322,
+          "latency_ms": 1.597,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [
             "motion.direct-manipulation-continuity",
@@ -3852,7 +3851,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.0,
+          "latency_ms": 0.005,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [
             "type.size-aware-optical-rhythm",
@@ -3928,7 +3927,7 @@
             ]
           },
           "irrelevant_token_rate": 0.569,
-          "latency_ms": 2.144,
+          "latency_ms": 11.752,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.417,
@@ -4001,7 +4000,7 @@
             ]
           },
           "irrelevant_token_rate": 0.5,
-          "latency_ms": 2.16,
+          "latency_ms": 9.765,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.5,
@@ -4044,7 +4043,7 @@
             ]
           },
           "irrelevant_token_rate": 1.0,
-          "latency_ms": 0.315,
+          "latency_ms": 1.26,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [
             "type.size-aware-optical-rhythm",
@@ -4080,7 +4079,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [
             "layout.intentional-negative-space",
@@ -4094,7 +4093,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 4035,
+          "context_tokens": 4164,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -4149,7 +4148,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.351,
+          "latency_ms": 9.27,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -4159,7 +4158,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 4188,
+          "context_tokens": 3887,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -4177,13 +4176,12 @@
               "anti.hero-empty-scale": true,
               "anti.panelized-page-shell": true,
               "content.earn-every-line": true,
+              "content.front-load-meaning": true,
               "content.no-build-narration": true,
               "direction.choose-intentional-axis": true,
               "direction.content-before-chrome": true,
-              "direction.subject-derived-identity": true,
               "layout.intentional-negative-space": true,
-              "layout.rhythm-over-boxes": true,
-              "seo.semantic-discoverability": false
+              "layout.rhythm-over-boxes": true
             },
             "required_record_ids": [
               "layout.intentional-negative-space",
@@ -4202,26 +4200,24 @@
               "anti.hero-empty-scale",
               "direction.choose-intentional-axis",
               "layout.intentional-negative-space",
+              "content.front-load-meaning",
               "direction.content-before-chrome",
-              "layout.rhythm-over-boxes",
-              "direction.subject-derived-identity",
-              "seo.semantic-discoverability"
+              "layout.rhythm-over-boxes"
             ],
             "topics_found": [
               "anti-slop-integrity",
               "information-architecture-content",
               "layout",
-              "seo",
               "visual-direction"
             ]
           },
-          "irrelevant_token_rate": 0.077,
-          "latency_ms": 2.237,
+          "irrelevant_token_rate": 0.0,
+          "latency_ms": 13.435,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
-          "precision": 0.9,
+          "precision": 1.0,
           "provenance_correctness": 1.0,
-          "quality_score": 0.971,
+          "quality_score": 1.0,
           "recall": 1.0,
           "stable_experimental_separation": 1.0
         },
@@ -4265,7 +4261,7 @@
             ]
           },
           "irrelevant_token_rate": 0.691,
-          "latency_ms": 0.29,
+          "latency_ms": 1.313,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [
             "layout.intentional-negative-space",
@@ -4302,7 +4298,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [
             "direction.subject-derived-identity",
@@ -4362,8 +4358,8 @@
               "content.action-vocabulary-continuity",
               "product.define-real-data",
               "direction.subject-derived-identity",
-              "layout.informative-structure-signals",
               "content.no-build-narration",
+              "layout.informative-structure-signals",
               "a11y.status-without-disruption",
               "product.outcome-first-brief",
               "motion.frequency-purpose-gate",
@@ -4384,7 +4380,7 @@
             ]
           },
           "irrelevant_token_rate": 0.066,
-          "latency_ms": 2.393,
+          "latency_ms": 9.851,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.917,
@@ -4461,7 +4457,7 @@
             ]
           },
           "irrelevant_token_rate": 0.076,
-          "latency_ms": 2.335,
+          "latency_ms": 8.989,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [
             "layout.informative-structure-signals"
@@ -4512,7 +4508,7 @@
             ]
           },
           "irrelevant_token_rate": 0.712,
-          "latency_ms": 0.321,
+          "latency_ms": 1.195,
           "mandatory_rule_recall": 0.333,
           "missing_required_record_ids": [
             "direction.subject-derived-identity",
@@ -4549,7 +4545,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.003,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [
             "testing.rendered-state-before-action",
@@ -4637,7 +4633,7 @@
             ]
           },
           "irrelevant_token_rate": 0.223,
-          "latency_ms": 2.484,
+          "latency_ms": 10.319,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.786,
@@ -4647,7 +4643,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 5386,
+          "context_tokens": 5516,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -4671,7 +4667,7 @@
               "a11y.name-role-value": true,
               "anti.panelized-page-shell": false,
               "browser.test-real-platform-behavior": true,
-              "content.earn-every-line": false,
+              "content.earn-every-line": true,
               "content.no-build-narration": true,
               "layout.intentional-negative-space": true,
               "layout.source-order": false,
@@ -4720,13 +4716,13 @@
               "testing-deployment"
             ]
           },
-          "irrelevant_token_rate": 0.308,
-          "latency_ms": 2.365,
+          "irrelevant_token_rate": 0.222,
+          "latency_ms": 9.7,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
-          "precision": 0.714,
+          "precision": 0.786,
           "provenance_correctness": 1.0,
-          "quality_score": 0.892,
+          "quality_score": 0.915,
           "recall": 0.917,
           "stable_experimental_separation": 1.0
         },
@@ -4770,7 +4766,7 @@
             ]
           },
           "irrelevant_token_rate": 0.648,
-          "latency_ms": 0.314,
+          "latency_ms": 1.16,
           "mandatory_rule_recall": 0.2,
           "missing_required_record_ids": [
             "testing.rendered-state-before-action",
@@ -4803,7 +4799,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.0,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -4861,7 +4857,7 @@
             ]
           },
           "irrelevant_token_rate": 0.826,
-          "latency_ms": 1.875,
+          "latency_ms": 7.136,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.2,
@@ -4919,7 +4915,7 @@
             ]
           },
           "irrelevant_token_rate": 0.827,
-          "latency_ms": 1.874,
+          "latency_ms": 7.066,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.2,
@@ -4962,7 +4958,7 @@
             ]
           },
           "irrelevant_token_rate": 0.857,
-          "latency_ms": 0.313,
+          "latency_ms": 1.11,
           "mandatory_rule_recall": 0.667,
           "missing_required_record_ids": [],
           "precision": 0.2,
@@ -5042,7 +5038,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -5052,7 +5048,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 3540,
+          "context_tokens": 3670,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -5108,8 +5104,8 @@
               "typography"
             ]
           },
-          "irrelevant_token_rate": 0.083,
-          "latency_ms": 4.959,
+          "irrelevant_token_rate": 0.08,
+          "latency_ms": 18.951,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.909,
@@ -5119,7 +5115,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 3497,
+          "context_tokens": 3626,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -5174,7 +5170,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.019,
+          "latency_ms": 9.282,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -5222,7 +5218,7 @@
             ]
           },
           "irrelevant_token_rate": 0.149,
-          "latency_ms": 0.29,
+          "latency_ms": 1.216,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.8,
@@ -5295,7 +5291,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.003,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -5360,7 +5356,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.595,
+          "latency_ms": 15.81,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -5426,7 +5422,7 @@
             ]
           },
           "irrelevant_token_rate": 0.224,
-          "latency_ms": 2.031,
+          "latency_ms": 8.597,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.727,
@@ -5474,7 +5470,7 @@
             ]
           },
           "irrelevant_token_rate": 0.194,
-          "latency_ms": 0.286,
+          "latency_ms": 1.136,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.8,
@@ -5547,7 +5543,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.003,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -5557,7 +5553,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 4073,
+          "context_tokens": 4202,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -5614,7 +5610,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.61,
+          "latency_ms": 15.559,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -5624,7 +5620,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 3864,
+          "context_tokens": 3994,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -5676,13 +5672,13 @@
               "seo"
             ]
           },
-          "irrelevant_token_rate": 0.077,
-          "latency_ms": 2.201,
+          "irrelevant_token_rate": 0.074,
+          "latency_ms": 11.188,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.909,
           "provenance_correctness": 1.0,
-          "quality_score": 0.786,
+          "quality_score": 0.787,
           "recall": 0.471,
           "stable_experimental_separation": 1.0
         },
@@ -5723,7 +5719,7 @@
             ]
           },
           "irrelevant_token_rate": 0.34,
-          "latency_ms": 0.314,
+          "latency_ms": 1.276,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.6,
@@ -5794,7 +5790,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.0,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -5861,7 +5857,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.57,
+          "latency_ms": 15.964,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -5923,7 +5919,7 @@
             ]
           },
           "irrelevant_token_rate": 0.15,
-          "latency_ms": 2.006,
+          "latency_ms": 13.012,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.818,
@@ -5969,7 +5965,7 @@
             ]
           },
           "irrelevant_token_rate": 0.489,
-          "latency_ms": 0.307,
+          "latency_ms": 1.462,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.4,
@@ -6042,7 +6038,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.009,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -6052,7 +6048,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 4066,
+          "context_tokens": 4195,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -6104,8 +6100,8 @@
               "responsive"
             ]
           },
-          "irrelevant_token_rate": 0.072,
-          "latency_ms": 3.706,
+          "irrelevant_token_rate": 0.07,
+          "latency_ms": 13.577,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.909,
@@ -6115,7 +6111,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 4504,
+          "context_tokens": 4634,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -6165,8 +6161,8 @@
               "visual-direction"
             ]
           },
-          "irrelevant_token_rate": 0.099,
-          "latency_ms": 2.099,
+          "irrelevant_token_rate": 0.096,
+          "latency_ms": 7.811,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.909,
@@ -6214,7 +6210,7 @@
             ]
           },
           "irrelevant_token_rate": 0.343,
-          "latency_ms": 0.285,
+          "latency_ms": 1.129,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.6,
@@ -6285,7 +6281,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.003,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -6295,7 +6291,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 3662,
+          "context_tokens": 3792,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -6352,8 +6348,8 @@
               "typography"
             ]
           },
-          "irrelevant_token_rate": 0.08,
-          "latency_ms": 3.771,
+          "irrelevant_token_rate": 0.077,
+          "latency_ms": 13.859,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.909,
@@ -6363,7 +6359,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 3538,
+          "context_tokens": 3667,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -6420,7 +6416,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.112,
+          "latency_ms": 8.392,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -6468,7 +6464,7 @@
             ]
           },
           "irrelevant_token_rate": 0.149,
-          "latency_ms": 0.308,
+          "latency_ms": 1.57,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.8,
@@ -6539,7 +6535,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.003,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -6549,7 +6545,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 4083,
+          "context_tokens": 4212,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -6607,18 +6603,18 @@
               "typography"
             ]
           },
-          "irrelevant_token_rate": 0.114,
-          "latency_ms": 3.577,
+          "irrelevant_token_rate": 0.11,
+          "latency_ms": 12.985,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.909,
           "provenance_correctness": 1.0,
-          "quality_score": 0.944,
+          "quality_score": 0.945,
           "recall": 0.882,
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 4024,
+          "context_tokens": 4153,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -6675,7 +6671,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.263,
+          "latency_ms": 7.958,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -6723,7 +6719,7 @@
             ]
           },
           "irrelevant_token_rate": 0.149,
-          "latency_ms": 0.32,
+          "latency_ms": 1.017,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.8,
@@ -6794,7 +6790,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.002,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -6859,7 +6855,7 @@
             ]
           },
           "irrelevant_token_rate": 0.084,
-          "latency_ms": 3.737,
+          "latency_ms": 22.275,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.909,
@@ -6869,7 +6865,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 4143,
+          "context_tokens": 4272,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -6924,13 +6920,13 @@
               "visual-direction"
             ]
           },
-          "irrelevant_token_rate": 0.148,
-          "latency_ms": 2.154,
+          "irrelevant_token_rate": 0.143,
+          "latency_ms": 8.806,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.818,
           "provenance_correctness": 1.0,
-          "quality_score": 0.785,
+          "quality_score": 0.786,
           "recall": 0.588,
           "stable_experimental_separation": 1.0
         },
@@ -6973,7 +6969,7 @@
             ]
           },
           "irrelevant_token_rate": 0.343,
-          "latency_ms": 0.292,
+          "latency_ms": 1.148,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.6,
@@ -7044,7 +7040,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.002,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -7111,7 +7107,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.346,
+          "latency_ms": 18.691,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -7121,7 +7117,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 4286,
+          "context_tokens": 4415,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -7177,8 +7173,8 @@
               "typography"
             ]
           },
-          "irrelevant_token_rate": 0.142,
-          "latency_ms": 2.12,
+          "irrelevant_token_rate": 0.137,
+          "latency_ms": 12.251,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.818,
@@ -7226,7 +7222,7 @@
             ]
           },
           "irrelevant_token_rate": 0.194,
-          "latency_ms": 0.317,
+          "latency_ms": 1.211,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.8,
@@ -7297,7 +7293,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.003,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -7362,7 +7358,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.176,
+          "latency_ms": 13.307,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -7372,7 +7368,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 3905,
+          "context_tokens": 4035,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -7429,8 +7425,8 @@
               "visual-direction"
             ]
           },
-          "irrelevant_token_rate": 0.08,
-          "latency_ms": 2.057,
+          "irrelevant_token_rate": 0.078,
+          "latency_ms": 8.413,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.909,
@@ -7478,7 +7474,7 @@
             ]
           },
           "irrelevant_token_rate": 0.365,
-          "latency_ms": 0.284,
+          "latency_ms": 1.298,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.6,
@@ -7549,7 +7545,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.0,
+          "latency_ms": 0.002,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -7615,7 +7611,7 @@
             ]
           },
           "irrelevant_token_rate": 0.085,
-          "latency_ms": 3.164,
+          "latency_ms": 13.189,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.909,
@@ -7625,7 +7621,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 4132,
+          "context_tokens": 4131,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -7681,7 +7677,7 @@
             ]
           },
           "irrelevant_token_rate": 0.15,
-          "latency_ms": 2.133,
+          "latency_ms": 8.455,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.818,
@@ -7729,7 +7725,7 @@
             ]
           },
           "irrelevant_token_rate": 0.194,
-          "latency_ms": 0.289,
+          "latency_ms": 1.116,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.8,
@@ -7800,7 +7796,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.007,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -7810,7 +7806,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 3647,
+          "context_tokens": 3904,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -7831,11 +7827,11 @@
               "a11y.name-role-value": true,
               "a11y.status-without-disruption": true,
               "content.action-vocabulary-continuity": true,
+              "content.earn-every-line": true,
               "copy.conventional-labels-before-clever-labels": true,
               "integrity.truthful-proof": true,
               "layout.measure-and-density": true,
               "product.define-real-data": true,
-              "product.outcome-first-brief": true,
               "responsive.content-driven-reflow": true,
               "testing.rendered-state-before-action": true
             },
@@ -7845,11 +7841,11 @@
               "product.define-real-data",
               "content.action-vocabulary-continuity",
               "testing.rendered-state-before-action",
+              "content.earn-every-line",
               "copy.conventional-labels-before-clever-labels",
               "a11y.name-role-value",
               "a11y.status-without-disruption",
               "layout.measure-and-density",
-              "product.outcome-first-brief",
               "a11y.keyboard-complete",
               "integrity.truthful-proof",
               "responsive.content-driven-reflow"
@@ -7865,7 +7861,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.663,
+          "latency_ms": 13.703,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -7875,7 +7871,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 3816,
+          "context_tokens": 3948,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -7906,10 +7902,10 @@
             "required_record_ids": [],
             "required_record_ids_found": [],
             "retrieved_ids": [
+              "content.earn-every-line",
               "integrity.truthful-proof",
               "product.define-real-data",
               "product.outcome-first-brief",
-              "content.earn-every-line",
               "product.requirement-priority",
               "browser.baseline-with-enhancement",
               "product.evidence-before-feature",
@@ -7927,8 +7923,8 @@
               "seo"
             ]
           },
-          "irrelevant_token_rate": 0.078,
-          "latency_ms": 2.121,
+          "irrelevant_token_rate": 0.075,
+          "latency_ms": 8.947,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.909,
@@ -7976,7 +7972,7 @@
             ]
           },
           "irrelevant_token_rate": 0.36,
-          "latency_ms": 0.287,
+          "latency_ms": 1.253,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.6,
@@ -8047,7 +8043,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.003,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -8114,7 +8110,7 @@
             ]
           },
           "irrelevant_token_rate": 0.082,
-          "latency_ms": 3.689,
+          "latency_ms": 15.423,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.909,
@@ -8179,7 +8175,7 @@
             ]
           },
           "irrelevant_token_rate": 0.411,
-          "latency_ms": 2.088,
+          "latency_ms": 8.641,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.545,
@@ -8227,7 +8223,7 @@
             ]
           },
           "irrelevant_token_rate": 0.194,
-          "latency_ms": 0.282,
+          "latency_ms": 1.372,
           "mandatory_rule_recall": 0.75,
           "missing_required_record_ids": [],
           "precision": 0.8,
@@ -8298,7 +8294,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.002,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [],
           "precision": 0.0,
@@ -8365,7 +8361,7 @@
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 3.795,
+          "latency_ms": 17.304,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -8375,7 +8371,7 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 4279,
+          "context_tokens": 4408,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -8426,8 +8422,8 @@
               "visual-direction"
             ]
           },
-          "irrelevant_token_rate": 0.145,
-          "latency_ms": 2.248,
+          "irrelevant_token_rate": 0.141,
+          "latency_ms": 9.571,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.818,
@@ -8473,7 +8469,7 @@
             ]
           },
           "irrelevant_token_rate": 0.346,
-          "latency_ms": 0.298,
+          "latency_ms": 1.002,
           "mandatory_rule_recall": 0.5,
           "missing_required_record_ids": [],
           "precision": 0.6,
@@ -8504,7 +8500,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.004,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [
             "anti.panelized-page-shell"
@@ -8516,7 +8512,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 5021,
+          "context_tokens": 5150,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -8577,18 +8573,18 @@
               "visual-direction"
             ]
           },
-          "irrelevant_token_rate": 0.252,
-          "latency_ms": 2.579,
+          "irrelevant_token_rate": 0.246,
+          "latency_ms": 20.149,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.75,
           "provenance_correctness": 1.0,
-          "quality_score": 0.922,
+          "quality_score": 0.923,
           "recall": 1.0,
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 4413,
+          "context_tokens": 4542,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -8649,8 +8645,8 @@
               "visual-direction"
             ]
           },
-          "irrelevant_token_rate": 0.282,
-          "latency_ms": 2.586,
+          "irrelevant_token_rate": 0.274,
+          "latency_ms": 15.042,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.667,
@@ -8694,7 +8690,7 @@
             ]
           },
           "irrelevant_token_rate": 0.691,
-          "latency_ms": 0.333,
+          "latency_ms": 1.041,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [
             "anti.panelized-page-shell"
@@ -8729,7 +8725,7 @@
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.007,
           "mandatory_rule_recall": 0.0,
           "missing_required_record_ids": [
             "content.no-build-narration",
@@ -8743,7 +8739,7 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 3537,
+          "context_tokens": 3665,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -8797,18 +8793,18 @@
               "seo"
             ]
           },
-          "irrelevant_token_rate": 0.228,
-          "latency_ms": 2.307,
+          "irrelevant_token_rate": 0.22,
+          "latency_ms": 10.023,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.75,
           "provenance_correctness": 1.0,
-          "quality_score": 0.924,
+          "quality_score": 0.925,
           "recall": 1.0,
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 3286,
+          "context_tokens": 3414,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
@@ -8861,13 +8857,13 @@
               "seo"
             ]
           },
-          "irrelevant_token_rate": 0.096,
-          "latency_ms": 2.183,
+          "irrelevant_token_rate": 0.092,
+          "latency_ms": 14.011,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 0.875,
           "provenance_correctness": 1.0,
-          "quality_score": 0.963,
+          "quality_score": 0.964,
           "recall": 1.0,
           "stable_experimental_separation": 1.0
         },
@@ -8914,7 +8910,7 @@
             ]
           },
           "irrelevant_token_rate": 0.467,
-          "latency_ms": 0.33,
+          "latency_ms": 3.412,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [
             "content.no-build-narration",
@@ -8941,15 +8937,21 @@
             "expected_terms_found": [],
             "mandatory_terms_found": [],
             "relevance_by_id": {},
-            "required_record_ids": [],
+            "required_record_ids": [
+              "content.earn-every-line",
+              "ia.progressive-disclosure"
+            ],
             "required_record_ids_found": [],
             "retrieved_ids": [],
             "topics_found": []
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 0.001,
+          "latency_ms": 0.007,
           "mandatory_rule_recall": 0.0,
-          "missing_required_record_ids": [],
+          "missing_required_record_ids": [
+            "content.earn-every-line",
+            "ia.progressive-disclosure"
+          ],
           "precision": 0.0,
           "provenance_correctness": 0.0,
           "quality_score": 0.0,
@@ -8957,49 +8959,61 @@
           "stable_experimental_separation": 1.0
         },
         "hybrid": {
-          "context_tokens": 2561,
+          "context_tokens": 3674,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
-              "smallest",
+              "scan",
+              "short",
               "task",
               "decision",
               "repeat",
               "remove",
-              "essential"
+              "disclosure"
             ],
             "mandatory_terms_found": [
+              "scan",
               "remove",
               "task",
               "decision"
             ],
             "relevance_by_id": {
-              "anti.generic-developer-shell": true,
+              "anti.heuristic-triage": true,
+              "content.action-vocabulary-continuity": true,
               "content.earn-every-line": true,
               "content.error-recovery-copy": true,
               "content.no-build-narration": true,
+              "ia.progressive-disclosure": true,
               "layout.intentional-negative-space": true,
-              "responsive.recompose-not-shrink": true
+              "motion.interaction-specific-tokens": true
             },
-            "required_record_ids": [],
-            "required_record_ids_found": [],
+            "required_record_ids": [
+              "content.earn-every-line",
+              "ia.progressive-disclosure"
+            ],
+            "required_record_ids_found": [
+              "content.earn-every-line",
+              "ia.progressive-disclosure"
+            ],
             "retrieved_ids": [
               "content.no-build-narration",
               "content.earn-every-line",
+              "layout.intentional-negative-space",
               "content.error-recovery-copy",
-              "responsive.recompose-not-shrink",
-              "anti.generic-developer-shell",
-              "layout.intentional-negative-space"
+              "content.action-vocabulary-continuity",
+              "ia.progressive-disclosure",
+              "motion.interaction-specific-tokens",
+              "anti.heuristic-triage"
             ],
             "topics_found": [
               "anti-slop-integrity",
               "information-architecture-content",
               "layout",
-              "responsive"
+              "motion"
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.111,
+          "latency_ms": 12.033,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -9009,49 +9023,60 @@
           "stable_experimental_separation": 1.0
         },
         "lexical": {
-          "context_tokens": 2525,
+          "context_tokens": 3369,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
-              "smallest",
+              "scan",
+              "short",
               "task",
               "decision",
               "repeat",
               "remove",
-              "essential"
+              "disclosure"
             ],
             "mandatory_terms_found": [
+              "scan",
               "remove",
               "task",
               "decision"
             ],
             "relevance_by_id": {
-              "anti.generic-developer-shell": true,
+              "anti.heuristic-triage": true,
               "content.earn-every-line": true,
               "content.error-recovery-copy": true,
+              "content.front-load-meaning": true,
               "content.no-build-narration": true,
+              "ia.progressive-disclosure": true,
               "layout.intentional-negative-space": true,
-              "responsive.recompose-not-shrink": true
+              "layout.measure-and-density": true
             },
-            "required_record_ids": [],
-            "required_record_ids_found": [],
-            "retrieved_ids": [
+            "required_record_ids": [
               "content.earn-every-line",
-              "content.no-build-narration",
+              "ia.progressive-disclosure"
+            ],
+            "required_record_ids_found": [
+              "content.earn-every-line",
+              "ia.progressive-disclosure"
+            ],
+            "retrieved_ids": [
+              "anti.heuristic-triage",
+              "content.earn-every-line",
               "content.error-recovery-copy",
-              "responsive.recompose-not-shrink",
-              "anti.generic-developer-shell",
-              "layout.intentional-negative-space"
+              "content.front-load-meaning",
+              "content.no-build-narration",
+              "layout.measure-and-density",
+              "layout.intentional-negative-space",
+              "ia.progressive-disclosure"
             ],
             "topics_found": [
               "anti-slop-integrity",
               "information-architecture-content",
-              "layout",
-              "responsive"
+              "layout"
             ]
           },
           "irrelevant_token_rate": 0.0,
-          "latency_ms": 2.159,
+          "latency_ms": 10.487,
           "mandatory_rule_recall": 1.0,
           "missing_required_record_ids": [],
           "precision": 1.0,
@@ -9061,10 +9086,11 @@
           "stable_experimental_separation": 1.0
         },
         "static-skill": {
-          "context_tokens": 1230,
+          "context_tokens": 1295,
           "duplicate_rate": 0.0,
           "evidence": {
             "expected_terms_found": [
+              "short",
               "task",
               "decision"
             ],
@@ -9074,36 +9100,42 @@
             ],
             "relevance_by_id": {
               "offline-autonomous-brief": true,
-              "offline-honest-verification": false,
+              "offline-motion-opportunity-gate": true,
               "offline-native-semantics": false,
               "offline-production-completion": false,
               "offline-state-completeness": false
             },
-            "required_record_ids": [],
+            "required_record_ids": [
+              "content.earn-every-line",
+              "ia.progressive-disclosure"
+            ],
             "required_record_ids_found": [],
             "retrieved_ids": [
               "offline-autonomous-brief",
-              "offline-production-completion",
+              "offline-motion-opportunity-gate",
               "offline-native-semantics",
-              "offline-state-completeness",
-              "offline-honest-verification"
+              "offline-production-completion",
+              "offline-state-completeness"
             ],
             "topics_found": [
               "accessibility",
+              "motion",
               "product-requirements",
               "states",
-              "testing",
               "testing-deployment"
             ]
           },
-          "irrelevant_token_rate": 0.675,
-          "latency_ms": 0.316,
-          "mandatory_rule_recall": 0.667,
-          "missing_required_record_ids": [],
-          "precision": 0.2,
+          "irrelevant_token_rate": 0.497,
+          "latency_ms": 1.764,
+          "mandatory_rule_recall": 0.5,
+          "missing_required_record_ids": [
+            "content.earn-every-line",
+            "ia.progressive-disclosure"
+          ],
+          "precision": 0.4,
           "provenance_correctness": 1.0,
-          "quality_score": 0.51,
-          "recall": 0.286,
+          "quality_score": 0.544,
+          "recall": 0.375,
           "stable_experimental_separation": 1.0
         }
       }
@@ -9132,7 +9164,7 @@
   },
   "corpus": {
     "fallback": false,
-    "knowledge_dir": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/knowledge",
+    "knowledge_dir": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin-copy-discipline/plugins/frontend-taste-engineer/knowledge",
     "offline": true,
     "parse_errors": [],
     "record_count": 104,
@@ -9172,7 +9204,7 @@
           "context_budget": 6200,
           "embeddings_configured": false,
           "estimated_context_tokens": 4440,
-          "latency_ms": 2.302,
+          "latency_ms": 13.402,
           "mandatory_returned": 8,
           "offline_fallback": false,
           "returned": 12,
@@ -9203,7 +9235,7 @@
           "context_budget": 6200,
           "embeddings_configured": false,
           "estimated_context_tokens": 4637,
-          "latency_ms": 2.254,
+          "latency_ms": 14.145,
           "mandatory_returned": 9,
           "offline_fallback": false,
           "returned": 12,
@@ -9233,8 +9265,8 @@
           "candidates": 73,
           "context_budget": 6200,
           "embeddings_configured": false,
-          "estimated_context_tokens": 3912,
-          "latency_ms": 2.311,
+          "estimated_context_tokens": 4041,
+          "latency_ms": 17.142,
           "mandatory_returned": 11,
           "offline_fallback": false,
           "returned": 12,
@@ -9264,8 +9296,8 @@
           "candidates": 85,
           "context_budget": 6200,
           "embeddings_configured": false,
-          "estimated_context_tokens": 4451,
-          "latency_ms": 2.465,
+          "estimated_context_tokens": 4580,
+          "latency_ms": 16.679,
           "mandatory_returned": 9,
           "offline_fallback": false,
           "returned": 12,
@@ -9295,8 +9327,8 @@
           "candidates": 81,
           "context_budget": 6200,
           "embeddings_configured": false,
-          "estimated_context_tokens": 4614,
-          "latency_ms": 2.479,
+          "estimated_context_tokens": 4743,
+          "latency_ms": 14.052,
           "mandatory_returned": 8,
           "offline_fallback": false,
           "returned": 12,
@@ -9326,8 +9358,8 @@
           "candidates": 73,
           "context_budget": 6200,
           "embeddings_configured": false,
-          "estimated_context_tokens": 4211,
-          "latency_ms": 2.335,
+          "estimated_context_tokens": 4341,
+          "latency_ms": 12.156,
           "mandatory_returned": 10,
           "offline_fallback": false,
           "returned": 12,
@@ -9357,13 +9389,13 @@
           "candidates": 71,
           "context_budget": 6200,
           "embeddings_configured": false,
-          "estimated_context_tokens": 4595,
-          "latency_ms": 2.459,
-          "mandatory_returned": 9,
+          "estimated_context_tokens": 4755,
+          "latency_ms": 13.547,
+          "mandatory_returned": 10,
           "offline_fallback": false,
           "returned": 12,
           "semantic_backend": "deterministic-concept-expansion",
-          "source_families": 9,
+          "source_families": 8,
           "topic_diversity": 7,
           "truncated": false
         },
@@ -9388,8 +9420,8 @@
           "candidates": 78,
           "context_budget": 6200,
           "embeddings_configured": false,
-          "estimated_context_tokens": 4352,
-          "latency_ms": 2.457,
+          "estimated_context_tokens": 4484,
+          "latency_ms": 20.183,
           "mandatory_returned": 9,
           "offline_fallback": false,
           "returned": 12,
@@ -9420,7 +9452,7 @@
           "context_budget": 6200,
           "embeddings_configured": false,
           "estimated_context_tokens": 4265,
-          "latency_ms": 2.392,
+          "latency_ms": 20.323,
           "mandatory_returned": 8,
           "offline_fallback": false,
           "returned": 12,
@@ -9450,8 +9482,8 @@
           "candidates": 84,
           "context_budget": 6200,
           "embeddings_configured": false,
-          "estimated_context_tokens": 4649,
-          "latency_ms": 2.509,
+          "estimated_context_tokens": 4778,
+          "latency_ms": 43.239,
           "mandatory_returned": 8,
           "offline_fallback": false,
           "returned": 12,
@@ -9499,10 +9531,10 @@
   "passed": true,
   "schema_version": 1,
   "skill_activation": {
-    "agent_metadata": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/skills/frontend-taste-engineer/agents/openai.yaml",
+    "agent_metadata": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin-copy-discipline/plugins/frontend-taste-engineer/skills/frontend-taste-engineer/agents/openai.yaml",
     "implicit_invocation": true,
     "passed": true,
-    "skill": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/skills/frontend-taste-engineer/SKILL.md",
+    "skill": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin-copy-discipline/plugins/frontend-taste-engineer/skills/frontend-taste-engineer/SKILL.md",
     "trigger_phrases": {
       "build a landing page": true,
       "build a page addressed to someone": true,
@@ -9518,7 +9550,7 @@
   },
   "source_policy": {
     "cases": 8,
-    "fixtures": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin/plugins/frontend-taste-engineer/evals/source-policy-cases.json",
+    "fixtures": "/Users/arnavsrivastava/Documents/Frontend Codex Plugin-copy-discipline/plugins/frontend-taste-engineer/evals/source-policy-cases.json",
     "passed": true,
     "passed_cases": 8,
     "results": [
