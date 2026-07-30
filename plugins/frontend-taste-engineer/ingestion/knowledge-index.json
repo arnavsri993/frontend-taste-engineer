@@ -1,7 +1,7 @@
 {
-  "corpus_fingerprint": "18aec62fb25f87c97665f7b091e03330a6af1aa498f7e2e602920b22bba4ee7a",
+  "corpus_fingerprint": "0729996461da44fbb8e88658ea388fa9e1c6f98f6142460bbc450fdfaa733de7",
   "generator": "scripts/generate_index.py",
-  "record_count": 104,
+  "record_count": 105,
   "records": [
     {
       "components": [
@@ -1581,6 +1581,38 @@
         "component"
       ],
       "title": "Reveal complexity at the moment it becomes useful",
+      "topic": "information-architecture-content"
+    },
+    {
+      "components": [
+        "page",
+        "navigation",
+        "link",
+        "router"
+      ],
+      "fingerprint": "c42ff3623a172a00",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "ia.route-backed-primary-navigation",
+      "importance": "mandatory",
+      "origin": "records/product-content.json",
+      "sources": [
+        "mdn-web-docs",
+        "nextjs-docs",
+        "govuk-design-system",
+        "wcag-22"
+      ],
+      "status": "stable",
+      "subtopic": "site-shape-routing",
+      "task_types": [
+        "greenfield",
+        "redesign",
+        "testing"
+      ],
+      "title": "Give top-level destinations real routes",
       "topic": "information-architecture-content"
     },
     {

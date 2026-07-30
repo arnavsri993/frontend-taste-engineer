@@ -12,6 +12,10 @@ List supplied facts, verified product evidence, explicitly labeled assumptions, 
 
 Define the concrete outcome or premise, mechanism, proof, limitations or conditions, and specific next action in reading order.
 
+## Site shape and destination map
+
+Classify the experience as a single document, multi-page site, or application. Map every proposed primary navigation item to a real route, application state, intentional in-page landmark, or removal. Default distinct top-level destinations to same-tab routes with stable URLs, direct-entry headings, and truthful page titles. Use fragments only for an intentional single-document experience or contextual table of contents; do not invent thin pages to fill navigation.
+
 ## Page copy
 
 Write the final headline, support, proof, section labels, body copy, actions, state copy, errors, recovery instructions, and relevant legal or trust language.

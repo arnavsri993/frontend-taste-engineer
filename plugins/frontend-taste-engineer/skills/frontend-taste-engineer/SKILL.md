@@ -13,7 +13,7 @@ For client/paid work, “good” is not enough. Follow `references/premium-quali
 
 1. Inspect the repository, relevant files, existing design system, and running product when available.
 2. Classify the task and operating mode before proposing changes. For short page/site/redesign prompts, call `classify_frontend_task` with the user's exact prompt.
-3. Form a constraints brief: product, audience, primary task, trust, density, required content/states, facts, unknowns, and prohibited claims. For an underspecified autonomous task, ask at most one batch of four questions; if the user says to use judgment or the run is noninteractive, infer reversible defaults and continue.
+3. Form a constraints brief: product, audience, primary task, trust, density, required content/states, facts, unknowns, prohibited claims, and site shape (`single-document`, `multi-page`, or `application`). Map every proposed top-level navigation item to a real destination before styling. For an underspecified autonomous task, ask at most one batch of four questions; if the user says to use judgment or the run is noninteractive, infer reversible defaults and continue.
 4. Retrieve a compact, diversified mix of core UX, source-derived design, copy, accessibility, responsive, and integrity evidence. Generate two or three materially different candidate directions, compare them, select one, then lock `DESIGN.md` and `CONTENT.md`.
 5. Implement real behavior and required states before decorative polish.
 6. Verify with evidence, run the screenshot refine gate (three weaknesses → fix → recapture; second pass if still generic), and report limits honestly—including a one-line **Why this is not generic**.
@@ -35,7 +35,7 @@ Choose one primary mode:
 - `accessibility-remediation`: repair semantic, keyboard, focus, contrast, or assistive-technology failures.
 - `performance-remediation`: improve measured delivery, rendering, or interaction cost.
 
-Also record task size (`tiny`, `component`, `page`, `multi-page`, `audit`), page type, frameworks, components, risk, and workflow stage (`brief`, `planning`, `implementation`, `refinement`, `verification`).
+Also record task size (`tiny`, `component`, `page`, `multi-page`, `audit`), site shape, navigation model, page type, frameworks, components, risk, and workflow stage (`brief`, `planning`, `implementation`, `refinement`, `verification`).
 
 ## Autonomous zero-brief build
 
@@ -48,13 +48,14 @@ Execute this workflow without waiting for routine creative approval:
 1. Inspect the project, routes, assets, dependencies, design system, and running product. Decide new build versus redesign.
 2. Call `classify_frontend_task` with the exact prompt. Preserve quoted text and request-local named entities. Record the returned domain, product/task/trust profile, contextual intensity, supplied facts, inferred assumptions, and design thesis in `DESIGN.md`.
 3. Use the classifier only for constraints. It must not choose palette, typography, materials, component styling, visual intensity, or a finished design direction.
-4. If essential product information is missing, ask one bounded batch of at most four questions. Honor “use your judgment” and noninteractive execution by recording reversible assumptions and continuing.
-5. Call `get_workflow` for the `brief` stage. Retrieve a diversified packet of core UX, source-derived design, copy, responsive, accessibility, integrity, and verification evidence before styling is locked. A small mandatory safety kernel has reserved capacity but may not monopolize the packet.
-6. Call `generate_candidate_directions` and produce two or three directions that differ in composition, typography, identity mechanism, surfaces, media, motion posture, responsive behavior, and content shape—not palette alone. Compare them with product constraints and evidence; record applied and rejected evidence.
-7. Select one direction, then lock the visual system in `DESIGN.md` and the factual message system in `CONTENT.md`. Write complete original copy and implement the complete frontend. Do not stop at a plan, wireframe, scaffold, or hero.
-8. Run the interface. Capture and inspect meaningful desktop and mobile screenshots. Compare them with the thesis, run the anti-slop / reject-list review, name the three highest-impact weaknesses, fix them, then capture and inspect again. If the brand test still fails or the page still looks like the default AI cluster, run a second refine pass on identity and first viewport.
-9. Run the production build and applicable tests. Verify routes/assets, keyboard/focus, reduced motion, console state, links, content extremes, and horizontal overflow. Leave the project deployable or report the concrete blocker.
-10. Return a concise outcome-first completion report with evidence, **Why this is not generic**, and remaining limits.
+4. Lock the site shape before visual direction. Default distinct top-level header destinations to real same-tab routes with stable URLs. Use same-page fragments only when the experience is intentionally one document or the navigation is a contextual table of contents. Do not invent thin routes; omit destinations with no honest content or task.
+5. If essential product information is missing, ask one bounded batch of at most four questions. Honor “use your judgment” and noninteractive execution by recording reversible assumptions and continuing.
+6. Call `get_workflow` for the `brief` stage. Retrieve a diversified packet of core UX, source-derived design, copy, responsive, accessibility, integrity, and verification evidence before styling is locked. A small mandatory safety kernel has reserved capacity but may not monopolize the packet.
+7. Call `generate_candidate_directions` and produce two or three directions that differ in composition, typography, identity mechanism, surfaces, media, motion posture, responsive behavior, and content shape—not palette alone. Compare them with product constraints and evidence; record applied and rejected evidence.
+8. Select one direction, then lock the visual system in `DESIGN.md` and the factual message and route system in `CONTENT.md`. Write complete original copy and implement the complete frontend. Do not stop at a plan, wireframe, scaffold, or hero.
+9. Run the interface. Capture and inspect meaningful desktop and mobile screenshots. Compare them with the thesis, run the anti-slop / reject-list review, name the three highest-impact weaknesses, fix them, then capture and inspect again. If the brand test still fails or the page still looks like the default AI cluster, run a second refine pass on identity and first viewport.
+10. Run the production build and applicable tests. Verify direct routes, URL/history behavior, assets, keyboard/focus, reduced motion, console state, links, content extremes, and horizontal overflow. Leave the project deployable or report the concrete blocker.
+11. Return a concise outcome-first completion report with evidence, **Why this is not generic**, and remaining limits.
 
 After the single bounded clarification opportunity, ask again only for a missing required credential, approval for an irreversible external action, a legally material fact, directly contradictory requirements, or a critical factual asset that cannot be replaced honestly. Infer and continue for colors, fonts, style, sections, cards, animation, mobile support, framework choice, and other reversible creative choices.
 
@@ -77,6 +78,7 @@ Load these focused references directly when running this mode:
 ## Mandatory principles
 
 - Preserve useful architecture, behavior, content, and design-system conventions unless evidence justifies change.
+- Decide site shape before visual direction. For distinct top-level destinations, default to real same-tab routes with stable URLs, route-level headings, and direct-entry behavior; reserve same-page fragments for an explicitly single-document experience or contextual table of contents. Never use surprise new tabs for ordinary internal navigation.
 - Prefer native HTML semantics before ARIA. Implement keyboard, focus, accessible names, errors, and reduced-motion behavior as part of the component, not as cleanup.
 - Make controls honest. Do not ship dead buttons, fake forms, fabricated metrics, testimonials, integrations, screenshots, security claims, or unverifiable success states.
 - Design all relevant states: default, hover where applicable, focus-visible, active/pressed, selected/checked, disabled, read-only, loading, empty, error, warning, success, offline, permission denied, stale/saving/saved, and first/returning use.
@@ -170,7 +172,7 @@ Do not average incompatible rules. State the conflict, context, decision, conseq
 
 1. Infer product, audience, job, trust/risk, device context, data dependencies, and content maturity.
 2. Separate known requirements from assumptions. Turn uncertainty into reversible decisions.
-3. Define information architecture, primary flow, required states, and acceptance criteria.
+3. Define information architecture, site shape, route/destination map, primary flow, required states, and acceptance criteria. Do not synthesize top navigation before its destinations exist.
 4. Write a design thesis: product character, hierarchy, composition, typography, color/material, imagery, and motion stance.
 5. Decide whether to adopt, extend, or create a design system. Avoid premature abstractions.
 6. Implement functional structure and real content before art direction and motion.
@@ -242,6 +244,7 @@ Challenge patterns, not aesthetics or presumed authorship. Look for reflexive ce
 
 Run these explicit audits before completion:
 
+- **Navigation contract:** classify the experience as a single document, multi-page site, or application. For every primary navigation item, verify a real route, application state, intentional in-page landmark, or removal. Distinct top-level destinations default to same-tab routes, and direct entry plus back/forward behavior must work.
 - **Wrapper contract:** for every bordered, filled, elevated, or radius-defined non-control wrapper, name the object, action, selection, state, device, or material boundary it communicates. Remove the wrapper chrome when no contract exists. Ordinary landing-page sections, feature prose, process steps, and trust copy do not earn panels merely by being grouped.
 - **Copy budget:** read the interface without styling, then inspect only headings, labels, controls, and the first sentence of each region. The primary task and next action must still be clear. Give every remaining sentence one unique task, decision, trust, instruction, or recovery job; delete it if removal does not reduce comprehension or safety. Consolidate repeated meaning and move optional depth behind descriptive, keyboard-operable disclosure.
 - **Build-narration audit:** read visible copy without styling and flag references to prompts, supplied or missing facts, mocks, fixtures, development previews, absent endpoints, implementation honesty, and why claims were omitted. Move that material to internal evidence, omit the unsupported section, or reduce a genuinely user-relevant boundary to one plain sentence beside the affected action.
@@ -262,7 +265,7 @@ Do not prohibit any pattern universally.
 For substantial work, perform and record the applicable checks:
 
 1. Type checking, linting, unit/component/integration/end-to-end tests.
-2. Production build and route/asset-path checks.
+2. Production build, direct-route, URL/history, navigation-destination, and asset-path checks.
 3. For dynamic browser checks, wait for an explicit user-visible ready state, inspect the rendered roles/labels/DOM/screenshot/console before acting, use resilient user-facing locators, and assert the visible result; do not treat `networkidle` or a fixed sleep as universal readiness.
 4. Desktop and mobile screenshots at named viewports.
 5. Keyboard path, focus visibility, overlay focus management, and escape behavior.
@@ -284,7 +287,7 @@ Use `references/verification-matrix.md` to choose proportionate checks. Automate
 Do not call work complete until all applicable gates pass:
 
 - Product: primary task works with real or explicitly mocked data and honest content.
-- Structure: navigation, headings, order, URL/history, and permissions are coherent.
+- Structure: the site shape matches the content; distinct top-level destinations use real same-tab routes by default, each primary navigation item has an honest destination, and direct entry, headings, metadata, order, URL/history, and permissions are coherent.
 - Content: scan order, short labels, and visible hierarchy communicate the primary task without requiring careful reading; every remaining sentence has a distinct job, repeated or decorative copy is gone, and optional depth is disclosed progressively without hiding consequential information.
 - Interaction: controls work across keyboard, pointer, and touch; states and recovery exist.
 - Accessibility: semantics, names, focus, contrast, reflow, motion, and errors are checked.
