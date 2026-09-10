@@ -218,6 +218,19 @@ class EngineTests(unittest.TestCase):
         self.assertIn("motion.frequency-purpose-gate", ids)
         self.assertIn("motion.audit-by-system-leverage", ids)
 
+    def test_existing_product_context_and_change_contract_are_retrievable(self) -> None:
+        engine = server.RetrievalEngine(server.default_knowledge_dir())
+        packet = server.get_workflow(engine, {
+            "task": "redesign an established product route with a project frontend context, scoped target, preserve keyboard focus, reduced motion, runtime evidence, and rollback",
+            "stage": "verification",
+            "budget_records": 12,
+            "context_budget": 5200,
+        })
+        ids = {item["id"] for item in packet["records"]}
+        self.assertIn("system.project-frontend-context", ids)
+        self.assertIn("delivery.scoped-frontend-change-contract", ids)
+        self.assertIn("a11y.keyboard-complete", ids)
+
     def test_gesture_guidance_retrieves_continuity_and_momentum_context(self) -> None:
         packet = server.call_tool(server.RetrievalEngine(server.default_knowledge_dir()), "get_motion_guidance", {
             "query": "Build an interruptible gesture-driven sheet with pointer capture, live presentation values, release velocity, soft boundaries, keyboard controls, and reduced motion.",

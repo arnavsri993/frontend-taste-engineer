@@ -108,6 +108,22 @@
     "context_budget": 5000
   },
   {
+    "id": "existing-product-context-contract",
+    "name": "Evidence-backed existing-product refinement",
+    "brief": "Redesign the settings route in an established product. Inspect the project frontend context and live route first; name the target and visible outcome, preserve URL/history, saving/error/recovery states, keyboard focus, reduced motion, responsive order, and existing semantic tokens. Consider a catalog primitive only after a license, dependency, accessibility, state, performance, and rollback review. Compare matching before and after states with runtime and screenshot evidence.",
+    "task_type": "existing-redesign",
+    "stage": "verification",
+    "expected_topics": ["design-systems", "testing", "accessibility"],
+    "expected_terms": ["project", "context", "target", "preserve", "rollback", "keyboard", "reduced motion", "runtime"],
+    "mandatory_terms": ["keyboard", "preserve", "verify"],
+    "required_record_ids": ["system.project-frontend-context", "delivery.scoped-frontend-change-contract", "a11y.keyboard-complete"],
+    "forbidden_terms": ["full rewrite", "style menu"],
+    "retrieval_only": true,
+    "workflow_retrieval": true,
+    "budget_records": 12,
+    "context_budget": 5200
+  },
+  {
     "id": "anti-slop-remediation",
     "name": "Contextual anti-slop remediation",
     "brief": "Audit a generated frontend for decorative status badges, ornamental gradient words, monospace terminal chrome, tinted icon tiles, oversized shadows, and repeated pills. Treat static matches as hypotheses, preserve intentional design-system choices and accessibility cues, group findings by root cause, fix shared tokens or components first, then compare matching before and after states and rerun heuristics.",

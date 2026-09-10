@@ -11,7 +11,7 @@ For client/paid work, “good” is not enough. Follow `references/premium-quali
 
 ## Start here
 
-1. Inspect the repository, relevant files, existing design system, and running product when available.
+1. Inspect the repository, relevant files, existing design system, and running product when available. For established products, read `PROJECT_FRONTEND_CONTEXT.md` when present; otherwise form a task-local change contract from inspected evidence before nontrivial edits.
 2. Classify the task and operating mode before proposing changes. For short page/site/redesign prompts, call `classify_frontend_task` with the user's exact prompt.
 3. Form a constraints brief: product, audience, primary task, trust, density, required content/states, facts, unknowns, prohibited claims, and site shape (`single-document`, `multi-page`, or `application`). Map every proposed top-level navigation item to a real destination before styling. For an underspecified autonomous task, ask at most one batch of four questions; if the user says to use judgment or the run is noninteractive, infer reversible defaults and continue.
 4. Retrieve a compact, diversified mix of core UX, source-derived design, copy, accessibility, responsive, and integrity evidence. Generate two or three materially different candidate directions, compare them, select one, then lock `DESIGN.md` and `CONTENT.md`.
@@ -78,6 +78,8 @@ Load these focused references directly when running this mode:
 ## Mandatory principles
 
 - Preserve useful architecture, behavior, content, and design-system conventions unless evidence justifies change.
+- For consequential work on an existing product, name the exact route, component, selector, or runtime state; the visible outcome; must-preserve behavior; acquisition boundary; verification recipe; and rollback boundary. Do not turn an unresolved target into permission for a broad redesign.
+- Treat `PROJECT_FRONTEND_CONTEXT.md` as an optional, project-local evidence ledger—not a global style menu. It may record inspected tokens, component paths, platform contracts, verified interaction rules, and deliberate rejections; label observed, inferred, rejected, and unresolved decisions separately, and keep request-local or private content out.
 - Decide site shape before visual direction. For distinct top-level destinations, default to real same-tab routes with stable URLs, route-level headings, and direct-entry behavior; reserve same-page fragments for an explicitly single-document experience or contextual table of contents. Never use surprise new tabs for ordinary internal navigation.
 - Prefer native HTML semantics before ARIA. Implement keyboard, focus, accessible names, errors, and reduced-motion behavior as part of the component, not as cleanup.
 - Make controls honest. Do not ship dead buttons, fake forms, fabricated metrics, testimonials, integrations, screenshots, security claims, or unverifiable success states.
@@ -182,11 +184,12 @@ Use `autonomous-zero-brief-build` instead when the greenfield request is minimal
 
 ## Existing frontend redesign
 
-1. Run and inspect the current product before editing.
-2. Inventory architecture, routes, behavior, analytics-sensitive flows, tokens, components, and known constraints.
-3. Record evidence-backed defects separately from preferences.
-4. Define a small set of modernization levers and preserve behavior that works.
-5. Make targeted changes, compare before/after at matching states and viewports, and test regressions.
+1. Run and inspect the current product before editing. Read `PROJECT_FRONTEND_CONTEXT.md` when present; otherwise use `assets/FRONTEND_CHANGE_CONTRACT.template.md` as a task-local contract after discovery.
+2. Inventory architecture, routes, behavior, analytics-sensitive flows, tokens, components, platform constraints, and known accessibility or responsive contracts.
+3. Record evidence-backed defects separately from preferences, and label observations, inferences, and rejected directions separately.
+4. Name the target route/component/selector or runtime state, desired visible outcome, must-preserve behavior/URLs/data, external-acquisition boundary, evidence recipe, and rollback boundary. If the target cannot be resolved, keep investigating rather than widening scope.
+5. Define a small set of modernization levers and preserve behavior that works. Extend an existing semantic token or primitive before adding a new dependency; external catalogs remain candidates subject to the license, accessibility, state, performance, and entitlement gate.
+6. Make targeted changes, compare before/after at matching states and viewports, and test the contract's keyboard, reduced-motion, state, runtime, and regression evidence.
 
 Do not rewrite a functioning system merely to express taste.
 
@@ -213,11 +216,13 @@ Define before coding:
 - Motion including interruption and reduced motion.
 - Test plan in realistic context.
 
+For a component inside an established product, carry forward the applicable project context and change contract instead of treating the component as a blank-slate style exercise.
+
 Prefer a proven accessible primitive when interaction semantics are complex and the dependency fits the project. Do not rebuild a combobox, menu, dialog, or date picker casually.
 
 ## Design-system work
 
-Audit existing tokens and representative components first. Separate primitive tokens from semantic roles. Bind variants to real product needs, document escape hatches, and prevent uncontrolled combinations. Plan migration and deprecation. Test at least one simple, one form, one overlay, and one data-dense component across themes and responsive conditions.
+Audit existing tokens and representative components first. Read or create a durable project context only when there is reviewed evidence to preserve; keep the current migration scope in a task-local change contract. Separate primitive tokens from semantic roles. Bind variants to real product needs, document escape hatches, and prevent uncontrolled combinations. Plan migration and deprecation. Test at least one simple, one form, one overlay, and one data-dense component across themes and responsive conditions.
 
 ## Visual audit
 

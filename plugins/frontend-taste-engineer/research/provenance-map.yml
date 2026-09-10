@@ -478,6 +478,22 @@ records:
     license_status: synthesized-original-with-source-attribution
     promotion: specialized-candidate
 
+  - finding: F-060
+    candidate_record: system.project-frontend-context
+    primary_sources: [apple-hig, material-3]
+    supporting_sources: [playwright-docs]
+    conflicts: [C-001]
+    license_status: synthesized-original-with-source-attribution
+    promotion: specialized-candidate
+
+  - finding: F-061
+    candidate_record: delivery.scoped-frontend-change-contract
+    primary_sources: [playwright-docs, wcag-22]
+    supporting_sources: [react-aria]
+    conflicts: [C-016, C-017, C-025, C-026]
+    license_status: synthesized-original-with-source-attribution
+    promotion: stable-candidate
+
 excluded_sources:
   - id: motionsites
     reason: "Substantive content and license inaccessible; contributes no promoted record."
