@@ -30,6 +30,11 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def artifact_reference(path: Path) -> str:
+    """Keep evidence portable across worktrees and CI checkouts."""
+    return str(path.resolve().relative_to(ROOT.resolve()))
+
+
 def png_dimensions(path: Path) -> tuple[int, int]:
     data = path.read_bytes()[:24]
     if data[:8] != b"\x89PNG\r\n\x1a\n":
@@ -62,7 +67,7 @@ body[data-layout="terminal"]{{--line:color-mix(in srgb,var(--ink) 18%,transparen
 
 
 def evidence_item(observation: str, artifact: Path, status: str = "pass") -> dict[str, object]:
-    return {"observation": observation, "artifact": str(artifact.resolve()), "sha256": sha256(artifact), "status": status}
+    return {"observation": observation, "artifact": artifact_reference(artifact), "sha256": sha256(artifact), "status": status}
 
 
 def main() -> int:
@@ -88,6 +93,7 @@ def main() -> int:
         for label, width, height in (("desktop", 1440, 1000), ("mobile", 390, 844)):
             output = shots / f"{label}.png"
             command = [NODE, str(CAPTURE), (dist / "index.html").resolve().as_uri(), str(output.resolve()), str(width), str(height)]
+            recorded_command = [Path(NODE).name, CAPTURE.name, artifact_reference(dist / "index.html"), artifact_reference(output), str(width), str(height)]
             capture_report = {"consoleErrors": []}
             if args.force or not output.exists() or png_dimensions(output) != (width, height):
                 completed = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=45, check=False)
@@ -97,7 +103,7 @@ def main() -> int:
                 if capture_report.get("consoleErrors"):
                     raise SystemExit(f"console errors for {case['id']} {label}: {capture_report['consoleErrors']}")
             dimensions = png_dimensions(output)
-            captures.append({"label": label, "artifact": str(output.resolve()), "sha256": sha256(output), "dimensions": list(dimensions), "command": command, "console_errors": capture_report.get("consoleErrors", [])})
+            captures.append({"label": label, "artifact": artifact_reference(output), "sha256": sha256(output), "dimensions": list(dimensions), "command": recorded_command, "console_errors": capture_report.get("consoleErrors", [])})
         desktop, mobile = shots / "desktop.png", shots / "mobile.png"
         build = dist / "index.html"
         semantic = evidence_item("Rendered HTML uses header, nav, main, labeled sections, real fragment destinations, and visible focus styling.", build)
@@ -116,7 +122,7 @@ def main() -> int:
             "case_id": case["id"],
             "evaluation_kind": "deterministic-representative-regression-surface",
             "brief": case["brief"],
-            "build": {"status": "pass", "command": ["copy", "src", "dist"], "artifacts": [str((dist / "index.html").resolve()), str((dist / "styles.css").resolve())]},
+            "build": {"status": "pass", "command": ["copy", "src", "dist"], "artifacts": [artifact_reference(dist / "index.html"), artifact_reference(dist / "styles.css")]},
             "captures": captures,
             "rubric": rubric,
             "limitations": ["This is a deterministic fixture evaluation, not an external-model benchmark.", "Subjective visual quality and assistive-technology usability still require human review."],

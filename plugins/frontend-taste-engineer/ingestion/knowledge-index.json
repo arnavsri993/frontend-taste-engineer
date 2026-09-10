@@ -1,7 +1,7 @@
 {
-  "corpus_fingerprint": "0729996461da44fbb8e88658ea388fa9e1c6f98f6142460bbc450fdfaa733de7",
+  "corpus_fingerprint": "e40b235090d1e2a617d145c891705037ad10ee9de42dbb09fb939d8133b4397f",
   "generator": "scripts/generate_index.py",
-  "record_count": 105,
+  "record_count": 107,
   "records": [
     {
       "components": [
@@ -1195,6 +1195,39 @@
         "deployment"
       ],
       "title": "Release visual and structural change incrementally",
+      "topic": "testing-deployment"
+    },
+    {
+      "components": [
+        "page",
+        "component",
+        "navigation",
+        "form",
+        "dialog",
+        "menu"
+      ],
+      "fingerprint": "1dd5e261c29e30c7",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "delivery.scoped-frontend-change-contract",
+      "importance": "mandatory",
+      "origin": "records/project-context-contract.json",
+      "sources": [
+        "playwright-docs",
+        "wcag-22",
+        "react-aria"
+      ],
+      "status": "stable",
+      "subtopic": "change-contract",
+      "task_types": [
+        "existing-redesign",
+        "design-system",
+        "accessibility-audit"
+      ],
+      "title": "Make consequential frontend changes from a scoped contract",
       "topic": "testing-deployment"
     },
     {
@@ -2798,6 +2831,36 @@
         "visual-audit"
       ],
       "title": "Document decisions, not just component screenshots",
+      "topic": "design-systems"
+    },
+    {
+      "components": [
+        "page",
+        "component",
+        "navigation",
+        "form"
+      ],
+      "fingerprint": "60c0c0b5c13f4c13",
+      "frameworks": [
+        "agnostic",
+        "react",
+        "nextjs"
+      ],
+      "id": "system.project-frontend-context",
+      "importance": "recommended",
+      "origin": "records/project-context-contract.json",
+      "sources": [
+        "apple-hig",
+        "material-3",
+        "playwright-docs"
+      ],
+      "status": "specialized",
+      "subtopic": "project-context",
+      "task_types": [
+        "existing-redesign",
+        "design-system"
+      ],
+      "title": "Keep project frontend context evidence-backed and local",
       "topic": "design-systems"
     },
     {

@@ -559,3 +559,21 @@ Status: candidate findings reviewed on 2026-07-10. A finding is not automaticall
 - **Exceptions:** Static HTML can seed selectors from source, but runtime behavior, visual, or accessibility claims still require an appropriate browser check.
 - **Verify:** Tests fail clearly when the intended state never appears, survive harmless DOM refactors, and assert the resulting URL, accessible state, visible result, or recovery message.
 - **Sources:** `anthropic-agent-skills`, `playwright-docs`.
+
+### F-060 — Keep durable project frontend context separate from a task prompt
+
+- **Level:** recommended for maintained products; specialized.
+- **Do:** Keep a compact, project-local record of inspected token and component ownership, platform/input constraints, confirmed interaction rules, deliberate rejections, and the evidence behind each decision. Label observations, inferences, rejections, and unresolved questions separately.
+- **Why:** Repeated UI work needs a reviewable product memory, but a raw prompt or a past aesthetic preference is not a safe universal design instruction.
+- **Exceptions:** A one-off correction can use the current source and runtime evidence without creating a durable artifact. The context never overrides current requirements, accessibility, platform behavior, or rendered evidence.
+- **Verify:** Every durable entry points to a current source path, capture, test, or explicit product decision; private/request-local content is absent; a reviewer can tell evidence from inference.
+- **Sources:** `apple-hig`, `material-3`, `playwright-docs`.
+
+### F-061 — Define the change boundary before changing an established UI
+
+- **Level:** mandatory for consequential existing-product UI work; stable.
+- **Do:** State the target, visible outcome, preserve list, external-acquisition boundary, verification recipe, and rollback boundary before implementation. Require an actual route, component, selector, or runtime state before a target is considered in scope.
+- **Why:** Small visual requests commonly cross interaction state, accessibility, routes, dependencies, and platform behavior; a concise contract prevents accidental redesign and gives reviewers a stable comparison point.
+- **Exceptions:** A truly isolated typo or spacing correction may not need a separate file, but it still must preserve the same relevant constraints. An unresolved target is a discovery blocker, not permission for a broad rewrite.
+- **Verify:** Before/after evidence covers the stated target and invariants; required keyboard, reduced-motion, state, viewport, and runtime checks are named or honestly skipped.
+- **Sources:** `playwright-docs`, `wcag-22`, `react-aria`.

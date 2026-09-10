@@ -26,6 +26,15 @@ SOURCE_POLICY_CASES = EVAL_ROOT / "source-policy-cases.json"
 SOURCE_DISCOVERY_SCRIPT = PLUGIN_ROOT / "scripts" / "discover_frontend_sources.py"
 
 
+def _portable_plugin_path(path: Path | str) -> str:
+    """Keep checked-in evaluation reports independent of the active checkout path."""
+    resolved = Path(path).resolve()
+    try:
+        return str(resolved.relative_to(PLUGIN_ROOT))
+    except ValueError:
+        return str(resolved)
+
+
 def _module(path: Path, name: str):
     spec = importlib.util.spec_from_file_location(name, path)
     if not spec or not spec.loader:
@@ -56,6 +65,8 @@ def load_cases(path: Path) -> list[dict[str, Any]]:
             raise ValueError(f"{case['id']} has invalid required_record_ids")
         if "retrieval_only" in case and not isinstance(case["retrieval_only"], bool):
             raise ValueError(f"{case['id']} has invalid retrieval_only")
+        if "workflow_retrieval" in case and not isinstance(case["workflow_retrieval"], bool):
+            raise ValueError(f"{case['id']} has invalid workflow_retrieval")
         if case.get("expected_mode") == SERVER.AUTONOMOUS_MODE:
             for field in ("expect_production_completion",):
                 if field not in case:
@@ -118,7 +129,7 @@ def retrieve_variant(engine: Any, case: Mapping[str, Any], variant: str) -> dict
             "task_types": list(SERVER.TASK_TYPE_ALIASES.get(str(case.get("task_type")), (str(case.get("task_type")),))),
             "statuses": ["stable", "specialized", "experimental"],
         }
-        if autonomous and variant == "hybrid":
+        if (autonomous or case.get("workflow_retrieval")) and variant == "hybrid":
             packet = SERVER.get_workflow(engine, {
                 "task": str(case["brief"]),
                 "stage": str(case.get("stage") or "brief"),
@@ -217,8 +228,8 @@ def skill_activation_evidence() -> dict[str, Any]:
         "passed": all(found.values()) and "allow_implicit_invocation: true" in agent,
         "trigger_phrases": found,
         "implicit_invocation": "allow_implicit_invocation: true" in agent,
-        "skill": str(SKILL_PATH),
-        "agent_metadata": str(SKILL_AGENT_PATH),
+        "skill": _portable_plugin_path(SKILL_PATH),
+        "agent_metadata": _portable_plugin_path(SKILL_AGENT_PATH),
     }
 
 
@@ -409,7 +420,7 @@ def source_policy_evidence(path: Path) -> dict[str, Any]:
         "passed": bool(rows) and all(row["passed"] for row in rows),
         "cases": len(rows),
         "passed_cases": sum(row["passed"] for row in rows),
-        "fixtures": str(path),
+        "fixtures": _portable_plugin_path(path),
         "results": rows,
     }
 
@@ -481,7 +492,7 @@ def retrieval_eval(args: argparse.Namespace) -> dict[str, Any]:
             "min_provenance": args.min_provenance,
             "max_p95_latency_ms": args.max_p95_latency_ms,
         },
-        "corpus": engine.info,
+        "corpus": {**engine.info, "knowledge_dir": _portable_plugin_path(engine.info["knowledge_dir"])},
         "methodology": {
             "baseline": "No plugin guidance.",
             "static-skill": "Small offline mandatory kernel, capped at five records.",
@@ -501,12 +512,30 @@ RUBRIC = (
 )
 
 
+def _evidence_artifact_path(value: Any) -> Path:
+    """Resolve portable artifact references without trusting paths outside evals/artifacts."""
+    raw = Path(str(value or ""))
+    allowed = (EVAL_ROOT / "artifacts").resolve()
+    if not raw.is_absolute():
+        return (EVAL_ROOT / raw).resolve()
+    resolved = raw.resolve()
+    if allowed in resolved.parents:
+        return resolved
+    # Earlier manifests recorded an absolute checkout path. Map the artifact
+    # suffix into this checkout so their integrity evidence remains portable.
+    if "artifacts" in raw.parts:
+        candidate = EVAL_ROOT.joinpath(*raw.parts[raw.parts.index("artifacts"):]).resolve()
+        if allowed in candidate.parents:
+            return candidate
+    return resolved
+
+
 def _valid_evidence(item: Any) -> bool:
     if not isinstance(item, Mapping) or not item.get("observation") or item.get("status") not in {"pass", "fail", "partial"}:
         return False
     if item.get("command") and not item.get("artifact"):
         return True
-    artifact = Path(str(item.get("artifact") or "")).resolve()
+    artifact = _evidence_artifact_path(item.get("artifact"))
     allowed = (EVAL_ROOT / "artifacts").resolve()
     if not artifact.exists() or not artifact.is_file() or allowed not in artifact.parents:
         return False
@@ -534,7 +563,7 @@ def frontend_eval(args: argparse.Namespace) -> dict[str, Any]:
             if not isinstance(item, Mapping):
                 capture_valid = False
                 continue
-            artifact = Path(str(item.get("artifact") or "")).resolve()
+            artifact = _evidence_artifact_path(item.get("artifact"))
             capture_valid = capture_valid and artifact.is_file() and allowed_artifacts in artifact.parents
             capture_valid = capture_valid and item.get("dimensions") == expected_captures.get(str(item.get("label")))
             capture_valid = capture_valid and not item.get("console_errors")
@@ -553,7 +582,7 @@ def frontend_eval(args: argparse.Namespace) -> dict[str, Any]:
                 rubric[criterion] = {"score": float(score), "valid": True, "evidence": evidence}
         overall = round(statistics.fmean(item["score"] for item in rubric.values() if item["score"] is not None), 3) if any(item["score"] is not None for item in rubric.values()) else None
         valid = valid and capture_valid and value.get("case_id") == case["id"]
-        rows.append({"id": case["id"], "name": case["name"], "status": "scored" if valid else "invalid-evidence", "overall": overall, "rubric": rubric, "manifest": str(path), "capture_integrity": capture_valid, "limitations": value.get("limitations") or []})
+        rows.append({"id": case["id"], "name": case["name"], "status": "scored" if valid else "invalid-evidence", "overall": overall, "rubric": rubric, "manifest": str(path.relative_to(EVAL_ROOT)), "capture_integrity": capture_valid, "limitations": value.get("limitations") or []})
         if valid:
             scored += 1
     complete = scored == len(cases)
